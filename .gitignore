@@ -1,0 +1,6 @@
+
+# Ignore vim sessions
+vim/.vim/sessions/*
+
+# Ignore vim plugin directory
+vim/.vim/plugged/*
