@@ -167,7 +167,6 @@ set mouse=a
 set incsearch
 set nohlsearch
 
-let g:python3_host_prog = '/home/tomb/.local/share/virtualenvs/.vim-lrMxc1SW/bin/python'
 " Disable python 2 support
 let g:loaded_python_provider = 1
 
