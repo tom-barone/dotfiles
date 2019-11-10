@@ -53,7 +53,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'mhinz/vim-signify'
 Plug 'moll/vim-bbye'
 
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 
