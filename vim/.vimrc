@@ -10,6 +10,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'ericbn/vim-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdtree'
 "Plug 'ctrlpvim/ctrlp.vim'
@@ -177,6 +178,9 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 set t_Co=256
 colorscheme solarized
 set background=dark
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='minimalist'
 
 "" Autofolding .vimrc, bashrc
 """ defines a foldlevel for each line of code
