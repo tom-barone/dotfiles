@@ -27,7 +27,7 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'heavenshell/vim-jsdoc'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale', { 'tag': 'v2.4.0' }
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -121,6 +121,7 @@ nnoremap <Leader>z <C-w>z
 "nnoremap <Leader>gr :ALEFindReferences<cr>
 nnoremap <Leader>gt :YcmCompleter GoTo<cr>
 nnoremap <Leader>gr :YcmCompleter GoToReferences<cr>
+nnoremap <Leader>gf :YcmCompleter FixIt<cr>
 
 nnoremap <Leader>go :YcmCompleter OrganizeImports<cr>
 nnoremap <silent> K :YcmCompleter GetDoc<CR>
@@ -339,7 +340,9 @@ let g:UltiSnipsSnippetDirectories = ['/home/tomb/.vim/custom-snips', 'UltiSnips'
 
 
 "" YouCompleteMe
-"let g:ycm_show_diagnostics_ui = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_enable_diagnostic_signs = 0 
+let g:ycm_enable_diagnostic_highlighting = 0
 
 " Semantic triggers for css/less/sass files
 let g:ycm_semantic_triggers = {
@@ -385,7 +388,7 @@ let g:ale_fixers = {
             \'markdown': ['prettier'],
             \'go': ['gofmt'] 
             \}
-let g:ale_linter_aliases = {'jsx': ['css', 'javascript', 'tsx', 'typescript']}
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {
             \'jsx': ['eslint'], 
             \'tsx': ['eslint'], 
