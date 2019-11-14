@@ -93,6 +93,9 @@ inoremap {, {<CR>},<C-c>O
 inoremap [; [<CR>];<C-c>O
 inoremap [, [<CR>],<C-c>O
 
+" Disabled EX mode
+:map Q <Nop>
+
 """""""""""""
 "  LEADERS  "
 """""""""""""
