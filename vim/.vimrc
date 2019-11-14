@@ -179,6 +179,9 @@ set mouse=a
 set incsearch
 set nohlsearch
 
+" Set python3 path
+let g:python3_host_prog = '~/.virtualenvs/nvim/bin/python'
+
 " Disable python 2 support
 let g:loaded_python_provider = 1
 

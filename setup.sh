@@ -13,6 +13,7 @@ base=(
 useronly=(
     nvim
     tmux
+    tmuxinator
     vim
 )
 
