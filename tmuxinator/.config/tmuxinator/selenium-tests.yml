@@ -53,7 +53,7 @@ windows:
         - editor:
           - pipenv run nvim
         - shell:
-          - pipenv shell
+          - clear
   - module-browser:
       layout: main-vertical
       panes:
@@ -62,14 +62,14 @@ windows:
           - pipenv run nvim
         - unit-tests:
           - cd modules/browser
-          - pipenv run make test
+          - make test
         - static-analysis:
           - cd modules/browser
-          - pipenv run make static-analysis
+          - make static-analysis
         - shell:
           - cd modules/browser
           - pipenv shell
-  - module-simulator-scripts:
+  - module-simulator:
       layout: main-vertical
       panes:
         - editor:
@@ -77,10 +77,9 @@ windows:
           - pipenv run nvim
         - unit-tests:
           - cd modules/simulator
-          - #pipenv run make test
+          - #make test
         - static-analysis:
           - cd modules/simulator
-          - #pipenv run make static-analysis
+          - #make static-analysis
         - shell:
           - cd modules/simulator
-          - #pipenv shell
