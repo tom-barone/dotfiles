@@ -15,6 +15,7 @@ useronly=(
     tmux
     tmuxinator
     vim
+    bash
 )
 
 # run the stow command for the passed in directory ($2) in location $1
