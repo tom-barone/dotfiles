@@ -52,6 +52,6 @@ windows:
       # synchronize: after
       panes:
         - main:
-          - ssh <%=@args[0]%>
+          - ssh -A <%=@args[0]%>
         - uploader:
           - rsu

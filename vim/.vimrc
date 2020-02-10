@@ -65,6 +65,8 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+Plug 'nathangrigg/vim-beancount'
+
 call plug#end()
 
 """"""""""""
@@ -382,25 +384,27 @@ augroup END
 
 let g:ale_fixers_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_fixers = { 
-            \'jsx': ['prettier'], 
-            \'tsx': ['prettier'], 
-            \'typescript': ['prettier'], 
-            \'less' : ['prettier'], 
-            \'scss' : ['prettier'], 
-            \'python': ['yapf'], 
+            \'go': ['gofmt'],
             \'json': ['fixjson'], 
+            \'jsx': ['prettier'], 
+            \'less' : ['prettier'], 
+            \'markdown': ['prettier'],
+            \'python': ['yapf'], 
+            \'scss' : ['prettier'], 
             \'sql': ['pgformatter'], 
             \'svg': ['xmllint'],
-            \'markdown': ['prettier'],
-            \'go': ['gofmt'] 
+            \'tsx': ['prettier'], 
+            \'typescript': ['prettier'], 
+            \'yaml': ['prettier']
             \}
 let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {
             \'jsx': ['eslint'], 
+            \'less' : [''], 
+            \'python': ['prospector'],
             \'tsx': ['eslint'], 
             \'typescript': ['eslint'], 
-            \'less' : [''], 
-            \'python': ['prospector']
+            \'yaml': ['yamllint']
             \}
 let g:ale_linters_explicit = 1
 
@@ -410,6 +414,7 @@ let g:ale_javascript_eslint_options = 'eslint'
 let g:ale_javascript_eslint_use_global = 1
 
 let g:ale_python_yapf_options = '--style pep8'
+let g:ale_yaml_yamllint_options = '-d relaxed'
 "let g:ale_virtualenv_dir_names = ['/home/tomb/.local/share/virtualenvs/.vim-lrMxc1SW/']
 let g:ale_virtualenv_dir_names = []
 
