@@ -248,7 +248,7 @@ export EDITOR='nvim'
 source ~/.bin/tmuxinator.bash
 
 ## Virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
+source /home/tomb/.local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/.virtualenvs
 
 ############
