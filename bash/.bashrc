@@ -174,7 +174,13 @@ parse_git_branch () {
 
 ## Prompt format
 
-PS1="\[${BOLD}${CYAN}\]\u \[$BLUE\]\W\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # If ssh'ed into somewhere - use a prompt with no colour
+    PS1="\[${BOLD}\]\u \W\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+else
+    # Use a nice pretty prompt
+    PS1="\[${BOLD}${CYAN}\]\u \[$BLUE\]\W\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+fi
 
 ## Fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -243,6 +249,7 @@ source ~/.bin/tmuxinator.bash
 
 ## Virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/.virtualenvs
 
 ############
 #  RESSYS  #
