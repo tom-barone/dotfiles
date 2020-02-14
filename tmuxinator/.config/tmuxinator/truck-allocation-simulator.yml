@@ -55,6 +55,6 @@ windows:
           - nvim
         - simulator: 
           - rs-switch-aws-cli-profile playground-FullAccess
-          - (make rebuildDb) && MINESITE_DB_CONNECTION='port=5473 database=truck_allocation password=truck_allocation username=truck_allocation address=localhost ssl_mode=disable driver=postgres statement_timeout=60000' TRUCK_ALLOCATION_LOGGER_QUEUE=minesite--test--logger-live-queue-1 pipenv run ./bin/run_dev_playground.sh
+          - (make rebuildDb) && MINESITE_ID=<%=@args[0]%> make run
         - prompt:
           - rs-switch-aws-cli-profile playground-FullAccess && clear
