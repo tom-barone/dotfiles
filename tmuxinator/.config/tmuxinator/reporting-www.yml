@@ -66,32 +66,41 @@ windows:
       layout: main-vertical
       panes:
         - editor:
-          - nvim
-        - api: 
-          - go-generate; MINESITE_ID=<%=@args[0]%> ./make.sh run
+            - nvim
+        - api:
+            - go-generate; MINESITE_ID=<%=@args[0]%> ./make.sh run
         - uploader:
-          - rsu
-          - upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
+            - rsu
+            - upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
   - wallboard:
       layout: main-vertical
       panes:
         - editor:
-          - cd public/packages/wallboard
-          - nvim
+            - cd public/packages/wallboard
+            - nvim
         - yarn:
-          - cd public/packages/wallboard
-          # Find the number of the minesite to pass to 'yarn start'
-          - export MINESITE_NUM=$(curl --silent -u $(MMResCreds) https://resources.api.central.max-mine.com/minesiteconfigurations | jq -r '.[] | .[] | .MinesiteId' | grep -v maxmine | sort | nl -v 0 | grep <%=@args[0]%> | awk '{print $1}')
-          - yarn && echo $MINESITE_NUM | yarn start
+            - cd public/packages/wallboard
+            # Find the number of the minesite to pass to 'yarn start'
+            - export MINESITE_NUM=$(curl --silent -u $(MMResCreds) https://resources.api.central.max-mine.com/minesiteconfigurations | jq -r '.[] | .[] | .MinesiteId' | grep -v maxmine | sort | nl -v 0 | grep <%=@args[0]%> | awk '{print $1}')
+            - yarn && echo $MINESITE_NUM | yarn start
         - test:
-          - cd public/packages/wallboard
-          - yarn test --watchAll
+            - cd public/packages/wallboard
+            - yarn test --watchAll
   - application:
       layout: main-vertical
       panes:
         - editor:
-          - cd public/packages/application
-          - nvim
+            - cd public/packages/application
+            - nvim
         - test:
-          - cd public/packages/application
-          - yarn test --watchAll
+            - cd public/packages/application
+            - yarn test --watchAll
+  - types:
+      layout: main-vertical
+      panes:
+        - editor:
+            - cd public/packages/types
+            - nvim
+        - shell:
+            - cd public/packages/types
+            - yarn generateTypes

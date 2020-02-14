@@ -250,6 +250,7 @@ source ~/.bin/tmuxinator.bash
 ## Virtualenvwrapper
 source /home/tomb/.local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=python3
 
 ############
 #  RESSYS  #
