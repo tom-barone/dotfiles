@@ -67,6 +67,8 @@ Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'nathangrigg/vim-beancount'
 
+Plug 'vim-latex/vim-latex'
+
 call plug#end()
 
 """"""""""""
@@ -264,10 +266,10 @@ augroup fold_vimrc
      "              \ set foldcolumn=2 foldminlines=2
 augroup END 
 
-""" set foldsettings for sh files
+""" set foldsettings for sh and zsh files
 augroup fold_sh
   autocmd!
-  autocmd FileType sh 
+  autocmd FileType sh,zsh
                    \ setlocal foldmethod=expr |
                    \ setlocal foldexpr=FileFolds(v:lnum,'#') |
                    \ setlocal foldtext=FoldText() |
@@ -309,13 +311,13 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
 
 "" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="tabdo"
+"let g:UltiSnipsExpandTrigger="<c-k>"
+"let g:UltiSnipsJumpForwardTrigger="<c-k>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+"let g:UltiSnipsEditSplit="tabdo"
 
-let g:UltiSnipsSnippetsDir = '/home/tomb/.vim/custom-snips'
-let g:UltiSnipsSnippetDirectories = ['/home/tomb/.vim/custom-snips', 'UltiSnips']
+"let g:UltiSnipsSnippetsDir = '/home/tomb/.vim/custom-snips'
+"let g:UltiSnipsSnippetDirectories = ['/home/tomb/.vim/custom-snips', 'UltiSnips']
 
 "" Syntastic
 "set statusline+=%#warningmsg#
@@ -430,3 +432,33 @@ let g:fzf_buffers_jump = 1
 "" Sessions
 " Turn off branch suggestions
 let g:session_name_suggestion_function = 0
+
+"" vim-latex
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+imap <D-b> <Plug>Tex_MathBF	
+imap <D-c> <Plug>Tex_MathCal
+imap <D-l> <Plug>Tex_LeftRight
+imap <D-i> <Plug>Tex_InsertItemOnThisLine
+
+" F5 environment mappings
+map <D-I> <F5>
+imap <D-I> <F5>
+map <D-O> <S-F5>
+imap <D-O> <S-F5>
+
+" F7 command mappings
+map <D-J> <F7>
+imap <D-J> <F7>
+map <D-K> <S-F7>
+imap <D-K> <S-F7>
+
+"http://stackoverflow.com/questions/12650528/viewing-pdfs-with-vim-latex-suite-start-preview-shell-returned-127
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf'
+let g:Tex_TreatMacViewerAsUNIX = 1
+let g:Tex_ExecuteUNIXViewerInForeground = 1
+let g:Tex_ViewRule_ps = 'open -a Skim'
+let g:Tex_ViewRule_pdf = 'open -a Skim'
+"let g:Tex_UseMakefile = 1
