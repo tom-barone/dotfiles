@@ -241,7 +241,8 @@ bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
 bind '"\C-g\C-h": "$(gh)\e\C-e\er"'
 bind '"\C-g\C-r": "$(gr)\e\C-e\er"'
 
-export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*" --glob "!node_modules/*"'
+export FZF_DEFAULT_OPTS='--bind ctrl-a:toggle-all'
 
 ## Tmuxinator
 export EDITOR='nvim'
@@ -341,16 +342,16 @@ function upload-latest-minesite-data() {
     rsu
     local username=apiuploader@resolution.systems
     local password=NDxWryPA
-    #local dpVersion=dev-20191029-param-checks
-    local dpVersion=20200204-v8.8-f5.32
-    #local dpVersion=jenkins-ci-end-to-end-241
-
+    #local dpVersion=jenkins-ci-end-to-end-294
+    #local dpVersion=jenkins-ci-end-to-end-319
+    #local dpVersion=20200204-v8.8-f5.32
+    local dpVersion=20200317-v8.9-f5.33
 
     local bucket=$(get-minesite-bucket $1)
-    #local uploader=ressys-www-uploader-9.9.9+DevProductivity-4b5f8b47.linux
-    #local uploader=ressys-www-uploader-2.8.1-f5.31.0.linux
-    local uploader=ressys-www-uploader-2.8.2-f5.32.0.linux
-    #local uploader=ressys-www-uploader-9.9.9+DevProductivity-fd2e5a7f.linux
+    #local uploader=ressys-www-uploader-2.8.2-f5.32.0.linux
+    #local uploader=ressys-www-uploader-9.9.9+DevProductivity-429ffcbe.linux
+    #local uploader=ressys-www-uploader-2.8.3-f5.33.0.linux
+    local uploader=ressys-www-uploader-2.8.3-f5.33.0.linux
 
     echo "AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}""
     AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}"

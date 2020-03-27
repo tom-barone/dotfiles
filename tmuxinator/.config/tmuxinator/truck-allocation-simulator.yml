@@ -45,16 +45,28 @@ pre_window: set-terminal-title "simulator | <%=@args[0]%>" && clear
 # post: tmux -CC attach -t truck-allocation-simulator
 
 windows:
-  - editor:
-      layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - editor:
-          - nvim
-        - simulator: 
-          - rs-switch-aws-cli-profile playground-FullAccess
-          - (make rebuildDb) && MINESITE_ID=<%=@args[0]%> make run
-        - prompt:
-          - rs-switch-aws-cli-profile playground-FullAccess && clear
+    - simulator:
+          layout: main-vertical
+          # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+          # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+          # synchronize: after
+          panes:
+              - editor:
+                    - nvim
+              - simulator:
+                    - rs-switch-aws-cli-profile playground-FullAccess
+                    - (make rebuildDb) && MINESITE_ID=<%=@args[0]%> make run
+              - prompt:
+                    - rs-switch-aws-cli-profile playground-FullAccess && clear
+    - polygons:
+          layout: main-vertical
+          # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+          # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+          # synchronize: after
+          panes:
+              - editor:
+                    - cd polygons
+                    - pipenv run nvim
+              - polygons:
+                    - cd polygons
+                    - pipenv install

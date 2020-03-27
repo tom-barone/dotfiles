@@ -45,3 +45,12 @@ fi;
 # Install tmuxinator completions
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/tmuxinator.bash
+
+# Install tig
+if check_install tig; then
+    $package_installer libncurses5-dev
+    git clone https://github.com/jonas/tig.git ~/.tig
+    cd ~/.tig
+    make && make install
+    cd -
+fi;

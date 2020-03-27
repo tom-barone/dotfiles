@@ -99,6 +99,7 @@ inoremap [, [<CR>],<C-c>O
 
 " Disabled EX mode
 :map Q <Nop>
+nnoremap <C-F> "fyiw:Find<Space><C-R>f
 
 """""""""""""
 "  LEADERS  "
@@ -122,7 +123,7 @@ map <Leader>rr @
 
 map <Leader>du :diffupdate<cr>
 
-nnoremap <Leader>z <C-w>z
+nnoremap <Leader>z <C-w>z:lcl<cr>:ccl<cr>
 
 "nnoremap <Leader>gt :ALEGoToDefinition<cr>
 "nnoremap <Leader>gr :ALEFindReferences<cr>
@@ -191,6 +192,9 @@ let g:loaded_python_provider = 1
 
 " set Jenkinsfile to load as a groovy file
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" set geojson to load as json
+au BufNewFile,BufRead *geojson setf json
 
 "" Theming
 set t_Co=256
@@ -298,6 +302,11 @@ function! DeleteInactiveBufs()
 endfunction
 command! DeleteInactiveBuffers :call DeleteInactiveBufs()
 
+"" quickfix buffers
+nnoremap <expr> t (&buftype is# "quickfix" ? "<C-W><CR><C-W>T" : "t")
+nnoremap <expr> i (&buftype is# "quickfix" ? "<C-W><CR><C-W>K" : "i")
+nnoremap <expr> s (&buftype is# "quickfix" ? "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t" : "s")
+
 """""""""""""""""""""
 "  PLUGIN SETTINGS  "
 """""""""""""""""""""
@@ -364,8 +373,13 @@ let g:ycm_semantic_triggers = {
 " Turn off confirmation on load
 let g:ycm_confirm_extra_conf = 0
 
+" Use YCM for all filetypes
+let g:ycm_filetype_blacklist = {}
+
 "" Ack
-let g:ackprg = 'ag --vimgrep'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "" vim-session
 let g:session_autosave = 'no'
@@ -411,9 +425,11 @@ let g:ale_linters = {
 let g:ale_linters_explicit = 1
 
 "let g:ale_xml_xmllint_options = '--c14n'        
-let g:ale_javascript_eslint_executable = 'yarn' 
-let g:ale_javascript_eslint_options = 'eslint'        
-let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_executable = 'yarn eslint' 
+
+"let g:ale_javascript_eslint_executable = 'eslint' 
+"let g:ale_javascript_eslint_options = '--config=../eslintrc.js --ignore-path=../eslintignore --ext=.js,.jsx,.ts,.tsx'
+"let g:ale_javascript_eslint_use_global = 1
 
 let g:ale_python_yapf_options = '--style pep8'
 let g:ale_yaml_yamllint_options = '-d relaxed'
@@ -428,6 +444,8 @@ let g:scratch_insert_autohide = 0
 
 "" FZF
 let g:fzf_buffers_jump = 1
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 "" Sessions
 " Turn off branch suggestions
@@ -462,3 +480,10 @@ let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_ViewRule_ps = 'open -a Skim'
 let g:Tex_ViewRule_pdf = 'open -a Skim'
 "let g:Tex_UseMakefile = 1
+
+"" Goyo
+" Turn off branch suggestions
+autocmd! User GoyoEnter set linebreak
+autocmd! User GoyoLeave set nolinebreak
+let g:goyo_width=120
+

@@ -17,6 +17,7 @@ useronly=(
     vim
     bash
     zsh
+    tig
 )
 
 # run the stow command for the passed in directory ($2) in location $1
