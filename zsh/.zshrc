@@ -200,3 +200,11 @@ alias edb="nvim ~/.zshrc"
 alias srb='source ~/.zshrc'
 
 
+###############
+#  FUNCTIONS  #
+###############
+### Change terminal title
+function set-terminal-title() {
+    # usage: set-terminal-title <new_title>
+    echo -en "\033]0;$1\a"
+}
