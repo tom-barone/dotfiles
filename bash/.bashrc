@@ -108,6 +108,14 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# make tab cycle through commands after listing
+bind "TAB:menu-complete"
+bind '"\e[Z":menu-complete-backward'
+bind "set show-all-if-ambiguous on"
+bind "set completion-ignore-case on"
+bind "set colored-stats on"
+bind "set colored-completion-prefix on"
+
 ## Solarized theme
 
 # Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
