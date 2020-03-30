@@ -42,9 +42,12 @@ if check_install fzf; then
     ~/.fzf/install
 fi;
 
-# Install tmuxinator completions
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/tmuxinator.bash
+# Install tmuxinator & completions
+if check_install tmuxinator; then
+    gem install tmuxinator
+    wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
+    wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/./bin/tmuxinator.bash
+fi;
 
 # Install tig
 if check_install tig; then

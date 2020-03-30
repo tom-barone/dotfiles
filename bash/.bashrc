@@ -253,6 +253,9 @@ source /home/tomb/.local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=python3
 
+## rbenv
+eval "$(rbenv init -)"
+
 ############
 #  RESSYS  #
 ############
