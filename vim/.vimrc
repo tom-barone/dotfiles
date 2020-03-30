@@ -69,6 +69,8 @@ Plug 'nathangrigg/vim-beancount'
 
 Plug 'vim-latex/vim-latex'
 
+Plug 'rickhowe/diffchar.vim'
+
 call plug#end()
 
 """"""""""""
