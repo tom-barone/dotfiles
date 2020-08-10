@@ -7,7 +7,7 @@ root: /ressys/reporting-www-gopath/src/bitbucket.org/resolutionsystems/reporting
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-#pre: 
+#pre:
 
 # Project hooks
 # Runs on project start, always
@@ -45,62 +45,61 @@ pre_window: rsr && set-terminal-title "reporting-www | <%=@args[0]%>" && clear
 # post: tmux -CC attach -t reporting-www
 
 windows:
-  - web:
-      layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - editor:
-          - cd public/packages/web
-          - nvim
-        - yarn:
-          - cd public/packages/web
-          # Find the number of the minesite to pass to 'yarn start'
-          - export MINESITE_NUM=$(curl --silent -u $(MMResCreds) https://resources.api.central.max-mine.com/minesiteconfigurations | jq -r '.[] | .[] | .MinesiteId' | grep -v maxmine | sort | nl -v 0 | grep <%=@args[0]%> | awk '{print $1}')
-          - yarn && echo $MINESITE_NUM | yarn start
-        - test:
-          - cd public/packages/web
-          - yarn test --watchAll
-  - api:
-      layout: main-vertical
-      panes:
-        - editor:
-            - nvim
-        - api:
-            - go-generate; MINESITE_ID=<%=@args[0]%> ./make.sh run
-        - uploader:
-            - rsu
-            - upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
-  - wallboard:
-      layout: main-vertical
-      panes:
-        - editor:
-            - cd public/packages/wallboard
-            - nvim
-        - yarn:
-            - cd public/packages/wallboard
-            # Find the number of the minesite to pass to 'yarn start'
-            - export MINESITE_NUM=$(curl --silent -u $(MMResCreds) https://resources.api.central.max-mine.com/minesiteconfigurations | jq -r '.[] | .[] | .MinesiteId' | grep -v maxmine | sort | nl -v 0 | grep <%=@args[0]%> | awk '{print $1}')
-            - yarn && echo $MINESITE_NUM | yarn start
-        - test:
-            - cd public/packages/wallboard
-            - yarn test --watchAll
-  - application:
-      layout: main-vertical
-      panes:
-        - editor:
-            - cd public/packages/application
-            - nvim
-        - test:
-            - cd public/packages/application
-            - yarn test --watchAll
-  - types:
-      layout: main-vertical
-      panes:
-        - editor:
-            - cd public/packages/types
-            - nvim
-        - shell:
-            - cd public/packages/types
-            - yarn generateTypes
+    - root:
+          layout: main-vertical
+          panes:
+              - editor:
+                    - nvim
+              - api:
+                    - go-generate; MINESITE_ID=<%=@args[0]%> ./make.sh run
+              - uploader:
+                    - rsu
+                    - sleep 30 && upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
+    - lerna:
+          layout: main-vertical
+          panes:
+              - editor:
+                    - cd public
+                    - nvim
+              - web:
+                    - cd public
+                    - make run-web
+              - wallboard:
+                    - cd public
+                    - sleep 120 && make run-wallboard
+    - web:
+          layout: main-vertical
+          # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+          # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+          # synchronize: after
+          panes:
+              - editor:
+                    - cd public/packages/web
+                    - nvim
+              - test:
+                    - cd public/packages/web
+                    - #yarn test
+              - shell:
+                    - cd public/packages/web
+    - wallboard:
+          layout: main-vertical
+          panes:
+              - editor:
+                    - cd public/packages/wallboard
+                    - nvim
+              - test:
+                    - cd public/packages/wallboard
+                    - #yarn test
+              - shell:
+                    - cd public/packages/wallboard
+    - core:
+          layout: main-vertical
+          panes:
+              - editor:
+                    - cd public/packages/core
+                    - nvim
+              - test:
+                    - cd public/packages/core
+                    - #yarn test
+              - shell:
+                    - cd public/packages/core

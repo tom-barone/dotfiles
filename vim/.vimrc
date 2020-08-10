@@ -16,9 +16,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
-Plug 'ericbn/vim-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'scrooloose/nerdtree'
 "Plug 'ctrlpvim/ctrlp.vim'
@@ -30,7 +31,7 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'dense-analysis/ale', { 'tag': 'v2.4.0' }
 
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -69,7 +70,8 @@ Plug 'nathangrigg/vim-beancount'
 
 Plug 'vim-latex/vim-latex'
 
-Plug 'rickhowe/diffchar.vim'
+Plug 'ap/vim-css-color'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -77,7 +79,7 @@ call plug#end()
 "  REMAPS  "
 """"""""""""
 inoremap jk <esc>
-vnoremap jk <esc>
+"vnoremap jk <esc>
 noremap j gj
 noremap k gk
 nnoremap <C-S> :w<Enter>
@@ -116,6 +118,7 @@ nmap <Leader>n :set rnu! <Enter>
 vnoremap <Leader>n :set rnu! <Enter>
 nmap <Leader>tt :NERDTreeToggle <Enter>
 nmap <Leader>tf :NERDTreeFind <Enter>
+nmap <Leader>fd :silent exec "!nautilus .&" <Enter>
 
 map <Leader>mk :make<cr>
 map <Leader>mc :make clean<cr>
@@ -198,10 +201,26 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 " set geojson to load as json
 au BufNewFile,BufRead *geojson setf json
 
+if &diff
+    set noreadonly
+endif
+
 "" Theming
-set t_Co=256
-colorscheme solarized
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" fixes glitch? in colors when using vim with tmux
 set background=dark
+colorscheme solarized8
+
+highlight DiffAdd    ctermfg=NONE ctermbg=22
+highlight DiffDelete ctermfg=NONE ctermbg=52
+highlight DiffChange ctermfg=NONE ctermbg=23
+highlight DiffText   ctermfg=NONE ctermbg=23
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
@@ -322,13 +341,13 @@ let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
 
 "" Ultisnips
-"let g:UltiSnipsExpandTrigger="<c-k>"
-"let g:UltiSnipsJumpForwardTrigger="<c-k>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-"let g:UltiSnipsEditSplit="tabdo"
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="tabdo"
 
-"let g:UltiSnipsSnippetsDir = '/home/tomb/.vim/custom-snips'
-"let g:UltiSnipsSnippetDirectories = ['/home/tomb/.vim/custom-snips', 'UltiSnips']
+let g:UltiSnipsSnippetsDir = expand('~/.vim/custom-snips')
+let g:UltiSnipsSnippetDirectories = [expand('/home/tomb/.vim/custom-snips'), 'UltiSnips']
 
 "" Syntastic
 "set statusline+=%#warningmsg#
@@ -343,21 +362,6 @@ let g:NERDTreeMouseMode = 3
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 "let g:syntastic_javascript_checkers = ['eslint']
-
-"" vim-prettier
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-
-"let g:prettier#config#print_width = 80
-"let g:prettier#config#tab_width = 2
-"let g:prettier#config#use_tabs = 'false'
-"let g:prettier#config#semi = 'true'
-"let g:prettier#config#single_quote = 'false'
-"let g:prettier#config#bracket_spacing = 'true'
-"let g:prettier#config#jsx_bracket_same_line = 'false'
-"let g:prettier#config#arrow_parens = 'avoid'
-"let g:prettier#config#trailing_comma = 'none'
-"let g:prettier#config#parser = 'babylon'
 
 
 "" YouCompleteMe
@@ -400,11 +404,10 @@ augroup END
 "set completeopt=menu,menuone,preview,noselect,noinsert
 "let g:ale_open_list = 1
 
-let g:ale_fixers_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_fixers = { 
             \'go': ['gofmt'],
             \'json': ['fixjson'], 
-            \'jsx': ['prettier'], 
+            \'javascript': ['prettier'], 
             \'less' : ['prettier'], 
             \'markdown': ['prettier'],
             \'python': ['yapf'], 
@@ -415,22 +418,23 @@ let g:ale_fixers = {
             \'typescript': ['prettier'], 
             \'yaml': ['prettier']
             \}
-let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
 let g:ale_linters = {
-            \'jsx': ['eslint'], 
+            \'javascript': ['eslint'], 
             \'less' : [''], 
             \'python': ['prospector'],
             \'tsx': ['eslint'], 
-            \'typescript': ['eslint'], 
+            \'typescript': ['eslint', 'tsserver'], 
             \'yaml': ['yamllint']
             \}
 let g:ale_linters_explicit = 1
 
 "let g:ale_xml_xmllint_options = '--c14n'        
-let g:ale_javascript_eslint_executable = 'yarn eslint' 
+"let g:ale_javascript_eslint_executable = 'yarn eslint' 
+"let g:ale_tsx_eslint_executable = 'yarn eslint' 
 
-"let g:ale_javascript_eslint_executable = 'eslint' 
+let g:ale_javascript_eslint_executable = 'eslint' 
 "let g:ale_javascript_eslint_options = '--config=../eslintrc.js --ignore-path=../eslintignore --ext=.js,.jsx,.ts,.tsx'
+"let g:ale_tsx_eslint_options = '--config=../eslintrc.js --ignore-path=../eslintignore --ext=.js,.jsx,.ts,.tsx'
 "let g:ale_javascript_eslint_use_global = 1
 
 let g:ale_python_yapf_options = '--style pep8'
@@ -489,3 +493,6 @@ autocmd! User GoyoEnter set linebreak
 autocmd! User GoyoLeave set nolinebreak
 let g:goyo_width=120
 
+"" markdown-preview
+" Don't close the window when changing to a different buffer
+let g:mkdp_auto_close = 0

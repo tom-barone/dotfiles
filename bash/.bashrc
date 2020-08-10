@@ -192,6 +192,7 @@ fi
 
 ## Fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+bind -m emacs-standard -x '"\C-p": fzf-file-widget'
 
 is_in_git_repo() {
     git rev-parse HEAD > /dev/null 2>&1
@@ -309,6 +310,7 @@ alias ad='alert "Done"'
 alias gp='git pull --rebase'
 alias ssh-autoreports='ssh autoreports-server.max-mine.com'
 alias copy='xclip -selection clipboard'
+alias pgadmin4='/usr/pgadmin4/bin/pgadmin4 &>/dev/null &'
 
 ## Functions
 ### Goto repo
@@ -335,8 +337,6 @@ function get-minesite-config() {
 ### Get minesite live dp version
 function get-minesite-live-dp-version() {
     # Usage: get-minesite-config <minesite_id>
-    #curl --silent -u `MMResCreds` https://python-dashboard.max-mine.com/general-info/minesites-live-info | jq -r '.minesiteconfigurations[] | select(.MinesiteId=="'$1'")'
-    #curl --silent -u `MMResCreds` https://python-dashboard.max-mine.com/general-info/minesites-live-info | jq .
     curl --silent 'https://python-dashboard.max-mine.com/general-info/minesites-live-info' -H 'cookie: user-details="2|1:0|10:1563932462|12:user-details|44:InRvbS5iYXJvbmVAcmVzb2x1dGlvbi5zeXN0ZW1zIg==|9de32feb8a620c353986d043f4092d8f97e5fcb4a6bc45fe044ed3770e05a1e0"' | jq -r '."'$1'".currentDPChannelInfo.channelName'
 }
 
@@ -354,15 +354,20 @@ function upload-latest-minesite-data() {
     local username=apiuploader@resolution.systems
     local password=NDxWryPA
     #local dpVersion=jenkins-ci-end-to-end-294
-    #local dpVersion=jenkins-ci-end-to-end-319
+    #local dpVersion=jenkins-ci-end-to-end-393
     #local dpVersion=20200204-v8.8-f5.32
-    local dpVersion=20200317-v8.9-f5.33
+    #local dpVersion=20200317-v8.9-f5.33
+    #local dpVersion=20200512-v8.10-f5.34
+    local dpVersion=20200721-v8.11-f5.35
+    #local dpVersion=mgc-integration-testing-03
 
     local bucket=$(get-minesite-bucket $1)
     #local uploader=ressys-www-uploader-2.8.2-f5.32.0.linux
     #local uploader=ressys-www-uploader-9.9.9+DevProductivity-429ffcbe.linux
     #local uploader=ressys-www-uploader-2.8.3-f5.33.0.linux
-    local uploader=ressys-www-uploader-2.8.3-f5.33.0.linux
+    #local uploader=ressys-www-uploader-2.8.3-f5.33.0.linux
+    #local uploader=ressys-www-uploader-2.9.1-f5.34.1.linux
+    local uploader=ressys-www-uploader-2.9.2-f5.35.1.linux
 
     echo "AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}""
     AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}"
@@ -409,3 +414,4 @@ function branch-history() {
         do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; 
     done | sort -r
 }
+alias cfg='/usr/bin/git --git-dir=/home/tomb/.cfg/ --work-tree=/home/tomb'
