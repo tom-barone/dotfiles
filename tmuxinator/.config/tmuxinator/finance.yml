@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/jqc.yml
+# /Users/tbone/.config/tmuxinator/finance.yml
 
-name: jqc
-root: ~/gitlab/jqc
+name: finance
+root: ~/Documents/finance
 
 # Optional tmux socket
 # socket_name: foo
@@ -22,7 +22,7 @@ root: ~/gitlab/jqc
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title jqc
+# pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -40,28 +40,15 @@ pre_window: set-terminal-title jqc
 # attach: false
 
 windows:
-  - ruby:
+  - editor:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - nvim
-        - rails server
-        - clear
-  - invoicing:
-      layout: main-vertical
-      panes:
-          - editor:
-              - cd invoicing
-              - nvim
-          - shell:
-              - cd invoicing
-  - migrateAccess:
-      layout: main-vertical
-      panes:
-          - editor:
-              - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
-              - nvim
-          - shell:
-              - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
+        - editor:
+           - poetry run nvim finance.beancount
+        - poetry-shell:
+           - poetry shell
+        - fava:
+           - poetry run fava finance.beancount
