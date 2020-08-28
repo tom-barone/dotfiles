@@ -51,7 +51,7 @@ windows:
               - editor:
                     - nvim
               - api:
-                    - go-generate; MINESITE_ID=<%=@args[0]%> ./make.sh run
+                    - make rebuildDb; go-generate; MINESITE_ID=<%=@args[0]%> make run
               - uploader:
                     - rsu
                     - sleep 30 && upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
@@ -78,7 +78,7 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/web
-                    - #yarn test
+                    -  #yarn test
               - shell:
                     - cd public/packages/web
     - wallboard:
@@ -89,7 +89,7 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/wallboard
-                    - #yarn test
+                    -  #yarn test
               - shell:
                     - cd public/packages/wallboard
     - core:
@@ -100,6 +100,6 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/core
-                    - #yarn test
+                    -  #yarn test
               - shell:
                     - cd public/packages/core

@@ -72,6 +72,7 @@ Plug 'vim-latex/vim-latex'
 
 Plug 'ap/vim-css-color'
 Plug 'cespare/vim-toml'
+Plug 'vim-test/vim-test'
 
 call plug#end()
 
@@ -79,6 +80,7 @@ call plug#end()
 "  REMAPS  "
 """"""""""""
 inoremap jk <esc>
+tnoremap jk <C-\><C-n>
 "vnoremap jk <esc>
 noremap j gj
 noremap k gk
@@ -496,3 +498,11 @@ let g:goyo_width=120
 "" markdown-preview
 " Don't close the window when changing to a different buffer
 let g:mkdp_auto_close = 0
+
+"" vim-test
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "neovim"
