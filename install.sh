@@ -84,4 +84,4 @@ fi
 
 echo ''
 echo 'Running tests...'
-./test.sh
+bash --login -i -c "./test.sh"

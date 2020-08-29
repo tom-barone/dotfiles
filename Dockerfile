@@ -14,3 +14,5 @@ USER testuser
 RUN rm /home/testuser/.bashrc
 RUN rm /home/testuser/.profile
 WORKDIR /home/testuser/dotfiles
+
+ENTRYPOINT ["bash", "./install.sh"]
