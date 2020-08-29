@@ -1,3 +1,8 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
 build_and_test:
   script:
     - docker build . --tag dotfiles
