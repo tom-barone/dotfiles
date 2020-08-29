@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
-
-function os_is() {
-    uname="$(uname -a)"
-
-    [[ "$1" == 'mac' ]] && [[ "$uname" =~ Darwin ]] && return
-    [[ "$1" == 'ubuntu' ]] && [[ "$uname" =~ Ubuntu ]] && return
-
-    false
-}
+source ./helpers.sh
 
 package_installer=''
 if os_is mac; then
@@ -16,15 +8,6 @@ fi
 if os_is ubuntu; then
     package_installer="sudo apt-get install -y"
 fi
-
-function have_not_installed() {
-    if ! command -v $1 &> /dev/null; then
-        return
-    fi
-
-    echo "$1 already installed"
-    false
-}
 
 function install() {
     if have_not_installed $1; then
@@ -38,7 +21,7 @@ function install() {
 
 # Setup dotfiles and things
 install stow
-./setup.sh
+./symlink.sh
 source ~/.profile
 source ~/.bashrc
 
@@ -98,3 +81,7 @@ fi
     #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
     #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/./bin/tmuxinator.bash
 #fi;
+
+echo ''
+echo 'Running tests...'
+./test.sh

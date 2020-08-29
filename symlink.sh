@@ -32,7 +32,7 @@ stowit() {
 }
 
 echo ""
-echo "Stowing apps for user: ${whoami}"
+echo "Symlinking dotfiles..."
 
 # install apps available to local users and root
 for app in ${base[@]}; do
@@ -46,5 +46,4 @@ for app in ${useronly[@]}; do
     fi
 done
 
-echo ""
-echo "##### ALL DONE"
+
