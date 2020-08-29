@@ -7,4 +7,4 @@ run: build
 	docker run --rm -it -v `pwd`:/home/testuser/dotfiles dotfiles bash
 
 test: build
-	docker run --rm -it -v `pwd`:/home/testuser/dotfiles dotfiles ./install.sh && bash -c './test.sh'
+	docker run --rm -it -v `pwd`:/home/testuser/dotfiles dotfiles ./install.sh && bash --login -ic "./test.sh"
