@@ -17,7 +17,7 @@ if os_is ubuntu; then
     package_installer="sudo apt-get install -y"
 fi
 
-function check_install() {
+function have_not_installed() {
     if ! command -v $1 &> /dev/null; then
         return
     fi
@@ -27,7 +27,7 @@ function check_install() {
 }
 
 function install() {
-    if check_install $1; then
+    if have_not_installed $1; then
         $package_installer $1
     fi;
 }
@@ -57,7 +57,7 @@ install vim
 install neovim
 
 # fzf
-if check_install fzf; then
+if have_not_installed fzf; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --key-bindings --completion --no-update-rc
 fi;
@@ -67,7 +67,7 @@ if os_is mac; then
     install tig
 fi
 if os_is ubuntu; then
-    if check_install tig; then
+    if have_not_installed tig; then
         install libncurses5-dev
         git clone https://github.com/jonas/tig.git ~/.tig
         cd ~/.tig
@@ -77,18 +77,23 @@ if os_is ubuntu; then
 fi
 
 # cargo
-curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
-source $HOME/.cargo/env
+if have_not_installed cargo; then
+    curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
+    source $HOME/.cargo/env
+fi
 
 # ripgrep
-cargo install ripgrep
+if have_not_installed rg; then
+    cargo install ripgrep
+fi
 
 # rbenv
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-
+if have_not_installed rbenv; then
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+fi
 
 # Install tmuxinator & completions
-#if check_install tmuxinator; then
+#if have_not_installed tmuxinator; then
     #gem install tmuxinator
     #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
     #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/./bin/tmuxinator.bash
