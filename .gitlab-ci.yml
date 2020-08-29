@@ -1,0 +1,4 @@
+build_and_test:
+  script:
+    - docker build . --tag dotfiles
+    - docker run dotfiles ./install.sh
