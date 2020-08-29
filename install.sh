@@ -47,8 +47,6 @@ if os_is ubuntu; then
     install build-essential # make and more
     install curl
     install wget
-
-    # remove bashrc we want our own
 fi
 if os_is mac; then
     xcode-select --install
