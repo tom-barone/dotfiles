@@ -17,6 +17,12 @@ function os_install() {
     fi
 }
 
+function pip_install() {
+    if have_not_installed "$1"; then
+        pip3 install "$1"
+    fi
+}
+
 #####################################
 # Package installs
 #####################################
@@ -123,6 +129,11 @@ if have_not_installed tmuxinator; then
     gem install tmuxinator
     sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
 fi
+
+# Python stuff
+# TODO: install of python
+pip_install yapf
+pip_install prospector
 
 echo ''
 echo 'Running tests...'
