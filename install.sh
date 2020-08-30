@@ -42,13 +42,20 @@ os_install neovim
 os_install tmux
 os_install shellcheck
 
+# Dependencies
+os_install bison
+
 # gvm
 if have_not_installed gvm; then
-    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    bash < <(GVM_NO_UPDATE_PROFILE=true curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 fi
+# Go is written in Go (starting from version 1.5) so we need to install go 1.4 to bootstrap
+source "$HOME/.gvm/scripts/gvm"
+gvm install go1.4 -B
+gvm use go1.4 
+export GOROOT_BOOTSTRAP=$GOROOT
 
-# go 
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# Go lang (currently just use v15)
 gvm install go1.15
 gvm use go1.15
 
@@ -96,7 +103,6 @@ fi
 # ruby
 if have_not_installed ruby; then
     os_install autoconf
-    os_install bison
     os_install libssl-dev
     os_install libyaml-dev
     os_install libreadline6-dev
