@@ -1,3 +1,5 @@
+#!/usr/env/ bash
+
 function os_is() {
     uname="$(uname -a)"
 
@@ -8,7 +10,7 @@ function os_is() {
 }
 
 function have_not_installed() {
-    if ! command -v $1 &> /dev/null; then
+    if ! command -v "$1" &> /dev/null; then
         return
     fi
 

@@ -412,6 +412,7 @@ let g:ale_fixers = {
             \'markdown': ['prettier'],
             \'python': ['yapf'], 
             \'scss' : ['prettier'], 
+            \'sh' : ['shfmt'], 
             \'sql': ['pgformatter'], 
             \'svg': ['xmllint'],
             \'tsx': ['prettier'], 
@@ -422,6 +423,7 @@ let g:ale_linters = {
             \'javascript': ['eslint'], 
             \'less' : [''], 
             \'python': ['prospector'],
+            \'sh' : ['shellcheck'], 
             \'tsx': ['eslint'], 
             \'typescript': ['eslint', 'tsserver'], 
             \'yaml': ['yamllint']

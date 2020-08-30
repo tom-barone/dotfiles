@@ -16,7 +16,6 @@ dotfiles_to_symlink=(
     system
 )
 
-
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
     usr=$1
@@ -24,21 +23,21 @@ stowit() {
     # -v verbose
     # -R recursive
     # -t target
-    stow -v -R -t ${usr} ${app}
+    stow -v -R -t "${usr}" "${app}"
 }
 
 echo ""
 echo "Symlinking dotfiles..."
 
-for dotfiles in ${dotfiles_to_symlink[@]}; do
-    stowit $HOME $dotfiles 
+for dotfiles in "${dotfiles_to_symlink[@]}"; do
+    stowit "$HOME" "$dotfiles"
 done
 
 # If ressys is true
 if [ "$RESSYS" = true ]; then
     # symlink the files
-    stowit $HOME ressys
+    stowit "$HOME" ressys
 else
     # remove the symlinks
-    stow -v -R -D -t $HOME ressys
+    stow -v -R -D -t "$HOME" ressys
 fi

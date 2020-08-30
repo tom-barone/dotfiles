@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# shellcheck source=/dev/null
 source ./helpers.sh
 
 package_installer=''
@@ -9,10 +11,10 @@ if os_is ubuntu; then
     package_installer="sudo apt-get install -y"
 fi
 
-function install() {
-    if have_not_installed $1; then
-        $package_installer $1
-    fi;
+function os_install() {
+    if have_not_installed "$1"; then
+        $package_installer "$1"
+    fi
 }
 
 #####################################
@@ -20,49 +22,60 @@ function install() {
 #####################################
 
 # Setup dotfiles and path variables from .profile
-install stow
+os_install stow
 ./symlink.sh
 source ~/.profile
 
 # Essentials
 if os_is ubuntu; then
-    install build-essential # make and more
-    install curl
-    install wget
+    os_install build-essential # make and more
+    os_install curl
+    os_install wget
 fi
 if os_is mac; then
     xcode-select --install
-    install make
+    os_install make
 fi
 
-install vim
-install neovim
-install tmux
+os_install vim
+os_install neovim
+os_install tmux
+os_install shellcheck
+
+# shfmt
+if os_is mac; then
+    os_install shfmt
+fi
+if os_is ubuntu; then
+    if have_not_installed shfmt; then
+        sudo snap install shfmt
+    fi
+fi
 
 # fzf
 if have_not_installed fzf; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --key-bindings --completion --no-update-rc
-fi;
+fi
 
 # tig
 if os_is mac; then
-    install tig
+    os_install tig
 fi
 if os_is ubuntu; then
     if have_not_installed tig; then
-        install libncurses5-dev
+        os_install libncurses5-dev
         git clone https://github.com/jonas/tig.git ~/.tig
-        cd ~/.tig
+        cd ~/.tig || exit 1 # exit if cd fails
         make prefix=/usr/local && sudo make install prefix=/usr/local
-        cd -
+        cd - || exit 1
     fi
 fi
 
 # cargo
 if have_not_installed cargo; then
     curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
-    source $HOME/.cargo/env
+    source "$HOME/.cargo/env"
 fi
 
 # ripgrep
@@ -77,29 +90,28 @@ fi
 
 # ruby
 if have_not_installed ruby; then
-    install autoconf 
-    install bison 
-    install libssl-dev 
-    install libyaml-dev 
-    install libreadline6-dev 
-    install zlib1g-dev 
-    install libncurses5-dev 
-    install libffi-dev 
-    install libgdbm5 
-    install libgdbm-dev 
-    install libdb-dev
+    os_install autoconf
+    os_install bison
+    os_install libssl-dev
+    os_install libyaml-dev
+    os_install libreadline6-dev
+    os_install zlib1g-dev
+    os_install libncurses5-dev
+    os_install libffi-dev
+    os_install libgdbm5
+    os_install libgdbm-dev
+    os_install libdb-dev
 
     latest_ruby_version=$(rbenv install -l | grep -v - | tail -1)
-    rbenv install $latest_ruby_version
-    rbenv global $latest_ruby_version
+    rbenv install "$latest_ruby_version"
+    rbenv global "$latest_ruby_version"
 fi
-
 
 # Install tmuxinator & completions
 if have_not_installed tmuxinator; then
     gem install tmuxinator
     sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
-fi;
+fi
 
 echo ''
 echo 'Running tests...'
