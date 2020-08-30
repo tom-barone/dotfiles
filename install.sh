@@ -23,6 +23,7 @@ function install() {
 install stow
 ./symlink.sh
 source ~/.profile
+source ~/.bashrc
 
 # Essentials
 if os_is ubuntu; then
