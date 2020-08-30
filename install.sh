@@ -19,11 +19,10 @@ function install() {
 # Package installs
 #####################################
 
-# Setup dotfiles and things
+# Setup dotfiles and path variables from .profile
 install stow
 ./symlink.sh
 source ~/.profile
-source ~/.bashrc
 
 # Essentials
 if os_is ubuntu; then
@@ -38,6 +37,7 @@ fi
 
 install vim
 install neovim
+install tmux
 
 # fzf
 if have_not_installed fzf; then
@@ -75,12 +75,31 @@ if have_not_installed rbenv; then
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
 fi
 
+# ruby
+if have_not_installed ruby; then
+    install autoconf 
+    install bison 
+    install libssl-dev 
+    install libyaml-dev 
+    install libreadline6-dev 
+    install zlib1g-dev 
+    install libncurses5-dev 
+    install libffi-dev 
+    install libgdbm5 
+    install libgdbm-dev 
+    install libdb-dev
+
+    latest_ruby_version=$(rbenv install -l | grep -v - | tail -1)
+    rbenv install $latest_ruby_version
+    rbenv global $latest_ruby_version
+fi
+
+
 # Install tmuxinator & completions
-#if have_not_installed tmuxinator; then
-    #gem install tmuxinator
-    #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O ./tmuxinator/.zsh_functions/_tmuxinator
-    #wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O ./tmuxinator/./bin/tmuxinator.bash
-#fi;
+if have_not_installed tmuxinator; then
+    gem install tmuxinator
+    sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
+fi;
 
 echo ''
 echo 'Running tests...'

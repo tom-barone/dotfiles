@@ -23,3 +23,8 @@ bash: /ressys/deployment-commons/assets/etc_profile.d/mm-credential-functions.sh
 ```
 
 do it by splitting up dotfiles to topics https://github.com/michaelmior/dotfiles
+
+
+```
+RESSYS=true ./symlink.sh
+```

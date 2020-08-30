@@ -4,13 +4,8 @@
 git submodule init
 git submodule update
 
-# what directories should be installable by all users including the root user
-base=(
-    #bash
-)
-
 # folders that should, or only need to be installed for a local user
-useronly=(
+dotfiles_to_symlink=(
     nvim
     tmux
     tmuxinator
@@ -20,6 +15,7 @@ useronly=(
     tig
     system
 )
+
 
 # run the stow command for the passed in directory ($2) in location $1
 stowit() {
@@ -34,16 +30,15 @@ stowit() {
 echo ""
 echo "Symlinking dotfiles..."
 
-# install apps available to local users and root
-for app in ${base[@]}; do
-    stowit "${HOME}" $app 
+for dotfiles in ${dotfiles_to_symlink[@]}; do
+    stowit $HOME $dotfiles 
 done
 
-# install only user space folders
-for app in ${useronly[@]}; do
-    if [[ ! "$(whoami)" = *"root"* ]]; then
-        stowit "${HOME}" $app 
-    fi
-done
-
-
+# If ressys is true
+if [ "$RESSYS" = true ]; then
+    # symlink the files
+    stowit $HOME ressys
+else
+    # remove the symlinks
+    stow -v -R -D -t $HOME ressys
+fi

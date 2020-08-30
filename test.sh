@@ -14,6 +14,11 @@ function test() {
 test 'vim --version';
 test 'tig --version';
 test 'nvim --version';
+test 'tmux -V';
 test 'fzf --version';
 test 'cargo --version';
 test 'rg --version';
+test 'rbenv --version';
+test 'ruby --version';
+test 'gem --version';
+test 'tmuxinator version';
