@@ -21,7 +21,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'scrooloose/nerdtree'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 
 Plug 'scrooloose/nerdcommenter'
@@ -72,6 +71,7 @@ Plug 'vim-latex/vim-latex'
 Plug 'ap/vim-css-color'
 Plug 'cespare/vim-toml'
 Plug 'vim-test/vim-test'
+Plug 'aymericbeaumet/vim-symlink'
 
 call plug#end()
 
@@ -347,8 +347,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="tabdo"
 
-let g:UltiSnipsSnippetsDir = expand('~/.vim/custom-snips')
-let g:UltiSnipsSnippetDirectories = [expand('/home/tomb/.vim/custom-snips'), 'UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-react-html-snippets', $HOME.'/.vim/plugged/vim-react-snippets', $HOME.'/.vim/plugged/vim-snippets', $HOME.'/.vim/custom-snips']
 
 "" Syntastic
 "set statusline+=%#warningmsg#
