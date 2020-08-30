@@ -272,7 +272,8 @@ for file in ~/.bashrc.d/*.bash; do
 done
 
 ## Go
-[[ -s "/home/tomb/.gvm/scripts/gvm" ]] && source "/home/tomb/.gvm/scripts/gvm"
+# shellcheck source=/dev/null
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 gvm use go1.15 >/dev/null 2>&1
 
 ###############

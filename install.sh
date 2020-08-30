@@ -48,7 +48,7 @@ if have_not_installed gvm; then
 fi
 
 # go 
-[[ -s "$GVM_ROOT/scripts/gvm" ]] && source "$GVM_ROOT/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 gvm install go1.15
 gvm use go1.15
 
