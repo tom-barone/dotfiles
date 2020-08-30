@@ -42,14 +42,19 @@ os_install neovim
 os_install tmux
 os_install shellcheck
 
-# shfmt
-if os_is mac; then
-    os_install shfmt
+# gvm
+if have_not_installed gvm; then
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 fi
-if os_is ubuntu; then
-    if have_not_installed shfmt; then
-        sudo snap install shfmt
-    fi
+
+# go 
+[[ -s "$GVM_ROOT/scripts/gvm" ]] && source "$GVM_ROOT/scripts/gvm"
+gvm install go1.15
+gvm use go1.15
+
+# shfmt
+if have_not_installed shfmt; then
+    GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 fi
 
 # fzf

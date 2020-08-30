@@ -9,8 +9,6 @@ source /ressys/deployment-commons/assets/etc_profile.d/mm-credential-functions.s
 #export GOROOT=$HOME/.go
 export PATH=$PATH:$GOROOT/bin
 
-[[ -s "/home/tomb/.gvm/scripts/gvm" ]] && source "/home/tomb/.gvm/scripts/gvm"
-
 export NVM_DIR="/home/tomb/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
