@@ -55,18 +55,6 @@ windows:
               - uploader:
                     - rsu
                     - sleep 30 && upload-latest-minesite-data <%=@args[0]%> http://localhost:3000
-    - lerna:
-          layout: main-vertical
-          panes:
-              - editor:
-                    - cd public
-                    - nvim
-              - web:
-                    - cd public
-                    - make run-web
-              - wallboard:
-                    - cd public
-                    - sleep 120 && make run-wallboard
     - web:
           layout: main-vertical
           # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -78,7 +66,10 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/web
-                    -  #yarn test
+                    - #yarn test
+              - server:
+                    - cd public
+                    - make run-web
               - shell:
                     - cd public/packages/web
     - wallboard:
@@ -89,7 +80,10 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/wallboard
-                    -  #yarn test
+                    - #yarn test
+              - server:
+                    - cd public
+                    - sleep 120 && make run-wallboard
               - shell:
                     - cd public/packages/wallboard
     - core:
@@ -100,6 +94,9 @@ windows:
                     - nvim
               - test:
                     - cd public/packages/core
-                    -  #yarn test
+                    - #yarn test
+              - storybook:
+                    - cd public
+                    - make run-storybook
               - shell:
                     - cd public/packages/core

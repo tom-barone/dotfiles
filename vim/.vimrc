@@ -72,6 +72,7 @@ Plug 'ap/vim-css-color'
 Plug 'cespare/vim-toml'
 Plug 'vim-test/vim-test'
 Plug 'aymericbeaumet/vim-symlink'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -191,7 +192,7 @@ set incsearch
 set nohlsearch
 
 " Set python3 path
-let g:python3_host_prog = '~/.virtualenvs/nvim/bin/python'
+let g:python3_host_prog = '~/.virtualenvs/nvim/bin/python3'
 
 " Disable python 2 support
 let g:loaded_python_provider = 1
@@ -369,6 +370,8 @@ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_enable_diagnostic_signs = 0 
 let g:ycm_enable_diagnostic_highlighting = 0
 
+let g:ycm_auto_trigger = 1
+
 " Semantic triggers for css/less/sass files
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^', 're!^\s+', ': ' ],
@@ -406,7 +409,7 @@ augroup END
 
 let g:ale_fixers = { 
             \'go': ['gofmt'],
-            \'json': ['fixjson'], 
+            \'json': ['prettier'], 
             \'javascript': ['prettier'], 
             \'less' : ['prettier'], 
             \'markdown': ['prettier'],
@@ -424,7 +427,7 @@ let g:ale_linters = {
             \'less' : [''], 
             \'python': ['prospector'],
             \'sh' : ['shellcheck'], 
-            \'tsx': ['eslint'], 
+            \'tsx': ['eslint', 'tsserver'], 
             \'typescript': ['eslint', 'tsserver'], 
             \'yaml': ['yamllint']
             \}
@@ -440,6 +443,9 @@ let g:ale_javascript_eslint_executable = 'eslint'
 "let g:ale_javascript_eslint_use_global = 1
 
 let g:ale_python_yapf_options = '--style pep8'
+"let g:ale_python_prospector_executable = '~/.virtualenvs/nvim/bin/python3 -m prospector'
+
+"let g:ale_python_prospector_options = '-m prospector'
 let g:ale_yaml_yamllint_options = '-d relaxed'
 "let g:ale_virtualenv_dir_names = ['/home/tomb/.local/share/virtualenvs/.vim-lrMxc1SW/']
 let g:ale_virtualenv_dir_names = []
