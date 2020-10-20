@@ -133,7 +133,6 @@ fi
 # Python stuff
 # TODO: install of python
 pip_install yapf
-pip_install prospector
 
 echo ''
 echo 'Running tests...'
