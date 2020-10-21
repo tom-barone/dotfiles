@@ -19,7 +19,7 @@ function os_install() {
 
 function pip_install() {
     if have_not_installed "$1"; then
-        pip3 install "$1"
+        pip3 install --user "$1"
     fi
 }
 
@@ -34,6 +34,7 @@ source ~/.profile
 
 # Essentials
 if os_is ubuntu; then
+    sudo apt-get update
     os_install build-essential # make and more
     os_install curl
     os_install wget
@@ -43,6 +44,15 @@ if os_is mac; then
     os_install make
 fi
 
+# Python
+if os_is ubuntu; then
+    os_install python3.6
+    os_install python3-pip
+fi
+#if os_is mac; then
+#fi
+
+os_install cmake
 os_install vim
 os_install neovim
 os_install tmux
@@ -53,7 +63,7 @@ os_install bison
 
 # gvm
 if have_not_installed gvm; then
-    bash < <(GVM_NO_UPDATE_PROFILE=true curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    GVM_NO_UPDATE_PROFILE=true bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 fi
 # Go is written in Go (starting from version 1.5) so we need to install go 1.4 to bootstrap
 source "$HOME/.gvm/scripts/gvm"
@@ -131,8 +141,10 @@ if have_not_installed tmuxinator; then
 fi
 
 # Python stuff
-# TODO: install of python
+pip3 install virtualenvwrapper
+
 pip_install yapf
+pip_install prospector
 
 echo ''
 echo 'Running tests...'
