@@ -1,5 +1,8 @@
 # bashrc - Thomas Barone
 
+# shellcheck source=/dev/null
+source ~/dotfiles/helpers.sh
+
 ######################
 #  GENERAL SETTINGS  #
 ######################
@@ -259,8 +262,15 @@ source ~/.bin/tmuxinator.bash
 
 ## Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
+
+if os_is mac; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+if os_is ubuntu; then
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    source ~/.local/bin/virtualenvwrapper.sh
+fi
 
 ## rbenv
 eval "$(rbenv init -)"
