@@ -318,3 +318,9 @@ function branch-history() {
     done | sort -r
 }
 alias cfg='/usr/bin/git --git-dir=/home/tomb/.cfg/ --work-tree=/home/tomb'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tbone/google-cloud-sdk/path.bash.inc' ]; then . '/Users/tbone/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tbone/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/tbone/google-cloud-sdk/completion.bash.inc'; fi

@@ -146,6 +146,20 @@ pip3 install virtualenvwrapper
 pip_install yapf
 pip_install prospector
 
+# Gcloud
+# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+if os_is mac; then
+
+    wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
+    tar -xvf google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz -C ~
+    ~/google-cloud-sdk/install.sh
+    rm google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
+    ~/google-cloud-sdk/bin/gcloud init
+fi
+if os_is ubuntu; then
+    echo 'GCLOUD NOT SETUP FOR UBUNTU'
+fi
+
 echo ''
 echo 'Running tests...'
 bash --login -i -c "./test.sh"
