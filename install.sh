@@ -74,7 +74,7 @@ fi
 # Go is written in Go (starting from version 1.5) so we need to install go 1.4 to bootstrap
 source "$HOME/.gvm/scripts/gvm"
 gvm install go1.4 -B
-gvm use go1.4 
+gvm use go1.4
 export GOROOT_BOOTSTRAP=$GOROOT
 
 # Go lang (currently just use v15)
@@ -151,16 +151,23 @@ pip3 install virtualenvwrapper
 
 pip_install yapf
 pip_install prospector
+pip_install poetry
 
 # Gcloud
 # macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
 if os_is mac; then
-
-    wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
-    tar -xvf google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz -C ~
-    ~/google-cloud-sdk/install.sh
-    rm google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
-    ~/google-cloud-sdk/bin/gcloud init
+    if have_not_installed gcloud; then
+        # Download the install tar.gz
+        wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
+        # Extract it to the home dir
+        tar -xvf google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz -C ~
+        # Run the install script
+        ~/google-cloud-sdk/install.sh
+        # Remove the install tar.gz
+        rm google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
+        # Initialise the SDK
+        ~/google-cloud-sdk/bin/gcloud init
+    fi
 fi
 if os_is ubuntu; then
     echo 'GCLOUD NOT SETUP FOR UBUNTU'
