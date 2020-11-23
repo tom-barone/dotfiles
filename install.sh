@@ -55,8 +55,11 @@ if os_is ubuntu; then
     os_install python3.6
     os_install python3-pip
 fi
-#if os_is mac; then
-#fi
+if os_is mac; then
+    if have_not_installed python3.9; then
+        $package_installer python@3.9
+    fi
+fi
 
 os_install cmake
 os_install vim
