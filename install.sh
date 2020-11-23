@@ -23,6 +23,12 @@ function pip_install() {
     fi
 }
 
+function npm_global_install() {
+    if have_not_installed "$1"; then
+        npm install --global "$1"
+    fi
+}
+
 #####################################
 # Package installs
 #####################################
@@ -159,6 +165,17 @@ fi
 if os_is ubuntu; then
     echo 'GCLOUD NOT SETUP FOR UBUNTU'
 fi
+
+# Node
+if os_is mac; then
+    os_install node
+fi
+if os_is ubuntu; then
+    echo 'NODE NOT SETUP FOR UBUNTU'
+fi
+
+# NPM stuff
+npm_global_install prettier
 
 echo ''
 echo 'Running tests...'

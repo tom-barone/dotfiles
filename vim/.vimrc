@@ -74,6 +74,7 @@ Plug 'vim-test/vim-test'
 Plug 'aymericbeaumet/vim-symlink'
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'tpope/vim-rails'
 call plug#end()
 
 """"""""""""
