@@ -10,3 +10,9 @@ go build
 cd YouCompleteMe
 python3 install.py --all
 ```
+
+Do this on work ressys computer
+```
+export RESSYS=true 
+./install.sh
+```

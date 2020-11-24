@@ -286,6 +286,16 @@ done
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 gvm use go1.15 >/dev/null 2>&1
 
+## Gcloud
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
+
+## NVM
+. "$HOME/.nvm/nvm.sh"  # This loads nvm
+. "$HOME/.nvm/bash_completion"  # This loads nvm bash_completion
+
 ###############
 #  SHORTCUTS  #
 ###############
@@ -318,9 +328,3 @@ function branch-history() {
     done | sort -r
 }
 alias cfg='/usr/bin/git --git-dir=/home/tomb/.cfg/ --work-tree=/home/tomb'
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tbone/google-cloud-sdk/path.bash.inc' ]; then . '/Users/tbone/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/tbone/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/tbone/google-cloud-sdk/completion.bash.inc'; fi

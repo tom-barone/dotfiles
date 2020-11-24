@@ -157,23 +157,26 @@ pip_install prospector
 pip_install poetry
 
 # Gcloud
-# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+gcloud_sdk_url=''
 if os_is mac; then
-    if have_not_installed gcloud; then
-        # Download the install tar.gz
-        wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
-        # Extract it to the home dir
-        tar -xvf google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz -C ~
-        # Run the install script
-        ~/google-cloud-sdk/install.sh
-        # Remove the install tar.gz
-        rm google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz
-        # Initialise the SDK
-        ~/google-cloud-sdk/bin/gcloud init
-    fi
+    # macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+    gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-linux-x86_64.tar.gz"
 fi
 if os_is ubuntu; then
-    echo 'GCLOUD NOT SETUP FOR UBUNTU'
+    # Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
+    gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz"
+fi
+if have_not_installed gcloud; then
+    # Download the install tar.gz
+    wget $gcloud_sdk_url -O cloud-sdk.tar.gz
+    # Extract it to the home dir
+    tar -xvf cloud-sdk.tar.gz -C ~
+    # Run the install script
+    ~/google-cloud-sdk/install.sh
+    # Remove the install tar.gz
+    rm cloud-sdk.tar.gz
+    # Initialise the SDK
+    ~/google-cloud-sdk/bin/gcloud init
 fi
 
 # Node
