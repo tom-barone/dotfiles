@@ -187,13 +187,18 @@ if have_not_installed gcloud; then
     ~/google-cloud-sdk/bin/gcloud init
 fi
 
+
+# NVM
+if have_not_installed nvm; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
+    \. "$HOME/.nvm/nvm.sh"
+fi
+
 # Node
-if os_is mac; then
-    os_install node
-fi
-if os_is ubuntu; then
-    echo 'NODE NOT SETUP FOR UBUNTU'
-fi
+nvm install --lts
+nvm install-latest-npm
+nvm use --lts
+nvm alias default lts/*
 
 # NPM stuff
 npm_global_install prettier
