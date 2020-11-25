@@ -29,6 +29,12 @@ function npm_global_install() {
     fi
 }
 
+function gem_install() {
+    if have_not_installed "$1"; then
+        gem install "$1"
+    fi
+}
+
 #####################################
 # Package installs
 #####################################
@@ -148,6 +154,8 @@ if have_not_installed tmuxinator; then
     gem install tmuxinator
     sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
 fi
+
+gem_install rubocop
 
 # Python stuff
 pip3 install virtualenvwrapper
