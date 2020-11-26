@@ -6,3 +6,7 @@ vim/.vim/sessions/*
 vim/.vim/plugged/*
 
 vim/.vim/autoload/*
+
+# Exclude rbenv except for the version file
+ruby/.rbenv/*
+!ruby/.rbenv/version
