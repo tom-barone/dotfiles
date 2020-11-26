@@ -183,8 +183,6 @@ if have_not_installed gcloud; then
     ~/google-cloud-sdk/install.sh
     # Remove the install tar.gz
     rm cloud-sdk.tar.gz
-    # Initialise the SDK
-    ~/google-cloud-sdk/bin/gcloud init
 fi
 
 

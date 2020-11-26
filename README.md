@@ -12,7 +12,14 @@ python3 install.py --all
 ```
 
 Do this on work ressys computer
+
 ```
-export RESSYS=true 
+export RESSYS=true
 ./install.sh
+```
+
+To initialise gcloud SDK
+
+```
+~/google-cloud-sdk/bin/gcloud init
 ```
