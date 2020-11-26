@@ -12,6 +12,7 @@ dotfiles_to_symlink=(
     vim
     bash
     zsh
+    ruby
     tig
     system
 )
