@@ -2,6 +2,12 @@
 
 Dotfiles for moi
 
+## TODO
+Add a check for computer serial number or MAC address so can automatically do:
+```
+export RESSYS=true
+```
+
 ## Installing YCMD
 
 ```
