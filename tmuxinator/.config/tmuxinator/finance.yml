@@ -1,7 +1,7 @@
 # /Users/tbone/.config/tmuxinator/finance.yml
 
 name: finance
-root: ~/Documents/finance
+root: ~/gitlab/finance
 
 # Optional tmux socket
 # socket_name: foo
