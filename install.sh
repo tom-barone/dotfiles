@@ -201,6 +201,18 @@ nvm alias default lts/*
 # NPM stuff
 npm_global_install prettier
 
+# Android platform tools
+# https://developer.android.com/studio/releases/platform-tools
+if os_is mac; then
+    android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
+    if have_not_installed adb; then
+        wget $android_sdk -O android-sdk.zip
+        #tar -xvf android-sdk.zip -C ~
+        unzip android-sdk.zip -d ~
+        rm android-sdk.zip
+    fi
+fi
+
 echo ''
 echo 'Running tests...'
 bash --login -i -c "./test.sh"

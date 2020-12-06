@@ -11,7 +11,9 @@ function test() {
     fi
 }
 
+test 'adb --version'
 test 'cargo --version'
+test 'fastboot --version'
 test 'fzf --version'
 test 'gcloud --version'
 test 'gem --version'
