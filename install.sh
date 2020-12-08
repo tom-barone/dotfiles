@@ -9,6 +9,7 @@ if os_is mac; then
 fi
 if os_is ubuntu; then
     package_installer="sudo apt-get install -y"
+    sudo apt-get update
 fi
 
 function os_install() {
@@ -41,15 +42,15 @@ function gem_install() {
 
 # Setup dotfiles and path variables from .profile
 os_install stow
-./symlink.sh
+./symlink.sh || { exit 1; }
 source ~/.profile
 
 # Essentials
 if os_is ubuntu; then
-    sudo apt-get update
     os_install build-essential # make and more
     os_install curl
     os_install wget
+    os_install unzip
 fi
 if os_is mac; then
     xcode-select --install
@@ -156,6 +157,7 @@ if have_not_installed tmuxinator; then
 fi
 
 gem_install rubocop
+gem_install neovim
 
 # Python stuff
 pip3 install virtualenvwrapper
@@ -187,31 +189,47 @@ fi
 
 
 # NVM
-if have_not_installed nvm; then
+# Need to do this install check because the other doesn't work for some reason
+if ! [ -s "$NVM_DIR/nvm.sh" ]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
     \. "$HOME/.nvm/nvm.sh"
-fi
 
-# Node
-nvm install --lts
-nvm install-latest-npm
-nvm use --lts
-nvm alias default lts/*
+    # Node
+    nvm install --lts
+    nvm install-latest-npm
+    nvm use --lts
+    nvm alias default lts/*
+fi
 
 # NPM stuff
 npm_global_install prettier
+npm_global_install neovim
 
 # Android platform tools
 # https://developer.android.com/studio/releases/platform-tools
+android_sdk=""
 if os_is mac; then
     android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
-    if have_not_installed adb; then
-        wget $android_sdk -O android-sdk.zip
-        #tar -xvf android-sdk.zip -C ~
-        unzip android-sdk.zip -d ~
-        rm android-sdk.zip
+fi
+if os_is ubuntu; then
+    android_sdk="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+fi
+if have_not_installed adb; then
+    wget $android_sdk -O android-sdk.zip
+    unzip android-sdk.zip -d ~
+    rm android-sdk.zip
+fi
+
+# Java 
+if os_is ubuntu; then
+    if have_not_installed java; then
+        os_install default-jre
     fi
 fi
+
+echo ''
+echo 'Running post install...'
+bash --login -i -c "./post_install.sh"
 
 echo ''
 echo 'Running tests...'

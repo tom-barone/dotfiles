@@ -6,15 +6,16 @@ git submodule update
 
 # folders that should, or only need to be installed for a local user
 dotfiles_to_symlink=(
+    bash
+    git
     nvim
+    ruby
+    system
+    tig
     tmux
     tmuxinator
     vim
-    bash
     zsh
-    ruby
-    tig
-    system
 )
 
 # run the stow command for the passed in directory ($2) in location $1
@@ -31,14 +32,14 @@ echo ""
 echo "Symlinking dotfiles..."
 
 for dotfiles in "${dotfiles_to_symlink[@]}"; do
-    stowit "$HOME" "$dotfiles"
+    stowit "$HOME" "$dotfiles" || { echo 'Symlinking failed' ; exit 1; } 
 done
 
 # If ressys is true
 if [ "$RESSYS" = true ]; then
     # symlink the files
-    stowit "$HOME" ressys
+    stowit "$HOME" ressys || { echo 'Symlinking failed' ; exit 1; }
 else
     # remove the symlinks
-    stow -v -R -D -t "$HOME" ressys
+    stow -v -R -D -t "$HOME" ressys 
 fi
