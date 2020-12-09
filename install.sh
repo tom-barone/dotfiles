@@ -145,9 +145,8 @@ if have_not_installed ruby; then
     os_install libgdbm-dev
     os_install libdb-dev
 
-    latest_ruby_version=$(rbenv install -l | grep -v - | tail -1)
-    rbenv install "$latest_ruby_version"
-    rbenv global "$latest_ruby_version"
+    ruby_version=$(rbenv version | awk '{print $1;}')
+    rbenv install --skip-existing "$ruby_version"
 fi
 
 # Install tmuxinator & completions
@@ -229,7 +228,7 @@ fi
 
 echo ''
 echo 'Running post install...'
-bash --login -i -c "./post_install.sh"
+bash --login -c "./post_install.sh"
 
 echo ''
 echo 'Running tests...'
