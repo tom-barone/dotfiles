@@ -226,6 +226,23 @@ if os_is ubuntu; then
     fi
 fi
 
+# Google Cloud SQL proxy
+proxy_file_url=""
+if os_is mac; then
+    proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64"
+fi
+if os_is ubuntu; then
+    proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64"
+fi
+if have_not_installed cloud_sql_proxy; then
+    mkdir -p ~/bin
+    curl -o ~/bin/cloud_sql_proxy $proxy_file_url
+    chmod +x ~/bin/cloud_sql_proxy
+
+    sudo mkdir -p /cloudsql; sudo chmod 777 /cloudsql
+fi
+
+
 echo ''
 echo 'Running post install...'
 bash --login -c "./post_install.sh"

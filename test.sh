@@ -13,6 +13,7 @@ function test() {
 
 test 'adb --version'
 test 'cargo --version'
+test 'cloud_sql_proxy --version'
 test 'fastboot --version'
 test 'fzf --version'
 test 'gcloud --version'
