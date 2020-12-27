@@ -415,7 +415,7 @@ let g:ale_fixers = {
             \'less' : ['prettier'], 
             \'markdown': ['prettier'],
             \'python': ['yapf'], 
-            \'ruby' : ['rubocop'], 
+            \'ruby' : ['rubocop', 'rufo'], 
             \'scss' : ['prettier'], 
             \'sh' : ['shfmt'], 
             \'sql': ['pgformatter'], 
