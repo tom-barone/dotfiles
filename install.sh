@@ -157,6 +157,7 @@ fi
 
 gem_install rubocop
 gem_install neovim
+gem_install rufo
 
 # Python stuff
 pip3 install virtualenvwrapper
