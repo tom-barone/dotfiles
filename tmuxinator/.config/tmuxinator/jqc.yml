@@ -49,7 +49,8 @@ windows:
         - nvim
         - rails server
         - clear
-        - cloud_sql_proxy -instances=disco-direction-224307:australia-southeast1:rails-jqc-instance=tcp:3306
+        - cloud_sql_proxy -instances=disco-direction-224307:australia-southeast1:rails-jqc-instance-v8=tcp:3306
+        - bundle exec guard
   - invoicing:
       layout: main-vertical
       panes:

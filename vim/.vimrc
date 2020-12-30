@@ -408,14 +408,23 @@ augroup END
 "set completeopt=menu,menuone,preview,noselect,noinsert
 "let g:ale_open_list = 1
 
+function! FormatERuby(buffer) abort
+    return {
+    \   'command': 'htmlbeautifier'
+    \}
+endfunction
+
+execute ale#fix#registry#Add('htmlbeautifier', 'FormatERuby', ['eruby'], 'htmlbeautifier for eruby')
+
 let g:ale_fixers = { 
+            \'eruby': ['htmlbeautifier'],
             \'go': ['gofmt'],
             \'json': ['prettier'], 
             \'javascript': ['prettier'], 
             \'less' : ['prettier'], 
             \'markdown': ['prettier'],
             \'python': ['yapf'], 
-            \'ruby' : ['rubocop', 'rufo'], 
+            \'ruby' : ['rubocop', 'prettier'], 
             \'scss' : ['prettier'], 
             \'sh' : ['shfmt'], 
             \'sql': ['pgformatter'], 

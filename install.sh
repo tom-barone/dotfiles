@@ -55,6 +55,7 @@ fi
 if os_is mac; then
     xcode-select --install
     os_install make
+    os_install mono
 fi
 
 # Python
@@ -157,7 +158,7 @@ fi
 
 gem_install rubocop
 gem_install neovim
-gem_install rufo
+gem_install htmlbeautifier
 
 # Python stuff
 pip3 install virtualenvwrapper
