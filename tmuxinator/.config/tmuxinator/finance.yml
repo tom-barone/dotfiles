@@ -49,6 +49,7 @@ windows:
         - editor:
            - poetry run nvim finance.beancount
         - poetry-shell:
+           - export PYTHONPATH=.
            - poetry shell
         - fava:
            - poetry run fava finance.beancount
