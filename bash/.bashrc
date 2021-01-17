@@ -335,4 +335,10 @@ function branch-history() {
 }
 alias cfg='/usr/bin/git --git-dir=/home/tomb/.cfg/ --work-tree=/home/tomb'
 
+### Merge pdfs
+function pdfmerge() {
+    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="$1" "${@:2}"
+}
+alias cfg='/usr/bin/git --git-dir=/home/tomb/.cfg/ --work-tree=/home/tomb'
+
 nvm use default --silent
