@@ -183,7 +183,7 @@ if have_not_installed gcloud; then
     # Extract it to the home dir
     tar -xvf cloud-sdk.tar.gz -C ~
     # Run the install script
-    ~/google-cloud-sdk/install.sh
+    ~/google-cloud-sdk/install.sh  --usage-reporting=false --command-completion=false --path-update=false
     # Remove the install tar.gz
     rm cloud-sdk.tar.gz
 fi

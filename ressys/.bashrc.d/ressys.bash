@@ -4,6 +4,7 @@
 source /ressys/deployment-commons/assets/etc_profile.d/rs-switch-aws-cli-profile.sh
 source /ressys/deployment-commons/assets/etc_profile.d/rs-go-typical-functions.sh
 source /ressys/deployment-commons/assets/etc_profile.d/mm-credential-functions.sh
+source /ressys/analysis/etc/bashrc
 
 # GoLang
 #export GOROOT=$HOME/.go
