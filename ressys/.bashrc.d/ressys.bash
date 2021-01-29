@@ -30,7 +30,7 @@ alias rss='cd /ressys/reporting-www-gopath/src/bitbucket.org/resolutionsystems/r
 alias rst='rs-go-maxmine-www-tests'
 alias rsd='cd /ressys/deployment-commons'
 alias go-generate='cd App/; GOPATH=/ressys/reporting-www-gopath/; go generate; cd ..'
-
+alias qgismap=qgismap
 
 ## Functions
 ### Goto repo
@@ -124,3 +124,7 @@ function hrc-convert() {
     cd -
 }
 
+# Load Qgis Maps
+function qgismap(){
+    nohup xdg-open /ressys/data-processing-configuration/utilities/qgis/$1.qgz </dev/null >/dev/null 2>&1 &
+}
