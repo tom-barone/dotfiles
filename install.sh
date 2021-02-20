@@ -59,12 +59,15 @@ if os_is mac; then
 fi
 
 # Python
-if os_is ubuntu; then
-    os_install python3.6
-    os_install python3-pip
-fi
-if os_is mac; then
-    if have_not_installed python3.9; then
+if have_not_installed python3.9; then
+    if os_is ubuntu; then
+        os_install python3.9
+        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+        python3.9 get-pip.py
+        rm get-pip.py
+        os_install python3-pip
+    fi
+    if os_is mac; then
         $package_installer python@3.9
     fi
 fi
@@ -244,6 +247,16 @@ if have_not_installed cloud_sql_proxy; then
     sudo mkdir -p /cloudsql; sudo chmod 777 /cloudsql
 fi
 
+# Balena CLI
+# https://github.com/balena-io/balena-cli/releases/latest
+if os_is ubuntu; then
+    if have_not_installed balena; then
+        wget https://github.com/balena-io/balena-cli/releases/download/v12.40.0/balena-cli-v12.40.0-linux-x64-standalone.zip -O balena-cli.zip
+        unzip balena-cli.zip -d ~
+        mv ~/balena-cli ~/.balena-cli
+        rm balena-cli.zip
+    fi
+fi
 
 echo ''
 echo 'Running post install...'

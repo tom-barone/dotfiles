@@ -12,6 +12,7 @@ function test() {
 }
 
 test 'adb --version'
+test 'balena --version'
 test 'cargo --version'
 test 'cloud_sql_proxy --version'
 test 'fastboot --version'

@@ -21,6 +21,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.balena-cli:$PATH"
 
 # Include the python pip3 installs on mac
 export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"

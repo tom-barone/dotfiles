@@ -14,8 +14,8 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export IN_DOCKER_SSH_FOLDER_FOR_BITBUCKET_CLONING=~/.ssh/bitbucket-ro-clone-folder/
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 nvm use default --silent
 
 ###############
@@ -48,11 +48,10 @@ function rs-go-maxmine-www-tests() {
     cd /ressys/reporting-www-gopath/src/bitbucket.org/resolutionsystems/maxmine-www-tests/
 }
 
-
 ### Get minesite configuration
 function get-minesite-config() {
     # Usage: get-minesite-config <minesite_id>
-    curl --silent -u `MMResCreds` https://python-dashboard.max-mine.com/central-resources-api/minesiteconfigurations | jq -r '.minesiteconfigurations[] | select(.MinesiteId=="'$1'")'
+    curl --silent -u $(MMResCreds) https://python-dashboard.max-mine.com/central-resources-api/minesiteconfigurations | jq -r '.minesiteconfigurations[] | select(.MinesiteId=="'$1'")'
 }
 
 ### Get minesite live dp version
@@ -64,7 +63,7 @@ function get-minesite-live-dp-version() {
 ### Get minesite results bucket
 function get-minesite-bucket() {
     # usage: get-minesite-bucket <minesite_id>
-    get-minesite-config $1 | jq -r '.ResultsBucketAWSARN' | grep -o "mm.*$" 
+    get-minesite-config $1 | jq -r '.ResultsBucketAWSARN' | grep -o "mm.*$"
 }
 
 ### Upload latest minesite data
@@ -126,6 +125,37 @@ function hrc-convert() {
 }
 
 # Load Qgis Maps
-function qgismap(){
+function qgismap() {
     nohup xdg-open /ressys/data-processing-configuration/utilities/qgis/$1.qgz </dev/null >/dev/null 2>&1 &
+}
+
+function yesterday-id() {
+    date -d "24 hours ago" +%Y%m%d
+}
+
+function last-week-id() {
+    date -d "7 days ago" +%Y%m%d
+}
+
+function last-month-id() {
+    date -d "1 month ago" +%Y%m%d
+}
+
+function get-loads-and-dumps() {
+    rm -rf "$HOME/Documents/QGIS/$1"
+    mkdir -p "$HOME/Documents/QGIS/$1"
+
+    docker run --name loads_and_dumps_1 -v ~:/root qgis-helper:latest -m "$1" --shift "$(yesterday-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/yesterday_activity" -t -d -l
+    docker run --name loads_and_dumps_2 -v ~:/root qgis-helper:latest -m "$1" --shift "$(last-week-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_week_activity" -t -d -l
+    docker run --name loads_and_dumps_3 -v ~:/root qgis-helper:latest -m "$1" --shift "$(last-month-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_month_activity" -t -d -l
+
+    docker wait loads_and_dumps_1
+    docker wait loads_and_dumps_2
+    docker wait loads_and_dumps_3
+
+    docker rm loads_and_dumps_1
+    docker rm loads_and_dumps_2
+    docker rm loads_and_dumps_3
+
+    sudo chown -R "$USER:" "$HOME/Documents/QGIS/$1"
 }
