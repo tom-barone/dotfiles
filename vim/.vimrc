@@ -75,6 +75,8 @@ Plug 'aymericbeaumet/vim-symlink'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-rails'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+
 call plug#end()
 
 """"""""""""
