@@ -74,7 +74,8 @@ function upload-latest-minesite-data() {
     #local dpVersion=20200204-v8.8-f5.32
     #local dpVersion=20200317-v8.9-f5.33
     #local dpVersion=20200512-v8.10-f5.34
-    local dpVersion=20200929-v8.12-f5.36
+    #local dpVersion=20200929-v8.12-f5.36
+    local dpVersion=20210223-v8.14-f5.38
     #local dpVersion=mgc-integration-testing-03
 
     local bucket=$(get-minesite-bucket "$1")
@@ -85,7 +86,8 @@ function upload-latest-minesite-data() {
     #local uploader=ressys-www-uploader-2.9.1-f5.34.1.linux
     #local uploader=ressys-www-uploader-2.9.2-f5.35.1.linux
     #local uploader=ressys-www-uploader-2.9.3-f5.35.2.linux
-    local uploader=ressys-www-uploader-2.10.1-f5.36.1.linux
+    #local uploader=ressys-www-uploader-2.10.1-f5.36.1.linux
+    local uploader=ressys-www-uploader-2.11.1-f5.38.linux
 
     echo "AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}""
     AWS_REGION=ap-southeast-2 ./$uploader -username $username -password $password -dpVersion $dpVersion -api $2 -bucket $bucket -threads=100 "${@:3}"

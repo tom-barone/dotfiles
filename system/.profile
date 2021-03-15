@@ -25,3 +25,6 @@ export PATH="$HOME/.balena-cli:$PATH"
 
 # Include the python pip3 installs on mac
 export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
+
+# Include the python pip3 installs on mac
+export TMUXINATOR_CONFIG="$HOME/dotfiles/tmuxinator/.config/tmuxinator"
