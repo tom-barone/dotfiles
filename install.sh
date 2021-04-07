@@ -51,6 +51,7 @@ if os_is ubuntu; then
     os_install curl
     os_install wget
     os_install unzip
+    os_install software-properties-common
 fi
 if os_is mac; then
     xcode-select --install
@@ -61,6 +62,7 @@ fi
 # Python
 if have_not_installed python3.9; then
     if os_is ubuntu; then
+        sudo add-apt-repository ppa:deadsnakes/ppa
         os_install python3.9
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         python3.9 get-pip.py

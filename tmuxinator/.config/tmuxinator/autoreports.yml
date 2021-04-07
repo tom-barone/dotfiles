@@ -1,7 +1,7 @@
 # /home/tomb/.config/tmuxinator/autoreports.yml
 
 name: autoreports
-root: /ressys/reporting-www-gopath/src/bitbucket.org/resolutionsystems/ressys-python-dp/packages/auto_reports
+root: /ressys/ressys-python-dp/packages/auto_reports
 
 # Optional tmux socket
 # socket_name: foo
@@ -47,7 +47,7 @@ pre_window: set-terminal-title autoreports
 
 windows:
   - editor:
-      layout: c60c,204x47,0,0{145x47,0,0,12,58x47,146,0[58x22,146,0,13,58x24,146,23,14]}
+      layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after

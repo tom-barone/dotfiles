@@ -45,7 +45,7 @@ pre_window: set-terminal-title "map-features | <%=@args[0]%>"; sleep 0.5
 # post: tmux -CC attach -t map-features
 
 windows:
-    - root:
+    - main:
           layout: main-vertical
           panes:
               - editor:
@@ -54,3 +54,10 @@ windows:
                     - qgismap <%=@args[0]%>
               - check:
                     - check-map-features <%=@args[0]%>
+    - loads-and-dumps:
+          layout: main-vertical
+          panes:
+              - shell:
+                    - clear
+                    - "#get-loads-and-dumps <%=@args[0]%>"
+
