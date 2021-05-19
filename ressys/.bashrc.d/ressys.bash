@@ -34,6 +34,8 @@ alias rst='rs-go-maxmine-www-tests'
 alias rsd='cd /ressys/deployment-commons'
 alias go-generate='cd App/; GOPATH=/ressys/reporting-www-gopath/; go generate; cd ..'
 alias qgismap=qgismap
+alias start-office-vpn='sudo /etc/init.d/vpnclient start'
+alias stop-office-vpn='sudo /etc/init.d/vpnclient stop'
 
 ## Functions
 ### Goto repo
@@ -197,8 +199,11 @@ function check-map-features() {
 
     cd /ressys/data-processing-configuration/utilities || exit
 
+    echo "Running clean_geojson.py..."
     pipenv run python clean_geojson.py --map-features "../$minesite_id/map-features/v001/mapFeatures.geojson" --out-file "../$minesite_id/map-features/v001/mapFeatures.geojson"
+    echo "Running check_for_overlapping_regions.py..."
     pipenv run python check_for_overlapping_regions.py "../$minesite_id/map-features/v001/mapFeatures.geojson"
+    echo "Running validate_v1_features.py..."
     pipenv run python validate_v1_features.py --map-features "../$minesite_id/map-features/v001/mapFeatures.geojson"
 
     cd - || exit
