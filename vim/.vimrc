@@ -67,6 +67,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'nathangrigg/vim-beancount'
 
 Plug 'vim-latex/vim-latex'
+Plug 'ron89/thesaurus_query.vim'
 
 Plug 'ap/vim-css-color'
 Plug 'cespare/vim-toml'
@@ -124,6 +125,8 @@ vnoremap <Leader>n :set rnu! <Enter>
 nmap <Leader>tt :NERDTreeToggle <Enter>
 nmap <Leader>tf :NERDTreeFind <Enter>
 nmap <Leader>fd :silent exec "!nautilus .&" <Enter>
+map <Leader>cc <plug>NERDCommenterComment
+map <Leader>cu <plug>NERDCommenterUncomment
 
 map <Leader>mk :make<cr>
 map <Leader>mc :make clean<cr>
@@ -344,6 +347,9 @@ let g:ctrlp_working_path_mode = 'c'
 let NERDTreeIgnore = ['\.aux$', '\.bbl$', '\.blg$', '\.ilg$', '\.idx$', '\.gz$','\.ind$', '\.lof$', '\.log$', '\.lot$', '\.out$', '\.latexmain$', '\.toc$']
 let NERDTreeShowHidden=1
 let g:NERDTreeMouseMode = 3
+
+"" NERDCommenter
+let g:NERDCreateDefaultMappings = 0
 
 "" Ultisnips
 let g:UltiSnipsExpandTrigger="<c-k>"
