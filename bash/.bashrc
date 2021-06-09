@@ -196,6 +196,7 @@ fi
 ## Fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 bind -m emacs-standard -x '"\C-p": fzf-file-widget'
+bind -m emacs-standard -x '"\C-t": fzf'
 
 is_in_git_repo() {
     git rev-parse HEAD > /dev/null 2>&1
@@ -253,7 +254,7 @@ bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
 bind '"\C-g\C-h": "$(gh)\e\C-e\er"'
 bind '"\C-g\C-r": "$(gr)\e\C-e\er"'
 
-export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*" --glob "!node_modules/*"'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden --glob "!**/.git/*" --glob "!node_modules/*"'
 export FZF_DEFAULT_OPTS='--bind ctrl-a:toggle-all'
 
 ## Tmuxinator

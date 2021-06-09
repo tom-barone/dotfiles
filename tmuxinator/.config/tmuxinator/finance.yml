@@ -47,7 +47,7 @@ windows:
       # synchronize: after
       panes:
         - editor:
-           - poetry run nvim finance.beancount
+           - poetry run nvim
         - poetry-shell:
            - export PYTHONPATH=.
            - poetry shell
