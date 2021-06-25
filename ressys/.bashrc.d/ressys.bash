@@ -129,6 +129,11 @@ function hrc-convert() {
 # Load qgis map for a minesite
 function qgismap() {
     # usage: qgismap <minesite_id>
+    
+    # Set the .qgs file so when used with xdg-open, it'll open it in QGIS
+    xdg-mime default org.qgis.qgis.desktop application/x-qgis-project
+
+    # Open the QGIS file
     nohup xdg-open "/ressys/data-processing-configuration/utilities/qgis/$1.qgz" </dev/null >/dev/null 2>&1 &
 }
 
