@@ -134,7 +134,7 @@ function qgismap() {
     xdg-mime default org.qgis.qgis.desktop application/x-qgis-project
 
     # Open the QGIS file
-    nohup xdg-open "/ressys/data-processing-configuration/utilities/qgis/$1.qgz" </dev/null >/dev/null 2>&1 &
+    nohup xdg-open "/ressys/data-processing-configuration/utilities/qgis/$1.qgs" </dev/null >/dev/null 2>&1 &
 }
 
 function yesterday-id() {
