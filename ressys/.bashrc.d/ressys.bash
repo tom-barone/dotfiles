@@ -7,6 +7,7 @@ source /ressys/deployment-commons/assets/etc_profile.d/rs-switch-aws-cli-profile
 source /ressys/deployment-commons/assets/etc_profile.d/rs-go-typical-functions.sh
 source /ressys/deployment-commons/assets/etc_profile.d/mm-credential-functions.sh
 source /ressys/analysis/etc/bashrc
+source ~/.pypicloudrc
 
 # GoLang
 #export GOROOT=$HOME/.go
@@ -159,20 +160,48 @@ function get-loads-and-dumps() {
     rm -rf "$HOME/Documents/QGIS/$1"
     mkdir -p "$HOME/Documents/QGIS/$1"
 
+    cd "$HOME/Documents/QGIS/$1"
+
     # Run the analysis container to retrieve loads, dumps and locuses
-    docker run --name loads_and_dumps_1 -v ~:/root qgis-helper:latest -m "$1" --shift "$(yesterday-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/yesterday_activity" -t -d -l
-    docker run --name loads_and_dumps_2 -v ~:/root qgis-helper:latest -m "$1" --shift "$(last-week-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_week_activity" -t -d -l
-    docker run --name loads_and_dumps_3 -v ~:/root qgis-helper:latest -m "$1" --shift "$(last-month-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_month_activity" -t -d -l
+    docker container run --rm --detach \
+        --name loads_and_dumps_1 \
+        -v "$PWD:/output" \
+        -v ~/.maxmine-credentials.json:/root/.maxmine-credentials.json \
+        -v ~/.aws/:/root/.aws/ \
+        -v /tmp/max-mine/.cache:/tmp/max-mine/.cache \
+        analysis-docker-registry.max-mine.com/qgis-helper \
+        -m "$1" \
+        --shift "$(yesterday-id)0,$(yesterday-id)1" \
+        -o "/output/yesterday_activity" -t -d -l
+    docker container run --rm --detach \
+        --name loads_and_dumps_2 \
+        -v "$PWD:/output" \
+        -v ~/.maxmine-credentials.json:/root/.maxmine-credentials.json \
+        -v ~/.aws/:/root/.aws/ \
+        -v /tmp/max-mine/.cache:/tmp/max-mine/.cache \
+        analysis-docker-registry.max-mine.com/qgis-helper \
+        -m "$1" \
+        --shift "$(last-week-id)0,$(yesterday-id)1" \
+        -o "/output/last_week_activity" -t -d -l
+    docker container run --rm --detach \
+        --name loads_and_dumps_3 \
+        -v "$PWD:/output" \
+        -v ~/.maxmine-credentials.json:/root/.maxmine-credentials.json \
+        -v ~/.aws/:/root/.aws/ \
+        -v /tmp/max-mine/.cache:/tmp/max-mine/.cache \
+        analysis-docker-registry.max-mine.com/qgis-helper \
+        -m "$1" \
+        --shift "$(last-month-id)0,$(yesterday-id)1" \
+        -o "/output/last_month_activity" -t -d -l
+
+    #docker run --name loads_and_dumps_1 --rm -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest 
+    #docker run --name loads_and_dumps_2 -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest 
+    #docker run --name loads_and_dumps_3 -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest -m "$1" --shift "$(last-month-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_month_activity" -t -d -l
 
     # Wait for all containers to finish
     docker wait loads_and_dumps_1
     docker wait loads_and_dumps_2
     docker wait loads_and_dumps_3
-
-    # Remove all containers
-    docker rm loads_and_dumps_1
-    docker rm loads_and_dumps_2
-    docker rm loads_and_dumps_3
 
     # Remove root permsissions from the files
     sudo chown -R "$USER:" "$HOME/Documents/QGIS/$1"
