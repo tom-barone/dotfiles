@@ -114,6 +114,19 @@ inoremap [, [<CR>],<C-c>O
 :map Q <Nop>
 nnoremap <C-F> "fyiw:Find<Space><C-R>f
 
+
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+
 """""""""""""
 "  LEADERS  "
 """""""""""""
@@ -196,6 +209,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 au BufRead *.js normal zR
 " enable mouse in all modes - makes things work well with tmux
 set mouse=a
+" Always show the tab bar
+set showtabline=2
 
 set incsearch
 set nohlsearch
@@ -525,7 +540,7 @@ let g:Tex_ViewRule_pdf = 'open -a Skim'
 " Turn off branch suggestions
 autocmd! User GoyoEnter set linebreak
 autocmd! User GoyoLeave set nolinebreak
-let g:goyo_width=120
+let g:goyo_width=100
 
 "" markdown-preview
 " Don't close the window when changing to a different buffer
