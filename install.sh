@@ -62,7 +62,7 @@ fi
 # Python
 if have_not_installed python3.9; then
     if os_is ubuntu; then
-        sudo add-apt-repository ppa:deadsnakes/ppa
+        sudo add-apt-repository -y ppa:deadsnakes/ppa
         os_install python3.9
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
         python3.9 get-pip.py
