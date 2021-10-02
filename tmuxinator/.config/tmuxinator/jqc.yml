@@ -42,28 +42,20 @@ pre_window: set-terminal-title jqc; sleep 1
 windows:
   - ruby:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
         - nvim
-        - yarn && rails server
         - clear
+        - yarn && rails server
+  - servers:
+      layout: even-horizontal
+      panes:
         - cloud_sql_proxy -instances=disco-direction-224307:australia-southeast1:rails-jqc-instance-v8=tcp:3306
         - bundle exec guard
-  - invoicing:
-      layout: main-vertical
-      panes:
-          - editor:
-              - cd invoicing
-              - nvim
-          - shell:
-              - cd invoicing
   - migrateAccess:
       layout: main-vertical
       panes:
-          - editor:
-              - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
-              - nvim
-          - shell:
-              - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
+        - editor:
+            - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
+            - nvim
+        - shell:
+            - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
