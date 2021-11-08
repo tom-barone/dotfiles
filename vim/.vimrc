@@ -49,8 +49,6 @@ Plug 'groenewege/vim-less'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Or build from source code by using yarn: https://yarnpkg.com
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 Plug 'mhinz/vim-signify'
 Plug 'moll/vim-bbye'
@@ -559,8 +557,8 @@ let test#strategy = "neovim"
 let g:coc_global_extensions = [
       \'coc-marketplace',
       \'coc-snippets',
-      \'coc-python',
       \'coc-solargraph',
+      \'coc-jedi',
       \'coc-sh'
       \]
 

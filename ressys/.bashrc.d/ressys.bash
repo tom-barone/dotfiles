@@ -160,7 +160,7 @@ function get-loads-and-dumps() {
     rm -rf "$HOME/Documents/QGIS/$1"
     mkdir -p "$HOME/Documents/QGIS/$1"
 
-    cd "$HOME/Documents/QGIS/$1"
+    cd "$HOME/Documents/QGIS/$1" || exit
 
     # Run the analysis container to retrieve loads, dumps and locuses
     docker container run --rm --detach \
@@ -172,7 +172,7 @@ function get-loads-and-dumps() {
         analysis-docker-registry.max-mine.com/qgis-helper \
         -m "$1" \
         --shift "$(yesterday-id)0,$(yesterday-id)1" \
-        -o "/output/yesterday_activity" -t -d -l
+        -o "/output/yesterday_activity" -t -d -l -w
     docker container run --rm --detach \
         --name loads_and_dumps_2 \
         -v "$PWD:/output" \
@@ -182,7 +182,7 @@ function get-loads-and-dumps() {
         analysis-docker-registry.max-mine.com/qgis-helper \
         -m "$1" \
         --shift "$(last-week-id)0,$(yesterday-id)1" \
-        -o "/output/last_week_activity" -t -d -l
+        -o "/output/last_week_activity" -t -d -l -w
     docker container run --rm --detach \
         --name loads_and_dumps_3 \
         -v "$PWD:/output" \
@@ -192,11 +192,7 @@ function get-loads-and-dumps() {
         analysis-docker-registry.max-mine.com/qgis-helper \
         -m "$1" \
         --shift "$(last-month-id)0,$(yesterday-id)1" \
-        -o "/output/last_month_activity" -t -d -l
-
-    #docker run --name loads_and_dumps_1 --rm -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest 
-    #docker run --name loads_and_dumps_2 -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest 
-    #docker run --name loads_and_dumps_3 -v ~:/root analysis-docker-registry.max-mine.com/qgis-helper:latest -m "$1" --shift "$(last-month-id)0,$(yesterday-id)1" -o "/root/Documents/QGIS/$1/last_month_activity" -t -d -l
+        -o "/output/last_month_activity" -t -d -l -w
 
     # Wait for all containers to finish
     docker wait loads_and_dumps_1
@@ -215,7 +211,7 @@ function get-loads-and-dumps() {
         cd "$dir" || exit 1
         for file in *; do
             rename 's/[\d\-\_]//g' "$file"
-            for i in Dumps Loads WKTLocuses; do
+            for i in Dumps Loads Stops WKTLocuses; do
                 sed -i -e "/$i/s/[0-9]*//g" ./*.vrt
                 sed -i -e "/$i/s/\_//g" ./*.vrt
                 sed -i -e "/$i/s/\-//g" ./*.vrt
