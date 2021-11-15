@@ -150,6 +150,54 @@ function last-month-id() {
     date -d "1 month ago" +%Y%m%d
 }
 
+function get-loads-and-dumps-for-shift-range() {
+    # usage: get-loads-and-dumps <minesite_id> <shift_id_start> <shift_id_end>
+
+    # Store current directory for later
+    cwd=$(pwd)
+
+    mkdir -p "$HOME/Downloads/$1"
+    cd "$HOME/Downloads/$1" || exit
+
+    # Run the analysis container to retrieve loads, dumps and locuses
+    docker container run --rm --detach \
+        --name loads_and_dumps_1 \
+        -v "$PWD:/output" \
+        -v ~/.maxmine-credentials.json:/root/.maxmine-credentials.json \
+        -v ~/.aws/:/root/.aws/ \
+        -v /tmp/max-mine/.cache:/tmp/max-mine/.cache \
+        analysis-docker-registry.max-mine.com/qgis-helper \
+        -m "$1" \
+        --shift "$2,$3" \
+        -o "/output/activity_$2_$3" -t -d -l -w
+
+    # Wait for all containers to finish
+    docker wait loads_and_dumps_1
+
+    # Remove root permsissions from the files
+    sudo chown -R "$USER:" "$HOME/Downloads/$1"
+
+    # Rename the output files so they have no dates. This means that QGIS won't complain
+    # when running the script with the latest data
+    #   rename(Dumps_202102210-202102211.csv, Dumps.csv)
+    #   rename(Loads_202102210-202102211.csv, Loads.csv)
+    #   rename(WKTLocuses_202102210-202102211.csv, WKTLocuses.csv)
+    for dir in $HOME/Downloads/$1/*; do
+        cd "$dir" || exit 1
+        for file in *; do
+            rename 's/[\d\-\_]//g' "$file"
+            for i in Dumps Loads Stops WKTLocuses; do
+                sed -i -e "/$i/s/[0-9]*//g" ./*.vrt
+                sed -i -e "/$i/s/\_//g" ./*.vrt
+                sed -i -e "/$i/s/\-//g" ./*.vrt
+            done
+        done
+    done
+
+    # Restore the directory from before running the script
+    cd "$cwd" || return
+}
+
 function get-loads-and-dumps() {
     # usage: get-loads-and-dumps <minesite_id>
 
