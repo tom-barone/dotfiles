@@ -322,6 +322,7 @@ alias copy='xclip -selection clipboard'
 alias pgadmin4='/usr/pgadmin4/bin/pgadmin4 &>/dev/null &'
 alias ssh-minecraft-server='gcloud beta compute ssh --zone "australia-southeast2-b" "minecraft-1"  --project "packed-to-the-crafters"'
 alias ssh-beancount-server='gcloud beta compute ssh --zone "australia-southeast2-b" "beancount"  --project "beancount-322303"'
+alias ssh-cicero='ssh tbone@192.168.0.9'
 
 
 ## Functions
