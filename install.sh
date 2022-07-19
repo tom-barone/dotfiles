@@ -242,11 +242,8 @@ if os_is ubuntu; then
     proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64"
 fi
 if have_not_installed cloud_sql_proxy; then
-    mkdir -p ~/bin
-    curl -o ~/bin/cloud_sql_proxy $proxy_file_url
-    chmod +x ~/bin/cloud_sql_proxy
-
-    sudo mkdir -p /cloudsql; sudo chmod 777 /cloudsql
+    curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
+    chmod +x /usr/local/bin/cloud_sql_proxy
 fi
 
 # Balena CLI

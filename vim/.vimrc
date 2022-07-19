@@ -28,6 +28,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-obsession'
 
 " Use release branch (recommend)
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -38,8 +39,8 @@ Plug 'honza/vim-snippets'
 
 Plug 'mhinz/vim-signify'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 
 Plug 'mtth/scratch.vim'
 Plug 'junegunn/goyo.vim'
@@ -63,6 +64,14 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+Plug 'sbdchd/neoformat'
+
+
 call plug#end()
 
 """"""""""""
@@ -82,8 +91,6 @@ map <D-i> <A-i>
 
 nnoremap <C-X> :bdelete<CR>
 nnoremap <C-Q> :q<CR>
-
-nnoremap <C-p> :FZF<CR>
 
 " Auto close
 inoremap (; (<CR>);<C-c>O
@@ -137,6 +144,16 @@ nnoremap <Leader>gy :Goyo<cr>
 
 " Beancount shortcuts
 nnoremap <Leader>be :!PYTHONPATH=. poetry run bean-extract import.py ~/Downloads > temp.beancount<cr><cr>
+
+nnoremap <C-t> <cmd>Telescope find_files find_command=rg,--hidden,--glob,!.git/*,--files<Enter>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+
+nmap <Leader>pr <cmd>Neoformat<Enter>
+
 
 """"""""""""""""""""""
 "  GENERAL SETTINGS  "
@@ -332,6 +349,14 @@ nnoremap <expr> s (&buftype is# "quickfix" ? "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t"
 """""""""""""""""""""
 "  PLUGIN SETTINGS  "
 """""""""""""""""""""
+
+"" NeoFormat
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_ruby = ['rubocop']
+let g:neoformat_enabled_yaml = ['prettier']
+" Enable basic formatting
+let g:neoformat_basic_format_trim = 1
+
 "" NERDtree
 let NERDTreeIgnore = ['\.aux$', '\.bbl$', '\.blg$', '\.ilg$', '\.idx$', '\.gz$','\.ind$', '\.lof$', '\.log$', '\.lot$', '\.out$', '\.latexmain$', '\.toc$']
 let NERDTreeShowHidden=1
@@ -404,9 +429,8 @@ let g:scratch_insert_autohide = 0
 let g:scratch_height = 2
 
 "" FZF
-let g:fzf_buffers_jump = 1
+"let g:fzf_buffers_jump = 1
 
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 "" Sessions
 " Turn off branch suggestions

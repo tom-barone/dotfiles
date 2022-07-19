@@ -23,6 +23,7 @@
 # Vim files #
 ###################
 *.swp
+Session.vim*
 
 # Logs and databases #
 ######################

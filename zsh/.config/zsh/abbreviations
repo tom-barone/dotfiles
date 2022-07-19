@@ -1,5 +1,6 @@
 abbr ezsh="nvim /Users/tbone/.zshrc"
 abbr gst="git status"
+abbr gp="git pull --rebase"
 abbr l="exa --icons --all"
 abbr la="exa --long --header --icons --all"
 abbr ll="exa --long --header --icons --all"

@@ -70,7 +70,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-abbr fzf zsh-autosuggestions)
+plugins=(zsh-abbr fzf zsh-autosuggestions rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,17 +100,33 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+## PATH updates
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
+
 # Remove default aliases
 unalias 1 2 3 4 5 6 7 8 9 _ egrep fgrep grep history l la ll ls lsa md rd run-help which-command "-" "..." "...." "......" "....."
 
+set-terminal-title() {
+    echo -en "\033]0;$1\a"
+}
 
-## FZF Config
+### Gcloud config
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+### NVM config
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+### FZF Config
+
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
-
-
-
-#| fzf --prompt "All> "--header "CTRL-D: Directories / CTRL-F: Files" --bind "ctrl-d:change-prompt(Directories> )+reload(find * -type d)" --bind "ctrl-f:change-prompt(Files> )+reload(find * -type f)"'
-    #'
 
 is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
