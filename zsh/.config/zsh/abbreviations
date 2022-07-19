@@ -1,0 +1,10 @@
+abbr ezsh="nvim /Users/tbone/.zshrc"
+abbr gst="git status"
+abbr l="exa --icons --all"
+abbr la="exa --long --header --icons --all"
+abbr ll="exa --long --header --icons --all"
+abbr ls="exa"
+abbr mux="tmuxinator"
+abbr tree="exa --tree --level=2 --all"
+abbr c.="code ."
+

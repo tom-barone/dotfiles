@@ -45,12 +45,12 @@ windows:
       panes:
         - nvim
         - clear
-        - yarn && rails server
   - servers:
-      layout: even-horizontal
+      layout: even-vertical
       panes:
         - cloud_sql_proxy -instances=disco-direction-224307:australia-southeast1:rails-jqc-instance-v8=tcp:3306
         - bundle exec guard
+        - yarn && rails server
   - migrateAccess:
       layout: main-vertical
       panes:

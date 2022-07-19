@@ -7,6 +7,7 @@ git submodule update
 # folders that should, or only need to be installed for a local user
 dotfiles_to_symlink=(
     bash
+    fish
     git
     nvim
     ruby
