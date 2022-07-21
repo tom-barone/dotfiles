@@ -206,7 +206,7 @@ export EDITOR='nvim'
 source ~/.bin/tmuxinator.bash
 
 ## Virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
+export WORKON_HOME='~/.virtualenvs'
 
 if os_is mac; then
     export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3

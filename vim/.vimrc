@@ -70,6 +70,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'sbdchd/neoformat'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 
 call plug#end()

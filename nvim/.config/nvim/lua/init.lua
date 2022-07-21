@@ -114,5 +114,3 @@ end
 
 -- Telescope
 
-
--- Neoformat
