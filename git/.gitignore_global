@@ -24,6 +24,7 @@
 ###################
 *.swp
 Session.vim*
+tags
 
 # Logs and databases #
 ######################

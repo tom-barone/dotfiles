@@ -18,10 +18,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'lifepillar/vim-solarized8'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'moll/vim-bbye/'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -36,26 +37,19 @@ Plug 'tpope/vim-obsession'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
 Plug 'mhinz/vim-signify'
 
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 "Plug 'junegunn/fzf.vim'
-
-Plug 'mtth/scratch.vim'
-Plug 'junegunn/goyo.vim'
 
 " Syntax
 Plug 'nathangrigg/vim-beancount'
 
-Plug 'vim-latex/vim-latex'
-Plug 'ron89/thesaurus_query.vim'
-
-Plug 'ap/vim-css-color'
-Plug 'cespare/vim-toml'
-Plug 'vim-test/vim-test'
-Plug 'aymericbeaumet/vim-symlink'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'ap/vim-css-color'
+"Plug 'cespare/vim-toml'
+"Plug 'vim-test/vim-test'
+"Plug 'aymericbeaumet/vim-symlink'
+"Plug 'editorconfig/editorconfig-vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -65,12 +59,12 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 Plug 'sbdchd/neoformat'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+"Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 
 call plug#end()
@@ -90,7 +84,7 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 map <D-i> <A-i>
 
-nnoremap <C-X> :bdelete<CR>
+nnoremap <C-X> :Bdelete<CR>
 nnoremap <C-Q> :q<CR>
 
 " Auto close
@@ -103,7 +97,6 @@ inoremap [, [<CR>],<C-c>O
 
 " Disabled EX mode
 :map Q <Nop>
-"nnoremap <C-F> "fyiw:Find<Space><C-R>f
 
 
 " Search for selected text, forwards or backwards.
@@ -133,21 +126,14 @@ nmap <Leader>tf :NERDTreeFind <Enter>
 map <Leader>cc <plug>NERDCommenterComment
 map <Leader>cu <plug>NERDCommenterUncomment
 
-"map <Leader>mk :make<cr>
-"map <Leader>mc :make clean<cr>
-
-"nnoremap <Leader>z <C-w>z:lcl<cr>:ccl<cr>
-
-"nnoremap <Leader>gs :GFiles?<cr>
-"nnoremap <Leader>bf :Buffers<cr>
-
-nnoremap <Leader>gy :Goyo<cr>
 
 " Beancount shortcuts
 nnoremap <Leader>be :!PYTHONPATH=. poetry run bean-extract import.py ~/Downloads > temp.beancount<cr><cr>
 
 nnoremap <C-t> <cmd>Telescope find_files find_command=rg,--hidden,--glob,!.git/*,--files<Enter>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>lg <cmd>Telescope live_grep<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
 
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
@@ -189,7 +175,7 @@ set modeline
 set wildmenu
 " Show the typed vim commands in status bar
 set showcmd
-" Modify file instead of saving new one - fixes webpack-dev-server watching 
+" Modify file instead of saving new one - fixes webpack-dev-server watching
 set backupcopy=yes
 " Cycle through completions with tab
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -214,15 +200,15 @@ let g:loaded_python_provider = 1
 " Disable perl support
 let g:loaded_perl_provider = 0
 
-" set Jenkinsfile to load as a groovy file
-au BufNewFile,BufRead Jenkinsfile setf groovy
+"" set Jenkinsfile to load as a groovy file
+"au BufNewFile,BufRead Jenkinsfile setf groovy
 
-" set geojson to load as json
-au BufNewFile,BufRead *geojson setf json
+"" set geojson to load as json
+"au BufNewFile,BufRead *geojson setf json
 
-if &diff
-    set noreadonly
-endif
+"if &diff
+    "set noreadonly
+"endif
 
 "" Theming
 
@@ -233,7 +219,6 @@ if exists('+termguicolors')
 endif
 
 set background=dark
-"colorscheme NeoSolarized
 autocmd vimenter * ++nested colorscheme solarized8
 
 "highlight DiffAdd    ctermfg=NONE ctermbg=22
@@ -244,119 +229,136 @@ autocmd vimenter * ++nested colorscheme solarized8
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 
-"" Autofolding .vimrc, bashrc
-""" defines a foldlevel for each line of code
-" see http://vimcasts.org/episodes/writing-a-custom-fold-expression/
-" use cstr to specify the type of comment character
-function! FileFolds(lnum,cstr)
-  let s:thisline = getline(a:lnum)
-  "if match(s:thisline, '^"" ') >= 0
-  if match(s:thisline, printf('^%s%s ',a:cstr,a:cstr)) >= 0
-    return '>2'
-  endif
-  "if match(s:thisline, '^""" ') >= 0
-  if match(s:thisline, printf('^%s%s%s ',a:cstr,a:cstr,a:cstr)) >= 0
-    return '>3'
-  endif
-  let s:two_following_lines = 0
-  if line(a:lnum) + 2 <= line('$')
-    let s:line_1_after = getline(a:lnum+1)
-    let s:line_2_after = getline(a:lnum+2)
-    let s:two_following_lines = 1
-  endif
-  if !s:two_following_lines
-      return '='
-    endif
-  else
-    "if (match(s:thisline, '^"""""') >= 0) &&
-       "\ (match(s:line_1_after, '^"  ') >= 0) &&
-       "\ (match(s:line_2_after, '^""""') >= 0)
-    if (match(s:thisline, printf('^%s%s%s%s%s',a:cstr,a:cstr,a:cstr,a:cstr,a:cstr)) >= 0) &&
-       \ (match(s:line_1_after, printf('^%s  ',a:cstr)) >= 0) &&
-       \ (match(s:line_2_after, printf('^%s%s%s%s',a:cstr,a:cstr,a:cstr,a:cstr)) >= 0)
-      return '>1'
-    else
-      return '='
-    endif
-  endif
-endfunction
+""" Autofolding .vimrc, bashrc
+"""" defines a foldlevel for each line of code
+"" see http://vimcasts.org/episodes/writing-a-custom-fold-expression/
+"" use cstr to specify the type of comment character
+"function! FileFolds(lnum,cstr)
+  "let s:thisline = getline(a:lnum)
+  ""if match(s:thisline, '^"" ') >= 0
+  "if match(s:thisline, printf('^%s%s ',a:cstr,a:cstr)) >= 0
+    "return '>2'
+  "endif
+  ""if match(s:thisline, '^""" ') >= 0
+  "if match(s:thisline, printf('^%s%s%s ',a:cstr,a:cstr,a:cstr)) >= 0
+    "return '>3'
+  "endif
+  "let s:two_following_lines = 0
+  "if line(a:lnum) + 2 <= line('$')
+    "let s:line_1_after = getline(a:lnum+1)
+    "let s:line_2_after = getline(a:lnum+2)
+    "let s:two_following_lines = 1
+  "endif
+  "if !s:two_following_lines
+      "return '='
+    "endif
+  "else
+    ""if (match(s:thisline, '^"""""') >= 0) &&
+       ""\ (match(s:line_1_after, '^"  ') >= 0) &&
+       ""\ (match(s:line_2_after, '^""""') >= 0)
+    "if (match(s:thisline, printf('^%s%s%s%s%s',a:cstr,a:cstr,a:cstr,a:cstr,a:cstr)) >= 0) &&
+       "\ (match(s:line_1_after, printf('^%s  ',a:cstr)) >= 0) &&
+       "\ (match(s:line_2_after, printf('^%s%s%s%s',a:cstr,a:cstr,a:cstr,a:cstr)) >= 0)
+      "return '>1'
+    "else
+      "return '='
+    "endif
+  "endif
+"endfunction
 
-""" defines a foldtext
-function! FoldText()
-  " handle special case of normal comment first
-  let s:info = '('.string(v:foldend-v:foldstart).' l)'
-  if v:foldlevel == 1
-    let s:line = ' ◇ '.getline(v:foldstart+1)[3:-2]
-  elseif v:foldlevel == 2
-    let s:line = '   ●  '.getline(v:foldstart)[3:]
-  elseif v:foldlevel == 3
-    let s:line = '     ▪ '.getline(v:foldstart)[4:]
-  endif
-  if strwidth(s:line) > 80 - len(s:info) - 3
-    return s:line[:79-len(s:info)-3+len(s:line)-strwidth(s:line)].'...'.s:info
-  else
-    return s:line.repeat(' ', 80 - strwidth(s:line) - len(s:info)).s:info
-  endif
-endfunction
+"""" defines a foldtext
+"function! FoldText()
+  "" handle special case of normal comment first
+  "let s:info = '('.string(v:foldend-v:foldstart).' l)'
+  "if v:foldlevel == 1
+    "let s:line = ' ◇ '.getline(v:foldstart+1)[3:-2]
+  "elseif v:foldlevel == 2
+    "let s:line = '   ●  '.getline(v:foldstart)[3:]
+  "elseif v:foldlevel == 3
+    "let s:line = '     ▪ '.getline(v:foldstart)[4:]
+  "endif
+  "if strwidth(s:line) > 80 - len(s:info) - 3
+    "return s:line[:79-len(s:info)-3+len(s:line)-strwidth(s:line)].'...'.s:info
+  "else
+    "return s:line.repeat(' ', 80 - strwidth(s:line) - len(s:info)).s:info
+  "endif
+"endfunction
 
 
-""" set foldsettings for vim files
-augroup fold_vimrc
-  autocmd!
-  autocmd FileType vim 
-                   \ setlocal foldmethod=expr |
-                   \ setlocal foldexpr=FileFolds(v:lnum,'\"') |
-                   \ setlocal foldtext=FoldText() |
-     "              \ set foldcolumn=2 foldminlines=2
-augroup END 
+"""" set foldsettings for vim files
+"augroup fold_vimrc
+  "autocmd!
+  "autocmd FileType vim
+                   "\ setlocal foldmethod=expr |
+                   "\ setlocal foldexpr=FileFolds(v:lnum,'\"') |
+                   "\ setlocal foldtext=FoldText() |
+     ""              \ set foldcolumn=2 foldminlines=2
+"augroup END
 
-""" set foldsettings for sh and zsh files
-augroup fold_sh
-  autocmd!
-  autocmd FileType sh,zsh
-                   \ setlocal foldmethod=expr |
-                   \ setlocal foldexpr=FileFolds(v:lnum,'#') |
-                   \ setlocal foldtext=FoldText() |
-     "              \ set foldcolumn=2 foldminlines=2
-augroup END 
+"""" set foldsettings for sh and zsh files
+"augroup fold_sh
+  "autocmd!
+  "autocmd FileType sh,zsh
+                   "\ setlocal foldmethod=expr |
+                   "\ setlocal foldexpr=FileFolds(v:lnum,'#') |
+                   "\ setlocal foldtext=FoldText() |
+     ""              \ set foldcolumn=2 foldminlines=2
+"augroup END
 
-"" Deleting inactive buffers
-function! DeleteInactiveBufs()
-    "From tabpagebuflist() help, get a list of all buffers in all tabs
-    let tablist = []
-    for i in range(tabpagenr('$'))
-        call extend(tablist, tabpagebuflist(i + 1))
-    endfor
+""" Deleting inactive buffers
+"function! DeleteInactiveBufs()
+    ""From tabpagebuflist() help, get a list of all buffers in all tabs
+    "let tablist = []
+    "for i in range(tabpagenr('$'))
+        "call extend(tablist, tabpagebuflist(i + 1))
+    "endfor
 
-    "Below originally inspired by Hara Krishna Dara and Keith Roberts
-    "http://tech.groups.yahoo.com/group/vim/message/56425
-    let nWipeouts = 0
-    for i in range(1, bufnr('$'))
-        if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
-        "bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
-            silent exec 'bwipeout' i
-            let nWipeouts = nWipeouts + 1
-        endif
-    endfor
-    echomsg nWipeouts . ' buffer(s) wiped out'
-endfunction
-command! DeleteInactiveBuffers :call DeleteInactiveBufs()
+    ""Below originally inspired by Hara Krishna Dara and Keith Roberts
+    ""http://tech.groups.yahoo.com/group/vim/message/56425
+    "let nWipeouts = 0
+    "for i in range(1, bufnr('$'))
+        "if bufexists(i) && !getbufvar(i,"&mod") && index(tablist, i) == -1
+        ""bufno exists AND isn't modified AND isn't in the list of buffers open in windows and tabs
+            "silent exec 'bwipeout' i
+            "let nWipeouts = nWipeouts + 1
+        "endif
+    "endfor
+    "echomsg nWipeouts . ' buffer(s) wiped out'
+"endfunction
+"command! DeleteInactiveBuffers :call DeleteInactiveBufs()
 
 "" quickfix buffers
-nnoremap <expr> t (&buftype is# "quickfix" ? "<C-W><CR><C-W>T" : "t")
-nnoremap <expr> i (&buftype is# "quickfix" ? "<C-W><CR><C-W>K" : "i")
-nnoremap <expr> s (&buftype is# "quickfix" ? "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t" : "s")
+"nnoremap <expr> t (&buftype is# "quickfix" ? "<C-W><CR><C-W>T" : "t")
+"nnoremap <expr> i (&buftype is# "quickfix" ? "<C-W><CR><C-W>K" : "i")
+"nnoremap <expr> s (&buftype is# "quickfix" ? "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t" : "s")
 
 """""""""""""""""""""
 "  PLUGIN SETTINGS  "
 """""""""""""""""""""
 
+
+
 "" NeoFormat
+"let g:neoformat_ruby_rubocop = {
+  "\ 'exe': 'rubocop',
+  "\ 'args': ['--auto-correct-all', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
+  "\ 'stdin': 1,
+  "\ 'stderr': 1
+  "\ }
+
+let g:neoformat_enabled_eruby = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_python = ['black']
-let g:neoformat_enabled_ruby = ['rubocop']
+let g:neoformat_enabled_ruby = ['prettier', 'rubocop']
 let g:neoformat_enabled_yaml = ['prettier']
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1
+" Run all configured formatters
+let g:neoformat_run_all_formatters = 1
+let g:neoformat_try_node_exe = 1
+" See verbose error messages
+"let g:neoformat_verbose = 1
+
 
 "" NERDtree
 let NERDTreeIgnore = ['\.aux$', '\.bbl$', '\.blg$', '\.ilg$', '\.idx$', '\.gz$','\.ind$', '\.lof$', '\.log$', '\.lot$', '\.out$', '\.latexmain$', '\.toc$']
@@ -389,35 +391,35 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-react-html-snippets'
 
 "execute ale#fix#registry#Add('htmlbeautifier', 'FormatERuby', ['eruby'], 'htmlbeautifier for eruby')
 
-"let g:ale_fixers = { 
+"let g:ale_fixers = {
             "\'eruby': ['htmlbeautifier'],
             "\'go': ['gofmt'],
-            "\'json': ['prettier'], 
-            "\'javascript': ['prettier'], 
-            "\'less' : ['prettier'], 
+            "\'json': ['prettier'],
+            "\'javascript': ['prettier'],
+            "\'less' : ['prettier'],
             "\'markdown': ['prettier'],
-            "\'python': ['yapf'], 
-            "\'ruby' : ['rubocop', 'prettier'], 
-            "\'scss' : ['prettier'], 
-            "\'sh' : ['shfmt'], 
-            "\'sql': ['pgformatter'], 
+            "\'python': ['yapf'],
+            "\'ruby' : ['rubocop', 'prettier'],
+            "\'scss' : ['prettier'],
+            "\'sh' : ['shfmt'],
+            "\'sql': ['pgformatter'],
             "\'svg': ['xmllint'],
-            "\'tsx': ['prettier'], 
-            "\'typescript': ['prettier'], 
+            "\'tsx': ['prettier'],
+            "\'typescript': ['prettier'],
             "\'yaml': ['prettier']
             "\}
 "let g:ale_linters = {
-            "\'javascript': ['eslint'], 
-            "\'less' : [''], 
+            "\'javascript': ['eslint'],
+            "\'less' : [''],
             "\'python': ['prospector'],
-            "\'ruby' : ['rubocop'], 
-            "\'sh' : ['shellcheck'], 
-            "\'tsx': ['eslint', 'tsserver'], 
-            "\'typescript': ['eslint', 'tsserver'], 
+            "\'ruby' : ['rubocop'],
+            "\'sh' : ['shellcheck'],
+            "\'tsx': ['eslint', 'tsserver'],
+            "\'typescript': ['eslint', 'tsserver'],
             "\'yaml': ['yamllint']
             "\}
 "let g:ale_linters_explicit = 1
-"let g:ale_javascript_eslint_executable = 'eslint' 
+"let g:ale_javascript_eslint_executable = 'eslint'
 "let g:ale_python_yapf_options = '--style pep8'
 "let g:ale_yaml_yamllint_options = '-d relaxed'
 "let g:ale_virtualenv_dir_names = []
@@ -440,7 +442,7 @@ let g:session_name_suggestion_function = 0
 "" vim-latex
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
-imap <D-b> <Plug>Tex_MathBF	
+imap <D-b> <Plug>Tex_MathBF
 imap <D-c> <Plug>Tex_MathCal
 imap <D-l> <Plug>Tex_LeftRight
 imap <D-i> <Plug>Tex_InsertItemOnThisLine
@@ -607,6 +609,5 @@ let test#strategy = "neovim"
 "" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 "" Resume latest coc list.
 "" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 
 

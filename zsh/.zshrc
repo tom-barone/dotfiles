@@ -75,53 +75,31 @@ plugins=(zsh-abbr fzf zsh-autosuggestions rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_AU.UTF-8
+export EDITOR='nvim'
 
-# You may need to manually set your language environment
- export LANG=en_AU.UTF-8
+#/Users/tbone/.rbenv/shims:/usr/local/bin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Library/Apple/usr/bin
 
-# Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='nvim'
- fi
+# PATH updates
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/.yarn/bin:$GOPATH/bin:$GOROOT/bin:/Users/tbone/Library/Python/3.9/bin:$PATH"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-## PATH updates
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
-
-# Remove default aliases
+## Remove default aliases
 unalias 1 2 3 4 5 6 7 8 9 _ egrep fgrep grep history l la ll ls lsa md rd run-help which-command "-" "..." "...." "......" "....."
 
 set-terminal-title() {
     echo -en "\033]0;$1\a"
 }
 
-### Gcloud config
+# Gcloud config
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 ### NVM config
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # --no-use  # This loads nvm
 
 
 ### FZF Config
@@ -198,7 +176,7 @@ join-lines() {
   done
 } f b t r h s
 
-# Virtualenvwrapper
+## Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh

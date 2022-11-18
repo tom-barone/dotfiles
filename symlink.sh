@@ -9,6 +9,7 @@ dotfiles_to_symlink=(
     bash
     fish
     git
+    node
     nvim
     ruby
     system

@@ -1,3 +1,16 @@
+-- Things to remember
+--
+-- nnoremap <leader>xx <cmd>TroubleToggle<cr>
+-- nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+-- nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+--
+-- :LspInfo
+--
+-- :Obsess
+
+
+
+
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -15,6 +28,10 @@ end
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+    performance = {
+        debounce = 1000,
+        throttle = 1000
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -97,7 +114,7 @@ cmp.setup {
 
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 
 local lspconfig = require('lspconfig')
@@ -113,4 +130,14 @@ end
 
 
 -- Telescope
+local actions = require "telescope.actions"
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-l>"] = actions.send_to_qflist + actions.open_qflist,
+      }
+    }
+  },
+}
 

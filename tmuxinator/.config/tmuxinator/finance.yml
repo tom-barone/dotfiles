@@ -46,9 +46,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - editor:
-           - poetry run nvim
-        - poetry-shell:
+        - shell:
            - export PYTHONPATH=.
            - poetry shell
         - fava:

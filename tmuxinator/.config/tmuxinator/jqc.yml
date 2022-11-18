@@ -22,7 +22,7 @@ root: ~/gitlab/jqc
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title jqc; sleep 1
+pre_window: set-terminal-title jqc
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -49,13 +49,13 @@ windows:
       layout: even-vertical
       panes:
         - cloud_sql_proxy -instances=disco-direction-224307:australia-southeast1:rails-jqc-instance-v8=tcp:3306
-        - bundle exec guard
-        - yarn && rails server
-  - migrateAccess:
-      layout: main-vertical
-      panes:
-        - editor:
-            - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
-            - nvim
-        - shell:
-            - cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
+        #- bundle exec guard
+        - rails server
+  #- migrateAccess:
+      #layout: main-vertical
+      #panes:
+        #- editor:
+            #- cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
+            #- nvim
+        #- shell:
+            #- cd "/Users/tbone/Google Drive (admin@tombarone.net)/JQC/MigrateAccess"
