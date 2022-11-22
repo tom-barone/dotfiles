@@ -16,7 +16,6 @@ dotfiles_to_symlink=(
     tig
     tmux
     tmuxinator
-    vim
     zsh
 )
 

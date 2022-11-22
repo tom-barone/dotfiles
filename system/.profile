@@ -8,24 +8,24 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# If running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+## If running bash
+#if [ -n "$BASH_VERSION" ]; then
+    ## include .bashrc if it exists
+    #if [ -f "$HOME/.bashrc" ]; then
+	#. "$HOME/.bashrc"
+    #fi
+#fi
 
-# set PATH so it includes user's private bin directories
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/.balena-cli:$PATH"
+## set PATH so it includes user's private bin directories
+#export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+#export PATH="$HOME/.cargo/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$HOME/.rbenv/shims:$PATH"
+#export PATH="$HOME/.balena-cli:$PATH"
 
-# Include the python pip3 installs on mac
-export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
+## Include the python pip3 installs on mac
+#export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
 
-# Include the python pip3 installs on mac
-export TMUXINATOR_CONFIG="$HOME/dotfiles/tmuxinator/.config/tmuxinator"
-export PATH="/usr/local/sbin:$PATH"
+## Include the python pip3 installs on mac
+#export TMUXINATOR_CONFIG="$HOME/dotfiles/tmuxinator/.config/tmuxinator"
+#export PATH="/usr/local/sbin:$PATH"

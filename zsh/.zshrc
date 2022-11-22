@@ -84,7 +84,8 @@ export EDITOR='nvim'
 # PATH updates
 export GOPATH="$HOME/go"
 export GOROOT="/usr/local/opt/go/libexec"
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/.yarn/bin:$GOPATH/bin:$GOROOT/bin:/Users/tbone/Library/Python/3.9/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/.yarn/bin:$GOPATH/bin:$GOROOT/bin:/Users/tbone/Library/Python/3.9/bin:$HOME/.cargo/bin:$PATH"
+
 
 ## Remove default aliases
 unalias 1 2 3 4 5 6 7 8 9 _ egrep fgrep grep history l la ll ls lsa md rd run-help which-command "-" "..." "...." "......" "....."
