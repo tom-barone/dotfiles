@@ -7,7 +7,7 @@ noremap j gj
 noremap k gk
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-nnoremap <C-X> :Bdelete<CR>
+nnoremap <C-X> :bd<CR>
 lmap <C-c> <C-[>  " For command line modes
 nnoremap Q <Nop>
 nmap <C-Q> :q <Enter>
@@ -33,11 +33,14 @@ nmap <Leader>pi <Cmd>source $MYVIMRC <Bar> PlugInstall <Enter>
 nmap <Leader>pr <Cmd>Neoformat<Enter>
 nmap <C-t> <Cmd>Files<Enter>
 
-nmap <C-g><C-s> <Cmd>GFiles?<Enter>
+nmap <C-g><C-f> <Cmd>GFiles?<Enter>
 nmap <C-g><C-b> <Cmd>Buffers<Enter>
 nnoremap <leader>ge <Cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>gE <Cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>gr <Cmd>TroubleToggle lsp_references<cr>
+
+nnoremap [d <Cmd>lua vim.diagnostic.goto_prev()<Enter>
+nnoremap ]d <Cmd>lua vim.diagnostic.goto_next()<Enter>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>

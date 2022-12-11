@@ -1,12 +1,11 @@
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function()
 	local opts = { noremap = true, silent = true }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.declaration, opts)
+	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+	vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 	vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
@@ -43,8 +42,14 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "vsnip" },
-	}, {
-		{ name = "buffer" },
+		{
+			name = "buffer",
+			option = {
+				get_bufnrs = function()
+					return vim.api.nvim_list_bufs()
+				end,
+			},
+		},
 	}),
 })
 
@@ -103,7 +108,7 @@ require("lspconfig").solargraph.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").tsserver.setup({
+require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -111,3 +116,8 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+require("lspconfig").pylsp.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+

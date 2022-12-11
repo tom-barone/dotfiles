@@ -28,3 +28,9 @@ set signcolumn=yes
 set completeopt=menu,menuone,noselect
 
 set cursorline
+
+set foldmethod=syntax
+
+" How long before the swp file is written to disk
+" Makes vim-gitgutter much faster
+set updatetime=1000

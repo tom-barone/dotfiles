@@ -9,4 +9,4 @@ abbr ls="exa"
 abbr mux="tmuxinator"
 abbr tree="exa --tree --level=2 --all"
 abbr c.="code ."
-
+abbr cat="bat"

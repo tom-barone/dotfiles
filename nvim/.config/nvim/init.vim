@@ -12,6 +12,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Good plugins source
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
+"
+Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
@@ -22,8 +24,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'nathangrigg/vim-beancount'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
@@ -31,11 +35,12 @@ Plug 'ojroques/nvim-hardline'
 Plug 'preservim/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
+"
 "Plug 'antoinemadec/FixCursorHold.nvim'
 "Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 "Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -43,14 +48,12 @@ Plug 'tpope/vim-unimpaired'
 "Plug 'scrooloose/nerdtree'
 "Plug 'tpope/vim-repeat'
 "Plug 'tpope/vim-rails'
-"Plug 'tpope/vim-obsession'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'dense-analysis/ale'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
 "Plug 'junegunn/fzf.vim'
-"Plug 'nathangrigg/vim-beancount'
 "Plug 'ap/vim-css-color'
 "Plug 'cespare/vim-toml'
 "Plug 'vim-test/vim-test'

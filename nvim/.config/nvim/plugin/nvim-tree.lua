@@ -5,4 +5,5 @@ vim.g.loaded_netrwPlugin = 1
 -- Disable <C-e> so we can scroll normally
 require("nvim-tree").setup({
 	remove_keymaps = { "<C-e>" },
+	git = { ignore = false },
 })

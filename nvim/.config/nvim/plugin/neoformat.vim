@@ -1,9 +1,10 @@
 let g:neoformat_enabled_eruby = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_python = ['black']
-let g:neoformat_enabled_ruby = ['prettier', 'rubocop']
-let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
+let g:neoformat_enabled_python = ['yapf']
+let g:neoformat_enabled_ruby = ['rubocop']
+let g:neoformat_enabled_sql = ['sqlformat']
+let g:neoformat_enabled_yaml = ['prettier']
 
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1
