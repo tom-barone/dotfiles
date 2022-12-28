@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/dotfiles.yml
+# /Users/tbone/.config/tmuxinator/jqc.yml
 
-name: dotfiles
-root: ~/dotfiles
+name: portfolio-site
+root: ~/github/portfolio-site
 
 # Optional tmux socket
 # socket_name: foo
@@ -22,7 +22,7 @@ root: ~/dotfiles
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title dotfiles; sleep 0.5
+pre_window: set-terminal-title portfolio-site
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -42,9 +42,10 @@ pre_window: set-terminal-title dotfiles; sleep 0.5
 windows:
   - editor:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
         - nvim
         - clear
+  - server:
+      - bundle install
+      - bundle exec jekyll build
+      - bundle exec jekyll serve --livereload --open-url
