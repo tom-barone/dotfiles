@@ -13,10 +13,14 @@ call plug#begin(stdpath('data') . '/plugged')
 " Good plugins source
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 "
+
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
+Plug 'godlygeek/tabular'
+Plug 'gpanders/editorconfig.nvim'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
@@ -27,6 +31,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kosayoda/nvim-lightbulb'
 Plug 'nathangrigg/vim-beancount'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-tree/nvim-tree.lua'
@@ -39,6 +44,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'weilbith/nvim-code-action-menu'
 
 "
 "Plug 'antoinemadec/FixCursorHold.nvim'

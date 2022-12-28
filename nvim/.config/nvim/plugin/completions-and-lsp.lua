@@ -14,7 +14,7 @@ local on_attach = function()
 	end, opts)
 	vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
-	vim.keymap.set("n", "<Leader>ga", vim.lsp.buf.code_action)
+	vim.keymap.set("n", "<Leader>ga", "<cmd>CodeActionMenu<cr>")
 end
 
 -- Set up nvim-cmp.
@@ -120,4 +120,8 @@ require("lspconfig").pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
+require("lspconfig").rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { "/Users/tbone/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rust-analyzer" },
+})
