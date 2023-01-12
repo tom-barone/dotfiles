@@ -1,1 +1,0 @@
-# Empty so the .bashrc.d folder gets created
