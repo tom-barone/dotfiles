@@ -1,3 +1,6 @@
+symlink:
+	./symlink.sh
+
 .PHONY: build-docker
 build-docker:
 	docker build . --tag dotfiles

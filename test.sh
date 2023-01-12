@@ -11,6 +11,7 @@ function test() {
     fi
 }
 
+test 'python3 --version'
 test 'adb --version'
 test 'balena --version'
 test 'cargo --version'
