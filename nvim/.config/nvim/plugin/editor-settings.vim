@@ -34,3 +34,5 @@ set foldmethod=syntax
 " How long before the swp file is written to disk
 " Makes vim-gitgutter much faster
 set updatetime=1000
+
+let g:python3_host_prog=expand("$HOME/.virtualenvs/nvim/bin/python")
