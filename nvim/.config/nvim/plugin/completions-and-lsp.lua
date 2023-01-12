@@ -1,3 +1,7 @@
+-- Don't log things by default, enable when debugging
+vim.g.lsp_log_file = ""
+vim.g.lsp_log_verbose = 1
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function()
@@ -7,6 +11,7 @@ local on_attach = function()
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 	vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
 	vim.keymap.set("n", "<Leader>wl", function()
@@ -124,4 +129,8 @@ require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = { "/Users/tbone/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rust-analyzer" },
+})
+require("lspconfig").bashls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
