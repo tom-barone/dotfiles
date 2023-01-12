@@ -220,12 +220,6 @@ fi
 ## rbenv
 eval "$(rbenv init -)"
 
-
-## Source any custom bash files
-for file in ~/.bashrc.d/*.bash; do
-    source "$file"
-done
-
 ## Go
 # shellcheck source=/dev/null
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

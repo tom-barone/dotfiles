@@ -1,31 +1,26 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+export EDITOR='nvim'
+export LANG=en_AU.UTF-8
+export TZ="Europe/Rome"
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/opt/go/libexec"
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
+# Rust paths
+export PATH="$HOME/.cargo/bin:$PATH"
 
-## If running bash
-#if [ -n "$BASH_VERSION" ]; then
-    ## include .bashrc if it exists
-    #if [ -f "$HOME/.bashrc" ]; then
-	#. "$HOME/.bashrc"
-    #fi
-#fi
+# Golang paths
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 
-## set PATH so it includes user's private bin directories
-#export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-#export PATH="$HOME/.cargo/bin:$PATH"
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#export PATH="$HOME/.rbenv/shims:$PATH"
-#export PATH="$HOME/.balena-cli:$PATH"
+# Path for poetry
+export PATH="$HOME/.local/bin:$PATH"
 
-## Include the python pip3 installs on mac
-#export PATH="$PATH:/Users/tbone/Library/Python/3.9/bin"
+# Path for azcopy
+export PATH="$HOME/bin:$PATH"
 
-## Include the python pip3 installs on mac
-#export TMUXINATOR_CONFIG="$HOME/dotfiles/tmuxinator/.config/tmuxinator"
-#export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+
+## macOS
+# I want gnu-sed not the weird macOS sec
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
