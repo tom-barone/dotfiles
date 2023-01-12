@@ -40,14 +40,18 @@ pre_window: set-terminal-title finance; sleep 0.5
 # attach: false
 
 windows:
-  - editor:
+  - main:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
+        - editor:
+            - export PYTHONPATH=.
+            - poetry shell
         - shell:
-           - export PYTHONPATH=.
-           - poetry shell
-        - fava:
-           - poetry run fava finance.beancount
+            - poetry shell
+  - fava_server:
+      layout: even-vertical
+      panes:
+        - poetry run fava finance.beancount
