@@ -1,7 +1,7 @@
 # /Users/tbone/.config/tmuxinator/jqc.yml
 
 name: jqc
-root: ~/github/JQC
+root: ~/github/attc/JQC
 
 # Optional tmux socket
 # socket_name: foo
@@ -49,4 +49,4 @@ windows:
       layout: even-vertical
       panes:
         - make run-cloud-sql-proxy
-        - rails server
+        - make dev

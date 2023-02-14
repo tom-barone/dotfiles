@@ -1,7 +1,7 @@
 # /Users/tbone/.config/tmuxinator/jqc.yml
 
-name: portfolio-site
-root: ~/github/portfolio-site
+name: Discontent
+root: ~/github/discontent
 
 # Optional tmux socket
 # socket_name: foo
@@ -22,7 +22,7 @@ root: ~/github/portfolio-site
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title portfolio-site
+pre_window: set-terminal-title Discontent
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -45,5 +45,15 @@ windows:
       panes:
         - nvim
         - clear
-  - server:
-      - make dev
+  - lambda:
+      layout: "main-vertical"
+      root: ~/github/discontent/backend/lambda
+      panes:
+        - nvim
+        - clear
+  - database:
+      layout: "main-vertical"
+      root: ~/github/discontent/backend/database
+      panes:
+        - nvim
+        - clear
