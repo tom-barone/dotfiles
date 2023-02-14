@@ -8,6 +8,10 @@ DISABLE_AUTO_TITLE="true"
 plugins=(zsh-abbr fzf zsh-autosuggestions rbenv)
 source $ZSH/oh-my-zsh.sh
 
+# History sizes
+export SAVEHIST=1000000
+export HISTSIZE=1000000
+
 ## Remove default aliases
 unalias 1 2 3 4 5 6 7 8 9 _ egrep fgrep grep history l la ll ls lsa md rd run-help which-command "-" "..." "...." "......" "....."
 
@@ -105,3 +109,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Rust
 source "$HOME/.cargo/env"
+
+## zsh-autosuggestions
+bindkey '^s' autosuggest-accept
