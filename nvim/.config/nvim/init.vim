@@ -19,6 +19,7 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
+Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'gpanders/editorconfig.nvim'
 Plug 'hrsh7th/cmp-buffer'

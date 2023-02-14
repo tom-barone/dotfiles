@@ -10,8 +10,8 @@ local on_attach = function()
 	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 	vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 	vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
 	vim.keymap.set("n", "<Leader>wl", function()
@@ -38,9 +38,6 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },

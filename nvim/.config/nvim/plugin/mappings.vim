@@ -42,6 +42,14 @@ nnoremap <leader>gr <Cmd>TroubleToggle lsp_references<cr>
 nnoremap [d <Cmd>lua vim.diagnostic.goto_prev()<Enter>
 nnoremap ]d <Cmd>lua vim.diagnostic.goto_next()<Enter>
 
+" Copilot
+imap <silent><script><expr> <C-s> copilot#Accept("\<CR>")
+" ignore default tab map
+let g:copilot_no_tab_map = v:true
+imap <C-j> <Plug>(copilot-next)
+imap <C-k> <Plug>(copilot-previous)
+
+
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
