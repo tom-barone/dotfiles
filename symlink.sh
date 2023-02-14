@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 dotfiles_to_symlink=(
+	alacritty
 	bash
 	git
 	node
