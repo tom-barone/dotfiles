@@ -6,6 +6,7 @@ let g:neoformat_enabled_ruby = ['rubocop']
 let g:neoformat_enabled_sql = ['sqlformat']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
+let g:neoformat_enabled_rust = ['rustfmt']
 
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1
