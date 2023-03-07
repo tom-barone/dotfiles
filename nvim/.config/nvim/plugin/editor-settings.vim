@@ -4,8 +4,10 @@
 let g:loaded_perl_provider = 0
 
 " Theme
+if (has("termguicolors"))
+ set termguicolors
+endif
 colorscheme tokyonight-night
-set termguicolors
 
 " Sync the system clipboard with the unnamed register
 set clipboard^=unnamed,unnamedplus
