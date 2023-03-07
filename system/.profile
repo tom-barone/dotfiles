@@ -17,10 +17,17 @@ export PATH="$HOME/.local/bin:$PATH"
 # Path for azcopy
 export PATH="$HOME/bin:$PATH"
 
+# Path for adb
+export PATH="$HOME/platform-tools:$PATH"
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
 
 ## macOS
 # I want gnu-sed not the weird macOS sec
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+# I want gmake not whatever Xcode uses
+export PATH="/usr/local/opt/make/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+## Want this alias in all shells (bash, zsh, sh)
+alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
