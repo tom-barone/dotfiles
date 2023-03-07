@@ -2,6 +2,13 @@ let g:neoformat_enabled_eruby = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
 let g:neoformat_enabled_python = ['yapf']
+" Make rubocop do unsafe auto-corrects
+let g:neoformat_ruby_rubocop = {
+		\ 'exe': 'rubocop',
+		\ 'args': ['--auto-correct-all', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
+		\ 'stdin': 1,
+		\ 'stderr': 1
+		\ }
 let g:neoformat_enabled_ruby = ['rubocop']
 let g:neoformat_enabled_sql = ['sqlformat']
 let g:neoformat_enabled_yaml = ['prettier']

@@ -34,6 +34,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'kosayoda/nvim-lightbulb'
+Plug 'mfussenegger/nvim-lint'
 Plug 'nathangrigg/vim-beancount'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-tree/nvim-tree.lua'

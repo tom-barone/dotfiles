@@ -121,6 +121,7 @@ require("lspconfig").vimls.setup({
 require("lspconfig").pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "/Users/tbone/.virtualenvs/nvim/bin/pylsp" },
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
