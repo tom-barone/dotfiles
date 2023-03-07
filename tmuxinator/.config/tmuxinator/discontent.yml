@@ -40,20 +40,35 @@ pre_window: set-terminal-title Discontent
 # attach: false
 
 windows:
-  - editor:
+  - main:
       layout: main-vertical
       panes:
         - nvim
         - clear
+  - extension:
+      layout: main-vertical
+      root: ~/github/discontent/extension
+      panes:
+        - nvim
+        - clear
+  - backend:
+      layout: main-vertical
+      root: ~/github/discontent/backend
+      panes:
+        - editor:
+            - poetry shell
+            - nvim
+        - shell:
+            - poetry shell
   - lambda:
-      layout: "main-vertical"
+      layout: main-vertical
       root: ~/github/discontent/backend/lambda
       panes:
         - nvim
         - clear
-  - database:
-      layout: "main-vertical"
-      root: ~/github/discontent/backend/database
+  - end_to_end_tests:
+      layout: main-vertical
+      root: ~/github/discontent/end_to_end_tests
       panes:
         - nvim
         - clear
