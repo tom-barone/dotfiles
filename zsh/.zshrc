@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 # History sizes
 export SAVEHIST=1000000
 export HISTSIZE=1000000
+export HIST_IGNORE_SPACE=true
 
 ## Remove default aliases
 unalias 1 2 3 4 5 6 7 8 9 _ egrep fgrep grep history l la ll ls lsa md rd run-help which-command "-" "..." "...." "......" "....."
