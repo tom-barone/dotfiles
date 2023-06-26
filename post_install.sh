@@ -11,6 +11,7 @@ if os_is ubuntu; then
 	os_install build-essential # make and more
 	os_install unzip
 	os_install software-properties-common
+	os_install zsh
 fi
 if os_is mac; then
 	xcode-select --install || true
