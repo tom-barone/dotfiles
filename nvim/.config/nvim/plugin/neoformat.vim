@@ -1,7 +1,13 @@
 let g:neoformat_enabled_eruby = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
-let g:neoformat_enabled_python = ['yapf']
+" Black works better with wrapping long strings
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_python_black = {
+                \ 'exe': 'black',
+                \ 'stdin': 1,
+                \ 'args': ['--preview', '--line-length', '79', '-q', '-'],
+                \ }
 " Make rubocop do unsafe auto-corrects
 let g:neoformat_ruby_rubocop = {
 		\ 'exe': 'rubocop',
