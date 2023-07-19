@@ -8,5 +8,9 @@ abbr ll="exa --long --header --icons --all"
 abbr ls="exa"
 abbr mux="tmuxinator"
 abbr tree="exa --tree --level=2 --all"
-abbr c.="code ."
+abbr c.="code . &"
 abbr cat="bat"
+
+# Abbreviations for work laptop
+abbr cdc="cd ~/code"
+abbr ssh-canvas="ssh -i ~/.ssh/canvas-lms-key-pair.pem bitnami@ec2-13-236-19-48.ap-southeast-2.compute.amazonaws.com"
