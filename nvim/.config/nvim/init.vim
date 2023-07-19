@@ -14,15 +14,18 @@ call plug#begin(stdpath('data') . '/plugged')
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 "
 
+
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'folke/lsp-colors.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'folke/trouble.nvim'
 Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'gpanders/editorconfig.nvim'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-path'
@@ -31,14 +34,18 @@ Plug 'hrsh7th/nvim-cmp'
 Plug '~/opt/fzf'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'mfussenegger/nvim-lint'
+Plug 'moll/vim-bbye'
 Plug 'nathangrigg/vim-beancount'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ojroques/nvim-hardline'
 Plug 'preservim/nerdcommenter'
 Plug 'rafamadriz/friendly-snippets'
@@ -49,7 +56,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'weilbith/nvim-code-action-menu'
-
 "
 "Plug 'antoinemadec/FixCursorHold.nvim'
 "Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
@@ -72,11 +78,9 @@ Plug 'weilbith/nvim-code-action-menu'
 "Plug 'hrsh7th/cmp-nvim-lsp'
 "Plug 'hrsh7th/cmp-buffer'
 "Plug 'hrsh7th/cmp-path'
-"Plug 'hrsh7th/cmp-cmdline'
 "Plug 'hrsh7th/nvim-cmp'
 "Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-telescope/telescope.nvim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
