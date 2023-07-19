@@ -7,7 +7,7 @@ noremap j gj
 noremap k gk
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-nnoremap <C-X> :bd<CR>
+nnoremap <C-X> :Bdelete<CR>
 lmap <C-c> <C-[>  " For command line modes
 nnoremap Q <Nop>
 nmap <C-Q> :q <Enter>
@@ -30,7 +30,8 @@ nmap <Leader>tt <Cmd>NvimTreeToggle <Enter>
 nmap <Leader>tf <Cmd>NvimTreeFindFile! <Enter>
 nmap <Leader>pc <Cmd>source $MYVIMRC <Bar> PlugClean <Enter>
 nmap <Leader>pi <Cmd>source $MYVIMRC <Bar> PlugInstall <Enter>
-nmap <Leader>pr <Cmd>Neoformat<Enter>
+nmap <Leader>pr <Cmd>Neoformat <Enter>
+nmap <Leader>po <Cmd>OrganiseImports <Enter>
 nmap <C-t> <Cmd>Files<Enter>
 
 nmap <C-g><C-f> <Cmd>GFiles?<Enter>
