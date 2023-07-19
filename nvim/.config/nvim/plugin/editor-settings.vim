@@ -15,9 +15,9 @@ if (empty($TMUX))
 	"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
 	"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 	" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if (has("termguicolors"))
- set termguicolors
-endif
+	if (has("termguicolors"))
+		set termguicolors
+	endif
 endif
 colorscheme tokyonight-night
 
@@ -53,3 +53,28 @@ set foldmethod=syntax
 set updatetime=1000
 
 let g:python3_host_prog=expand("$HOME/.virtualenvs/nvim/bin/python")
+
+function! IsWSL()
+  if has("unix")
+    let lines = readfile("/proc/version")
+    if lines[0] =~ "microsoft"
+      return 1
+    endif
+  endif
+  return 0
+endfunction
+
+if IsWSL()
+	let g:clipboard = {
+							\   'name': 'WslClipboard',
+							\   'copy': {
+							\      '+': 'clip.exe',
+							\      '*': 'clip.exe',
+							\    },
+							\   'paste': {
+							\      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+							\      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+							\   },
+							\   'cache_enabled': 0,
+							\ }
+endif
