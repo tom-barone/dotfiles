@@ -40,3 +40,6 @@ tags
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Env files
+.env
