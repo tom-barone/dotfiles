@@ -1,5 +1,5 @@
 -- Don't log things by default, enable when debugging
-vim.g.lsp_log_file = ""
+vim.g.lsp_log_file = "~/downloads/test.log"
 vim.g.lsp_log_verbose = 1
 
 -- Use an on_attach function to only map the following keys
@@ -24,7 +24,15 @@ end
 
 -- Set up nvim-cmp.
 local cmp = require("cmp")
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -35,10 +43,10 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-	mapping = cmp.mapping.preset.insert({
+    mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-	}),
+    }),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
@@ -80,8 +88,21 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("lspconfig").tsserver.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+  commands = {
+    OrganiseImports = {
+      function()
+				local params = {
+					command = "_typescript.organizeImports",
+					arguments = {vim.api.nvim_buf_get_name(0)},
+					title = ""
+				}
+				vim.lsp.buf.execute_command(params)
+			end,
+      description = "Organise Imports"
+    }
+  }
 })
-require("lspconfig").sumneko_lua.setup({ -- Lua
+require("lspconfig").lua_ls.setup({ -- Lua
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -114,14 +135,10 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").vimls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
 require("lspconfig").pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { "/Users/tbone/.virtualenvs/nvim/bin/pylsp" },
+	cmd = { os.getenv("HOME").."/.virtualenvs/nvim/bin/pylsp" },
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
@@ -129,6 +146,10 @@ require("lspconfig").rust_analyzer.setup({
 	cmd = { "/Users/tbone/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rust-analyzer" },
 })
 require("lspconfig").bashls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+require("lspconfig").eslint.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
