@@ -32,6 +32,7 @@ nmap <Leader>pc <Cmd>source $MYVIMRC <Bar> PlugClean <Enter>
 nmap <Leader>pi <Cmd>source $MYVIMRC <Bar> PlugInstall <Enter>
 nmap <Leader>pr <Cmd>Neoformat <Enter>
 nmap <Leader>po <Cmd>OrganiseImports <Enter>
+nmap <Leader>gy <Cmd>Goyo <Enter>
 nmap <C-t> <Cmd>Files<Enter>
 
 nmap <C-g><C-f> <Cmd>GFiles?<Enter>
