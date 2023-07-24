@@ -20,6 +20,13 @@ let g:neoformat_enabled_sql = ['sqlformat']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_rust = ['rustfmt']
+let g:neoformat_enabled_markdown = ['prettier']
+let g:neoformat_markdown_prettier = {
+        \ 'exe': 'prettier',
+        \ 'args': ['--prose-wrap', 'always', '--stdin-filepath', '"%:p"'],
+        \ 'stdin': 1,
+        \ }
+
 
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1
