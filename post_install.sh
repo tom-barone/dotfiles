@@ -30,13 +30,10 @@ if os_is mac; then
 	os_install mono-libgdiplus
 fi
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
-if have_not_installed dotnet; then
-	wget https://dot.net/v1/dotnet-install.sh
-	chmod +x dotnet-install.sh
-	./dotnet-install.sh --channel 7.0
-	./dotnet-install.sh --runtime dotnet
-	rm dotnet-install.sh
-fi
+wget https://dot.net/v1/dotnet-install.sh
+chmod +x dotnet-install.sh
+./dotnet-install.sh --channel 7.0
+rm dotnet-install.sh
 
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
