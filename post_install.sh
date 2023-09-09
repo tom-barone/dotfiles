@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e # Fail the script if any installs fail
 source helpers.sh
 
 # Essentials
@@ -45,7 +46,6 @@ if have_not_installed git-credential-manager; then
 	fi
 	if os_is ubuntu; then
 		dotnet tool install -g git-credential-manager
-		git-credential-manager configure
 	fi
 fi
 

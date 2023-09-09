@@ -4,7 +4,8 @@ source helpers.sh
 
 export HAS_TEST_SUITE_PASSED=true
 function test() {
-	if $1 >/dev/null 2>&1; then
+	# shellcheck disable=SC2086
+	if eval $1 >/dev/null 2>&1; then
 		echo "Pass: \"$1\""
 		return
 	else
@@ -51,7 +52,7 @@ test 'dotnet --version'
 test 'git-credential-manager --version'
 test 'zsh -ic "abbr --version"'
 test 'zsh -ic "p10k help"'
-test 'fzf --version'
+test 'zsh -ic "fzf --version"'
 test 'cmake --version'
 test 'vim --version'
 test 'tmux -V'

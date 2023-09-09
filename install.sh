@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e # Fail the script if any installs fail
+
 # shellcheck source=/dev/null
 source helpers.sh
 
