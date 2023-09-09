@@ -16,7 +16,7 @@ jobs:
       - name: 'Have a look around'
         run: 'pwd && ls && echo $HOME'
       - name: 'Install stow & adopt all the links'
-        run: 
+        run: |
           sudo apt-get install -y stow
           ./symlink.sh --adopt
           git status
