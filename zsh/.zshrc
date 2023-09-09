@@ -62,6 +62,3 @@ gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not t
 gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
 export PATH="$gnu_sed:$gmake:$PATH"
 
-## zsh-autosuggestions
-bindkey '^s' autosuggest-accept
-
