@@ -2,14 +2,7 @@
 
 Dotfiles per me!
 
-Start by cloning this repo.
-
-Install [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md) with `brew install --cask git-credential-manager`
-
-## To install everything from scratch
-
-1. Run `prepare.sh` to install homebrew and stow
-2. Run `install.sh` to symlink everything and kick off installation
+Run `install.sh` to install, symlink and test everything.
 
 ## Fonts
 
