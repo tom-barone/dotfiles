@@ -3,6 +3,7 @@
 dotfiles_to_symlink=(
 	alacritty
 	bash
+	fzf
 	git
 	node
 	nvim
