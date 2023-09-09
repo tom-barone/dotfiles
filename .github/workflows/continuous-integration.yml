@@ -13,6 +13,11 @@ jobs:
         uses: 'actions/checkout@v3'
         with:
           fetch-depth: 0  # Deep clone
+      - name: 'Move dotfiles to the home directory'
+        run: |
+          cd ..
+          mv dotfiles ~/dotfiles
+          cd ~/dotfiles
       - name: 'Have a look around'
         run: 'pwd && ls && echo $HOME'
       - name: 'Install stow & adopt all the links'
@@ -31,6 +36,11 @@ jobs:
         uses: 'actions/checkout@v3'
         with:
           fetch-depth: 0  # Deep clone
+      - name: 'Move dotfiles to the home directory'
+        run: |
+          cd ..
+          mv dotfiles ~/dotfiles
+          cd ~/dotfiles
       - name: 'Have a look around'
         run: 'pwd && ls && echo $HOME'
       - name: 'Install stow & adopt all the links'
