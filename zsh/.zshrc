@@ -23,6 +23,10 @@ export SAVEHIST=1000000
 export HISTSIZE=1000000
 export HIST_IGNORE_SPACE=true
 
+# Search history using whats on the line already (because .inputrc isn't loaded for zsh)
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
 # Gcloud config
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi

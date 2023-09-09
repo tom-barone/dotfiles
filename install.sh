@@ -18,14 +18,6 @@ if have_not_installed brew; then
 	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install oh-my-zsh
-if [ -d "$HOME/.oh-my-zsh" ]; then
-	echo "oh-my-zsh already installed"
-else
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
-	rm "$HOME/.zshrc"
-fi
-
 # Install stow
 # - We need to manually specify the paths because this happens before symlinking everything
 if have_not_installed stow; then

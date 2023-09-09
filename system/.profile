@@ -4,19 +4,15 @@ export LC_CTYPE=en_AU.UTF-8
 export LC_ALL=en_AU.UTF-8
 #export TZ="Europe/Rome"
 export TZ="Australia/Adelaide"
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/opt/go/libexec"
 
 # Path updates
 #homebrew="$homebrew_prefix/bin"
 homebrew_mac_apple_silicon="/opt/homebrew/bin"
 homebrew_mac_intel="/usr/local/bin"
 homebrew_linux="/home/linuxbrew/.linuxbrew/bin"
-goroot_bin="$GOROOT/bin"
-gopath_bin="$GOPATH/bin"
 adb="$HOME/platform-tools"
 
-export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$goroot_bin:$gopath_bin:$adb:$PATH"
+export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$adb:$PATH"
 
 ## Rust paths
 #export PATH="$HOME/.cargo/bin:$PATH"

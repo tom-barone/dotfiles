@@ -3,9 +3,9 @@
 source helpers.sh
 
 # Essentials
+os_install wget
 if os_is ubuntu; then
 	os_install build-essential # make and more
-	os_install wget
 	os_install unzip
 	os_install software-properties-common
 fi
@@ -18,17 +18,21 @@ fi
 # Python
 # https://formulae.brew.sh/formula/python@3.11
 os_install python3
+if os_is ubuntu; then
+	os_install python3-pip
+fi
 
 # .NET SDK and runtime
-if os_is ubuntu; then
-	# https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204
-	os_install dotnet-sdk-7.0
-	os_install aspnetcore-runtime-7.0
-fi
 if os_is mac; then
-	# https://learn.microsoft.com/en-us/dotnet/core/install/macos
+	# Pre-requisite
+	# https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
 	os_install mono-libgdiplus
 fi
+# https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+wget https://dot.net/v1/dotnet-install.sh
+chmod +x dotnet-install.sh
+./dotnet-install.sh
+rm dotnet-install.sh
 
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
@@ -57,203 +61,153 @@ git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
 
 os_install cmake
 os_install vim
-os_install neovim
 os_install tmux
 os_install shellcheck
+os_install shfmt
+os_install tig
 
-# Dependencies
-os_install bison
+# TODO: proper neovim setup
+# (might have to be at the end after ruby and python setup)
+#os_install neovim
 
-# gvm
-if have_not_installed gvm; then
-	GVM_NO_UPDATE_PROFILE=true bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-fi
-# Go is written in Go (starting from version 1.5) so we need to install go 1.4 to bootstrap
-#source "$HOME/.gvm/scripts/gvm"
-gvm install go1.4 -B
-gvm use go1.4
-export GOROOT_BOOTSTRAP=$GOROOT
+## cargo
+#if have_not_installed cargo; then
+	#curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
+	#source "$HOME/.cargo/env"
+#fi
 
-# Go lang (currently just use v15)
-gvm install go1.15
-gvm use go1.15
+## ripgrep
+#if have_not_installed rg; then
+	#cargo install ripgrep
+#fi
 
-# shfmt
-if have_not_installed shfmt; then
-	GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
-fi
+## rbenv
+#if have_not_installed rbenv; then
+	#curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+#fi
 
-# fzf
-if have_not_installed fzf; then
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install --key-bindings --completion --no-update-rc
-fi
+## ruby
+#if have_not_installed ruby; then
+	#os_install autoconf
+	#os_install libssl-dev
+	#os_install libyaml-dev
+	#os_install libreadline6-dev
+	#os_install zlib1g-dev
+	#os_install libncurses5-dev
+	#os_install libffi-dev
+	#os_install libgdbm5
+	#os_install libgdbm-dev
+	#os_install libdb-dev
 
-# tig
-if os_is mac; then
-	os_install tig
-fi
-if os_is ubuntu; then
-	if have_not_installed tig; then
-		os_install libncurses5-dev
-		git clone https://github.com/jonas/tig.git ~/.tig
-		cd ~/.tig || exit 1 # exit if cd fails
-		make prefix=/usr/local && sudo make install prefix=/usr/local
-		cd - || exit 1
-	fi
-fi
+	#ruby_version=$(rbenv version | awk '{print $1;}')
+	#rbenv install --skip-existing "$ruby_version"
+#fi
 
-# cargo
-if have_not_installed cargo; then
-	curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
-	source "$HOME/.cargo/env"
-fi
+## Install tmuxinator & completions
+#if have_not_installed tmuxinator; then
+	#gem install tmuxinator
+	#sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
+#fi
 
-# ripgrep
-if have_not_installed rg; then
-	cargo install ripgrep
-fi
+#gem_install rubocop
+#gem_install neovim
+#gem_install htmlbeautifier
 
-# rbenv
-if have_not_installed rbenv; then
-	curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-fi
+## Python stuff
+#pip3 install virtualenvwrapper
 
-# ruby
-if have_not_installed ruby; then
-	os_install autoconf
-	os_install libssl-dev
-	os_install libyaml-dev
-	os_install libreadline6-dev
-	os_install zlib1g-dev
-	os_install libncurses5-dev
-	os_install libffi-dev
-	os_install libgdbm5
-	os_install libgdbm-dev
-	os_install libdb-dev
+#pip_install yapf
+#pip_install prospector
+#pip_install poetry
 
-	ruby_version=$(rbenv version | awk '{print $1;}')
-	rbenv install --skip-existing "$ruby_version"
-fi
+## Gcloud
+#gcloud_sdk_url=''
+#if os_is mac; then
+	## macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+	#gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-linux-x86_64.tar.gz"
+#fi
+#if os_is ubuntu; then
+	## Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
+	#gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz"
+#fi
+#if have_not_installed gcloud; then
+	## Download the install tar.gz
+	#wget $gcloud_sdk_url -O cloud-sdk.tar.gz
+	## Extract it to the home dir
+	#tar -xvf cloud-sdk.tar.gz -C ~
+	## Run the install script
+	#~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false
+	## Remove the install tar.gz
+	#rm cloud-sdk.tar.gz
+#fi
 
-# Install tmuxinator & completions
-if have_not_installed tmuxinator; then
-	gem install tmuxinator
-	sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
-fi
+## NVM
+## Need to do this install check because the other doesn't work for some reason
+#if ! [ -s "$NVM_DIR/nvm.sh" ]; then
+	#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
+	#\. "$HOME/.nvm/nvm.sh"
 
-gem_install rubocop
-gem_install neovim
-gem_install htmlbeautifier
+	## Node
+	#nvm install --lts
+	#nvm install-latest-npm
+	#nvm use --lts
+	#nvm alias default lts/*
+#fi
 
-# Python stuff
-pip3 install virtualenvwrapper
+## NPM stuff
+#npm_global_install prettier
+#npm_global_install neovim
 
-pip_install yapf
-pip_install prospector
-pip_install poetry
+## Android platform tools
+## https://developer.android.com/studio/releases/platform-tools
+#android_sdk=""
+#if os_is mac; then
+	#android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
+#fi
+#if os_is ubuntu; then
+	#android_sdk="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+#fi
+#if have_not_installed adb; then
+	#wget $android_sdk -O android-sdk.zip
+	#unzip android-sdk.zip -d ~
+	#rm android-sdk.zip
+#fi
 
-# Gcloud
-gcloud_sdk_url=''
-if os_is mac; then
-	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-linux-x86_64.tar.gz"
-fi
-if os_is ubuntu; then
-	# Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz"
-fi
-if have_not_installed gcloud; then
-	# Download the install tar.gz
-	wget $gcloud_sdk_url -O cloud-sdk.tar.gz
-	# Extract it to the home dir
-	tar -xvf cloud-sdk.tar.gz -C ~
-	# Run the install script
-	~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false
-	# Remove the install tar.gz
-	rm cloud-sdk.tar.gz
-fi
+## Java
+#if os_is ubuntu; then
+	#if have_not_installed java; then
+		#os_install default-jre
+	#fi
+#fi
 
-# NVM
-# Need to do this install check because the other doesn't work for some reason
-if ! [ -s "$NVM_DIR/nvm.sh" ]; then
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
-	\. "$HOME/.nvm/nvm.sh"
+## Google Cloud SQL proxy
+#proxy_file_url=""
+#if os_is mac; then
+	#proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64"
+#fi
+#if os_is ubuntu; then
+	#proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64"
+#fi
+#if have_not_installed cloud_sql_proxy; then
+	#curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
+	#chmod +x /usr/local/bin/cloud_sql_proxy
+#fi
 
-	# Node
-	nvm install --lts
-	nvm install-latest-npm
-	nvm use --lts
-	nvm alias default lts/*
-fi
+## TODO see if we can remove duplicated code between here and bashrc
+#export WORKON_HOME=~/.virtualenvs
+#if os_is mac; then
+	#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.9
+	#source /usr/local/bin/virtualenvwrapper.sh
+#fi
+#if os_is ubuntu; then
+	#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.9
+	#source ~/.local/bin/virtualenvwrapper.sh
+#fi
 
-# NPM stuff
-npm_global_install prettier
-npm_global_install neovim
+## Setup python3 in nvim
+#mkvirtualenv nvim
+#pip3 install neovim
+#pip3 install pynvim
+#deactivate
 
-# Android platform tools
-# https://developer.android.com/studio/releases/platform-tools
-android_sdk=""
-if os_is mac; then
-	android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
-fi
-if os_is ubuntu; then
-	android_sdk="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
-fi
-if have_not_installed adb; then
-	wget $android_sdk -O android-sdk.zip
-	unzip android-sdk.zip -d ~
-	rm android-sdk.zip
-fi
-
-# Java
-if os_is ubuntu; then
-	if have_not_installed java; then
-		os_install default-jre
-	fi
-fi
-
-# Google Cloud SQL proxy
-proxy_file_url=""
-if os_is mac; then
-	proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64"
-fi
-if os_is ubuntu; then
-	proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64"
-fi
-if have_not_installed cloud_sql_proxy; then
-	curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
-	chmod +x /usr/local/bin/cloud_sql_proxy
-fi
-
-# Balena CLI
-# https://github.com/balena-io/balena-cli/releases/latest
-if os_is ubuntu; then
-	if have_not_installed balena; then
-		wget https://github.com/balena-io/balena-cli/releases/download/v12.40.0/balena-cli-v12.40.0-linux-x64-standalone.zip -O balena-cli.zip
-		unzip balena-cli.zip -d ~
-		mv ~/balena-cli ~/.balena-cli
-		rm balena-cli.zip
-	fi
-fi
-
-# TODO see if we can remove duplicated code between here and bashrc
-export WORKON_HOME=~/.virtualenvs
-if os_is mac; then
-	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.9
-	source /usr/local/bin/virtualenvwrapper.sh
-fi
-if os_is ubuntu; then
-	export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.9
-	source ~/.local/bin/virtualenvwrapper.sh
-fi
-
-# Setup python3 in nvim
-mkvirtualenv nvim
-pip3 install neovim
-pip3 install pynvim
-deactivate
-
-os_install neofetch
-
-# Do open of nvim and install of Youcompleteme
+#os_install neofetch
