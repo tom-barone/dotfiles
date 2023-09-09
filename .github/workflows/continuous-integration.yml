@@ -14,17 +14,31 @@ jobs:
         with:
           fetch-depth: 0  # Deep clone
       - name: 'Have a look around'
-        run: 'pwd && ls'
+        run: 'pwd && ls && echo $HOME'
+      - name: 'Install stow & adopt all the links'
+        run: 
+          sudo apt-get install -y stow
+          ./symlink.sh --adopt
+          git status
+          git restore .
+          git status
       - name: 'Run the install script'
         run: './install.sh'
-  test-on-mac:
-    runs-on: 'macos-13'
-    steps:
-      - name: 'Checkout code'
-        uses: 'actions/checkout@v3'
-        with:
-          fetch-depth: 0  # Deep clone
-      - name: 'Have a look around'
-        run: 'pwd && ls'
-      - name: 'Run the install script'
-        run: './install.sh'
+  #test-on-mac:
+    #runs-on: 'macos-13'
+    #steps:
+      #- name: 'Checkout code'
+        #uses: 'actions/checkout@v3'
+        #with:
+          #fetch-depth: 0  # Deep clone
+      #- name: 'Have a look around'
+        #run: 'pwd && ls && echo $HOME'
+      #- name: 'Install stow & adopt all the links'
+        #run: 
+          #brew install stow
+          #./symlink.sh --adopt
+          #git status
+          #git restore .
+          #git status
+      #- name: 'Run the install script'
+        #run: './install.sh'

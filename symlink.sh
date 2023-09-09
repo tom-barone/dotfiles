@@ -20,6 +20,11 @@ make_link() {
 	stow --verbose --restow --target "$HOME" "${directory}"
 }
 
+adopt_link() {
+	directory=$1
+	stow --verbose --adopt --target "$HOME" "${directory}"
+}
+
 delete_link() {
 	directory=$1
 	stow --verbose --delete --target "$HOME" "${directory}"
@@ -29,6 +34,11 @@ for directory in "${dotfiles_to_symlink[@]}"; do
 	if [[ $1 == "--delete" ]]; then
 		delete_link "$directory" || {
 			echo 'Removing symlinks failed'
+			exit 1
+		}
+	elif [[ $1 == "--adopt" ]]; then
+		adopt_link "$directory" || {
+			echo 'Adopting symlinks failed'
 			exit 1
 		}
 	else
