@@ -11,7 +11,7 @@ if os_is ubuntu; then
 	os_install software-properties-common
 fi
 if os_is mac; then
-	xcode-select --install
+	xcode-select --install || true
 	os_install make
 	os_install mono
 fi
