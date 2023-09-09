@@ -49,8 +49,8 @@ fi
 
 test 'dotnet --version'
 test 'git-credential-manager --version'
-test 'abbr --version'
-test 'p10k help'
+test 'zsh -ic "abbr --version"'
+test 'zsh -ic "p10k help"'
 test 'fzf --version'
 test 'cmake --version'
 test 'vim --version'

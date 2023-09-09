@@ -27,6 +27,9 @@ export HIST_IGNORE_SPACE=true
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
+# Set emacs mode (not vi mode)
+bindkey -e
+
 # Gcloud config
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
@@ -39,11 +42,13 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 source ~/.config/zsh/fzf_git.zsh
 
+# Rbenv init
+eval "$(rbenv init -)"
 
-## Virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+### Virtualenvwrapper
+#export WORKON_HOME=~/.virtualenvs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Rust
 source "$HOME/.cargo/env"
