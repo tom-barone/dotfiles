@@ -12,6 +12,12 @@ function os_is() {
 	false
 }
 
+function ubuntu_release_number_is() {
+	ubuntu_release="$(grep DISTRIB_RELEASE /etc/lsb-release | cut -d '=' -f 2)"
+	[[ "$1" == "$ubuntu_release" ]] && return
+	false
+}
+
 function chip_is() {
 	uname="$(uname -m)"
 

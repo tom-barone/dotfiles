@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 # stops the install of tzdata asking for stuff
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections

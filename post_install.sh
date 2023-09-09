@@ -4,9 +4,7 @@ source helpers.sh
 
 # Essentials
 if os_is ubuntu; then
-	sudo apt update && sudo apt upgrade
 	os_install build-essential # make and more
-	os_install curl
 	os_install wget
 	os_install unzip
 	os_install software-properties-common
@@ -21,9 +19,41 @@ fi
 # https://formulae.brew.sh/formula/python@3.11
 os_install python3
 
+# .NET SDK and runtime
+if os_is ubuntu; then
+	# https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204
+	os_install dotnet-sdk-7.0
+	os_install aspnetcore-runtime-7.0
+fi
+if os_is mac; then
+	# https://learn.microsoft.com/en-us/dotnet/core/install/macos
+	os_install mono-libgdiplus
+fi
+
+# Git credential manager
+# https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
+if os_is mac; then
+	if have_not_installed git-credential-manager; then
+		brew install --cask git-credential-manager
+	fi
+fi
+if os_is ubuntu; then
+	dotnet tool install -g git-credential-manager
+	git-credential-manager configure
+fi
+
 # zsh-abbr
 # https://zsh-abbr.olets.dev/installation.html
-git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 $HOME/opt/zsh-abbr
+git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
+
+# Powerlevel10k
+# https://github.com/romkatv/powerlevel10k#installation
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powerlevel10k"
+
+# Fzf
+# https://github.com/junegunn/fzf/
+git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
+"$HOME/opt/fzf/install" --all
 
 os_install cmake
 os_install vim
@@ -223,5 +253,7 @@ mkvirtualenv nvim
 pip3 install neovim
 pip3 install pynvim
 deactivate
+
+os_install neofetch
 
 # Do open of nvim and install of Youcompleteme
