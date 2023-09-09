@@ -29,21 +29,24 @@ if os_is mac; then
 	os_install mono-libgdiplus
 fi
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
-wget https://dot.net/v1/dotnet-install.sh
-chmod +x dotnet-install.sh
-./dotnet-install.sh
-rm dotnet-install.sh
+if have_not_installed dotnet; then
+	wget https://dot.net/v1/dotnet-install.sh
+	chmod +x dotnet-install.sh
+	./dotnet-install.sh --channel 7.0
+	./dotnet-install.sh --runtime dotnet
+	rm dotnet-install.sh
+fi
 
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
-if os_is mac; then
-	if have_not_installed git-credential-manager; then
+if have_not_installed git-credential-manager; then
+	if os_is mac; then
 		brew install --cask git-credential-manager
 	fi
-fi
-if os_is ubuntu; then
-	dotnet tool install -g git-credential-manager
-	git-credential-manager configure
+	if os_is ubuntu; then
+		dotnet tool install -g git-credential-manager
+		git-credential-manager configure
+	fi
 fi
 
 # zsh-abbr
@@ -57,7 +60,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powe
 # Fzf
 # https://github.com/junegunn/fzf/
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
-"$HOME/opt/fzf/install" --all
+"$HOME/opt/fzf/install" --bin --no-update-rc
 
 os_install cmake
 os_install vim
