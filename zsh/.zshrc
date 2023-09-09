@@ -5,12 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Plugins
-[[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh
+# P10k
 [[ ! -f ~/opt/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/opt/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Plugins
+[[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh
+[[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
 
 # Disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -27,8 +29,9 @@ export HIST_IGNORE_SPACE=true
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-# Set emacs mode (not vi mode)
-bindkey -e
+# Set option-forward and option-backward to go forward/backward a word
+bindkey "^[B" backward-word
+bindkey "^[F" forward-word
 
 # Gcloud config
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
