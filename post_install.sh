@@ -24,18 +24,20 @@ if os_is ubuntu; then
 fi
 
 # .NET SDK and runtime
-if os_is mac; then
-	# Pre-requisite
-	# https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
-	os_install mono-libgdiplus
-fi
-# https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
-if have_not_installed dotnet; then
-	wget https://dot.net/v1/dotnet-install.sh
-	chmod +x dotnet-install.sh
-	./dotnet-install.sh --channel 7.0
-	rm dotnet-install.sh
-fi
+# Ignore for now, there were some issues running it
+# on the github action ubuntu:22.04 runner image
+#if os_is mac; then
+	## Pre-requisite
+	## https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
+	#os_install mono-libgdiplus
+#fi
+## https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+#if have_not_installed dotnet; then
+	#wget https://dot.net/v1/dotnet-install.sh
+	#chmod +x dotnet-install.sh
+	#./dotnet-install.sh --channel 7.0
+	#rm dotnet-install.sh
+#fi
 
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md

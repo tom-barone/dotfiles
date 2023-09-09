@@ -49,7 +49,6 @@ if os_is mac; then
 	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
 fi
 
-test 'dotnet --version'
 test 'git-credential-manager --version'
 test 'zsh -ic "abbr --version"'
 test 'zsh -ic "p10k help"'
