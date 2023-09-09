@@ -1,0 +1,30 @@
+# See here for list of installed packages under 'ubuntu-22.04'
+# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+
+name: 'continuous integration'
+on:
+  push:
+    branches: ['master']
+jobs:
+  test-on-ubuntu-22:
+    runs-on: 'ubuntu-22.04'
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v3'
+        with:
+          fetch-depth: 0  # Deep clone
+      - name: 'Have a look around'
+        run: 'pwd && ls'
+      - name: 'Run the install script'
+        run: './install.sh'
+  test-on-mac:
+    runs-on: 'macos-13'
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v3'
+        with:
+          fetch-depth: 0  # Deep clone
+      - name: 'Have a look around'
+        run: 'pwd && ls'
+      - name: 'Run the install script'
+        run: './install.sh'
