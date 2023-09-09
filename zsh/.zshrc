@@ -6,8 +6,9 @@ ZSH_THEME="af-magic-custom"
 DISABLE_AUTO_TITLE="true"
 
 # Load plugins
-plugins=(zsh-abbr fzf zsh-autosuggestions rbenv)
+plugins=(fzf zsh-autosuggestions rbenv)
 source $ZSH/oh-my-zsh.sh
+source $HOME/opt/zsh-abbr/zsh-abbr.zsh
 
 # History sizes
 export SAVEHIST=1000000

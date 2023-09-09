@@ -12,6 +12,15 @@ function os_is() {
 	false
 }
 
+function chip_is() {
+	uname="$(uname -m)"
+
+	[[ "$1" == 'apple_silicon' ]] && [[ "$uname" =~ arm ]] && return
+	[[ "$1" == 'intel' ]] && [[ "$uname" =~ x86 ]] && return
+
+	false
+}
+
 function have_not_installed() {
 	if ! command -v "$1" &>/dev/null; then
 		return

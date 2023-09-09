@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+
 source helpers.sh
 
 # Essentials
 if os_is ubuntu; then
+	sudo apt update && sudo apt upgrade
 	os_install build-essential # make and more
 	os_install curl
 	os_install wget
@@ -16,15 +18,12 @@ if os_is mac; then
 fi
 
 # Python
-# https://docs.python-guide.org/
-if have_not_installed python3; then
-	if os_is ubuntu; then
-		os_install python3
-	fi
-	if os_is mac; then
-		$PACKAGE_INSTALLER python3
-	fi
-fi
+# https://formulae.brew.sh/formula/python@3.11
+os_install python3
+
+# zsh-abbr
+# https://zsh-abbr.olets.dev/installation.html
+git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 $HOME/opt/zsh-abbr
 
 os_install cmake
 os_install vim

@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
+export HAS_TEST_SUITE_PASSED=true
 function test() {
-    if $1 >/dev/null 2>&1; then
-        echo "Pass: \"$1\""
-        return
-    else
-        echo "Failed: \"$1\""
-        $1
-        exit 1
-    fi
+	if $1 >/dev/null 2>&1; then
+		echo "Pass: \"$1\""
+		return
+	else
+		echo "Failed: \"$1\""
+		$1
+		export HAS_TEST_SUITE_PASSED=false
+	fi
 }
+
+# Essentials
+test 'curl --version'
+test 'git --version'
 
 test 'python3 --version'
 test 'adb --version'
-test 'balena --version'
 test 'cargo --version'
 test 'cloud_sql_proxy --version'
 test 'fastboot --version'
@@ -42,3 +46,10 @@ test 'tmux -V'
 test 'tmuxinator version'
 test 'vim --version'
 test 'yapf --version'
+
+if [ $HAS_TEST_SUITE_PASSED == false ]; then
+	printf "\nTests failed\n"
+	exit 1
+else
+	printf "\nTests passed\n"
+fi

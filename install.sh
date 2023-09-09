@@ -4,7 +4,6 @@
 source helpers.sh
 
 # Setup dotfiles and path variables from .profile
-os_install stow
 ./symlink.sh || { exit 1; }
 
 echo ''
