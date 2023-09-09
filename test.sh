@@ -16,7 +16,8 @@ function test() {
 }
 
 function check() {
-	output=$($1)
+	# Run the check in zsh
+	output=$(zsh -ic "$1")
 	if [[ $output == *"$2"* ]]; then
 		echo "Pass: \"$1\""
 		return

@@ -40,7 +40,14 @@ fi
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
 if have_not_installed git-credential-manager; then
-	brew install --cask git-credential-manager
+	if os_is mac; then
+		brew install --cask git-credential-manager
+	fi
+	if os_is ubuntu; then
+		wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-linux_amd64.2.3.2.deb"
+		sudo dpkg -i gcm-linux_amd64.2.3.2.deb
+		rm gcm-linux_amd64.2.3.2.deb
+	fi
 fi
 
 # zsh-abbr

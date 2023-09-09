@@ -1,44 +1,46 @@
 # See here for list of installed packages under 'ubuntu-22.04'
 # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
 
-name: 'continuous integration'
+name: "continuous integration"
 on:
   push:
-    branches: ['master']
+    branches: ["master"]
 jobs:
   test-on-ubuntu-22:
-    runs-on: 'ubuntu-22.04'
+    runs-on: "ubuntu-22.04"
     steps:
-      - name: 'Checkout code'
-        uses: 'actions/checkout@v3'
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
         with:
-          fetch-depth: 0  # Deep clone
-      - name: 'Have a look around'
-        run: 'pwd && ls && echo $HOME'
-      - name: 'Install stow & adopt all the links'
+          fetch-depth: 0 # Deep clone
+      - name: "Remove the .bash_login file"
+        # Just in case it exists and our .profile doesn't loaded
+        run: "rm -rf ~/.bash_login"
+      - name: "Install stow & adopt all the links"
         run: |
           sudo apt-get install -y stow
           ./symlink.sh --adopt
           git status
           git restore .
           git status
-      - name: 'Run the install script'
-        run: './install.sh'
+      - name: "Run the install script"
+        run: "./install.sh"
   test-on-mac:
-    runs-on: 'macos-13'
+    runs-on: "macos-13"
     steps:
-      - name: 'Checkout code'
-        uses: 'actions/checkout@v3'
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
         with:
-          fetch-depth: 0  # Deep clone
-      - name: 'Have a look around'
-        run: 'pwd && ls && echo $HOME'
-      - name: 'Install stow & adopt all the links'
+          fetch-depth: 0 # Deep clone
+      - name: "Remove the .bash_login file"
+        # Just in case it exists and our .profile doesn't loaded
+        run: "rm -rf ~/.bash_login"
+      - name: "Install stow & adopt all the links"
         run: |
           brew install stow
           ./symlink.sh --adopt
           git status
           git restore .
           git status
-      - name: 'Run the install script'
-        run: './install.sh'
+      - name: "Run the install script"
+        run: "./install.sh"
