@@ -113,7 +113,8 @@ EOT
 
 # Neovim setup
 os_install neovim
-pip3 install virtualenvwrapper 
+pip3 install virtualenvwrapper
+source virtualenvwrapper.sh
 npm_global_install neovim
 
 #pip_install yapf
@@ -186,7 +187,6 @@ npm_global_install neovim
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.9
 #source ~/.local/bin/virtualenvwrapper.sh
 #fi
-
 
 #os_install neofetch
 #
