@@ -114,8 +114,8 @@ brew_install bat
 
 # Neovim setup
 os_install neovim
-pip_install virtualenvwrapper # Setup pynvim access (see :help provider-python)
-source /usr/local/bin/virtualenvwrapper.sh
+pip3 install virtualenvwrapper # Setup pynvim access (see :help provider-python)
+source virtualenvwrapper.sh
 mkvirtualenv nvim
 pip3 install pynvim
 deactivate

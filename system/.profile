@@ -33,7 +33,9 @@ export DOTNET_ROOT=$HOME/.dotnet
 # Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+if type virtualenvwrapper.sh &>/dev/null; then
+	source virtualenvwrapper.sh
+fi
 
 ## Golang paths
 #export PATH="$GOROOT/bin:$PATH"
