@@ -50,11 +50,6 @@ if type rbenv &> /dev/null; then
 	eval "$(rbenv init - zsh)"
 fi
 
-### Virtualenvwrapper
-#export WORKON_HOME=~/.virtualenvs
-#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-#source /usr/local/bin/virtualenvwrapper.sh
-
 # Plugins
 [[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh # this needs to be initialised down the bottom because of https://zsh-abbr.olets.dev/advanced.html#vi-mode
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh

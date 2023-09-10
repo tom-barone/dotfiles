@@ -29,13 +29,6 @@ $brew_prefix/bin/zsh
 $brew_prefix/bin/bash
 EOT
 
-# Python
-# https://formulae.brew.sh/formula/python@3.11
-os_install python3
-if os_is ubuntu; then
-	os_install python3-pip
-fi
-
 # .NET SDK and runtime
 # Ignore for now, there were some issues running it
 # on the github action ubuntu:22.04 runner image
@@ -107,6 +100,7 @@ brew_install node
 # Global npm packages
 npm install --global npm@latest
 npm_global_install bash-language-server # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server # https://github.com/iamcco/vim-language-server
 
 # Rust and Cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
@@ -119,12 +113,13 @@ os_install exa
 brew_install bat
 
 # Neovim setup
-# TODO: Add python, ruby and node setup
-#os_install neovim
-#npm_global_install neovim
-
-## Python stuff
-#pip3 install virtualenvwrapper
+os_install neovim
+pip_install virtualenvwrapper # Setup pynvim access (see :help provider-python)
+source /usr/local/bin/virtualenvwrapper.sh
+mkvirtualenv nvim
+pip3 install pynvim
+deactivate
+npm_global_install neovim
 
 #pip_install yapf
 #pip_install prospector
@@ -197,11 +192,6 @@ brew_install bat
 #source ~/.local/bin/virtualenvwrapper.sh
 #fi
 
-## Setup python3 in nvim
-#mkvirtualenv nvim
-#pip3 install neovim
-#pip3 install pynvim
-#deactivate
 
 #os_install neofetch
 #
@@ -219,6 +209,7 @@ brew_install bat
 
 ## Gems
 #gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
+#gem_install neovim
 ## TODO: Add back in and tests
 ##gem_install rubocop
 ##gem_install neovim

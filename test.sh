@@ -93,6 +93,7 @@ test 'npm --version'
 
 # Npm packages
 test 'bash-language-server --version'
+test 'type vim-language-server'
 
 # Rust
 test 'rustup --version'
@@ -102,6 +103,10 @@ test 'cargo --version'
 test 'exa --version'
 test 'bat --version'
 
+# Neovim
+test 'nvim --version'
+test 'mkvirtualenv --help'
+test 'workon nvim && pip3 list | grep pynvim && deactivate'
 
 #test 'adb --version'
 #test 'cargo --version'

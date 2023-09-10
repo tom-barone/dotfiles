@@ -19,17 +19,20 @@ if have_not_installed brew; then
 	NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Install stow
+# Install stow and python
 # - We need to manually specify the paths because this happens before symlinking everything
+# - We want our proper python setup before doing pip installs
+# https://www.gnu.org/software/stow/
+# https://formulae.brew.sh/formula/python@3.11
 if have_not_installed stow; then
 	if os_is mac && chip_is intel; then
-		/usr/local/bin/brew install stow
+		/usr/local/bin/brew install stow python3
 	fi
 	if os_is mac && chip_is apple_silicon; then
-		/opt/homebrew/bin/brew install stow
+		/opt/homebrew/bin/brew install stow python3
 	fi
 	if os_is ubuntu; then
-		sudo apt-get install -y stow
+		sudo apt-get install -y stow python3-pip
 	fi
 fi
 
