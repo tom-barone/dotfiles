@@ -54,3 +54,21 @@ windows:
         - nvim
         - clear
         - make start
+  - python-prototype:
+      root: ~/code/ai-course-builder/python-prototype
+      layout: c225,208x52,0,0{130x52,0,0,16,77x52,131,0[77x25,131,0,17,77x26,131,26,18]}
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - pipenv run nvim
+        - cd ..
+  - migrations:
+      root: ~/code/ai-course-builder/migrations
+      layout: c225,208x52,0,0{130x52,0,0,16,77x52,131,0[77x25,131,0,17,77x26,131,26,18]}
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - pipenv run nvim
+        - cd ..
