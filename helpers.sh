@@ -50,6 +50,12 @@ function os_install() {
 	fi
 }
 
+function brew_install() {
+	if have_not_installed "$1"; then
+		brew install "$1"
+	fi
+}
+
 function pip_install() {
 	if have_not_installed "$1"; then
 		pip3 install --user "$1"

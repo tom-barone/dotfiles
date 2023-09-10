@@ -1,5 +1,8 @@
 # bashrc - Thomas Barone
 
+# rbenv
+eval "$(rbenv init - bash)"
+
 ## shellcheck source=/dev/null
 #source ~/dotfiles/helpers.sh
 

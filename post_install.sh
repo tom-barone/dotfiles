@@ -18,7 +18,7 @@ if os_is mac; then
 fi
 
 # Latest zsh
-os_install zsh
+brew_install zsh
 
 # Python
 # https://formulae.brew.sh/formula/python@3.11
@@ -90,15 +90,11 @@ os_install tig
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
 default_ruby_version=3.1.2
-if os_is mac; then
-	os_install rbenv ruby-build
-fi
-if os_is ubuntu; then
-	brew install rbenv ruby-build
-fi
+brew_install rbenv
+brew_install ruby-build
 rbenv install --skip-existing $default_ruby_version
 rbenv global $default_ruby_version
-eval "$(rbenv init -)"
+eval "$(rbenv init - bash)"
 
 # Gems
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator

@@ -46,7 +46,7 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 source ~/.config/zsh/fzf_git.zsh
 
 # Rbenv init
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 
 ### Virtualenvwrapper
 #export WORKON_HOME=~/.virtualenvs
