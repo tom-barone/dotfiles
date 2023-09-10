@@ -61,5 +61,10 @@ fi
 # I want gmake not whatever Xcode uses
 #export PATH="/usr/local/opt/make/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+## WSL ubuntu
+if [[ $(uname -a) == *"WSL2"* ]]; then
+	export BROWSER=wslview
+fi
+
 ## Want this alias in all shells (bash, zsh, sh)
 #alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
