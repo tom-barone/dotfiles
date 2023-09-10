@@ -16,7 +16,7 @@ function test() {
 }
 
 function check() {
-	output=$($1)
+	output=$(zsh --interactive --login -c "$1") # run in zsh
 	if [[ $output == *"$2"* ]]; then
 		echo "Pass: \"$1\""
 		return
@@ -86,7 +86,6 @@ test 'tmux -V'
 test 'shellcheck --version'
 test 'shfmt --version'
 test 'tig --version'
-
 
 # Node
 test 'node --version'
