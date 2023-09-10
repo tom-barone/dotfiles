@@ -94,6 +94,15 @@ test 'npm --version'
 # Npm packages
 test 'bash-language-server --version'
 
+# Rust
+test 'rustup --version'
+test 'cargo --version'
+
+# Terminal handy tools
+test 'exa --version'
+test 'bat --version'
+
+
 #test 'adb --version'
 #test 'cargo --version'
 #test 'cloud_sql_proxy --version'

@@ -73,3 +73,9 @@ function gem_install() {
 		gem install "$1"
 	fi
 }
+
+function cargo_install() {
+	if have_not_installed "$1"; then
+		cargo install "$1"
+	fi
+}

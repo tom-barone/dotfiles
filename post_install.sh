@@ -67,19 +67,23 @@ fi
 
 # zsh-abbr
 # https://zsh-abbr.olets.dev/installation.html
+rm -rf "$HOME/opt/zsh-abbr"
 git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
 
 # Powerlevel10k
 # https://github.com/romkatv/powerlevel10k#installation
+rm -rf "$HOME/opt/powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powerlevel10k"
 
 # Fzf
 # https://github.com/junegunn/fzf/
+rm -rf "$HOME/opt/fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
 "$HOME/opt/fzf/install" --bin --no-update-rc
 
 # ZSH extra completions
 # https://github.com/zsh-users/zsh-completions
+rm -rf "$HOME/opt/zsh-completions"
 git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 
 # GNU versions of important programs
@@ -105,21 +109,21 @@ npm install --global npm@latest
 npm install --global bash-language-server # https://github.com/bash-lsp/bash-language-server
 
 # Rust and Cargo
-#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+
+# Rust crates
+cargo_install ripgrep
+
+# Terminal handy tools
+os_install exa
+brew_install bat
 
 # Neovim setup
 # TODO: Add python, ruby and node setup
 #os_install neovim
 
-## cargo
-#if have_not_installed cargo; then
-#curl https://sh.rustup.rs -ssf | bash -s -- -y --no-modify-path
-#source "$HOME/.cargo/env"
-#fi
-
 ## ripgrep
 #if have_not_installed rg; then
-#cargo install ripgrep
 #fi
 
 ## Python stuff
