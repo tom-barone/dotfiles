@@ -94,10 +94,14 @@ if os_is mac; then
 fi
 rbenv init - # Load rbenv
 ruby_version=$(rbenv version | awk '{print $1;}')
-rbenv install --skip-existing "$ruby_version"
+rbenv install --force "$ruby_version"
 
 # Gems
-gem install tmuxinator
+gem_install tmuxinator
+# TODO: Add back in and tests
+#gem_install rubocop
+#gem_install neovim
+#gem_install htmlbeautifier
 
 # Neovim setup
 # TODO: Add python, ruby and node setup
@@ -142,9 +146,6 @@ gem install tmuxinator
 #sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
 #fi
 
-#gem_install rubocop
-#gem_install neovim
-#gem_install htmlbeautifier
 
 ## Python stuff
 #pip3 install virtualenvwrapper
