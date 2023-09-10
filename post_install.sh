@@ -93,7 +93,6 @@ os_install rbenv
 if os_is mac; then
 	os_install ruby-build
 fi
-eval "$(rbenv init -)" # load rbenv
 ruby_version=$(rbenv version | awk '{print $1;}')
 rbenv install --skip-existing "$ruby_version"
 
@@ -127,35 +126,6 @@ fi
 #if have_not_installed rg; then
 #cargo install ripgrep
 #fi
-
-## rbenv
-#if have_not_installed rbenv; then
-#curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-#fi
-
-## ruby
-#if have_not_installed ruby; then
-#os_install autoconf
-#os_install libssl-dev
-#os_install libyaml-dev
-#os_install libreadline6-dev
-#os_install zlib1g-dev
-#os_install libncurses5-dev
-#os_install libffi-dev
-#os_install libgdbm5
-#os_install libgdbm-dev
-#os_install libdb-dev
-
-#ruby_version=$(rbenv version | awk '{print $1;}')
-#rbenv install --skip-existing "$ruby_version"
-#fi
-
-## Install tmuxinator & completions
-#if have_not_installed tmuxinator; then
-#gem install tmuxinator
-#sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.bash -O /etc/bash_completion.d/tmuxinator.bash
-#fi
-
 
 ## Python stuff
 #pip3 install virtualenvwrapper
