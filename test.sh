@@ -59,8 +59,6 @@ test 'stow --version'
 
 test 'python3 --version'
 test 'pip3 --version'
-echo "BASH: $PATH"
-zsh --interactive --login -c 'echo $PATH'
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 check 'which zsh' "$(brew --prefix)/bin/zsh"
 
