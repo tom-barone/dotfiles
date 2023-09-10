@@ -96,22 +96,6 @@ os_install shellcheck
 os_install shfmt
 os_install tig
 
-# Ruby and rbenv
-# https://github.com/rbenv/rbenv
-default_ruby_version=3.1.2
-brew_install rbenv
-brew_install ruby-build
-rbenv install --skip-existing $default_ruby_version
-rbenv global $default_ruby_version
-eval "$(rbenv init - bash)"
-
-# Gems
-gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
-# TODO: Add back in and tests
-#gem_install rubocop
-#gem_install neovim
-#gem_install htmlbeautifier
-
 # Node (version 18 is LTS)
 # https://nodejs.org/en/download/package-manager
 if os_is mac; then
@@ -238,3 +222,23 @@ npm install --global bash-language-server # https://github.com/bash-lsp/bash-lan
 #deactivate
 
 #os_install neofetch
+#
+#
+
+
+## NOTE: These take a long time
+## Ruby and rbenv
+## https://github.com/rbenv/rbenv
+#default_ruby_version=3.1.2
+#brew_install rbenv
+#brew_install ruby-build
+#rbenv install --skip-existing $default_ruby_version
+#rbenv global $default_ruby_version
+#eval "$(rbenv init - bash)"
+
+## Gems
+#gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
+## TODO: Add back in and tests
+##gem_install rubocop
+##gem_install neovim
+##gem_install htmlbeautifier

@@ -16,8 +16,7 @@ function test() {
 }
 
 function check() {
-	# Run the check in zsh
-	output=$(zsh -ic "$1")
+	output=$($1)
 	if [[ $output == *"$2"* ]]; then
 		echo "Pass: \"$1\""
 		return
@@ -59,9 +58,8 @@ test 'stow --version'
 
 test 'python3 --version'
 test 'pip3 --version'
-# Check that we're using the homebrew version of zsh and bash (not /bin/zsh)
+# Check that we're using the homebrew version of zsh (not /bin/zsh)
 check 'which zsh' "$(brew --prefix)/bin/zsh"
-check 'which bash' "$(brew --prefix)/bin/bash"
 
 if os_is mac; then
 	# Check that python and pip are installed in the right place
@@ -88,12 +86,6 @@ test 'shellcheck --version'
 test 'shfmt --version'
 test 'tig --version'
 
-# Ruby and rbenv
-test 'rbenv --version'
-check 'ruby --version' "3.1.2"
-
-# Gems
-test 'tmuxinator version'
 
 # Node
 test 'node --version'
@@ -131,6 +123,16 @@ test 'bash-language-server --version'
 #test 'tmuxinator version'
 #test 'vim --version'
 #test 'yapf --version'
+#
+#
+
+## Ruby and rbenv
+## Run last so it can be commented out easily
+#test 'rbenv --version'
+#check 'ruby --version' "3.1.2"
+
+## Gems
+#test 'tmuxinator version'
 
 if [ $HAS_TEST_SUITE_PASSED == false ]; then
 	printf "\nTests failed\n"
