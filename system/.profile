@@ -32,7 +32,10 @@ export DOTNET_ROOT=$HOME/.dotnet
 
 # Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+if type python3 &>/dev/null; then
+	python_3_location="$(which python3)"
+	export VIRTUALENVWRAPPER_PYTHON=$python_3_location
+fi
 if type virtualenvwrapper.sh &>/dev/null; then
 	source virtualenvwrapper.sh
 fi

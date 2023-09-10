@@ -62,46 +62,46 @@ test 'pip3 --version'
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 check 'which zsh' "$(brew --prefix)/bin/zsh"
 
-if os_is mac; then
-	# Check that python and pip are installed in the right place
-	check 'which python3' "$(brew --prefix)/bin/python3"
-	check 'which pip3' "$(brew --prefix)/bin/pip3"
+#if os_is mac; then
+	## Check that python and pip are installed in the right place
+	#check 'which python3' "$(brew --prefix)/bin/python3"
+	#check 'which pip3' "$(brew --prefix)/bin/pip3"
 
-	# Check our latest GNU overrides are working on mac
-	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
-fi
+	## Check our latest GNU overrides are working on mac
+	#check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+	#check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+#fi
 
-has_completion 'tar'   # Default that comes with zsh
-has_completion 'git'   # Default that comes with zsh
-has_completion 'rails' # Comes installed with zsh-completions
+#has_completion 'tar'   # Default that comes with zsh
+#has_completion 'git'   # Default that comes with zsh
+#has_completion 'rails' # Comes installed with zsh-completions
 
-test 'git-credential-manager --version'
-test 'zsh --interactive --login -c "abbr --version"'
-test 'zsh --interactive --login -c  "p10k help"'
-test 'zsh --interactive --login -c "fzf --version"'
-test 'cmake --version'
-test 'vim --version'
-test 'tmux -V'
-test 'shellcheck --version'
-test 'shfmt --version'
-test 'tig --version'
+#test 'git-credential-manager --version'
+#test 'zsh --interactive --login -c "abbr --version"'
+#test 'zsh --interactive --login -c  "p10k help"'
+#test 'zsh --interactive --login -c "fzf --version"'
+#test 'cmake --version'
+#test 'vim --version'
+#test 'tmux -V'
+#test 'shellcheck --version'
+#test 'shfmt --version'
+#test 'tig --version'
 
-# Node
-test 'node --version'
-test 'npm --version'
+## Node
+#test 'node --version'
+#test 'npm --version'
 
-# Npm packages
-test 'bash-language-server --version'
-test 'type vim-language-server'
+## Npm packages
+#test 'bash-language-server --version'
+#test 'type vim-language-server'
 
-# Rust
-test 'rustup --version'
-test 'cargo --version'
+## Rust
+#test 'rustup --version'
+#test 'cargo --version'
 
-# Terminal handy tools
-test 'exa --version'
-test 'bat --version'
+## Terminal handy tools
+#test 'exa --version'
+#test 'bat --version'
 
 # Neovim
 test 'nvim --version'

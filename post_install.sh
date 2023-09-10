@@ -29,94 +29,94 @@ $brew_prefix/bin/zsh
 $brew_prefix/bin/bash
 EOT
 
-# .NET SDK and runtime
-# Ignore for now, there were some issues running it
-# on the github action ubuntu:22.04 runner image
+## .NET SDK and runtime
+## Ignore for now, there were some issues running it
+## on the github action ubuntu:22.04 runner image
+##if os_is mac; then
+### Pre-requisite
+### https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
+##os_install mono-libgdiplus
+##fi
+### https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+##if have_not_installed dotnet; then
+##wget https://dot.net/v1/dotnet-install.sh
+##chmod +x dotnet-install.sh
+##./dotnet-install.sh --channel 7.0
+##rm dotnet-install.sh
+##fi
+
+## Git credential manager
+## https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
+#if have_not_installed git-credential-manager; then
+	#if os_is mac; then
+		#brew install --cask git-credential-manager
+	#fi
+	#if os_is ubuntu; then
+		#wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-linux_amd64.2.3.2.deb"
+		#sudo dpkg -i gcm-linux_amd64.2.3.2.deb
+		#rm gcm-linux_amd64.2.3.2.deb
+	#fi
+#fi
+
+## zsh-abbr
+## https://zsh-abbr.olets.dev/installation.html
+#rm -rf "$HOME/opt/zsh-abbr"
+#git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
+
+## Powerlevel10k
+## https://github.com/romkatv/powerlevel10k#installation
+#rm -rf "$HOME/opt/powerlevel10k"
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powerlevel10k"
+
+## Fzf
+## https://github.com/junegunn/fzf/
+#rm -rf "$HOME/opt/fzf"
+#git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
+#"$HOME/opt/fzf/install" --bin --no-update-rc
+
+## ZSH extra completions
+## https://github.com/zsh-users/zsh-completions
+#rm -rf "$HOME/opt/zsh-completions"
+#git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
+
+## GNU versions of important programs
 #if os_is mac; then
-## Pre-requisite
-## https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
-#os_install mono-libgdiplus
-#fi
-## https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
-#if have_not_installed dotnet; then
-#wget https://dot.net/v1/dotnet-install.sh
-#chmod +x dotnet-install.sh
-#./dotnet-install.sh --channel 7.0
-#rm dotnet-install.sh
+	## Don't want to check if they're already installed
+	#brew install gnu-sed
+	#brew install make
 #fi
 
-# Git credential manager
-# https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
-if have_not_installed git-credential-manager; then
-	if os_is mac; then
-		brew install --cask git-credential-manager
-	fi
-	if os_is ubuntu; then
-		wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-linux_amd64.2.3.2.deb"
-		sudo dpkg -i gcm-linux_amd64.2.3.2.deb
-		rm gcm-linux_amd64.2.3.2.deb
-	fi
-fi
+#os_install cmake
+#os_install vim
+#os_install tmux
+#os_install shellcheck
+#os_install shfmt
+#os_install tig
 
-# zsh-abbr
-# https://zsh-abbr.olets.dev/installation.html
-rm -rf "$HOME/opt/zsh-abbr"
-git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
+## Node
+## https://nodejs.org/en/download/package-manager
+#brew_install node
 
-# Powerlevel10k
-# https://github.com/romkatv/powerlevel10k#installation
-rm -rf "$HOME/opt/powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powerlevel10k"
+## Global npm packages
+#npm install --global npm@latest
+#npm_global_install bash-language-server # https://github.com/bash-lsp/bash-language-server
+#npm_global_install vim-language-server # https://github.com/iamcco/vim-language-server
 
-# Fzf
-# https://github.com/junegunn/fzf/
-rm -rf "$HOME/opt/fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
-"$HOME/opt/fzf/install" --bin --no-update-rc
+## Rust and Cargo
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
 
-# ZSH extra completions
-# https://github.com/zsh-users/zsh-completions
-rm -rf "$HOME/opt/zsh-completions"
-git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
+## Rust crates
+#cargo_install ripgrep
 
-# GNU versions of important programs
-if os_is mac; then
-	# Don't want to check if they're already installed
-	brew install gnu-sed
-	brew install make
-fi
-
-os_install cmake
-os_install vim
-os_install tmux
-os_install shellcheck
-os_install shfmt
-os_install tig
-
-# Node
-# https://nodejs.org/en/download/package-manager
-brew_install node
-
-# Global npm packages
-npm install --global npm@latest
-npm_global_install bash-language-server # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server # https://github.com/iamcco/vim-language-server
-
-# Rust and Cargo
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-
-# Rust crates
-cargo_install ripgrep
-
-# Terminal handy tools
-os_install exa
-brew_install bat
+## Terminal handy tools
+#os_install exa
+#brew_install bat
 
 # Neovim setup
 os_install neovim
 pip3 install virtualenvwrapper # Setup pynvim access (see :help provider-python)
 source virtualenvwrapper.sh
-mkvirtualenv nvim
+mkvirtualenv nvim --with-traceback
 pip3 install pynvim
 deactivate
 npm_global_install neovim
