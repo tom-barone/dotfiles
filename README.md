@@ -15,3 +15,9 @@ All installs that involve cloning a git repo, like `zsh-abbr` or `fzf` should pu
 ## Show system info
 
 `neofetch`
+
+## Change the default shell by
+
+```
+chsh -s "$(brew --prefix)/bin/zsh"
+```
