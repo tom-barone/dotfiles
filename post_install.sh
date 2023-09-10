@@ -90,12 +90,15 @@ os_install tig
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
 default_ruby_version=2.7.3
-os_install rbenv
 if os_is mac; then
-	os_install ruby-build
+	os_install rbenv ruby-build
+fi
+if os_is ubuntu; then
+	brew install rbenv ruby-build
 fi
 rbenv install --skip-existing $default_ruby_version
 rbenv global $default_ruby_version
+eval "$(rbenv init -)"
 
 # Gems
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
