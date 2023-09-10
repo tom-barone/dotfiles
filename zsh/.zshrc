@@ -20,6 +20,7 @@ set-terminal-title() {
 export SAVEHIST=1000000
 export HISTSIZE=1000000
 export HIST_IGNORE_SPACE=true
+export HISTFILE=~/.zsh_history
 
 # Use emacs mode
 bindkey -e
