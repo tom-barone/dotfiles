@@ -105,7 +105,7 @@ check 'which zsh' "$(brew --prefix)/bin/zsh"
 
 # Neovim
 test 'nvim --version'
-test 'mkvirtualenv --help'
+test 'zsh --interactive --login -c "mkvirtualenv --help"'
 
 #test 'adb --version'
 #test 'cargo --version'
