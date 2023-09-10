@@ -60,6 +60,10 @@ test 'shellcheck --version'
 test 'shfmt --version'
 test 'tig --version'
 
+# Ruby and rbenv
+test 'rbenv --version'
+test 'ruby --version'
+
 #test 'adb --version'
 #test 'cargo --version'
 #test 'cloud_sql_proxy --version'

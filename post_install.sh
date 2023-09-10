@@ -79,8 +79,18 @@ os_install shellcheck
 os_install shfmt
 os_install tig
 
-# TODO: proper neovim setup
-# (might have to be at the end after ruby and python setup)
+# Ruby and rbenv
+# https://github.com/rbenv/rbenv
+os_install rbenv
+if os_is mac; then
+	os_install ruby-build
+fi
+rbenv init # Load rbenv
+ruby_version=$(rbenv version | awk '{print $1;}')
+rbenv install --skip-existing "$ruby_version"
+
+# Neovim setup
+# TODO: Add python, ruby and node setup
 #os_install neovim
 
 ## cargo

@@ -14,7 +14,8 @@ jobs:
         with:
           fetch-depth: 0 # Deep clone
       - name: "Remove the .bash_login file"
-        # Just in case it exists and our .profile doesn't loaded
+        # Just in case it exists and our .profile doesn't get loaded
+        # https://www.gnu.org/software/bash/manual/bash.html#Bash-Startup-Files
         run: "rm -rf ~/.bash_login"
       - name: "Install stow & adopt all the links"
         run: |
@@ -33,7 +34,8 @@ jobs:
         with:
           fetch-depth: 0 # Deep clone
       - name: "Remove the .bash_login file"
-        # Just in case it exists and our .profile doesn't loaded
+        # Just in case it exists and our .profile doesn't get loaded
+        # https://www.gnu.org/software/bash/manual/bash.html#Bash-Startup-Files
         run: "rm -rf ~/.bash_login"
       - name: "Install stow & adopt all the links"
         run: |
