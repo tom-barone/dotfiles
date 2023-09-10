@@ -65,6 +65,10 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powe
 git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
 "$HOME/opt/fzf/install" --bin --no-update-rc
 
+# ZSH extra completions
+# https://github.com/zsh-users/zsh-completions
+git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
+
 # GNU versions of important programs
 if os_is mac; then
 	# Don't want to check if they're already installed
@@ -88,6 +92,9 @@ fi
 rbenv init # Load rbenv
 ruby_version=$(rbenv version | awk '{print $1;}')
 rbenv install --skip-existing "$ruby_version"
+
+# Gems
+gem install tmuxinator
 
 # Neovim setup
 # TODO: Add python, ruby and node setup

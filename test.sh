@@ -29,6 +29,26 @@ function check() {
 	fi
 }
 
+function has_completion() {
+	# Store the old seperator and replace it later
+	oldIFS=$IFS
+	IFS=:
+	found=false # Flag for if we find the completion file
+	for dir in $FPATH; do # For each directory in $FPATH
+		if [[ -e "$dir/_$1" ]]; then # If the completion file exists
+			echo "Pass: \"$1\""
+			found=true # Set our flag to true
+			return
+		fi
+	done
+	IFS=$oldIFS
+
+	if [[ $found == false ]]; then
+		echo "Failed: \"$1\"" # If we didn't find any completion file...
+		export HAS_TEST_SUITE_PASSED=false
+	fi
+}
+
 # Essentials
 test 'curl --version'
 test 'wget --version'
@@ -40,14 +60,18 @@ test 'stow --version'
 test 'python3 --version'
 test 'pip3 --version'
 if os_is mac; then
-	# Check that python and pip are installed in the right place
-	check 'which python3' "$(brew --prefix)/bin/python3"
-	check 'which pip3' "$(brew --prefix)/bin/pip3"
+# Check that python and pip are installed in the right place
+check 'which python3' "$(brew --prefix)/bin/python3"
+check 'which pip3' "$(brew --prefix)/bin/pip3"
 
-	# Check our latest GNU overrides are working on mac
-	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+# Check our latest GNU overrides are working on mac
+check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
 fi
+
+has_completion 'tar'   # Default that comes with zsh
+has_completion 'git'   # Default that comes with zsh
+has_completion 'rails' # Comes installed with zsh-completions
 
 test 'git-credential-manager --version'
 test 'zsh -ic "abbr --version"'
@@ -63,6 +87,8 @@ test 'tig --version'
 # Ruby and rbenv
 test 'rbenv --version'
 test 'ruby --version'
+
+test 'tmuxinator version'
 
 #test 'adb --version'
 #test 'cargo --version'
