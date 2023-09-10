@@ -41,10 +41,6 @@ bindkey "^[[B" down-line-or-beginning-search
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-### NVM config
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # --no-use  # This loads nvm
-
 ### FZF Config
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 source ~/.config/zsh/fzf_git.zsh

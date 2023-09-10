@@ -7,6 +7,7 @@ source helpers.sh
 os_install wget
 if os_is ubuntu; then
 	os_install build-essential # make and more
+	os_install snapd
 	os_install unzip
 	os_install software-properties-common
 fi
@@ -97,11 +98,20 @@ ruby_version=$(rbenv version | awk '{print $1;}')
 rbenv install --force "$ruby_version"
 
 # Gems
-gem_install tmuxinator
+gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 # TODO: Add back in and tests
 #gem_install rubocop
 #gem_install neovim
 #gem_install htmlbeautifier
+
+# Node (version 18 is LTS)
+# https://nodejs.org/en/download/package-manager
+if os_is mac; then
+	os_install node
+fi
+if os_is ubuntu; then
+	sudo snap install node --classic --channel=18
+fi
 
 # Neovim setup
 # TODO: Add python, ruby and node setup

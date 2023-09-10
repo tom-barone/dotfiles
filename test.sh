@@ -91,7 +91,12 @@ test 'tig --version'
 test 'rbenv --version'
 test 'ruby --version'
 
+# Gems
 test 'tmuxinator version'
+
+# Node
+test 'node --version'
+test 'npm --version'
 
 #test 'adb --version'
 #test 'cargo --version'
