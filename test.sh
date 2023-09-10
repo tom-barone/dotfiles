@@ -59,10 +59,11 @@ test 'stow --version'
 
 test 'python3 --version'
 test 'pip3 --version'
-if os_is mac; then
-	# Check that we're using the homebrew version of zsh (not /bin/zsh)
-	check 'which zsh' "$(brew --prefix)/bin/zsh"
+# Check that we're using the homebrew version of zsh and bash (not /bin/zsh)
+check 'which zsh' "$(brew --prefix)/bin/zsh"
+check 'which bash' "$(brew --prefix)/bin/bash"
 
+if os_is mac; then
 	# Check that python and pip are installed in the right place
 	check 'which python3' "$(brew --prefix)/bin/python3"
 	check 'which pip3' "$(brew --prefix)/bin/pip3"
