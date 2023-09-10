@@ -38,8 +38,8 @@ fi
 
 echo ''
 echo 'Installing applications...'
-bash --login -c "./post_install.sh"
+bash --login -ic "./post_install.sh"
 
 echo ''
 echo 'Running tests...'
-bash --login -c "./test.sh"
+bash --login -ic "./test.sh"
