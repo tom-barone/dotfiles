@@ -62,6 +62,9 @@ gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not t
 gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
 export PATH="$gnu_sed:$gmake:$PATH"
 
+# Get all the ZSH functions installed by homebrew
+export FPATH="$homebrew_prefix/share/zsh/functions:$homebrew_prefix/share/zsh/site-functions:$FPATH"
+
 # Plugins
 [[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh # this needs to be initialised down the bottom because of https://zsh-abbr.olets.dev/advanced.html#vi-mode
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh

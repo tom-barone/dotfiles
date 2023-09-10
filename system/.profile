@@ -17,7 +17,7 @@ adb="$HOME/platform-tools"
 export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet:$dotnet_tools:$adb:$PATH"
 
 # FPATH updates (for zsh completions)
-export FPATH="$HOME/opt/zsh-completions/src:$FPATH"
+export FPATH="$HOME/opt/zsh-completions/src:/usr/share/zsh/vendor-completions:$FPATH"
 
 # Dotnet variables
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script#set-environment-variables
