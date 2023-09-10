@@ -31,16 +31,16 @@ fi
 # Ignore for now, there were some issues running it
 # on the github action ubuntu:22.04 runner image
 #if os_is mac; then
-	## Pre-requisite
-	## https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
-	#os_install mono-libgdiplus
+## Pre-requisite
+## https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
+#os_install mono-libgdiplus
 #fi
 ## https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
 #if have_not_installed dotnet; then
-	#wget https://dot.net/v1/dotnet-install.sh
-	#chmod +x dotnet-install.sh
-	#./dotnet-install.sh --channel 7.0
-	#rm dotnet-install.sh
+#wget https://dot.net/v1/dotnet-install.sh
+#chmod +x dotnet-install.sh
+#./dotnet-install.sh --channel 7.0
+#rm dotnet-install.sh
 #fi
 
 # Git credential manager
@@ -89,12 +89,13 @@ os_install tig
 
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
+default_ruby_version=2.7.3
 os_install rbenv
 if os_is mac; then
 	os_install ruby-build
 fi
-ruby_version=$(rbenv version | awk '{print $1;}')
-rbenv install --skip-existing "$ruby_version"
+rbenv install --skip-existing $default_ruby_version
+rbenv global $default_ruby_version
 
 # Gems
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator

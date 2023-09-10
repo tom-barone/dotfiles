@@ -7,7 +7,6 @@ dotfiles_to_symlink=(
 	git
 	node
 	nvim
-	ruby
 	system
 	tig
 	tmux
