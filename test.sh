@@ -106,7 +106,6 @@ check 'which zsh' "$(brew --prefix)/bin/zsh"
 # Neovim
 test 'nvim --version'
 test 'mkvirtualenv --help'
-test 'workon nvim && pip3 list | grep pynvim && deactivate'
 
 #test 'adb --version'
 #test 'cargo --version'

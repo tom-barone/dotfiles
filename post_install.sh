@@ -9,7 +9,6 @@ brew_prefix=$(brew --prefix)
 os_install wget
 if os_is ubuntu; then
 	os_install build-essential # make and more
-	os_install snapd
 	os_install unzip
 	os_install software-properties-common
 fi
@@ -114,11 +113,7 @@ EOT
 
 # Neovim setup
 os_install neovim
-pip3 install virtualenvwrapper # Setup pynvim access (see :help provider-python)
-source virtualenvwrapper.sh
-mkvirtualenv nvim --with-traceback
-pip3 install pynvim
-deactivate
+pip3 install virtualenvwrapper 
 npm_global_install neovim
 
 #pip_install yapf

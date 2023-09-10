@@ -21,3 +21,13 @@ All installs that involve cloning a git repo, like `zsh-abbr` or `fzf` should pu
 ```
 chsh -s "$(brew --prefix)/bin/zsh"
 ```
+
+## Setup python3 for neovim
+
+See `:help provider-python` in nvim for more details
+
+```
+mkvirtualenv nvim
+pip3 install pynvim
+deactivate
+```
