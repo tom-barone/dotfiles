@@ -89,7 +89,7 @@ os_install tig
 
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=2.7.3
+default_ruby_version=3.1.2
 if os_is mac; then
 	os_install rbenv ruby-build
 fi

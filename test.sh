@@ -89,7 +89,7 @@ test 'tig --version'
 
 # Ruby and rbenv
 test 'rbenv --version'
-check 'ruby --version' "2.7.3"
+check 'ruby --version' "3.1.2"
 
 # Gems
 test 'tmuxinator version'
