@@ -1,14 +1,9 @@
 # bashrc - Thomas Barone
 
-# rbenv
-eval "$(rbenv init - bash)"
-
-# Fixes to use brew's GNU tools on macOS
-homebrew_prefix="$(brew --prefix)"
-#homebrew_cellar="$(brew --cellar)"
-gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
-gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-export PATH="$gnu_sed:$gmake:$PATH"
+# Rbenv init (if rbenv is installed)
+if type rbenv &> /dev/null; then
+	eval "$(rbenv init - bash)"
+fi
 
 ## shellcheck source=/dev/null
 #source ~/dotfiles/helpers.sh

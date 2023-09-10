@@ -16,12 +16,21 @@ adb="$HOME/platform-tools"
 
 export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet:$dotnet_tools:$adb:$PATH"
 
+# Fixes to use brew's GNU tools on macOS
+if type brew &>/dev/null; then # If brew is a command we can use
+	homebrew_prefix="$(brew --prefix)"
+	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
+	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
+	export PATH="$gnu_sed:$gmake:$PATH"
+fi
+
 # Dotnet variables
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script#set-environment-variables
 export DOTNET_ROOT=$HOME/.dotnet
 
-## Rust paths
-#export PATH="$HOME/.cargo/bin:$PATH"
+# Rust
+# shellcheck source=/dev/null
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 ## Golang paths
 #export PATH="$GOROOT/bin:$PATH"

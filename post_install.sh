@@ -104,6 +104,9 @@ brew_install node
 npm install --global npm@latest
 npm install --global bash-language-server # https://github.com/bash-lsp/bash-language-server
 
+# Rust and Cargo
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Neovim setup
 # TODO: Add python, ruby and node setup
 #os_install neovim

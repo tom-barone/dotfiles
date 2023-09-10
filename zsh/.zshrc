@@ -45,24 +45,15 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 source ~/.config/zsh/fzf_git.zsh
 
-# Rbenv init
-eval "$(rbenv init - zsh)"
+# Rbenv init (if rbenv is installed)
+if type rbenv &> /dev/null; then
+	eval "$(rbenv init - zsh)"
+fi
 
 ### Virtualenvwrapper
 #export WORKON_HOME=~/.virtualenvs
 #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 #source /usr/local/bin/virtualenvwrapper.sh
-
-# Rust
-source "$HOME/.cargo/env"
-
-# Fixes to use brew's GNU tools on macOS
-homebrew_prefix="$(brew --prefix)"
-#homebrew_cellar="$(brew --cellar)"
-gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
-gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-export PATH="$gnu_sed:$gmake:$PATH"
-
 
 # Plugins
 [[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh # this needs to be initialised down the bottom because of https://zsh-abbr.olets.dev/advanced.html#vi-mode
