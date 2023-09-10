@@ -6,22 +6,18 @@ export LC_ALL=en_AU.UTF-8
 export TZ="Australia/Adelaide"
 
 # Path updates
-#homebrew="$homebrew_prefix/bin"
-homebrew_mac_apple_silicon="/opt/homebrew/bin:/opt/homebrew/sbin"
-homebrew_mac_intel="/usr/local/bin:/usr/local/sbin"
-homebrew_linux="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin"
 dotnet="$HOME/.dotnet"
 dotnet_tools="$HOME/.dotnet/tools"
 adb="$HOME/platform-tools"
+export "PATH=$dotnet:$dotnet_tools:$adb:$PATH"
 
-export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet:$dotnet_tools:$adb:$PATH"
-
-# Fixes to use brew's GNU tools on macOS
-if type brew &>/dev/null; then # If brew is a command we can use
+# If brew is a command we can use
+if type brew &>/dev/null; then
 	homebrew_prefix="$(brew --prefix)"
+	homebrew_paths="$homebrew_prefix/bin:$homebrew_prefix/sbin"
 	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
 	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-	export PATH="$gnu_sed:$gmake:$PATH"
+	export PATH="$homebrew_paths:$gnu_sed:$gmake:$PATH"
 fi
 
 # Dotnet variables
