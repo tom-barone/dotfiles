@@ -30,10 +30,11 @@ function check() {
 
 function has_completion() {
 	# Store the old seperator and replace it later
+	zsh_fpath=$(zsh --interactive --login -c 'echo $FPATH')
 	oldIFS=$IFS
 	IFS=:
 	found=false                   # Flag for if we find the completion file
-	for dir in $FPATH; do         # For each directory in $FPATH
+	for dir in $zsh_fpath; do         # For each directory in $FPATH
 		if [[ -e "$dir/_$1" ]]; then # If the completion file exists
 			echo "Pass: \"$1\""
 			found=true # Set our flag to true
@@ -76,9 +77,9 @@ has_completion 'git'   # Default that comes with zsh
 has_completion 'rails' # Comes installed with zsh-completions
 
 test 'git-credential-manager --version'
-test 'zsh -ic "abbr --version"'
-test 'zsh -ic "p10k help"'
-test 'zsh -ic "fzf --version"'
+test 'zsh --interactive --login -c "abbr --version"'
+test 'zsh --interactive --login -c  "p10k help"'
+test 'zsh --interactive --login -c "fzf --version"'
 test 'cmake --version'
 test 'vim --version'
 test 'tmux -V'
