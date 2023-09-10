@@ -33,8 +33,8 @@ function has_completion() {
 	# Store the old seperator and replace it later
 	oldIFS=$IFS
 	IFS=:
-	found=false # Flag for if we find the completion file
-	for dir in $FPATH; do # For each directory in $FPATH
+	found=false                   # Flag for if we find the completion file
+	for dir in $FPATH; do         # For each directory in $FPATH
 		if [[ -e "$dir/_$1" ]]; then # If the completion file exists
 			echo "Pass: \"$1\""
 			found=true # Set our flag to true
@@ -60,13 +60,16 @@ test 'stow --version'
 test 'python3 --version'
 test 'pip3 --version'
 if os_is mac; then
-# Check that python and pip are installed in the right place
-check 'which python3' "$(brew --prefix)/bin/python3"
-check 'which pip3' "$(brew --prefix)/bin/pip3"
+	# Check that we're using the homebrew version of zsh (not /bin/zsh)
+	check 'which zsh' "$(brew --prefix)/bin/zsh"
 
-# Check our latest GNU overrides are working on mac
-check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+	# Check that python and pip are installed in the right place
+	check 'which python3' "$(brew --prefix)/bin/python3"
+	check 'which pip3' "$(brew --prefix)/bin/pip3"
+
+	# Check our latest GNU overrides are working on mac
+	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
 fi
 
 has_completion 'tar'   # Default that comes with zsh

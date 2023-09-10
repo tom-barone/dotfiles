@@ -16,6 +16,9 @@ if os_is mac; then
 	os_install mono
 fi
 
+# Latest zsh
+os_install zsh
+
 # Python
 # https://formulae.brew.sh/formula/python@3.11
 os_install python3

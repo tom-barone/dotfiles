@@ -9,7 +9,6 @@ source helpers.sh
 if os_is ubuntu; then
 	sudo apt update && sudo apt-get update && sudo apt upgrade
 	os_install curl
-	os_install zsh
 	os_install locales
 	sudo locale-gen en_AU.UTF-8
 fi
