@@ -93,9 +93,9 @@ os_install rbenv
 if os_is mac; then
 	os_install ruby-build
 fi
-rbenv init - # Load rbenv
+eval "$(rbenv init -)" # load rbenv
 ruby_version=$(rbenv version | awk '{print $1;}')
-rbenv install --force "$ruby_version"
+rbenv install --skip-existing "$ruby_version"
 
 # Gems
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
