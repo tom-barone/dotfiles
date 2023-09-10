@@ -96,14 +96,9 @@ os_install shellcheck
 os_install shfmt
 os_install tig
 
-# Node (version 18 is LTS)
+# Node
 # https://nodejs.org/en/download/package-manager
-if os_is mac; then
-	os_install node
-fi
-if os_is ubuntu; then
-	sudo snap install node --classic --channel=18
-fi
+brew_install node
 
 # Global npm packages
 npm install --global npm@latest
