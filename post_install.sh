@@ -92,7 +92,7 @@ os_install rbenv
 if os_is mac; then
 	os_install ruby-build
 fi
-rbenv init # Load rbenv
+rbenv init - # Load rbenv
 ruby_version=$(rbenv version | awk '{print $1;}')
 rbenv install --skip-existing "$ruby_version"
 
