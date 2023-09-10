@@ -98,6 +98,9 @@ test 'tmuxinator version'
 test 'node --version'
 test 'npm --version'
 
+# Npm packages
+test 'bash-language-server --version'
+
 #test 'adb --version'
 #test 'cargo --version'
 #test 'cloud_sql_proxy --version'

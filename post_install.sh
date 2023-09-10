@@ -112,6 +112,10 @@ if os_is ubuntu; then
 	sudo snap install node --classic --channel=18
 fi
 
+# Global npm packages
+npm install --global npm@latest
+npm install --global bash-language-server # https://github.com/bash-lsp/bash-language-server
+
 # Neovim setup
 # TODO: Add python, ruby and node setup
 #os_install neovim
