@@ -106,7 +106,7 @@ brew_install node
 
 # Global npm packages
 npm install --global npm@latest
-npm install --global bash-language-server # https://github.com/bash-lsp/bash-language-server
+npm_global_install bash-language-server # https://github.com/bash-lsp/bash-language-server
 
 # Rust and Cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
@@ -121,10 +121,7 @@ brew_install bat
 # Neovim setup
 # TODO: Add python, ruby and node setup
 #os_install neovim
-
-## ripgrep
-#if have_not_installed rg; then
-#fi
+#npm_global_install neovim
 
 ## Python stuff
 #pip3 install virtualenvwrapper
@@ -153,23 +150,6 @@ brew_install bat
 ## Remove the install tar.gz
 #rm cloud-sdk.tar.gz
 #fi
-
-## NVM
-## Need to do this install check because the other doesn't work for some reason
-#if ! [ -s "$NVM_DIR/nvm.sh" ]; then
-#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
-#\. "$HOME/.nvm/nvm.sh"
-
-## Node
-#nvm install --lts
-#nvm install-latest-npm
-#nvm use --lts
-#nvm alias default lts/*
-#fi
-
-## NPM stuff
-#npm_global_install prettier
-#npm_global_install neovim
 
 ## Android platform tools
 ## https://developer.android.com/studio/releases/platform-tools
