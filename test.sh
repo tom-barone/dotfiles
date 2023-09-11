@@ -138,6 +138,7 @@ test 'zsh --interactive --login -c "mkvirtualenv --help"'
 
 # Ruby and rbenv
 # Run last so it can be commented out easily
+eval "$(rbenv init - bash)"
 test 'rbenv --version'
 check 'ruby --version' "3.1.2"
 
