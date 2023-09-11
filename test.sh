@@ -107,6 +107,11 @@ test 'type vim-language-server'
 test 'nvim --version'
 test 'zsh --interactive --login -c "mkvirtualenv --help"'
 
+test 'pipx --version'
+test 'poetry --version'
+test 'black --version'
+test 'prospector --version'
+
 #test 'adb --version'
 #test 'cargo --version'
 #test 'cloud_sql_proxy --version'

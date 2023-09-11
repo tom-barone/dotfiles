@@ -24,7 +24,7 @@ jobs:
           git status
           git restore .
           git status
-      - name: "Run the install script"
+      - name: "Run the install script and test"
         run: "./install.sh"
   test-on-mac:
     runs-on: "macos-13"
@@ -44,5 +44,5 @@ jobs:
           git status
           git restore .
           git status
-      - name: "Run the install script"
+      - name: "Run the install script and test"
         run: "./install.sh"

@@ -14,10 +14,11 @@ export TZ="Australia/Adelaide"
 homebrew_mac_apple_silicon="/opt/homebrew/bin:/opt/homebrew/sbin"
 homebrew_mac_intel="/usr/local/bin:/usr/local/sbin"
 homebrew_linux="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin"
-dotnet="$HOME/.dotnet"
-dotnet_tools="$HOME/.dotnet/tools"
-adb="$HOME/platform-tools"
-export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet:$dotnet_tools:$adb:$PATH"
+dotnet_path="$HOME/.dotnet"
+dotnet_tools_path="$HOME/.dotnet/tools"
+adb_path="$HOME/platform-tools"
+pipx_and_poetry_path="$HOME/.local/bin"
+export "PATH=$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$PATH"
 
 # If brew is a command we can use
 if type brew &>/dev/null; then

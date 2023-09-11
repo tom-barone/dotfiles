@@ -100,18 +100,15 @@ npm_global_install vim-language-server  # https://github.com/iamcco/vim-language
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
-pip3 install virtualenvwrapper
+pip3 install virtualenvwrapper # Intentionally not a --user install
 # shellcheck source=/dev/null
 source virtualenvwrapper.sh
 npm_global_install neovim
 
-# Poetry https://python-poetry.org/docs/#installing-with-the-official-installer
-#curl -sSL https://install.python-poetry.org | python3 -
-
-#pip_install yapf
-#pip_install black
-#pip_install prospector
-#pip_install poetry
+pip_install pipx        # https://pypa.github.io/pipx
+pipx_install poetry     # https://python-poetry.org
+pipx_install black      # https://black.readthedocs.io
+pipx_install prospector # https://prospector.landscape.io
 
 ## Gcloud
 #gcloud_sdk_url=''

@@ -65,6 +65,12 @@ function pip_install() {
 	fi
 }
 
+function pipx_install() {
+	if have_not_installed "$1"; then
+		pipx install --user "$1"
+	fi
+}
+
 function npm_global_install() {
 	if have_not_installed "$1"; then
 		npm install --global "$1"
