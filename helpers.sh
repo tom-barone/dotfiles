@@ -67,7 +67,7 @@ function pip_install() {
 
 function pipx_install() {
 	if have_not_installed "$1"; then
-		pipx install --user "$1"
+		pipx install "$1"
 	fi
 }
 
