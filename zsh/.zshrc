@@ -1,9 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+[[ ! -f ~/.p10k_instant_prompt.zsh ]] || source ~/.p10k_instant_prompt.zsh
 
 # P10k
 [[ ! -f ~/opt/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/opt/powerlevel10k/powerlevel10k.zsh-theme
@@ -13,7 +11,7 @@ fi
 # Disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
 set-terminal-title() {
-    echo -en "\033]0;$1\a"
+	echo -en "\033]0;$1\a"
 }
 
 # History sizes
@@ -27,7 +25,7 @@ bindkey -e
 
 ## Load nice zsh arg completions (already done from stuff below)
 #if ! (( $+functions[compdef] )) ; then
-    #autoload -U +X compinit && compinit
+#autoload -U +X compinit && compinit
 #fi
 
 # Search history using whats on the line already (because .inputrc isn't loaded for zsh)
@@ -42,12 +40,8 @@ bindkey "^[[B" down-line-or-beginning-search
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-### FZF Config
-export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
-source ~/.config/zsh/fzf_git.zsh
-
 # Rbenv init (if rbenv is installed)
-if type rbenv &> /dev/null; then
+if type rbenv &>/dev/null; then
 	eval "$(rbenv init - zsh)"
 fi
 

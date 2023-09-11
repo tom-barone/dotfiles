@@ -28,13 +28,13 @@ function check() {
 	fi
 }
 
-function has_completion() {
+function has_zsh_completion() {
 	# Store the old seperator and replace it later
 	zsh_fpath=$(zsh --interactive --login -c 'echo $FPATH')
 	oldIFS=$IFS
 	IFS=:
 	found=false                   # Flag for if we find the completion file
-	for dir in $zsh_fpath; do         # For each directory in $FPATH
+	for dir in $zsh_fpath; do     # For each directory in $FPATH
 		if [[ -e "$dir/_$1" ]]; then # If the completion file exists
 			echo "Pass: \"$1\""
 			found=true # Set our flag to true
@@ -52,6 +52,7 @@ function has_completion() {
 # Essentials
 test 'curl --version'
 test 'wget --version'
+test 'cmake --version'
 test 'git --version'
 test 'zsh --version'
 test 'brew --version'
@@ -62,48 +63,44 @@ test 'pip3 --version'
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 check 'which zsh' "$(brew --prefix)/bin/zsh"
 
-#if os_is mac; then
-	## Check that python and pip are installed in the right place
-	#check 'which python3' "$(brew --prefix)/bin/python3"
-	#check 'which pip3' "$(brew --prefix)/bin/pip3"
+if os_is mac; then
+	# Check that python and pip are installed in the right place
+	check 'which python3' "$(brew --prefix)/bin/python3"
+	check 'which pip3' "$(brew --prefix)/bin/pip3"
 
-	## Check our latest GNU overrides are working on mac
-	#check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-	#check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
-#fi
+	# Check our latest GNU overrides are working on mac
+	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+fi
 
-#has_completion 'tar'   # Default that comes with zsh
-#has_completion 'git'   # Default that comes with zsh
-#has_completion 'rails' # Comes installed with zsh-completions
+test 'git-credential-manager --version'
+test 'zsh --interactive --login -c "abbr --version"'
+test 'zsh --interactive --login -c  "p10k help"'
+test 'zsh --interactive --login -c "fzf --version"'
+has_zsh_completion 'tar'   # Default that comes with zsh
+has_zsh_completion 'git'   # Default that comes with zsh
+has_zsh_completion 'rails' # Comes installed with zsh-completions
 
-#test 'git-credential-manager --version'
-#test 'zsh --interactive --login -c "abbr --version"'
-#test 'zsh --interactive --login -c  "p10k help"'
-#test 'zsh --interactive --login -c "fzf --version"'
-#test 'cmake --version'
-#test 'vim --version'
-#test 'tmux -V'
-#test 'shellcheck --version'
-#test 'shfmt --version'
-#test 'tig --version'
+test 'node --version'
+test 'npm --version'
 
-## Node
-#test 'node --version'
-#test 'npm --version'
+test 'rustup --version'
+test 'cargo --version'
 
-## Npm packages
-#test 'bash-language-server --version'
-#test 'type vim-language-server'
+test 'vim --version'
+test 'tmux -V'
+test 'tig --version'
+test 'exa --version'
+test 'bat --version'
+test 'rg --version'
+test 'type neofetch'
 
-## Rust
-#test 'rustup --version'
-#test 'cargo --version'
+test 'lua-language-server --version'
+test 'shellcheck --version'
+test 'shfmt --version'
+test 'bash-language-server --version'
+test 'type vim-language-server'
 
-## Terminal handy tools
-#test 'exa --version'
-#test 'bat --version'
-
-# Neovim
 test 'nvim --version'
 test 'zsh --interactive --login -c "mkvirtualenv --help"'
 

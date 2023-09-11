@@ -37,8 +37,15 @@ if type python3 &>/dev/null; then
 	export VIRTUALENVWRAPPER_PYTHON=$python_3_location
 fi
 if type virtualenvwrapper.sh &>/dev/null; then
+	# shellcheck source=/dev/null
 	source virtualenvwrapper.sh
 fi
+
+# FZF
+export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+# shellcheck source=/dev/null
+[[ -f "$HOME/.config/zsh/fzf_git.zsh" ]] && source "$HOME/.config/zsh/fzf_git.zsh"
 
 ## Golang paths
 #export PATH="$GOROOT/bin:$PATH"
