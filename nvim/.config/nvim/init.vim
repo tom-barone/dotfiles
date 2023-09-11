@@ -8,14 +8,26 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Function to test if we're on ubuntu WSL
+function! IsWSL()
+	if has("unix")
+		if filereadable("/proc/version")
+			let lines = readfile("/proc/version")
+			if lines[0] =~ "microsoft"
+				return 1
+			endif
+		endif
+	endif
+  return 0
+endfunction
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " Good plugins source
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 "
 
-
-Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'antoinemadec/FixCursorHold.nvim'

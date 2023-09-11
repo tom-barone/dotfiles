@@ -72,17 +72,8 @@ set updatetime=1000
 
 let g:python3_host_prog=expand("$HOME/.virtualenvs/nvim/bin/python")
 
-function! IsWSL()
-  if has("unix")
-    let lines = readfile("/proc/version")
-    if lines[0] =~ "microsoft"
-      return 1
-    endif
-  endif
-  return 0
-endfunction
-
 if IsWSL()
+	" Fix the clipboard
 	let g:clipboard = {
 							\   'name': 'WslClipboard',
 							\   'copy': {
