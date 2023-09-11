@@ -44,8 +44,6 @@ fi
 # FZF
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
-# shellcheck source=/dev/null
-[[ -f "$HOME/.config/zsh/fzf_git.zsh" ]] && source "$HOME/.config/zsh/fzf_git.zsh"
 
 ## Golang paths
 #export PATH="$GOROOT/bin:$PATH"
@@ -71,6 +69,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 ## WSL ubuntu
 if [[ $(uname -a) == *"WSL2"* ]]; then
 	export BROWSER=wslview
+	export GIT_CONFIG_GLOBAL="$HOME/opt/git-configs/wsl-ubuntu/.gitconfig"
 fi
 
 ## Want this alias in all shells (bash, zsh, sh)

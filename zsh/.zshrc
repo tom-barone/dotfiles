@@ -47,4 +47,7 @@ fi
 
 # Plugins
 [[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh # this needs to be initialised down the bottom because of https://zsh-abbr.olets.dev/advanced.html#vi-mode
+
+# FZF load
 [[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
+[[ -f "$HOME/.config/zsh/fzf_git.zsh" ]] && source "$HOME/.config/zsh/fzf_git.zsh"
