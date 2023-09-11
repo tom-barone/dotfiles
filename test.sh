@@ -136,13 +136,13 @@ test 'zsh --interactive --login -c "mkvirtualenv --help"'
 #
 #
 
-## Ruby and rbenv
-## Run last so it can be commented out easily
-#test 'rbenv --version'
-#check 'ruby --version' "3.1.2"
+# Ruby and rbenv
+# Run last so it can be commented out easily
+test 'rbenv --version'
+check 'ruby --version' "3.1.2"
 
-## Gems
-#test 'tmuxinator version'
+# Gems
+test 'tmuxinator version'
 
 if [ $HAS_TEST_SUITE_PASSED == false ]; then
 	printf "\nTests failed\n"

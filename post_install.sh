@@ -171,23 +171,23 @@ npm_global_install neovim
 #
 #
 
-## NOTE: These take a long time
-## Ruby and rbenv
-## https://github.com/rbenv/rbenv
-#default_ruby_version=3.1.2
-#brew_install rbenv
-#brew_install ruby-build
-#rbenv install --skip-existing $default_ruby_version
-#rbenv global $default_ruby_version
-#eval "$(rbenv init - bash)"
+# NOTE: These take a long time
+# Ruby and rbenv
+# https://github.com/rbenv/rbenv
+default_ruby_version=3.1.2
+brew_install rbenv
+brew_install ruby-build
+eval "$(rbenv init - bash)"
+rbenv install --skip-existing $default_ruby_version
+rbenv global $default_ruby_version
 
-## Gems
-#gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
+# Gems
+gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
+gem_install neovim
+# TODO: Add back in and tests
+#gem_install rubocop
 #gem_install neovim
-## TODO: Add back in and tests
-##gem_install rubocop
-##gem_install neovim
-##gem_install htmlbeautifier
+#gem_install htmlbeautifier
 
 # .NET SDK and runtime
 # Ignore for now, there were some issues running it
