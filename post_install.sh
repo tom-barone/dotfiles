@@ -184,6 +184,7 @@ rbenv global $default_ruby_version
 # Gems
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 gem_install neovim
+tmuxinator doctor
 # TODO: Add back in and tests
 #gem_install rubocop
 #gem_install neovim
