@@ -30,6 +30,14 @@ $brew_prefix/bin/zsh
 $brew_prefix/bin/bash
 EOT
 
+# Make sure we have tmux-256color support on mac
+# https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
+if os_is mac; then
+	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz
+	/usr/bin/tic -xe alacritty-direct,tmux-256color terminfo.src # Result is put in ~/.terminfo
+	rm terminfo.src
+fi
+
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
 if have_not_installed git-credential-manager; then
@@ -93,8 +101,12 @@ npm_global_install vim-language-server  # https://github.com/iamcco/vim-language
 # Neovim https://github.com/neovim/neovim
 os_install neovim
 pip3 install virtualenvwrapper
+# shellcheck source=/dev/null
 source virtualenvwrapper.sh
 npm_global_install neovim
+
+# Poetry https://python-poetry.org/docs/#installing-with-the-official-installer
+#curl -sSL https://install.python-poetry.org | python3 -
 
 #pip_install yapf
 #pip_install black

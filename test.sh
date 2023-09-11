@@ -71,6 +71,9 @@ if os_is mac; then
 	# Check our latest GNU overrides are working on mac
 	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
 	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+
+	# Check that tmux-256color is installed
+	test 'infocmp -x tmux-256color'
 fi
 
 test 'git-credential-manager --version'
