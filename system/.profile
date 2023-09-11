@@ -20,7 +20,6 @@ if type brew &>/dev/null; then
 	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
 	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
 	export PATH="$gnu_sed:$gmake:$PATH"
-	export $SHELL="$homebrew_prefix/bin/zsh"
 fi
 
 # Dotnet variables
