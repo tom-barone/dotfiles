@@ -15,3 +15,5 @@ abbr cat="bat"
 abbr cdc="cd ~/code"
 abbr ssh-canvas="ssh -i ~/.ssh/canvas-lms-key-pair.pem bitnami@ec2-13-236-19-48.ap-southeast-2.compute.amazonaws.com"
 abbr ssh-lift="ssh -i ~/.ssh/c3l-lift-comunet.pem ubuntu@ec2-52-63-196-21.ap-southeast-2.compute.amazonaws.com"
+abbr edit-firefox-containers="nvim /mnt/c/Users/tbarone/AppData/Roaming/Mozilla/Firefox/Profiles/6ayqd61u.default-release/containers.json"
+
