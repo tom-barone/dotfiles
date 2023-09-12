@@ -92,11 +92,13 @@ cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
 os_install neofetch   # https://github.com/dylanaraps/neofetch
 
 # Language servers and formatters
-brew_install lua-language-server        # https://github.com/LuaLS/lua-language-server
-os_install shellcheck                   # https://github.com/koalaman/shellcheck
-os_install shfmt                        # https://github.com/mvdan/sh
-npm_global_install bash-language-server # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server  # https://github.com/iamcco/vim-language-server
+brew_install lua-language-server              # https://github.com/LuaLS/lua-language-server
+os_install shellcheck                         # https://github.com/koalaman/shellcheck
+os_install shfmt                              # https://github.com/mvdan/sh
+npm_global_install bash-language-server       # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server        # https://github.com/iamcco/vim-language-server
+npm_global_install typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
+npm_global_install typescript                 # https://github.com/microsoft/TypeScript
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim

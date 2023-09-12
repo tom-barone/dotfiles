@@ -16,7 +16,7 @@ Fonts are in the `/fonts` directory, install them however the system wants.
 
 All installs that involve cloning a git repo, like `zsh-abbr` or `fzf` should put them in `$HOME/opt`.
 
-## Change the default shell by
+## Change the default shell
 
 ```
 chsh -s "$(brew --prefix)/bin/zsh"

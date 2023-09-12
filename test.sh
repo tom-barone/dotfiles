@@ -103,6 +103,8 @@ test 'shellcheck --version'
 test 'shfmt --version'
 test 'bash-language-server --version'
 test 'type vim-language-server'
+test 'tsc --version'
+test 'typescript-language-server --version'
 
 test 'nvim --version'
 test 'zsh --interactive --login -c "mkvirtualenv --help"'
