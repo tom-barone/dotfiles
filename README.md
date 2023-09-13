@@ -32,3 +32,5 @@ mkvirtualenv nvim
 pip3 install pynvim
 deactivate
 ```
+
+TODO: add documentation to ./test_functions using vim-doge

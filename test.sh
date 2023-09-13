@@ -71,6 +71,10 @@ assert_success 'bash-language-server --version'
 assert_success 'type vim-language-server'
 assert_success 'tsc --version'
 assert_success 'typescript-language-server --version'
+assert_success 'type vscode-html-language-server'
+assert_success 'type vscode-css-language-server'
+assert_success 'type vscode-json-language-server'
+assert_success 'type vscode-eslint-language-server'
 
 # Formatters and linters
 assert_success 'shfmt --version'
@@ -81,6 +85,9 @@ assert_success 'prospector --version'
 # Neovim
 assert_success 'nvim --version'
 assert_success_zsh 'mkvirtualenv --help'
+
+# AWS
+assert_success 'cdk --version'
 
 #assert_success 'adb --version'
 #assert_success 'cargo --version'

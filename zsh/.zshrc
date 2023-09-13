@@ -23,6 +23,9 @@ export HISTFILE=~/.zsh_history
 # Use emacs mode
 bindkey -e
 
+# Make the delete key work
+bindkey "^[[3~" delete-char
+
 ## Load nice zsh arg completions (already done from stuff below)
 #if ! (( $+functions[compdef] )) ; then
 #autoload -U +X compinit && compinit
