@@ -33,4 +33,11 @@ pip3 install pynvim
 deactivate
 ```
 
+## Vscode
+
+https://code.visualstudio.com/docs/setup/setup-overview
+
 TODO: add documentation to ./test_functions using vim-doge
+TODO: do git status and make sure nothing has changed
+`git diff-index --quiet HEAD --` fails if changes exist
+

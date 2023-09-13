@@ -21,7 +21,7 @@ if os_is mac; then
 fi
 
 # Python package managers
-pip_install pipx    # https://pypa.github.io/pipx
+pip3 install pipx   # https://pypa.github.io/pipx
 pipx_install poetry # https://python-poetry.org
 
 # Get the latest zsh and bash from homebrew (don't want to check for existing)
@@ -85,6 +85,7 @@ npm install --global npm@latest
 
 # Rust and Cargo https://www.rust-lang.org/tools/install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+source "$HOME/.cargo/env"
 
 # Terminal handy tools
 os_install vim
