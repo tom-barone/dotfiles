@@ -1,170 +1,127 @@
 #!/usr/bin/env bash
 
+# NOTE: Makes use of the global environment variable
+# HAS_TEST_SUITE_PASSED to determine if the test suite
+# has passed or not. This is set to true at the start
+# of the test suite and set to false if any test fails.
+
 source helpers.sh
+source test_functions.sh
 
 export HAS_TEST_SUITE_PASSED=true
-function test() {
-	# shellcheck disable=SC2086
-	if eval $1 >/dev/null 2>&1; then
-		echo "Pass: \"$1\""
-		return
-	else
-		echo "Failed: \"$1\""
-		$1
-		export HAS_TEST_SUITE_PASSED=false
-	fi
-}
-
-function test_zsh() {
-	test "zsh --interactive --login -c \"$1\""
-}
-
-function check() {
-	output=$(zsh --interactive --login -c "$1") # run in zsh
-	if [[ $output == *"$2"* ]]; then
-		echo "Pass: \"$1\""
-		return
-	else
-		echo "Failed: \"$1\""
-		echo "Expected \"$2\""
-		echo "Got \"$output\""
-		export HAS_TEST_SUITE_PASSED=false
-	fi
-}
-
-function has_zsh_completion() {
-	# Store the old seperator and replace it later
-	zsh_fpath=$(zsh --interactive --login -c 'echo $FPATH')
-	oldIFS=$IFS
-	IFS=:
-	found=false                   # Flag for if we find the completion file
-	for dir in $zsh_fpath; do     # For each directory in $FPATH
-		if [[ -e "$dir/_$1" ]]; then # If the completion file exists
-			echo "Pass: \"$1\""
-			found=true # Set our flag to true
-			return
-		fi
-	done
-	IFS=$oldIFS
-
-	if [[ $found == false ]]; then
-		echo "Failed: \"$1\"" # If we didn't find any completion file...
-		export HAS_TEST_SUITE_PASSED=false
-	fi
-}
 
 # Essentials
-test 'curl --version'
-test 'wget --version'
-test 'cmake --version'
-test 'git --version'
-test 'zsh --version'
-test 'brew --version'
-test 'stow --version'
+assert_success 'curl --version'
+assert_success 'wget --version'
+assert_success 'cmake --version'
+assert_success 'git --version'
+assert_success 'zsh --version'
+assert_success 'brew --version'
+assert_success 'stow --version'
 
 # Python and python package managers
-test 'python3 --version'
-test 'pip3 --version'
-test 'pipx --version'
-test 'poetry --version'
+assert_success 'python3 --version'
+assert_success 'pip3 --version'
+assert_success 'pipx --version'
+assert_success 'poetry --version'
 
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
-check 'which zsh' "$(brew --prefix)/bin/zsh"
+assert_result_like 'which zsh' "$(brew --prefix)/bin/zsh"
 
 if os_is mac; then
 	# Check that python and pip are installed in the right place
-	check 'which python3' "$(brew --prefix)/bin/python3"
-	check 'which pip3' "$(brew --prefix)/bin/pip3"
-	# Check our latest GNU overrides are working on mac
-	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+	assert_result_like 'which python3' "$(brew --prefix)/bin/python3"
+	assert_result_like 'which pip3' "$(brew --prefix)/bin/pip3"
+	# Check our laassert_success GNU overrides are working on mac
+	assert_result_like 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+	assert_result_like 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
 	# Check that tmux-256color is installed
-	test 'infocmp -x tmux-256color'
+	assert_success 'infocmp -x tmux-256color'
 fi
 
-test 'git-credential-manager --version'
-test_zsh 'abbr --version'
-test_zsh 'p10k help'
-test_zsh 'fzf --version'
-has_zsh_completion 'tar'   # Default that comes with zsh
-has_zsh_completion 'git'   # Default that comes with zsh
-has_zsh_completion 'rails' # Comes installed with zsh-completions
+assert_success 'git-credential-manager --version'
+assert_success_zsh 'abbr --version'
+assert_success_zsh 'p10k help'
+assert_success_zsh 'fzf --version'
+assert_zsh_completion 'tar'   # Default that comes with zsh
+assert_zsh_completion 'git'   # Default that comes with zsh
+assert_zsh_completion 'rails' # Comes installed with zsh-completions
 
 # Node
-test 'node --version'
-test 'npm --version'
+assert_success 'node --version'
+assert_success 'npm --version'
 
 # Rust
-test 'rustup --version'
-test 'cargo --version'
+assert_success 'rustup --version'
+assert_success 'cargo --version'
 
 # Terminal handy tools
-test 'vim --version'
-test 'tmux -V'
-test 'tig --version'
-test 'exa --version'
-test 'bat --version'
-test 'rg --version'
-test 'type neofetch'
+assert_success 'vim --version'
+assert_success 'tmux -V'
+assert_success 'tig --version'
+assert_success 'exa --version'
+assert_success 'bat --version'
+assert_success 'rg --version'
+assert_success 'type neofetch'
 
 # Language servers
-test 'lua-language-server --version'
-test 'shellcheck --version'
-test 'bash-language-server --version'
-test 'type vim-language-server'
-test 'tsc --version'
-test 'typescript-language-server --version'
+assert_success 'lua-language-server --version'
+assert_success 'shellcheck --version'
+assert_success 'bash-language-server --version'
+assert_success 'type vim-language-server'
+assert_success 'tsc --version'
+assert_success 'typescript-language-server --version'
 
 # Formatters and linters
-test 'shfmt --version'
-test 'prettier --version'
-test 'black --version'
-test 'prospector --version'
+assert_success 'shfmt --version'
+assert_success 'prettier --version'
+assert_success 'black --version'
+assert_success 'prospector --version'
 
 # Neovim
-test 'nvim --version'
-test_zsh 'mkvirtualenv --help'
+assert_success 'nvim --version'
+assert_success_zsh 'mkvirtualenv --help'
 
-#test 'adb --version'
-#test 'cargo --version'
-#test 'cloud_sql_proxy --version'
-#test 'fastboot --version'
-#test 'fzf --version'
-#test 'gcloud --version'
-#test 'gem --version'
-#test 'go version'
-#test 'gvm version'
-#test 'htmlbeautifier -h'
+#assert_success 'adb --version'
+#assert_success 'cargo --version'
+#assert_success 'cloud_sql_proxy --version'
+#assert_success 'fastboot --version'
+#assert_success 'fzf --version'
+#assert_success 'gcloud --version'
+#assert_success 'gem --version'
+#assert_success 'go version'
+#assert_success 'gvm version'
+#assert_success 'htmlbeautifier -h'
 ## Doesn't work on mac, need to use "java -showversion"
-##test 'java --version'
-#test 'nvim --version'
-#test 'node --version'
-#test 'npm --version'
-#test 'poetry --version'
-#test 'prettier --version'
-#test 'prospector --version'
-#test 'rbenv --version'
-#test 'rg --version'
-#test 'ruby --version'
-#test 'rubocop --version'
-#test 'shellcheck --version'
-#test 'shfmt --version'
-#test 'tig --version'
-#test 'tmux -V'
-#test 'tmuxinator version'
-#test 'vim --version'
-#test 'yapf --version'
+##assert_success 'java --version'
+#assert_success 'nvim --version'
+#assert_success 'node --version'
+#assert_success 'npm --version'
+#assert_success 'poetry --version'
+#assert_success 'prettier --version'
+#assert_success 'prospector --version'
+#assert_success 'rbenv --version'
+#assert_success 'rg --version'
+#assert_success 'ruby --version'
+#assert_success 'rubocop --version'
+#assert_success 'shellcheck --version'
+#assert_success 'shfmt --version'
+#assert_success 'tig --version'
+#assert_success 'tmux -V'
+#assert_success 'tmuxinator version'
+#assert_success 'vim --version'
+#assert_success 'yapf --version'
 #
 #
 
 # Ruby and rbenv
 # Run last so it can be commented out easily
 eval "$(rbenv init - bash)"
-test 'rbenv --version'
-check 'ruby --version' "3.1.2"
+assert_success 'rbenv --version'
+assert_result_like 'ruby --version' "3.1.2"
 
 # Gems
-test 'tmuxinator version'
+assert_success 'tmuxinator version'
 
 if [ $HAS_TEST_SUITE_PASSED == false ]; then
 	printf "\nTests failed\n"
