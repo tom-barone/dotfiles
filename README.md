@@ -14,7 +14,8 @@ Fonts are in the `/fonts` directory, install them however the system wants.
 
 ## Git manual installs
 
-All installs that involve cloning a git repo, like `zsh-abbr` or `fzf` should put them in `$HOME/opt`.
+All installs that involve cloning a git repo, like `zsh-abbr` or `fzf` should
+put them in `$HOME/opt`.
 
 ## Change the default shell
 

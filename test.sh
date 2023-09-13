@@ -15,6 +15,10 @@ function test() {
 	fi
 }
 
+function test_zsh() {
+	test "zsh --interactive --login -c \"$1\""
+}
+
 function check() {
 	output=$(zsh --interactive --login -c "$1") # run in zsh
 	if [[ $output == *"$2"* ]]; then
@@ -58,8 +62,12 @@ test 'zsh --version'
 test 'brew --version'
 test 'stow --version'
 
+# Python and python package managers
 test 'python3 --version'
 test 'pip3 --version'
+test 'pipx --version'
+test 'poetry --version'
+
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 check 'which zsh' "$(brew --prefix)/bin/zsh"
 
@@ -67,29 +75,30 @@ if os_is mac; then
 	# Check that python and pip are installed in the right place
 	check 'which python3' "$(brew --prefix)/bin/python3"
 	check 'which pip3' "$(brew --prefix)/bin/pip3"
-
 	# Check our latest GNU overrides are working on mac
 	check 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
 	check 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
-
 	# Check that tmux-256color is installed
 	test 'infocmp -x tmux-256color'
 fi
 
 test 'git-credential-manager --version'
-test 'zsh --interactive --login -c "abbr --version"'
-test 'zsh --interactive --login -c  "p10k help"'
-test 'zsh --interactive --login -c "fzf --version"'
+test_zsh 'abbr --version'
+test_zsh 'p10k help'
+test_zsh 'fzf --version'
 has_zsh_completion 'tar'   # Default that comes with zsh
 has_zsh_completion 'git'   # Default that comes with zsh
 has_zsh_completion 'rails' # Comes installed with zsh-completions
 
+# Node
 test 'node --version'
 test 'npm --version'
 
+# Rust
 test 'rustup --version'
 test 'cargo --version'
 
+# Terminal handy tools
 test 'vim --version'
 test 'tmux -V'
 test 'tig --version'
@@ -98,21 +107,23 @@ test 'bat --version'
 test 'rg --version'
 test 'type neofetch'
 
+# Language servers
 test 'lua-language-server --version'
 test 'shellcheck --version'
-test 'shfmt --version'
 test 'bash-language-server --version'
 test 'type vim-language-server'
 test 'tsc --version'
 test 'typescript-language-server --version'
 
-test 'nvim --version'
-test 'zsh --interactive --login -c "mkvirtualenv --help"'
-
-test 'pipx --version'
-test 'poetry --version'
+# Formatters and linters
+test 'shfmt --version'
+test 'prettier --version'
 test 'black --version'
 test 'prospector --version'
+
+# Neovim
+test 'nvim --version'
+test_zsh 'mkvirtualenv --help'
 
 #test 'adb --version'
 #test 'cargo --version'

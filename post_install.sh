@@ -20,6 +20,10 @@ if os_is mac; then
 	os_install mono
 fi
 
+# Python package managers
+pip_install pipx    # https://pypa.github.io/pipx
+pipx_install poetry # https://python-poetry.org
+
 # Get the latest zsh and bash from homebrew (don't want to check for existing)
 brew install zsh
 brew install bash
@@ -91,14 +95,19 @@ brew_install bat      # https://github.com/sharkdp/bat
 cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
 os_install neofetch   # https://github.com/dylanaraps/neofetch
 
-# Language servers and formatters
+# Language servers
 brew_install lua-language-server              # https://github.com/LuaLS/lua-language-server
 os_install shellcheck                         # https://github.com/koalaman/shellcheck
-os_install shfmt                              # https://github.com/mvdan/sh
 npm_global_install bash-language-server       # https://github.com/bash-lsp/bash-language-server
 npm_global_install vim-language-server        # https://github.com/iamcco/vim-language-server
 npm_global_install typescript-language-server # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                 # https://github.com/microsoft/TypeScript
+
+# Formatters and linters
+os_install shfmt            # https://github.com/mvdan/sh
+npm_global_install prettier # https://prettier.io/
+pipx_install black          # https://black.readthedocs.io
+pipx_install prospector     # https://prospector.landscape.io
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
@@ -106,11 +115,6 @@ pip3 install virtualenvwrapper # Intentionally not a --user install
 # shellcheck source=/dev/null
 source virtualenvwrapper.sh
 npm_global_install neovim
-
-pip_install pipx        # https://pypa.github.io/pipx
-pipx_install poetry     # https://python-poetry.org
-pipx_install black      # https://black.readthedocs.io
-pipx_install prospector # https://prospector.landscape.io
 
 ## Gcloud
 #gcloud_sdk_url=''
