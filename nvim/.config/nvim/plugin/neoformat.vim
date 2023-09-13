@@ -26,6 +26,7 @@ let g:neoformat_markdown_prettier = {
         \ 'args': ['--prose-wrap', 'always', '--stdin-filepath', '"%:p"'],
         \ 'stdin': 1,
         \ }
+let g:neoformat_enabled_json = ['prettier']
 
 
 " Enable basic formatting
