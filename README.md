@@ -37,7 +37,12 @@ deactivate
 
 https://code.visualstudio.com/docs/setup/setup-overview
 
-TODO: add documentation to ./test_functions using vim-doge
-TODO: do git status and make sure nothing has changed
-`git diff-index --quiet HEAD --` fails if changes exist
+# TODO
 
+1. add documentation to ./test_functions using vim-doge
+1. do git status and make sure nothing has changed
+1. Change the ~/code directory to ~/comunet on work laptop and
+- make sure running `cd ~/comunet && git config user.email` returns
+  tbarone@comunet.com.au
+- make sure running `cd ~/dotfiles && git config user.email` returns
+  mail@tombarone.net

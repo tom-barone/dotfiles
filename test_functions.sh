@@ -49,3 +49,15 @@ function assert_zsh_completion() {
 		export HAS_TEST_SUITE_PASSED=false
 	fi
 }
+
+function assert_no_git_changes() {
+	# Check if there are any git changes or new untracked files
+	git status
+	git add .
+	if git diff-index --quiet HEAD; then
+		echo "Pass: No git changes"
+	else
+		echo "Failed: There are git changes"
+		export HAS_TEST_SUITE_PASSED=false
+	fi
+}

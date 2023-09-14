@@ -90,7 +90,10 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 ## WSL ubuntu
 if [[ $(uname -a) == *"WSL2"* ]]; then
 	export BROWSER=wslview
-	export GIT_CONFIG_GLOBAL="$HOME/opt/git-configs/wsl-ubuntu/.gitconfig"
+	export GIT_CONFIG_GLOBAL="$HOME/git-configs/wsl-ubuntu/.gitconfig"
+else 
+	# Mac
+	export GIT_CONFIG_GLOBAL="$HOME/git-configs/mac/.gitconfig"
 fi
 
 ## Want this alias in all shells (bash, zsh, sh)

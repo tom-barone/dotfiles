@@ -130,10 +130,7 @@ assert_result_like 'ruby --version' "3.1.2"
 # Gems
 assert_success 'tmuxinator version'
 
-# Check if there are any changes or new untracked files
-git status
-git add .
-git diff-index --quiet HEAD -- # Fails if there are any changes
+assert_no_git_changes
 
 if [ $HAS_TEST_SUITE_PASSED == false ]; then
 	printf "\nTests failed\n"
