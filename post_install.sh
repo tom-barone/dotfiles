@@ -87,16 +87,28 @@ npm install --global npm@latest
 
 # Rust and Cargo https://www.rust-lang.org/tools/install
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+# shellcheck source=/dev/null
 source "$HOME/.cargo/env"
+
+# NOTE: These take a long time
+# Ruby and rbenv
+# https://github.com/rbenv/rbenv
+default_ruby_version=3.1.2
+brew_install rbenv
+brew_install ruby-build
+eval "$(rbenv init - bash)"
+rbenv install --skip-existing $default_ruby_version
+rbenv global $default_ruby_version
 
 # Terminal handy tools
 os_install vim
-os_install tmux       # https://github.com/tmux/tmux
-os_install tig        # https://github.com/jonas/tig
-os_install exa        # https://github.com/ogham/exa
-brew_install bat      # https://github.com/sharkdp/bat
-cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
-os_install neofetch   # https://github.com/dylanaraps/neofetch
+os_install tmux        # https://github.com/tmux/tmux
+os_install tig         # https://github.com/jonas/tig
+os_install exa         # https://github.com/ogham/exa
+brew_install bat       # https://github.com/sharkdp/bat
+cargo_install ripgrep  # https://github.com/BurntSushi/ripgrep
+os_install neofetch    # https://github.com/dylanaraps/neofetch
+gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
@@ -112,6 +124,8 @@ os_install shfmt            # https://github.com/mvdan/sh
 npm_global_install prettier # https://prettier.io/
 pipx_install black          # https://black.readthedocs.io
 pipx_install prospector     # https://prospector.landscape.io
+gem_install rubocop         # https://github.com/rubocop/rubocop
+pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
@@ -119,6 +133,7 @@ pip3 install virtualenvwrapper # Intentionally not a --user install
 # shellcheck source=/dev/null
 source virtualenvwrapper.sh
 npm_global_install neovim
+gem_install neovim
 
 # AWS
 # <install the aws-cli>
@@ -190,28 +205,6 @@ npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.9
 #source ~/.local/bin/virtualenvwrapper.sh
 #fi
-
-#
-#
-
-# NOTE: These take a long time
-# Ruby and rbenv
-# https://github.com/rbenv/rbenv
-default_ruby_version=3.1.2
-brew_install rbenv
-brew_install ruby-build
-eval "$(rbenv init - bash)"
-rbenv install --skip-existing $default_ruby_version
-rbenv global $default_ruby_version
-
-# Gems
-gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
-gem_install neovim
-tmuxinator doctor
-# TODO: Add back in and tests
-#gem_install rubocop
-#gem_install neovim
-#gem_install htmlbeautifier
 
 # .NET SDK and runtime
 # Ignore for now, there were some issues running it

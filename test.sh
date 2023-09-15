@@ -55,6 +55,11 @@ assert_success 'npm --version'
 assert_success 'rustup --version'
 assert_success 'cargo --version'
 
+# Ruby and rbenv
+eval "$(rbenv init - bash)"
+assert_success 'rbenv --version'
+assert_result_like 'ruby --version' "3.1.2"
+
 # Terminal handy tools
 assert_success 'vim --version'
 assert_success 'tmux -V'
@@ -63,6 +68,7 @@ assert_success 'exa --version'
 assert_success 'bat --version'
 assert_success 'rg --version'
 assert_success 'type neofetch'
+assert_success 'tmuxinator version'
 
 # Language servers
 assert_success 'lua-language-server --version'
@@ -81,6 +87,8 @@ assert_success 'shfmt --version'
 assert_success 'prettier --version'
 assert_success 'black --version'
 assert_success 'prospector --version'
+assert_success 'rubocop --version'
+assert_success 'sqlformat --version'
 
 # Neovim
 assert_success 'nvim --version'
@@ -121,14 +129,9 @@ assert_success 'cdk --version'
 #
 #
 
-# Ruby and rbenv
-# Run last so it can be commented out easily
-eval "$(rbenv init - bash)"
-assert_success 'rbenv --version'
-assert_result_like 'ruby --version' "3.1.2"
-
-# Gems
-assert_success 'tmuxinator version'
+# Check that git config is set correctly
+(cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
+(cd ~/dotfiles && assert_result_like 'git config user.email' 'mail@tombarone.net')
 
 assert_no_git_changes
 

@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+################################################################################
+# Assert that the command passed in succeeds.
+# When the command succeeds, it will print "Pass: \"$1\""
+# When the command fails, it will print "Failed: \"$1\"" and set
+# HAS_TEST_SUITE_PASSED to false.
+# It will also print why the command failed.
+# Globals:
+# 	HAS_TEST_SUITE_PASSED
+# Arguments:
+# 	$1: The command to run
+################################################################################
 function assert_success() {
 	# shellcheck disable=SC2086
 	if eval $1 >/dev/null 2>&1; then
@@ -12,10 +23,27 @@ function assert_success() {
 	fi
 }
 
+################################################################################
+# The same as `assert_success` but runs the command in a zsh login shell
+# 	HAS_TEST_SUITE_PASSED
+# Arguments:
+# 	$1: The command to run
+################################################################################
 function assert_success_zsh() {
 	assert_success "zsh --interactive --login -c \"$1\""
 }
 
+################################################################################
+# Assert that the result of a command partially matches a string.
+# e.g. assert_result_like 'ruby --version' "3.1.2"
+# When the command succeeds, it will print "Pass: \"$1\""
+# When the command fails, it will set HAS_TEST_SUITE_PASSED to false and
+# print the expected and actual results.
+# Globals:
+# 	HAS_TEST_SUITE_PASSED
+# Arguments:
+# 	$1: The command to run
+################################################################################
 function assert_result_like() {
 	output=$(zsh --interactive --login -c "$1") # run in zsh
 	if [[ $output == *"$2"* ]]; then
@@ -29,6 +57,17 @@ function assert_result_like() {
 	fi
 }
 
+################################################################################
+# Assert that a zsh completion file exists for the command passed in.
+# e.g. assert_zsh_completion 'tar'
+# When the completion file exists, it will print "Pass: \"$1\""
+# When the completion file doesn't exist, it will print "Failed: \"$1\"" and set
+# HAS_TEST_SUITE_PASSED to false.
+# Globals:
+# 	HAS_TEST_SUITE_PASSED
+# Arguments:
+# 	$1: The command to check
+################################################################################
 function assert_zsh_completion() {
 	# Store the old seperator and replace it later
 	zsh_fpath=$(zsh --interactive --login -c 'echo $FPATH')
@@ -50,6 +89,14 @@ function assert_zsh_completion() {
 	fi
 }
 
+################################################################################
+# Asserts that there are no git changes or new untracked files.
+# When there are no changes, it will print "Pass: No git changes"
+# When there are changes, it will print "Failed: There are git changes" and set
+# HAS_TEST_SUITE_PASSED to false.
+# Globals:
+# 	HAS_TEST_SUITE_PASSED
+################################################################################
 function assert_no_git_changes() {
 	# Check if there are any git changes or new untracked files
 	git status

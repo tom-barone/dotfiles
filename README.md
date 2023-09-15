@@ -2,11 +2,12 @@
 
 Dotfiles per me!
 
-Run `install.sh` to install, symlink and test everything.
+Run `install.sh` to install, symlink and test everything installed correctly.
 
 ## Terminal
 
-I like [Alacritty](https://github.com/alacritty/alacritty).
+I like [Alacritty](https://github.com/alacritty/alacritty). I also like the git
+diffs in [Vscode](https://code.visualstudio.com/docs/setup/setup-overview).
 
 ## Fonts
 
@@ -33,16 +34,6 @@ pip3 install pynvim
 deactivate
 ```
 
-## Vscode
-
-https://code.visualstudio.com/docs/setup/setup-overview
-
 # TODO
 
-1. add documentation to ./test_functions using vim-doge
-1. do git status and make sure nothing has changed
 1. Change the ~/code directory to ~/comunet on work laptop and
-- make sure running `cd ~/comunet && git config user.email` returns
-  tbarone@comunet.com.au
-- make sure running `cd ~/dotfiles && git config user.email` returns
-  mail@tombarone.net
