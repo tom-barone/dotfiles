@@ -118,6 +118,7 @@ npm_global_install vim-language-server          # https://github.com/iamcco/vim-
 npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
+pipx_install "python-lsp-server[all]"
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh

@@ -50,6 +50,7 @@ windows:
             - export PYTHONPATH=.
             - poetry shell
         - shell:
+            - export PYTHONPATH=.
             - poetry shell
   - fava_server:
       layout: even-vertical

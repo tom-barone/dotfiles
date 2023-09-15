@@ -81,6 +81,7 @@ assert_success 'type vscode-html-language-server'
 assert_success 'type vscode-css-language-server'
 assert_success 'type vscode-json-language-server'
 assert_success 'type vscode-eslint-language-server'
+assert_success 'pylsp --version'
 
 # Formatters and linters
 assert_success 'shfmt --version'
