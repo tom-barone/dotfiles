@@ -36,8 +36,12 @@ EOT
 
 # Make sure we have tmux-256color support on mac
 # https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
+# https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
 if os_is mac; then
 	curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz
+	# Fix colors for htop, tig, ...
+	gsed -i 's|pairs#0x10000|pairs#32767|' terminfo.src
+	gsed -i 's|pairs#65536|pairs#32767|' terminfo.src
 	/usr/bin/tic -xe alacritty-direct,tmux-256color terminfo.src # Result is put in ~/.terminfo
 	rm terminfo.src
 fi

@@ -34,6 +34,10 @@ pip3 install pynvim
 deactivate
 ```
 
+## Useful desktop programs
+
+- [Google Drive for Desktop](https://www.google.com/intl/en_au/drive/download/)
+
 # TODO
 
 1. Change the ~/code directory to ~/comunet on work laptop and
