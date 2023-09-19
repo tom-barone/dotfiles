@@ -34,6 +34,13 @@ $brew_prefix/bin/zsh
 $brew_prefix/bin/bash
 EOT
 
+# GNU versions of important programs
+if os_is mac; then
+	# Don't want to check if they're already installed
+	brew install gnu-sed
+	brew install make
+fi
+
 # Make sure we have tmux-256color support on mac
 # https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95
 # https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos/
@@ -77,13 +84,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
 # ZSH extra completions https://github.com/zsh-users/zsh-completions
 rm -rf "$HOME/opt/zsh-completions"
 git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
-
-# GNU versions of important programs
-if os_is mac; then
-	# Don't want to check if they're already installed
-	brew install gnu-sed
-	brew install make
-fi
 
 # Node https://nodejs.org/en/download/package-manager
 brew_install node
