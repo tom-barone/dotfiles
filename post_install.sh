@@ -144,6 +144,9 @@ gem_install neovim
 # <install the aws-cli>
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 
+# Global Ruby gems
+gem_install rails
+
 ## Gcloud
 #gcloud_sdk_url=''
 #if os_is mac; then
