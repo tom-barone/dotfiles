@@ -1,12 +1,10 @@
 function! neoformat#formatters#eruby#enabled() abort
-    return ['prettier']
+    return ['htmlbeautifier']
 endfunction
 
 function! neoformat#formatters#eruby#prettier() abort
     return {
-        \ 'exe': 'prettier',
-        \ 'args': ['--stdin-filepath', '"%:p"'],
-        \ 'stdin': 1,
-        \ 'try_node_exe': 1,
+        \ 'exe': 'htmlbeautifier',
+        \ 'stdin': 1
         \ }
 endfunction

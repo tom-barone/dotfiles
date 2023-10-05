@@ -10,6 +10,8 @@ os_install wget
 os_install cmake
 if os_is ubuntu; then
 	os_install build-essential # make and more
+	os_install lsb-release
+	os_install gpg
 	os_install unzip
 	os_install software-properties-common
 	os_install zsh
@@ -131,6 +133,7 @@ pipx_install black          # https://black.readthedocs.io
 pipx_install prospector     # https://prospector.landscape.io
 gem_install rubocop         # https://github.com/rubocop/rubocop
 pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
+gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
@@ -139,6 +142,21 @@ pip3 install virtualenvwrapper # Intentionally not a --user install
 source virtualenvwrapper.sh
 npm_global_install neovim
 gem_install neovim
+
+# Redis
+# https://redis.io/docs/getting-started/installation/
+if os_is mac; then
+	os_install redis
+	brew services start redis
+fi
+if os_is ubuntu; then
+	curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+	echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+	sudo apt-get update
+	sudo apt-get install --yes redis
+fi
 
 # AWS
 # <install the aws-cli>

@@ -90,10 +90,14 @@ assert_success 'black --version'
 assert_success 'prospector --version'
 assert_success 'rubocop --version'
 assert_success 'sqlformat --version'
+assert_success 'htmlbeautifier --version'
 
 # Neovim
 assert_success 'nvim --version'
 assert_success_zsh 'mkvirtualenv --help'
+
+# Redis
+assert_success 'redis-cli --version'
 
 # AWS
 assert_success 'cdk --version'
