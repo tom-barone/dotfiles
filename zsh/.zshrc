@@ -27,10 +27,7 @@ bindkey -e
 bindkey "^[[3~" delete-char
 
 # Load nice zsh arg completions (already done from stuff below)
-if ! (($ + functions[compdef])); then
-	autoload -U +X compinit && compinit
-fi
-#autoload -U +X compinit && compinit
+autoload -U +X compinit && compinit
 
 # Search history using whats on the line already (because .inputrc isn't loaded for zsh)
 autoload -U up-line-or-beginning-search

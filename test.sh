@@ -58,7 +58,7 @@ assert_success 'cargo --version'
 # Ruby and rbenv
 eval "$(rbenv init - bash)"
 assert_success 'rbenv --version'
-assert_result_like 'ruby --version' "3.1.2"
+assert_result_like 'ruby --version' "3.1.4"
 
 # Terminal handy tools
 assert_success 'vim --version'

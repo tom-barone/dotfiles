@@ -99,7 +99,7 @@ source "$HOME/.cargo/env"
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=3.1.2
+default_ruby_version=3.1.4
 brew_install rbenv
 brew_install ruby-build
 eval "$(rbenv init - bash)"
@@ -124,7 +124,8 @@ npm_global_install vim-language-server          # https://github.com/iamcco/vim-
 npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-pipx_install "python-lsp-server[all]"
+pipx_install "python-lsp-server[all]"           # https://github.com/python-lsp/python-lsp-server
+gem_install solargraph                          # https://github.com/castwide/solargraph
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
@@ -164,6 +165,7 @@ npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 
 # Global Ruby gems
 gem_install rails
+yard gems # Generate documentation for all installed gems (for solargraph)
 
 ## Gcloud
 #gcloud_sdk_url=''
