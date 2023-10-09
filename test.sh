@@ -82,6 +82,8 @@ assert_success 'type vscode-css-language-server'
 assert_success 'type vscode-json-language-server'
 assert_success 'type vscode-eslint-language-server'
 assert_success 'pylsp --version'
+assert_success 'solargraph --version'
+assert_success 'yard --version'
 
 # Formatters and linters
 assert_success 'shfmt --version'
@@ -98,6 +100,10 @@ assert_success_zsh 'mkvirtualenv --help'
 
 # Redis
 assert_success 'redis-cli --version'
+assert_result_like 'redis-cli PING' 'PONG'
+
+# Global ruby gems
+assert_success 'rails --version'
 
 # AWS
 assert_success 'cdk --version'
