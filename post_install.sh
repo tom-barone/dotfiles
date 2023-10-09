@@ -126,6 +126,7 @@ npm_global_install typescript                   # https://github.com/microsoft/T
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
 pipx_install "python-lsp-server[all]"           # https://github.com/python-lsp/python-lsp-server
 gem_install solargraph                          # https://github.com/castwide/solargraph
+gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
@@ -164,8 +165,9 @@ fi
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 
 # Global Ruby gems
-gem_install rails
-yard gems # Generate documentation for all installed gems (for solargraph)
+gem_install rails # https://github.com/rails/rails
+yard gems || true # Generate documentation for all installed gems (for solargraph)
+yard gems         # Need to run it twice because the first one fails (annoyingly)
 
 ## Gcloud
 #gcloud_sdk_url=''
