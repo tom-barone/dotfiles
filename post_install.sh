@@ -115,6 +115,8 @@ brew_install bat       # https://github.com/sharkdp/bat
 cargo_install ripgrep  # https://github.com/BurntSushi/ripgrep
 os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
+brew_install perl      # https://www.perl.org Needed for some vim plugins
+brew_install cpanminus # For cpanm perl modules
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
@@ -144,6 +146,7 @@ pip3 install virtualenvwrapper # Intentionally not a --user install
 source virtualenvwrapper.sh
 npm_global_install neovim
 gem_install neovim
+cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
@@ -158,6 +161,7 @@ if os_is ubuntu; then
 
 	sudo apt-get update
 	sudo apt-get install --yes redis
+	sudo systemctl enable redis-server
 fi
 
 # AWS

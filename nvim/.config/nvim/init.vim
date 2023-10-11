@@ -271,9 +271,6 @@ silent! let g:plugs['vim-vsnip-integ'].commit = '1cf89903f12777b90dd79eb4b3d7fbc
 "" Disable python 2 support
 "let g:loaded_python_provider = 1
 
-"" Disable perl support
-"let g:loaded_perl_provider = 0
-
 """ set Jenkinsfile to load as a groovy file
 ""au BufNewFile,BufRead Jenkinsfile setf groovy
 

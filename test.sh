@@ -69,6 +69,10 @@ assert_success 'bat --version'
 assert_success 'rg --version'
 assert_success 'type neofetch'
 assert_success 'tmuxinator version'
+assert_success 'perl --version'
+assert_success 'cpanm --version'
+assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew 
+assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 
 # Language servers
 assert_success 'lua-language-server --version'
