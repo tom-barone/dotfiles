@@ -69,6 +69,10 @@ set updatetime=1000
 
 let g:python3_host_prog=expand("$HOME/.virtualenvs/nvim/bin/python")
 
+" Use the default manpager within vim
+" We're using 'bat' as a manpager in the shell but it doesn't work in vim
+let $MANPAGER=""
+
 if IsWSL()
 	" Fix the clipboard
 	let g:clipboard = {
