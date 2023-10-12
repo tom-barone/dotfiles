@@ -71,7 +71,7 @@ assert_success 'type neofetch'
 assert_success 'tmuxinator version'
 assert_success 'perl --version'
 assert_success 'cpanm --version'
-assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew 
+assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew
 assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 
 # Language servers
@@ -88,6 +88,9 @@ assert_success 'type vscode-eslint-language-server'
 assert_success 'pylsp --version'
 assert_success 'solargraph --version'
 assert_success 'yard --version'
+assert_success 'which vscode-html-language-server'
+assert_success 'which vscode-css-language-server'
+assert_success 'which vscode-json-language-server'
 
 # Formatters and linters
 assert_success 'shfmt --version'

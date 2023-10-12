@@ -51,6 +51,16 @@ let g:copilot_no_tab_map = v:true
 imap <C-j> <Plug>(copilot-next)
 imap <C-k> <Plug>(copilot-previous)
 
+" Open URL under cursor
+" Loads netrw on demand since we disable netrw normally for nvim-tree.lua
+" https://github.com/nvim-tree/nvim-tree.lua/issues/47
+nnoremap gx :call <sid>open_url()<CR>
+function! s:open_url() abort
+  unlet! g:loaded_netrw
+  unlet! g:loaded_netrwPlugin
+  runtime! plugin/netrwPlugin.vim
+  return netrw#BrowseX(expand('<cfile>'), netrw#CheckIfRemote())
+endfunction
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>

@@ -129,6 +129,7 @@ npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vsc
 pipx_install "python-lsp-server[all]"           # https://github.com/python-lsp/python-lsp-server
 gem_install solargraph                          # https://github.com/castwide/solargraph
 gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
+npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
