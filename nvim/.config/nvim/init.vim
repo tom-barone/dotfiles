@@ -71,33 +71,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'weilbith/nvim-code-action-menu'
 
-"Plug 'antoinemadec/FixCursorHold.nvim'
-"Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-"Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-"Plug 'scrooloose/nerdtree'
-"Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-rails'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'dense-analysis/ale'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }"
-"Plug 'junegunn/fzf.vim'
-"Plug 'ap/vim-css-color'
-"Plug 'cespare/vim-toml'
-"Plug 'vim-test/vim-test'
-"Plug 'aymericbeaumet/vim-symlink'
-"Plug 'editorconfig/editorconfig-vim'
-"Plug 'hrsh7th/cmp-nvim-lsp'
-"Plug 'hrsh7th/cmp-buffer'
-"Plug 'hrsh7th/cmp-path'
-"Plug 'hrsh7th/nvim-cmp'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-"Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
 call plug#end()
 
 " Snapshots, because updating everything broke some stuff on my work laptop

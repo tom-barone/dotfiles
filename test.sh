@@ -115,38 +115,6 @@ assert_success 'rails --version'
 # AWS
 assert_success 'cdk --version'
 
-#assert_success 'adb --version'
-#assert_success 'cargo --version'
-#assert_success 'cloud_sql_proxy --version'
-#assert_success 'fastboot --version'
-#assert_success 'fzf --version'
-#assert_success 'gcloud --version'
-#assert_success 'gem --version'
-#assert_success 'go version'
-#assert_success 'gvm version'
-#assert_success 'htmlbeautifier -h'
-## Doesn't work on mac, need to use "java -showversion"
-##assert_success 'java --version'
-#assert_success 'nvim --version'
-#assert_success 'node --version'
-#assert_success 'npm --version'
-#assert_success 'poetry --version'
-#assert_success 'prettier --version'
-#assert_success 'prospector --version'
-#assert_success 'rbenv --version'
-#assert_success 'rg --version'
-#assert_success 'ruby --version'
-#assert_success 'rubocop --version'
-#assert_success 'shellcheck --version'
-#assert_success 'shfmt --version'
-#assert_success 'tig --version'
-#assert_success 'tmux -V'
-#assert_success 'tmuxinator version'
-#assert_success 'vim --version'
-#assert_success 'yapf --version'
-#
-#
-
 # Check that git config is set correctly
 (cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
 (cd ~/dotfiles && assert_result_like 'git config user.email' 'mail@tombarone.net')
