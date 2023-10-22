@@ -1,4 +1,4 @@
-let g:neoformat_enabled_eruby = ['prettier']
+let g:neoformat_enabled_eruby = ['htmlbeautifier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
 " Black works better with wrapping long strings

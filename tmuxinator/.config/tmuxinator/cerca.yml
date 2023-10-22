@@ -54,4 +54,4 @@ windows:
       panes:
         - nvim
         - clear
-  - server: bundle exec rails server
+  - server: make dev
