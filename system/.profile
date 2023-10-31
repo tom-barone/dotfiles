@@ -19,8 +19,7 @@ dotnet_tools_path="$HOME/.dotnet/tools"
 adb_path="$HOME/platform-tools"
 pipx_and_poetry_path="$HOME/.local/bin"
 visual_studio_code_mac="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-elastic_beanstalk="$HOME/.ebcli-virtual-env/executables"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$elastic_beanstalk:$PATH"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$PATH"
 
 # If brew is a command we can use
 if type brew &>/dev/null; then

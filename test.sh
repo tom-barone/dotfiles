@@ -114,7 +114,6 @@ assert_success 'rails --version'
 
 # AWS
 assert_success 'cdk --version'
-assert_success 'eb --version'
 
 # Heroku
 assert_success 'heroku --version'
