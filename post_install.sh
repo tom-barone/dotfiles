@@ -139,6 +139,7 @@ pipx_install prospector     # https://prospector.landscape.io
 gem_install rubocop         # https://github.com/rubocop/rubocop
 pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
 gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
+npm_global_install eslint   # https://eslint.org/
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
