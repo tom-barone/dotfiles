@@ -110,7 +110,7 @@ rbenv global $default_ruby_version
 os_install vim
 os_install tmux        # https://github.com/tmux/tmux
 os_install tig         # https://github.com/jonas/tig
-os_install exa         # https://github.com/ogham/exa
+cargo_install eza      # https://github.com/eza-community/eza
 brew_install bat       # https://github.com/sharkdp/bat
 cargo_install ripgrep  # https://github.com/BurntSushi/ripgrep
 os_install neofetch    # https://github.com/dylanaraps/neofetch

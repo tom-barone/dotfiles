@@ -64,7 +64,7 @@ assert_result_like 'ruby --version' "3.1.4"
 assert_success 'vim --version'
 assert_success 'tmux -V'
 assert_success 'tig --version'
-assert_success 'exa --version'
+assert_success 'eza --version'
 assert_success 'bat --version'
 assert_success 'rg --version'
 assert_success 'type neofetch'
@@ -114,6 +114,7 @@ assert_success 'rails --version'
 
 # AWS
 assert_success 'cdk --version'
+assert_success 'eb --version'
 
 # Check that git config is set correctly
 (cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
