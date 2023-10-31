@@ -169,6 +169,8 @@ fi
 # AWS
 # <install the aws-cli>
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
+git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git "$HOME/opt/aws-elastic-beanstalk-cli-setup"
+python3 "$HOME/opt/aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py"
 
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails

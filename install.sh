@@ -34,6 +34,7 @@ if have_not_installed stow; then
 		/opt/homebrew/bin/brew install stow python3
 		# Make brew and stow available when symlinking
 		export PATH="/opt/homebrew/bin:$PATH"
+		sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
 	fi
 	if os_is ubuntu; then
 		sudo apt-get install -y stow python3-pip
