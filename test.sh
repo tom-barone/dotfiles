@@ -116,6 +116,9 @@ assert_success 'rails --version'
 assert_success 'cdk --version'
 assert_success 'eb --version'
 
+# Heroku
+assert_success 'heroku --version'
+
 # Check that git config is set correctly
 (cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
 (cd ~/dotfiles && assert_result_like 'git config user.email' 'mail@tombarone.net')

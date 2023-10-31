@@ -172,6 +172,15 @@ npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git "$HOME/opt/aws-elastic-beanstalk-cli-setup"
 python3 "$HOME/opt/aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py"
 
+# Heroku
+if os_is mac; then
+	brew tap heroku/brew
+	brew_install heroku
+fi
+if os_is ubuntu; then
+	curl https://cli-assets.heroku.com/install.sh | sh
+fi
+
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
