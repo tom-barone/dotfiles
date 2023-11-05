@@ -133,13 +133,14 @@ npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vsc
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
-npm_global_install prettier # https://prettier.io/
+npm_global_install prettier # https://prettier.io
 pipx_install black          # https://black.readthedocs.io
 pipx_install prospector     # https://prospector.landscape.io
 gem_install rubocop         # https://github.com/rubocop/rubocop
 pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
 gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
-npm_global_install eslint   # https://eslint.org/
+npm_global_install eslint   # https://eslint.org
+gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
