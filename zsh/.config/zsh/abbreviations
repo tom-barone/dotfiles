@@ -17,5 +17,6 @@ abbr ssh-canvas="ssh -i ~/.ssh/canvas-lms-prod-key-pair.pem ubuntu@ec2-13-236-19
 abbr ssh-canvas-dev="ssh -i ~/.ssh/canvas-lms-dev-key-pair.pem ubuntu@ec2-54-153-182-7.ap-southeast-2.compute.amazonaws.com"
 abbr ssh-lift="ssh -i ~/.ssh/c3l-lift-comunet.pem ubuntu@ec2-52-63-196-21.ap-southeast-2.compute.amazonaws.com"
 abbr ssh-lift-dev="ssh -i ~/.ssh/lift-openedx-tutor-dev-key-pair.pem ubuntu@ec2-13-211-109-128.ap-southeast-2.compute.amazonaws.com"
+abbr ssh-lift-connect-dev="ssh -i ~/.ssh/lift-connect-dev-key-pair.pem ubuntu@lift-connect-dev.c3l.ai"
 abbr edit-firefox-containers="nvim /mnt/c/Users/tbarone/AppData/Roaming/Mozilla/Firefox/Profiles/6ayqd61u.default-release/containers.json"
 
