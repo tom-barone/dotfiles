@@ -53,3 +53,8 @@ windows:
       panes:
         - nvim
         - clear
+  - server:
+      layout: even-vertical
+      panes:
+        - php artisan serve
+        - php artisan queue:work
