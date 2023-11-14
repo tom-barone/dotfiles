@@ -7,7 +7,6 @@ export EDITOR='nvim'
 export LANG=en_AU.UTF-8
 export LC_CTYPE=en_AU.UTF-8
 export LC_ALL=en_AU.UTF-8
-#export TZ="Europe/Rome"
 export TZ="Australia/Adelaide"
 
 # Path updates
@@ -19,7 +18,8 @@ dotnet_tools_path="$HOME/.dotnet/tools"
 adb_path="$HOME/platform-tools"
 pipx_and_poetry_path="$HOME/.local/bin"
 visual_studio_code_mac="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$PATH"
+php_composer="$HOME/.config/composer/vendor/bin"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$PATH"
 
 # If brew is a command we can use
 if type brew &>/dev/null; then

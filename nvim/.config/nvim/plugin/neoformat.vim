@@ -27,6 +27,7 @@ let g:neoformat_markdown_prettier = {
         \ 'stdin': 1,
         \ }
 let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_php = ['phpcbf']
 
 
 " Enable basic formatting
