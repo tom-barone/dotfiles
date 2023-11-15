@@ -1,6 +1,12 @@
 # See here for list of installed packages under 'ubuntu-22.04'
 # https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
 
+# Need to set the Github token so we can call and test gh commands
+# without errors
+# https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 name: "continuous integration"
 on:
   push:
