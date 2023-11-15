@@ -120,6 +120,10 @@ assert_success 'cdk --version'
 # Heroku
 assert_success 'heroku --version'
 
+# Github
+assert_success 'gh --version'
+assert_success 'gh copilot --version'
+
 # Check that git config is set correctly
 (cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
 (cd ~/dotfiles && assert_result_like 'git config user.email' 'mail@tombarone.net')

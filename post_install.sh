@@ -180,6 +180,10 @@ if os_is ubuntu; then
 	curl https://cli-assets.heroku.com/install.sh | sh
 fi
 
+# Github CLI
+brew_install gh
+gh extension install github/gh-copilot
+
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
