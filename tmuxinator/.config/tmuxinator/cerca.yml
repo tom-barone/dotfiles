@@ -54,4 +54,4 @@ windows:
       panes:
         - nvim
         - clear
-  - server: make dev
+  - server: make server
