@@ -139,6 +139,18 @@ require("lspconfig").vimls.setup({
 require("lspconfig").pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        rope_autoimport = {
+          enabled = true
+        },
+        isort = {
+        	enabled = true
+        }
+      }
+    }
+  }
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
