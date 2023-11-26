@@ -128,7 +128,6 @@ npm_global_install typescript-language-server   # https://github.com/typescript-
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
 pipx_install "python-lsp-server[all]"           # https://github.com/python-lsp/python-lsp-server
-pipx_install python-lsp-isort
 gem_install solargraph                          # https://github.com/castwide/solargraph
 gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
