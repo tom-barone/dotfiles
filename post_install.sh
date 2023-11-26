@@ -117,6 +117,7 @@ os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
 brew_install cpanminus # For cpanm perl modules
+cargo_install dua-cli  # https://github.com/Byron/dua-cli
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server

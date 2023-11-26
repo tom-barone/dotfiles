@@ -50,8 +50,8 @@ if type virtualenvwrapper.sh &>/dev/null; then
 fi
 
 # FZF
-export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/"'
 
 # Better `less` options
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
