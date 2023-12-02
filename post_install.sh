@@ -136,14 +136,15 @@ npm_global_install vim-language-server          # https://github.com/iamcco/vim-
 npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-mkvirtualenv python-lsp-server
-workon python-lsp-server
-pip install "python-lsp-server[all]"
-pip install pylsp-mypy
-pip install pylsp-rope
-pip install python-lsp-ruff
-deactivate
 
+## Pyython language server, currently doesn't work in CICD
+# mkvirtualenv python-lsp-server
+# workon python-lsp-server
+# pip install "python-lsp-server[all]"
+# pip install pylsp-mypy
+# pip install pylsp-rope
+# pip install python-lsp-ruff
+# deactivate
 
 gem_install solargraph                          # https://github.com/castwide/solargraph
 gem_install yard                                # For solargraph docs https://github.com/lsegal/yard

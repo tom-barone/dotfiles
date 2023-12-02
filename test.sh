@@ -91,7 +91,6 @@ assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
 assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
-assert_success "$HOME/.virtualenvs/python-lsp-server/bin/pylsp --version"
 
 # Formatters and linters
 assert_success 'shfmt --version'
