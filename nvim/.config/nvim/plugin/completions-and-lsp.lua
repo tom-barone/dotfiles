@@ -136,9 +136,17 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").jedi_language_server.setup({
+require("lspconfig").pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+  commands = {
+    OrganiseImports = {
+      function()
+				vim.cmd('PyrightOrganizeImports')
+			end,
+      description = "Organise Imports"
+    }
+  }
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,

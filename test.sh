@@ -86,7 +86,7 @@ assert_success 'type vscode-html-language-server'
 assert_success 'type vscode-css-language-server'
 assert_success 'type vscode-json-language-server'
 assert_success 'type vscode-eslint-language-server'
-assert_success 'pylsp --version'
+assert_success 'pyright --version'
 assert_success 'solargraph --version'
 assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
@@ -126,7 +126,11 @@ assert_success 'gh --version'
 assert_success 'gh copilot --version'
 
 # Check that git config is set correctly
-(cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
+# If the code directory exists
+if [ -d ~/code ]; then
+	# Check that the git config is set correctly
+	(cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')
+fi
 (cd ~/dotfiles && assert_result_like 'git config user.email' 'mail@tombarone.net')
 
 assert_no_git_changes
