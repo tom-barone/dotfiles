@@ -1,13 +1,15 @@
 let g:neoformat_enabled_eruby = ['htmlbeautifier', 'erbformatter']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
-" Black works better with wrapping long strings
-let g:neoformat_enabled_python = ['black']
+" Overriding black here for our own nefarious purposes
+" is a hack but whatever
 let g:neoformat_python_black = {
-                \ 'exe': 'black',
-                \ 'stdin': 1,
-                \ 'args': ['--preview', '--line-length', '79', '-q', '-'],
-                \ }
+				\ 'exe': 'ruff',
+				\ 'args': ['--fix', '--unsafe-fixes'],
+				\ 'replace': 1
+				\ }
+let g:neoformat_enabled_python = ['ruff']
+
 " Make rubocop do unsafe auto-corrects
 let g:neoformat_ruby_rubocop = {
 		\ 'exe': 'rubocop',

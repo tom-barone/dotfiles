@@ -136,21 +136,9 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").pylsp.setup({
+require("lspconfig").jedi_language_server.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        rope_autoimport = {
-          enabled = true
-        },
-        isort = {
-        	enabled = true
-        }
-      }
-    }
-  }
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
