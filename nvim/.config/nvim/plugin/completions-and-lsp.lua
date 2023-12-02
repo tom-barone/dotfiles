@@ -46,6 +46,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<C-Space>"] = cmp.mapping.confirm({ select = true }),
     }),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
@@ -136,17 +137,28 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").pyright.setup({
+require("lspconfig").pylsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-  commands = {
-    OrganiseImports = {
-      function()
-				vim.cmd('PyrightOrganizeImports')
-			end,
-      description = "Organise Imports"
+	cmd = { "/Users/tbone/.virtualenvs/python-lsp-server/bin/pylsp" },
+  settings = {
+    pylsp = {
+      plugins = {
+				pycodestyle = { enabled = false },
+				mypy = { enabled = true },
+				ruff = { enabled = true },
+				rope_autoimport = { enabled = true },
+      }
     }
   }
+  --commands = {
+    --OrganiseImports = {
+      --function()
+				--vim.cmd('PyrightOrganizeImports')
+			--end,
+      --description = "Organise Imports"
+    --}
+  --}
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,

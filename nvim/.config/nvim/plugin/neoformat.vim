@@ -3,12 +3,12 @@ let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
 " Overriding black here for our own nefarious purposes
 " is a hack but whatever
-let g:neoformat_python_black = {
-				\ 'exe': 'ruff',
-				\ 'args': ['--fix', '--unsafe-fixes'],
-				\ 'replace': 1
-				\ }
-let g:neoformat_enabled_python = ['ruff']
+let g:neoformat_python_ruff = {
+		\ 'exe': 'ruff',
+		\ 'stdin': 1,
+		\ 'args': ['format', '-q', '-'],
+		\ }
+let g:neoformat_enabled_python = ['ruff', 'isort']
 
 " Make rubocop do unsafe auto-corrects
 let g:neoformat_ruby_rubocop = {

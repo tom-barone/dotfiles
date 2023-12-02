@@ -119,30 +119,6 @@ brew_install perl      # https://www.perl.org Needed for some vim plugins
 brew_install cpanminus # For cpanm perl modules
 cargo_install dua-cli  # https://github.com/Byron/dua-cli
 
-# Language servers
-brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
-os_install shellcheck                           # https://github.com/koalaman/shellcheck
-npm_global_install bash-language-server         # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server          # https://github.com/iamcco/vim-language-server
-npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
-npm_global_install typescript                   # https://github.com/microsoft/TypeScript
-npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-pipx_install pyright                            # https://microsoft.github.io/pyright/#/
-gem_install solargraph                          # https://github.com/castwide/solargraph
-gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
-npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-
-# Formatters and linters
-os_install shfmt            # https://github.com/mvdan/sh
-npm_global_install prettier # https://prettier.io
-pipx_install ruff           #
-pipx_install mypy           #
-gem_install rubocop         # https://github.com/rubocop/rubocop
-pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
-gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
-npm_global_install eslint   # https://eslint.org
-gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
-
 # Neovim https://github.com/neovim/neovim
 os_install neovim
 pip3 install virtualenvwrapper # Intentionally not a --user install
@@ -151,6 +127,38 @@ source virtualenvwrapper.sh
 npm_global_install neovim
 gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
+
+# Language servers
+brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
+os_install shellcheck                           # https://github.com/koalaman/shellcheck
+npm_global_install bash-language-server         # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server          # https://github.com/iamcco/vim-language-server
+npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
+npm_global_install typescript                   # https://github.com/microsoft/TypeScript
+npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
+mkvirtualenv python-lsp-server
+workon python-lsp-server
+pip install "python-lsp-server[all]"
+pip install pylsp-mypy
+pip install pylsp-rope
+pip install python-lsp-ruff
+deactivate
+
+
+gem_install solargraph                          # https://github.com/castwide/solargraph
+gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
+npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
+
+# Formatters and linters
+os_install shfmt            # https://github.com/mvdan/sh
+npm_global_install prettier # https://prettier.io
+pipx_install ruff           #
+pipx_install isort          #
+gem_install rubocop         # https://github.com/rubocop/rubocop
+pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
+gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
+npm_global_install eslint   # https://eslint.org
+gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
