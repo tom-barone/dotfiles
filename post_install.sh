@@ -116,8 +116,12 @@ cargo_install ripgrep  # https://github.com/BurntSushi/ripgrep
 os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
-brew_install cpanminus # For cpanm perl modules
-cargo_install dua-cli  # https://github.com/Byron/dua-cli
+if have_not_installed cpanm; then
+	brew_install cpanminus # For cpanm perl modules
+fi
+if have_not_installed dua; then
+	cargo_install dua-cli # https://github.com/Byron/dua-cli
+fi
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
@@ -156,10 +160,12 @@ npm_global_install prettier # https://prettier.io
 pipx_install ruff           #
 pipx_install isort          #
 gem_install rubocop         # https://github.com/rubocop/rubocop
-pipx_install sqlparse       # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
 gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
 npm_global_install eslint   # https://eslint.org
 gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
+if have_not_installed sqlformat; then
+	pipx_install sqlparse # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
+fi
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
@@ -194,6 +200,21 @@ fi
 brew_install gh
 gh extension install github/gh-copilot
 
+# Android platform tools
+# https://developer.android.com/studio/releases/platform-tools
+android_sdk=""
+if os_is mac; then
+	android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
+fi
+if os_is ubuntu; then
+	android_sdk="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+fi
+if have_not_installed adb; then
+	wget $android_sdk -O android-sdk.zip
+	unzip android-sdk.zip -d ~
+	rm android-sdk.zip
+fi
+
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
@@ -218,21 +239,6 @@ yard gems         # Need to run it twice because the first one fails (annoyingly
 #~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false
 ## Remove the install tar.gz
 #rm cloud-sdk.tar.gz
-#fi
-
-## Android platform tools
-## https://developer.android.com/studio/releases/platform-tools
-#android_sdk=""
-#if os_is mac; then
-#android_sdk="https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
-#fi
-#if os_is ubuntu; then
-#android_sdk="https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
-#fi
-#if have_not_installed adb; then
-#wget $android_sdk -O android-sdk.zip
-#unzip android-sdk.zip -d ~
-#rm android-sdk.zip
 #fi
 
 ## Java

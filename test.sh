@@ -98,10 +98,10 @@ assert_success 'prettier --version'
 assert_success 'ruff --version'
 assert_success 'isort --version'
 assert_success 'rubocop --version'
-assert_success 'sqlformat --version'
 assert_success 'htmlbeautifier --version'
 assert_success 'eslint --version'
 assert_success 'erb-format --version'
+assert_success 'sqlformat --version'
 
 # Neovim
 assert_success 'nvim --version'
@@ -123,6 +123,10 @@ assert_success 'heroku --version'
 # Github
 assert_success 'gh --version'
 assert_success 'gh copilot --version'
+
+# Android tools
+assert_success 'adb --version'
+assert_success 'fastboot --version'
 
 # Check that git config is set correctly
 # If the code directory exists
