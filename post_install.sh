@@ -120,11 +120,13 @@ rbenv global $default_ruby_version
 
 # Terminal handy tools
 os_install vim
-os_install tmux        # https://github.com/tmux/tmux
-os_install tig         # https://github.com/jonas/tig
-cargo_install eza      # https://github.com/eza-community/eza
-brew_install bat       # https://github.com/sharkdp/bat
-cargo_install ripgrep  # https://github.com/BurntSushi/ripgrep
+os_install tmux   # https://github.com/tmux/tmux
+os_install tig    # https://github.com/jonas/tig
+cargo_install eza # https://github.com/eza-community/eza
+brew_install bat  # https://github.com/sharkdp/bat
+if have_not_installed rg; then
+	cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
+fi
 os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
