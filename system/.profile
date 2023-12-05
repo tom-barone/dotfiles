@@ -20,7 +20,8 @@ pipx_and_poetry_path="$HOME/.local/bin"
 visual_studio_code_mac="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 php_composer="$HOME/.config/composer/vendor/bin"
 android_tools="$HOME/platform-tools"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$PATH"
+gcloud_path="$HOME/google-cloud-sdk/bin"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$PATH"
 
 # If brew is a command we can use
 if type brew &>/dev/null; then

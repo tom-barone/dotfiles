@@ -233,6 +233,57 @@ if have_not_installed adb; then
 	rm android-sdk.zip
 fi
 
+# Google Cloud SQL proxy
+# https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
+proxy_file_url=""
+if os_is mac; then
+	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.2/cloud-sql-proxy.darwin.arm64"
+fi
+if os_is ubuntu; then
+	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.2/cloud-sql-proxy.linux.amd64"
+fi
+if have_not_installed cloud_sql_proxy; then
+	sudo curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
+	sudo chmod +x /usr/local/bin/cloud_sql_proxy
+fi
+
+# Mysql
+brew_install mysql
+if os_is mac && chip_is apple_silicon; then
+	brew_install zstd
+fi
+
+# Gcloud
+gcloud_sdk_url=''
+if os_is mac && chip_is apple-silicon; then
+	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-darwin-arm.tar.gz"
+fi
+if os_is mac && chip_is intel; then
+	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-darwin-x86_64.tar.gz"
+fi
+if os_is ubuntu; then
+	# Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-linux-x86_64.tar.gz"
+fi
+if have_not_installed gcloud; then
+	# Download the install tar.gz
+	wget $gcloud_sdk_url -O cloud-sdk.tar.gz
+	# Extract it to the home dir
+	tar -xvf cloud-sdk.tar.gz -C ~
+	# Run the install script
+	~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false --quiet
+	# Remove the install tar.gz
+	rm cloud-sdk.tar.gz
+fi
+
+# Chromedriver
+if os_is mac; then
+	brew install --cask chromedriver
+	xattr -d com.apple.quarantine "$(which chromedriver)" # Let macOS run it
+fi
+
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
@@ -264,19 +315,6 @@ yard gems         # Need to run it twice because the first one fails (annoyingly
 #if have_not_installed java; then
 #os_install default-jre
 #fi
-#fi
-
-## Google Cloud SQL proxy
-#proxy_file_url=""
-#if os_is mac; then
-#proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64"
-#fi
-#if os_is ubuntu; then
-#proxy_file_url="https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64"
-#fi
-#if have_not_installed cloud_sql_proxy; then
-#curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
-#chmod +x /usr/local/bin/cloud_sql_proxy
 #fi
 
 ## TODO see if we can remove duplicated code between here and bashrc

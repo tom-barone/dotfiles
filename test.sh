@@ -132,6 +132,20 @@ assert_success 'gh copilot --version'
 assert_success 'adb --version'
 assert_success 'fastboot --version'
 
+# Cloud SQL proxy
+assert_success 'cloud_sql_proxy --version'
+
+# Mysql
+assert_success 'mysql --version'
+
+# Gcloud
+assert_success 'gcloud --version'
+
+# Chromedriver
+if os_is mac; then
+	assert_success 'chromedriver --version'
+fi
+
 # Check that git config is set correctly
 # If the code directory exists
 if [ -d ~/code ]; then
