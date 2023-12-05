@@ -99,6 +99,10 @@ fi
 brew_install node
 npm install --global npm@latest
 
+# Yarn https://yarnpkg.com/getting-started/install
+brew_install corepack
+corepack enable
+
 # Rust and Cargo https://www.rust-lang.org/tools/install
 if have_not_installed rustup; then
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path

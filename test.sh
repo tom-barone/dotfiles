@@ -51,6 +51,10 @@ assert_zsh_completion 'rails' # Comes installed with zsh-completions
 assert_success 'node --version'
 assert_success 'npm --version'
 
+# Yarn
+assert_success 'corepack --version'
+assert_success 'yarn --version'
+
 # Rust
 assert_success 'rustup --version'
 assert_success 'cargo --version'
