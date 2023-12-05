@@ -88,3 +88,12 @@ function cargo_install() {
 		cargo install "$1"
 	fi
 }
+
+function no_directory_exists_at() {
+	if [[ ! -d "$1" ]]; then
+		return
+	fi
+
+	echo "$1 already exists"
+	false
+}
