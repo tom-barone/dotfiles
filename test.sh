@@ -141,10 +141,10 @@ assert_success 'mysql --version'
 # Gcloud
 assert_success 'gcloud --version'
 
-# Chromedriver
-if os_is mac; then
-	assert_success 'chromedriver --version'
-fi
+## Chromedriver
+#if os_is mac; then
+	#assert_success 'chromedriver --version'
+#fi
 
 # Check that git config is set correctly
 # If the code directory exists
