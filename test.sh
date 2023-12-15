@@ -141,13 +141,11 @@ assert_success 'mysql --version'
 # Gcloud
 assert_success 'gcloud --version'
 
-## Chromedriver
-#if os_is mac; then
-	#assert_success 'chromedriver --version'
-#fi
-
 # Check that git config is set correctly
 # If the code directory exists
+echo "Current directory: $(pwd)"
+echo "Home directory: $(ls ~)"
+echo "PATH = $PATH"
 if [ -d ~/code ]; then
 	# Check that the git config is set correctly
 	(cd ~/code && assert_result_like 'git config user.email' 'tbarone@comunet.com.au')

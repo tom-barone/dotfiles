@@ -248,9 +248,11 @@ if have_not_installed cloud_sql_proxy; then
 fi
 
 # Mysql
-if os_is mac && chip_is apple_silicon; then
+if os_is mac; then
 	brew_install mysql
-	brew_install zstd
+	if chip_is apple_silicon; then
+		brew_install zstd
+	fi
 fi
 if os_is ubuntu; then
 	os_install mysql-server
@@ -276,7 +278,7 @@ if have_not_installed gcloud; then
 	# Download the install tar.gz
 	wget $gcloud_sdk_url -O cloud-sdk.tar.gz
 	# Extract it to the home dir
-tar -xvf cloud-sdk.tar.gz -C ~
+	tar -xvf cloud-sdk.tar.gz -C ~
 	# Run the install script
 	~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false --quiet
 	# Remove the install tar.gz
@@ -285,8 +287,8 @@ fi
 
 ## Chromedriver
 #if os_is mac; then
-	#brew install --cask chromedriver
-	#xattr -d com.apple.quarantine "$(which chromedriver)" # Let macOS run it
+#brew install --cask chromedriver
+#xattr -d com.apple.quarantine "$(which chromedriver)" # Let macOS run it
 #fi
 
 # Global Ruby gems
