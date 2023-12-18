@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e # Fail the script if any installs fail
+set -x # Print each command as it runs
 source helpers.sh
 
 brew_prefix=$(brew --prefix)
@@ -96,8 +97,10 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 fi
 
 # Node https://nodejs.org/en/download/package-manager
-brew_install node
-npm install --global npm@latest
+if have_not_installed npm; then
+	brew_install node
+	npm install --global npm@latest
+fi
 
 # Yarn https://yarnpkg.com/getting-started/install
 brew_install corepack

@@ -32,7 +32,7 @@ if have_not_installed stow; then
 		export PATH="/usr/local/bin:$PATH"
 	fi
 	if os_is mac && chip_is apple_silicon; then
-		/opt/homebrew/bin/brew install stow python3
+		/opt/homebrew/bin/brew install stow python@3.11
 		# Make brew and stow available when symlinking
 		export PATH="/opt/homebrew/bin:$PATH"
 		sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
