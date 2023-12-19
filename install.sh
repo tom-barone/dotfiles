@@ -24,21 +24,20 @@ fi
 # - We want our proper python setup before doing pip installs
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
-if have_not_installed stow; then
-	if os_is mac && chip_is intel; then
-		/usr/local/bin/brew install python@3.11 stow
-		# Make brew and stow available when symlinking
-		export PATH="/usr/local/bin:$PATH"
-	fi
-	if os_is mac && chip_is apple_silicon; then
-		/opt/homebrew/bin/brew install stow python@3.11
-		# Make brew and stow available when symlinking
-		export PATH="/opt/homebrew/bin:$PATH"
-		sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
-	fi
-	if os_is ubuntu; then
-		sudo apt-get install -y stow python3-pip
-	fi
+if os_is mac && chip_is intel; then
+	/usr/local/bin/brew install python@3.11 stow
+	/usr/local/bin/brew update --force
+	# Make brew and stow available when symlinking
+	export PATH="/usr/local/bin:$PATH"
+fi
+if os_is mac && chip_is apple_silicon; then
+	/opt/homebrew/bin/brew install stow python@3.11
+	# Make brew and stow available when symlinking
+	export PATH="/opt/homebrew/bin:$PATH"
+	sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
+fi
+if os_is ubuntu; then
+	sudo apt-get install -y stow python3-pip
 fi
 
 # Create ~/opt directory so that symlinking doesn't
