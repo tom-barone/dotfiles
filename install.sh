@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e # Fail the script if any installs fail
+set -x # Print each command as it runs
 
 # shellcheck source=/dev/null
 source helpers.sh
@@ -25,13 +26,20 @@ fi
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
 if os_is mac && chip_is intel; then
-	/usr/local/bin/brew install python@3.11 stow
-	/usr/local/bin/brew update --force
+	/usr/local/bin/brew install python@3.12 python@3.11 stow
+
+	# Fix linking issues on the github actions macos runner
+	brew update --force || true
+	brew link --overwrite python@3.12
+	brew link --overwrite python@3.11
+
 	# Make brew and stow available when symlinking
 	export PATH="/usr/local/bin:$PATH"
 fi
 if os_is mac && chip_is apple_silicon; then
+	/opt/homebrew/bin/brew install stow python@3.12
 	/opt/homebrew/bin/brew install stow python@3.11
+
 	# Make brew and stow available when symlinking
 	export PATH="/opt/homebrew/bin:$PATH"
 	sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
