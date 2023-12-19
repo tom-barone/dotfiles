@@ -26,8 +26,7 @@ fi
 # https://formulae.brew.sh/formula/python@3.11
 if have_not_installed stow; then
 	if os_is mac && chip_is intel; then
-		/usr/local/bin/brew install python@3.11
-		/usr/local/bin/brew install stow
+		/usr/local/bin/brew install python@3.11 stow
 		# Make brew and stow available when symlinking
 		export PATH="/usr/local/bin:$PATH"
 	fi
