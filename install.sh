@@ -26,7 +26,7 @@ fi
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
 if os_is mac && chip_is intel; then
-	/usr/local/bin/brew install python@3.12 python@3.11 stow
+	/usr/local/bin/brew install python@3.12 python@3.11 stow || true
 
 	# Fix linking issues on the github actions macos runner
 	brew update --force || true
