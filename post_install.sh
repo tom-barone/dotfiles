@@ -239,11 +239,14 @@ fi
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
 proxy_file_url=""
-if os_is mac; then
-	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.2/cloud-sql-proxy.darwin.arm64"
+if os_is mac && chip_is apple-silicon; then
+	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.1/cloud-sql-proxy.darwin.arm64"
+fi
+if os_is mac && chip_is intel; then
+	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.1/cloud-sql-proxy.darwin.amd64"
 fi
 if os_is ubuntu; then
-	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.2/cloud-sql-proxy.linux.amd64"
+	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.1/cloud-sql-proxy.linux.amd64"
 fi
 if have_not_installed cloud_sql_proxy; then
 	sudo curl -o /usr/local/bin/cloud_sql_proxy $proxy_file_url
