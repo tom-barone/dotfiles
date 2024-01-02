@@ -21,14 +21,16 @@ visual_studio_code_mac="/Applications/Visual Studio Code.app/Contents/Resources/
 php_composer="$HOME/.config/composer/vendor/bin"
 android_tools="$HOME/platform-tools"
 gcloud_path="$HOME/google-cloud-sdk/bin"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$PATH"
+# https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#install-tools-on-linux
+mssql_tools="/opt/mssql-tools18/bin"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$PATH"
 
 # If brew is a command we can use
 if type brew &>/dev/null; then
 	homebrew_prefix="$(brew --prefix)"
 	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
 	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-	export PATH="$gnu_sed:$gmake:$PATH"
+	#export PATH="$gnu_sed:$gmake:$PATH"
 	export SHELL="$homebrew_prefix/bin/zsh"
 fi
 
