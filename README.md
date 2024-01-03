@@ -20,6 +20,8 @@ put them in `$HOME/opt`.
 
 ## Change the default shell
 
+Assuming you've installed `zsh` with [homebrew](https://brew.sh/):
+
 ```
 chsh -s "$(brew --prefix)/bin/zsh"
 ```
@@ -33,10 +35,6 @@ mkvirtualenv nvim
 pip3 install pynvim
 deactivate
 ```
-
-## Useful desktop programs
-
-- [Google Drive for Desktop](https://www.google.com/intl/en_au/drive/download/)
 
 # TODO
 

@@ -1,30 +1,33 @@
-# /home/tomb/.config/tmuxinator/company-central.yml
+# /home/tbarone/.config/tmuxinator/comunet-data-lake.yml
 
-name: company-central
-root: /ressys/reporting-www-gopath/src/bitbucket.org/resolutionsystems/
+name: comunet-data-lake
+root: ~/code/comunet-aws-adl-app
 
 # Optional tmux socket
 # socket_name: foo
 
-# Runs before everything. Use it to start daemons etc.
-#pre: 
+# Note that the pre and post options have been deprecated and will be replaced by
+# project hooks.
 
 # Project hooks
+
 # Runs on project start, always
 # on_project_start: command
+
 # Run on project start, the first time
 # on_project_first_start: command
+
 # Run on project start, after the first time
 # on_project_restart: command
+
 # Run on project exit ( detaching from tmux session )
 # on_project_exit: command
-# set title back to "Terminal"
-on_project_exit: echo -en "\033]0;Terminal\a"
+
 # Run on project stop
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: rsr && set-terminal-title "company-central" && clear
+# pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -41,28 +44,31 @@ pre_window: rsr && set-terminal-title "company-central" && clear
 # Controls whether the tmux session should be attached to automatically. Defaults to true.
 # attach: false
 
-# Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t company-central
-
 windows:
-  - company:
+  - ingestion:
       layout: main-vertical
+      root: ~/code/comunet-adl-ingestion
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - editor:
-          - rs-go-company-api
-          - nvim
-        - api:
-          - rs-go-company-api
-          - ./make.sh run
-  - central:
+        - nvim
+        - clear
+  - app:
       layout: main-vertical
+      root: ~/code/comunet-aws-adl-app
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
       panes:
-        - editor:
-          - rs-go-central-auth-api
-          - nvim
-        - api:
-          - rs-go-central-auth-api
-          - ./make.sh run
+        - nvim
+        - clear
+  - data:
+      layout: main-vertical
+      root: ~/code/comunet-aws-adl-data
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - nvim
+        - clear
