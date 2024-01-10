@@ -131,6 +131,7 @@ os_install tmux   # https://github.com/tmux/tmux
 os_install tig    # https://github.com/jonas/tig
 cargo_install eza # https://github.com/eza-community/eza
 brew_install bat  # https://github.com/sharkdp/bat
+os_install ncdu   # https://dev.yorhel.nl/ncdu
 if have_not_installed rg; then
 	cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
 fi

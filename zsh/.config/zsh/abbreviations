@@ -10,6 +10,7 @@ abbr mux="tmuxinator"
 abbr tree="eza --tree --level=2 --all"
 abbr c.="code . &"
 abbr cat="bat"
+abbr ncdu="ncdu --color=dark"
 
 # Abbreviations for work laptop
 abbr cdc="cd ~/code"
