@@ -43,7 +43,7 @@ if os_is mac; then
 	export PACKAGE_INSTALLER="brew install"
 fi
 if os_is ubuntu; then
-	PACKAGE_INSTALLER="sudo apt-get install -y"
+	PACKAGE_INSTALLER="sudo apt install -y"
 	#sudo apt-get update
 fi
 
