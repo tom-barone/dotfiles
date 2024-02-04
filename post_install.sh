@@ -144,6 +144,7 @@ fi
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
+cargo_install just
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
@@ -179,8 +180,9 @@ npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vsc
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
 npm_global_install prettier # https://prettier.io
-pipx_install ruff           #
-pipx_install isort          #
+pipx_install ruff           # https://github.com/astral-sh/ruff
+pipx_install isort          # https://pycqa.github.io/isort/
+pipx_install pyright        # https://github.com/microsoft/pyright
 gem_install rubocop         # https://github.com/rubocop/rubocop
 gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
 npm_global_install eslint   # https://eslint.org

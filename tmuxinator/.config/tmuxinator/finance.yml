@@ -48,10 +48,9 @@ windows:
       panes:
         - editor:
             - poetry shell
-            - nvim
         - shell:
             - poetry shell
   - fava_server:
       layout: even-vertical
       panes:
-        - poetry run fava finance.beancount
+        - just server
