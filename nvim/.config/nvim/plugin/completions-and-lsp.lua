@@ -137,20 +137,9 @@ require("lspconfig").vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require("lspconfig").pylsp.setup({
+require("lspconfig").pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { os.getenv("HOME").."/.virtualenvs/python-lsp-server/bin/pylsp" },
-  settings = {
-    pylsp = {
-      plugins = {
-				pycodestyle = { enabled = false },
-				mypy = { enabled = true },
-				ruff = { enabled = true },
-				rope_autoimport = { enabled = true },
-      }
-    }
-  }
 })
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,

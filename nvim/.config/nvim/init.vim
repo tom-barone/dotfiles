@@ -28,6 +28,7 @@ call plug#begin(stdpath('data') . '/plugged')
 "
 
 Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+Plug 'NoahTheDuke/vim-just'
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'antoinemadec/FixCursorHold.nvim'
@@ -46,6 +47,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
@@ -71,7 +73,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'weilbith/nvim-code-action-menu'
 Plug 'williamboman/mason.nvim'
-Plug 'https://gitlab.com/schrieveslaach/sonarlint.nvim'
 Plug '~/opt/fzf'
 
 call plug#end()

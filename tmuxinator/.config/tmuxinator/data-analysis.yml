@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/finance.yml
+# /home/tbarone/.config/tmuxinator/data-analysis.yml
 
-name: finance
-root: ~/gitlab/finance
+name: data-analysis
+root: ~/code/data-analysis
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,19 +10,24 @@ root: ~/gitlab/finance
 # project hooks.
 
 # Project hooks
+
 # Runs on project start, always
 # on_project_start: command
+
 # Run on project start, the first time
 # on_project_first_start: command
+
 # Run on project start, after the first time
 # on_project_restart: command
+
 # Run on project exit ( detaching from tmux session )
 # on_project_exit: command
+
 # Run on project stop
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title finance; sleep 0.5
+# pre_window: rbenv shell 2.0.0-p247
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -40,7 +45,7 @@ pre_window: set-terminal-title finance; sleep 0.5
 # attach: false
 
 windows:
-  - main:
+  - editor:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -51,7 +56,3 @@ windows:
             - nvim
         - shell:
             - poetry shell
-  - fava_server:
-      layout: even-vertical
-      panes:
-        - poetry run fava finance.beancount

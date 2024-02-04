@@ -1,7 +1,7 @@
 # /home/tbarone/.config/tmuxinator/human-systems.yml
 
 name: human-systems
-root: ~/code/learner-profile-solution-repo
+root: ~/code/hs-saas-platform-repo
 
 # Optional tmux socket
 # socket_name: foo
@@ -56,16 +56,16 @@ windows:
         - clear
   - cdk:
       layout: main-vertical
-      root: ~/code/learner-profile-solution-repo/py-cdk/src
+      root: ~/code/hs-saas-platform-repo/py-cdk/src
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - poetry run nvim
-        - clear
+        - poetry shell
+        - nvim
   - api:
       layout: main-vertical
-      root: ~/code/learner-profile-solution-repo/lambda/functions/api
+      root: ~/code/hs-saas-platform-repo/lambda/functions/api
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -74,7 +74,7 @@ windows:
         - clear
   - shared:
       layout: main-vertical
-      root: ~/code/learner-profile-solution-repo/lambda/shared
+      root: ~/code/hs-saas-platform-repo/lambda/shared
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -83,7 +83,7 @@ windows:
         - clear
   - whoop-webhook-handler:
       layout: main-vertical
-      root: ~/code/learner-profile-solution-repo/lambda/functions/whoop_webhook_handler
+      root: ~/code/hs-saas-platform-repo/lambda/functions/whoop_webhook_handler
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after

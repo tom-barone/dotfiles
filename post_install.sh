@@ -208,6 +208,8 @@ fi
 # AWS
 # <install the aws-cli>
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
+# https://aws.amazon.com/blogs/devops/federated-multi-account-access-for-aws-codecommit/
+pip3 install git-remote-codecommit
 
 # Heroku
 if os_is mac; then
