@@ -25,12 +25,12 @@ gcloud_path="$HOME/google-cloud-sdk/bin"
 mssql_tools="/opt/mssql-tools18/bin"
 export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$PATH"
 
-# If brew is a command we can use
-if type brew &>/dev/null; then
+# If we're on mac and we can brew
+if type brew &>/dev/null && [[ "$(uname -a)" =~ Darwin ]]; then
 	homebrew_prefix="$(brew --prefix)"
 	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
 	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-	#export PATH="$gnu_sed:$gmake:$PATH"
+	export PATH="$gnu_sed:$gmake:$PATH"
 	export SHELL="$homebrew_prefix/bin/zsh"
 fi
 
@@ -88,7 +88,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 if [[ $(uname -a) == *"WSL2"* ]]; then
 	export BROWSER=wslview
 	export GIT_CONFIG_GLOBAL="$HOME/git-configs/wsl-ubuntu/.gitconfig"
-else 
+else
 	# Mac
 	export GIT_CONFIG_GLOBAL="$HOME/git-configs/mac/.gitconfig"
 fi

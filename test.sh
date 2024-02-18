@@ -33,9 +33,8 @@ if os_is mac; then
 	assert_result_like 'which python3' "$(brew --prefix)/bin/python3"
 	assert_result_like 'which pip3' "$(brew --prefix)/bin/pip3"
 	# Check our laassert_success GNU overrides are working on mac
-	# TODO: Put these back in, for some reason they're not working on the mac github actions runner	
-	#assert_result_like 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
-	#assert_result_like 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
+	assert_result_like 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
+	assert_result_like 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
 	# Check that tmux-256color is installed
 	assert_success 'infocmp -x tmux-256color'
 fi
@@ -102,6 +101,7 @@ assert_success 'shfmt --version'
 assert_success 'prettier --version'
 assert_success 'ruff --version'
 assert_success 'isort --version'
+assert_success 'pyright --version'
 assert_success 'rubocop --version'
 assert_success 'htmlbeautifier --version'
 assert_success 'eslint --version'
