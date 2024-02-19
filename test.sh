@@ -162,8 +162,8 @@ fi
 assert_no_git_changes
 
 if [ $HAS_TEST_SUITE_PASSED == false ]; then
-	printf "\nTests failed\n"
+	printf "\n\e[1;31mTests failed\e[0m\n"
 	exit 1
 else
-	printf "\nTests passed\n"
+	printf "\n\e[1;32mTests passed\e[0m\n"
 fi
