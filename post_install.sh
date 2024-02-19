@@ -96,11 +96,9 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-# Node https://nodejs.org/en/download/package-manager
-if have_not_installed npm; then
-	brew_install node
-	npm install --global npm@latest
-fi
+# Node and NPM https://nodejs.org/en/download/package-manager
+brew_install node
+npm install --global npm@latest
 
 # Yarn https://yarnpkg.com/getting-started/install
 brew_install corepack

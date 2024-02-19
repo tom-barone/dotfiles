@@ -78,6 +78,7 @@ assert_success 'cpanm --version'
 assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew
 assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 assert_success 'dua --version'
+assert_success 'just --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
@@ -142,11 +143,13 @@ assert_success 'mysql --version'
 # Gcloud
 assert_success 'gcloud --version'
 
-# Print out some useful info
-echo "Current directory: $(pwd)"
-echo "Home directory: $(ls ~)"
-echo "PATH = $PATH"
-ls -al /usr/local/bin
+# Print out some useful info during the CI build
+if [ "$DEBUG_INFO" == true ]; then
+	echo "Current directory: $(pwd)"
+	echo "Home directory: $(ls ~)"
+	echo "PATH = $PATH"
+	ls -al /usr/local/bin
+fi
 
 # Check that git config is set correctly
 # If the code directory exists
