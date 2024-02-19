@@ -26,6 +26,10 @@ fi
 pip3 install pipx   # https://pypa.github.io/pipx
 pipx_install poetry # https://python-poetry.org
 
+# Python tkinter
+brew_install python-tk@3.11
+brew_install python-tk@3.12
+
 # Get the latest zsh and bash from homebrew (don't want to check for existing)
 brew install zsh
 brew install bash

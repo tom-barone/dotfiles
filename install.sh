@@ -45,7 +45,8 @@ if os_is mac && chip_is apple_silicon; then
 	sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
 fi
 if os_is ubuntu; then
-	sudo apt-get install -y stow python3-pip
+	/home/linuxbrew/.linuxbrew/bin/brew install python@3.12 python@3.11
+	sudo apt-get install -y stow 
 fi
 
 # Create ~/opt directory so that symlinking doesn't
