@@ -46,7 +46,7 @@ if os_is mac && chip_is apple_silicon; then
 fi
 if os_is ubuntu; then
 	/home/linuxbrew/.linuxbrew/bin/brew install python@3.12 python@3.11
-	sudo apt-get install -y stow 
+	sudo apt-get install -y stow
 fi
 
 # Create ~/opt directory so that symlinking doesn't
