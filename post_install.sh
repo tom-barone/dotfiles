@@ -159,7 +159,7 @@ python3 -m venv ~/.virtualenvs/pynvim
 ~/.virtualenvs/pynvim/bin/pip install --upgrade pynvim
 npm_global_install neovim
 gem_install neovim
-cpan Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
+#cpan Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
