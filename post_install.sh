@@ -217,7 +217,7 @@ fi
 # <install the aws-cli>
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 # https://aws.amazon.com/blogs/devops/federated-multi-account-access-for-aws-codecommit/
-pip3 install git-remote-codecommit
+# pip3 install git-remote-codecommit
 
 # Heroku
 if os_is mac; then
@@ -312,6 +312,9 @@ fi
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
 yard gems         # Need to run it twice because the first one fails (annoyingly)
+
+# Langauge / AI stuff
+brew_install sdl2
 
 ## Gcloud
 #gcloud_sdk_url=''

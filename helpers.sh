@@ -59,12 +59,6 @@ function brew_install() {
 	fi
 }
 
-function pip_install() {
-	if have_not_installed "$1"; then
-		pip3 install --user "$1"
-	fi
-}
-
 function pipx_install() {
 	if have_not_installed "$1"; then
 		pipx install "$1"
