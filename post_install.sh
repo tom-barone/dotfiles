@@ -140,9 +140,7 @@ fi
 os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
-if have_not_installed cpanm; then
-	brew_install cpanminus # For cpanm perl modules
-fi
+cpan App::cpanminus    # https://www.cpan.org/modules/INSTALL.html
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
@@ -150,12 +148,12 @@ cargo_install just
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
-pip3 install virtualenvwrapper # Intentionally not a --user install
-# shellcheck source=/dev/null
-source virtualenvwrapper.sh
+mkdir -p ~/.virtualenvs/pynvim
+python3 -m venv ~/.virtualenvs/pynvim
+~/.virtualenvs/pynvim/bin/pip install --upgrade pynvim
 npm_global_install neovim
 gem_install neovim
-cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
+cpan Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server

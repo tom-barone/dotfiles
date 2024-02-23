@@ -72,7 +72,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'weilbith/nvim-code-action-menu'
-Plug 'williamboman/mason.nvim'
 Plug '~/opt/fzf'
 
 call plug#end()

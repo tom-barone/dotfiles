@@ -26,19 +26,19 @@ fi
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
 if os_is mac && chip_is intel; then
-	/usr/local/bin/brew install python@3.12 python@3.11 stow || true
+	/usr/local/bin/brew install python@3 python@3.12 python@3.11 python@3.9 stow || true
 
 	# Fix linking issues on the github actions macos runner
 	brew update --force || true
 	brew link --overwrite python@3.12
 	brew link --overwrite python@3.11
+	brew link --overwrite python@3.9
 
 	# Make brew and stow available when symlinking
 	export PATH="/usr/local/bin:$PATH"
 fi
 if os_is mac && chip_is apple_silicon; then
-	/opt/homebrew/bin/brew install stow python@3.12
-	/opt/homebrew/bin/brew install stow python@3.11
+	/opt/homebrew/bin/brew install python@3 python@3.12 python@3.11 python@3.9 stow
 
 	# Make brew and stow available when symlinking
 	export PATH="/opt/homebrew/bin:$PATH"
