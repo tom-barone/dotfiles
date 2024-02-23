@@ -23,7 +23,13 @@ if os_is mac; then
 fi
 
 # Python package managers
-pip3 install pipx   # https://pypa.github.io/pipx
+if os_is ubuntu; then
+	brew_install pipx # https://pypa.github.io/pipx
+fi
+if os_is mac; then
+	os_install pipx # https://pypa.github.io/pipx
+fi
+pipx ensurepath
 pipx_install poetry # https://python-poetry.org
 
 # Python tkinter
