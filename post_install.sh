@@ -146,7 +146,10 @@ fi
 os_install neofetch    # https://github.com/dylanaraps/neofetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
-cpan App::cpanminus    # https://www.cpan.org/modules/INSTALL.html
+if have_not_installed cpanm; then
+	brew_install cpanminus # https://formulae.brew.sh/formula/cpanminus
+fi
+cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't complain
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
@@ -154,12 +157,13 @@ cargo_install just
 
 # Neovim https://github.com/neovim/neovim
 os_install neovim
+rm -rf ~/.virtualenvs/pynvim
 mkdir -p ~/.virtualenvs/pynvim
 python3 -m venv ~/.virtualenvs/pynvim
 ~/.virtualenvs/pynvim/bin/pip install --upgrade pynvim
 npm_global_install neovim
 gem_install neovim
-#cpan Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
+cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
 brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
@@ -169,15 +173,6 @@ npm_global_install vim-language-server          # https://github.com/iamcco/vim-
 npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-
-## Pyython language server, currently doesn't work in CICD
-# mkvirtualenv python-lsp-server
-# workon python-lsp-server
-# pip install "python-lsp-server[all]"
-# pip install pylsp-mypy
-# pip install pylsp-rope
-# pip install python-lsp-ruff
-# deactivate
 
 gem_install solargraph                          # https://github.com/castwide/solargraph
 gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
@@ -204,7 +199,7 @@ if os_is mac; then
 	brew services start redis
 fi
 if os_is ubuntu; then
-	curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+	curl -fsSL https://packages.redis.io/gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
 
 	echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
 

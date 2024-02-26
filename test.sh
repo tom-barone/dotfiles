@@ -114,7 +114,6 @@ assert_success 'sqlformat --version'
 
 # Neovim
 assert_success 'nvim --version'
-assert_success_zsh 'mkvirtualenv --help'
 
 # Redis
 assert_success 'redis-cli --version'
@@ -170,3 +169,7 @@ if [ $HAS_TEST_SUITE_PASSED == false ]; then
 else
 	printf "\n\e[1;32mTests passed\e[0m\n"
 fi
+
+# Manual tests
+# 1. Check that the terminal is using the correct font
+# 2. Check that :checkhealth in neovim is all green

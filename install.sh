@@ -8,7 +8,10 @@ source helpers.sh
 
 # Prepare ubuntu
 if os_is ubuntu; then
-	sudo apt update && sudo apt-get update && sudo apt upgrade
+	sudo apt update
+	sudo apt-get update
+	sudo apt -y upgrade
+	sudo apt-get -y upgrade
 	os_install curl
 	os_install locales
 	sudo locale-gen en_AU.UTF-8
@@ -25,27 +28,28 @@ fi
 # - We want our proper python setup before doing pip installs
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
+
+python_versions=(python@3 python@3.12 python@3.11 python@3.9)
+
 if os_is mac && chip_is intel; then
-	/usr/local/bin/brew install python@3 python@3.12 python@3.11 python@3.9 stow || true
+	/usr/local/bin/brew install "${python_versions[@]}" stow || true
 
 	# Fix linking issues on the github actions macos runner
 	brew update --force || true
-	brew link --overwrite python@3.12
-	brew link --overwrite python@3.11
-	brew link --overwrite python@3.9
+	brew link --overwrite "${python_versions[@]}"
 
 	# Make brew and stow available when symlinking
 	export PATH="/usr/local/bin:$PATH"
 fi
 if os_is mac && chip_is apple_silicon; then
-	/opt/homebrew/bin/brew install python@3 python@3.12 python@3.11 python@3.9 stow
+	/opt/homebrew/bin/brew install "${python_versions[@]}" stow
 
 	# Make brew and stow available when symlinking
 	export PATH="/opt/homebrew/bin:$PATH"
 	sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
 fi
 if os_is ubuntu; then
-	/home/linuxbrew/.linuxbrew/bin/brew install python@3.12 python@3.11
+	/home/linuxbrew/.linuxbrew/bin/brew install "${python_versions[@]}"
 	sudo apt-get install -y stow
 fi
 

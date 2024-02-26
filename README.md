@@ -26,16 +26,6 @@ Assuming you've installed `zsh` with [homebrew](https://brew.sh/):
 chsh -s "$(brew --prefix)/bin/zsh"
 ```
 
-## Setup python3 for neovim
-
-See `:help provider-python` in nvim for more details
-
-```
-mkvirtualenv nvim
-pip3 install pynvim
-deactivate
-```
-
 # TODO
 
 1. Change the ~/code directory to ~/comunet on work laptop and
