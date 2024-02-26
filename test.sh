@@ -123,6 +123,7 @@ assert_result_like 'redis-cli PING' 'PONG'
 assert_success 'rails --version'
 
 # AWS
+assert_success 'aws --version'
 assert_success 'cdk --version'
 
 # Heroku

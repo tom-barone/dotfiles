@@ -209,7 +209,19 @@ if os_is ubuntu; then
 fi
 
 # AWS
-# <install the aws-cli>
+if have_not_installed aws; then
+	# https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+	if os_is mac; then
+		curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+		sudo installer -pkg AWSCLIV2.pkg -target /
+	fi
+	if os_is ubuntu && chip_is x86; then
+		curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+		unzip awscliv2.zip
+		sudo ./aws/install
+		rm -rf awscliv2.zip aws
+	fi
+fi
 npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 # https://aws.amazon.com/blogs/devops/federated-multi-account-access-for-aws-codecommit/
 # pip3 install git-remote-codecommit
@@ -245,7 +257,7 @@ fi
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
 proxy_file_url=""
-if os_is mac && chip_is apple-silicon; then
+if os_is mac && chip_is apple_silicon; then
 	proxy_file_url="https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.8.1/cloud-sql-proxy.darwin.arm64"
 fi
 if os_is mac && chip_is intel; then
@@ -274,7 +286,7 @@ fi
 
 # Gcloud
 gcloud_sdk_url=''
-if os_is mac && chip_is apple-silicon; then
+if os_is mac && chip_is apple_silicon; then
 	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
 	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-darwin-arm.tar.gz"
 fi
@@ -297,12 +309,6 @@ if have_not_installed gcloud; then
 	rm cloud-sdk.tar.gz
 fi
 
-## Chromedriver
-#if os_is mac; then
-#brew install --cask chromedriver
-#xattr -d com.apple.quarantine "$(which chromedriver)" # Let macOS run it
-#fi
-
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
@@ -310,58 +316,3 @@ yard gems         # Need to run it twice because the first one fails (annoyingly
 
 # Langauge / AI stuff
 brew_install sdl2
-
-## Gcloud
-#gcloud_sdk_url=''
-#if os_is mac; then
-## macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-#gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-linux-x86_64.tar.gz"
-#fi
-#if os_is ubuntu; then
-## Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
-#gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-319.0.0-darwin-x86_64.tar.gz"
-#fi
-#if have_not_installed gcloud; then
-## Download the install tar.gz
-#wget $gcloud_sdk_url -O cloud-sdk.tar.gz
-## Extract it to the home dir
-#tar -xvf cloud-sdk.tar.gz -C ~
-## Run the install script
-#~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false
-## Remove the install tar.gz
-#rm cloud-sdk.tar.gz
-#fi
-
-## Java
-#if os_is ubuntu; then
-#if have_not_installed java; then
-#os_install default-jre
-#fi
-#fi
-
-## TODO see if we can remove duplicated code between here and bashrc
-#export WORKON_HOME=~/.virtualenvs
-#if os_is mac; then
-#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.9
-#source /usr/local/bin/virtualenvwrapper.sh
-#fi
-#if os_is ubuntu; then
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.9
-#source ~/.local/bin/virtualenvwrapper.sh
-#fi
-
-# .NET SDK and runtime
-# Ignore for now, there were some issues running it
-# on the github action ubuntu:22.04 runner image
-#if os_is mac; then
-## Pre-requisite
-## https://learn.microsoft.com/en-us/dotnet/core/install/macos#libgdiplus
-#os_install mono-libgdiplus
-#fi
-## https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
-#if have_not_installed dotnet; then
-#wget https://dot.net/v1/dotnet-install.sh
-#chmod +x dotnet-install.sh
-#./dotnet-install.sh --channel 7.0
-#rm dotnet-install.sh
-#fi

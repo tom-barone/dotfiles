@@ -25,7 +25,9 @@ function chip_is() {
 	uname="$(uname -m)"
 
 	[[ "$1" == 'apple_silicon' ]] && [[ "$uname" =~ arm ]] && return
+	[[ "$1" == 'ARM' ]] && [[ "$uname" =~ arm ]] && return
 	[[ "$1" == 'intel' ]] && [[ "$uname" =~ x86 ]] && return
+	[[ "$1" == 'x86' ]] && [[ "$uname" =~ x86 ]] && return
 
 	false
 }
