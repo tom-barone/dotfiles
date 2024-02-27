@@ -51,8 +51,8 @@ assert_zsh_completion 'git'   # Default that comes with zsh
 assert_zsh_completion 'rails' # Comes installed with zsh-completions
 
 # Node
-node --version
-npm --version
+node --version # TODO: Delete me
+npm --version  # TODO: Delete me
 assert_success 'node --version'
 assert_success 'npm --version'
 
