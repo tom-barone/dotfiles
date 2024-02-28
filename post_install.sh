@@ -129,8 +129,8 @@ default_ruby_version=3.1.4
 if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
-	eval "$(rbenv init - bash)"
 fi
+eval "$(rbenv init - bash)"
 if os_is ubuntu; then
 	brew_install zlib
 	# Manually point the ruby install to the homebrew zlib directory
