@@ -15,6 +15,7 @@ if os_is ubuntu; then
 	os_install gpg
 	os_install unzip
 	os_install software-properties-common
+	os_install libz-dev # Needed for some rust cli tools
 fi
 if os_is mac; then
 	xcode-select --install || true
@@ -300,9 +301,9 @@ if os_is ubuntu; then
 fi
 if have_not_installed gcloud; then
 	# Download the install tar.gz
-	wget $gcloud_sdk_url -O cloud-sdk.tar.gz
+	wget $gcloud_sdk_url -O cloud-sdk.tar.gz --quiet
 	# Extract it to the home dir
-	tar -xvf cloud-sdk.tar.gz -C ~
+	tar -xf cloud-sdk.tar.gz -C ~
 	# Run the install script
 	~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false --quiet
 	# Remove the install tar.gz

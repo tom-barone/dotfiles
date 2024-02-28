@@ -38,7 +38,7 @@ if os_is mac && chip_is intel; then
 	/usr/local/bin/brew update --force || true
 	/usr/local/bin/brew link --overwrite "${python_versions[@]}"
 
-	# Fix issues with node.js and icu4c
+	# Fix issues with node.js and icu4c on the Github Actions macos runner
 	/usr/local/bin/brew uninstall --ignore-dependencies --force node icu4c 
 	/usr/local/bin/brew install node
 
