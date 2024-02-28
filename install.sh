@@ -39,8 +39,8 @@ if os_is mac && chip_is intel; then
 	/usr/local/bin/brew link --overwrite "${python_versions[@]}"
 
 	# Fix issues with node.js and icu4c
-	/usr/local/bin/brew install icu4c
-	/usr/local/bin/brew upgrade icu4c
+	/usr/local/bin/brew uninstall --ignore-dependencies node icu4c
+	/usr/local/bin/brew install node
 	/usr/local/bin/brew cleanup
 
 	# Make brew and stow available when symlinking
