@@ -131,8 +131,16 @@ if have_not_installed rbenv; then
 	brew_install ruby-build
 	eval "$(rbenv init - bash)"
 fi
-rbenv install --skip-existing $default_ruby_version
-rbenv global $default_ruby_version
+if os_is ubuntu; then
+	brew_install zlib
+	# Manually point the ruby install to the homebrew zlib directory
+	RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib)" rbenv install --skip-existing $default_ruby_version
+	rbenv global $default_ruby_version
+fi
+if os_is mac; then
+	rbenv install --skip-existing $default_ruby_version
+	rbenv global $default_ruby_version
+fi
 
 # Terminal handy tools
 os_install vim
