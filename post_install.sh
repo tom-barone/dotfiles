@@ -72,8 +72,6 @@ fi
 if have_not_installed git-credential-manager; then
 	if os_is mac; then
 		brew install --cask git-credential-manager
-		# This install on mac annoyingly makes changes to ~/.gitconfig, so we have to undo them
-		git checkout -- git/.gitconfig
 	fi
 	if os_is ubuntu; then
 		wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-linux_amd64.2.3.2.deb"
