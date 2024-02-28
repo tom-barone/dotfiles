@@ -1,11 +1,9 @@
 [include]
-	path = ~/.gitconfig
+	path = ~/git-configs/shared/.gitconfig
 [credential]
 	helper =
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[includeIf "gitdir:~/code/**"]
-	[user]
-		email = tbarone@comunet.com.au
-		name = tbarone
+[includeIf "gitdir:~/code/"]
+	path = ~/git-configs/wsl-ubuntu/comunet.gitconfig
