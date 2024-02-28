@@ -85,6 +85,13 @@ function cargo_install() {
 	fi
 }
 
+function check_environment_variable() {
+	if [[ -z "${!1}" ]]; then
+		echo "ERROR: variable $1 not set"
+		exit 1
+	fi
+}
+
 function no_directory_exists_at() {
 	if [[ ! -d "$1" ]]; then
 		return
