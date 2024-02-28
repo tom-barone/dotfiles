@@ -165,7 +165,7 @@ fi
 cargo_install just
 
 # Neovim https://github.com/neovim/neovim
-os_install neovim
+brew_install neovim
 rm -rf ~/.virtualenvs/pynvim
 mkdir -p ~/.virtualenvs/pynvim
 python3 -m venv ~/.virtualenvs/pynvim

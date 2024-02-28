@@ -27,7 +27,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 "
 
-Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+"Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
 Plug 'NoahTheDuke/vim-just'
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
@@ -96,7 +96,7 @@ silent! let g:plugs['neoformat'].commit = 'afbc055587e88554b1fd11408cfab859d0cd4
 silent! let g:plugs['nerdcommenter'].commit = '98cc4a2d64ca67cccbf5b5cf47c682ebadaaff58'
 silent! let g:plugs['nvim-cmp'].commit = '8a9e8a89eec87f86b6245d77f313a040a94081c1'
 silent! let g:plugs['nvim-code-action-menu'].commit = 'e4399dbaf6eabff998d3d5f1cbcd8d9933710027'
-silent! let g:plugs['nvim-hardline'].commit = '81f8dafc1abfdd836f8b13abc903b0b82ca67c7b'
+silent! let g:plugs['nvim-hardline'].commit = '9b85ebfba065091715676fb440c16a37c465b9a5'
 silent! let g:plugs['nvim-lightbulb'].commit = '56b9ce31ec9d09d560fe8787c0920f76bc208297'
 silent! let g:plugs['nvim-lint'].commit = '9e3b261583a39b47facfefd181a233bfd68b9af0'
 silent! let g:plugs['nvim-lspconfig'].commit = 'dd11ba7b3c8f82d51b6d4dd7d68fce2d78bf78a0'
