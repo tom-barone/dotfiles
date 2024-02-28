@@ -35,8 +35,13 @@ if os_is mac && chip_is intel; then
 	/usr/local/bin/brew install "${python_versions[@]}" stow || true
 
 	# Fix linking issues on the github actions macos runner
-	brew update --force || true
-	brew link --overwrite "${python_versions[@]}"
+	/usr/local/bin/brew update --force || true
+	/usr/local/bin/brew link --overwrite "${python_versions[@]}"
+
+	# Fix issues with node.js and icu4c
+	/usr/local/bin/brew install icu4c
+	/usr/local/bin/brew upgrade icu4c
+	/usr/local/bin/brew cleanup
 
 	# Make brew and stow available when symlinking
 	export PATH="/usr/local/bin:$PATH"
