@@ -239,7 +239,7 @@ if os_is mac; then
 	brew_install heroku
 fi
 if os_is ubuntu; then
-	curl https://cli-assets.heroku.com/install.sh | sh
+	curl https://cli-assets.heroku.com/install.sh | sudo sh
 fi
 
 # Github CLI

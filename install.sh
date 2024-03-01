@@ -8,6 +8,7 @@ source helpers.sh
 
 # If a .env file exists, load it
 if [ -f .env ]; then
+	# shellcheck source=/dev/null
 	source .env
 fi
 
