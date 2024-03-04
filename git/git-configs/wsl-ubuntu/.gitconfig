@@ -5,5 +5,7 @@
 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[includeIf "gitdir:~/code/"]
+[includeIf "gitdir:~/comunet/"]
 	path = ~/git-configs/wsl-ubuntu/comunet.gitconfig
+[includeIf "gitdir:~/comunet/codecommit/"]
+	path = ~/git-configs/wsl-ubuntu/codecommit.gitconfig
