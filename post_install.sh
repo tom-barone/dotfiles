@@ -229,9 +229,8 @@ if have_not_installed aws; then
 		rm -rf awscliv2.zip aws
 	fi
 fi
-npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
-# https://aws.amazon.com/blogs/devops/federated-multi-account-access-for-aws-codecommit/
-# pip3 install git-remote-codecommit
+npm_global_install aws-cdk         # https://docs.aws.amazon.com/cdk/v2/guide/home.html
+pipx_install git-remote-codecommit # https://github.com/aws/git-remote-codecommit
 
 # Heroku
 if os_is mac; then

@@ -1,7 +1,7 @@
 # /home/tbarone/.config/tmuxinator/c3l-analytics-llama2.yml
 
 name: c3l-analytics-llama2
-root: ~/code/c3l-analytics-llama2
+root: ~/comunet/codecommit/c3l-analytics-llama2
 
 # Optional tmux socket
 # socket_name: foo
