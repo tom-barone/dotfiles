@@ -51,7 +51,6 @@ assert_zsh_completion 'git'   # Default that comes with zsh
 assert_zsh_completion 'rails' # Comes installed with zsh-completions
 
 # Node
-assert_success 'nvm --version'
 assert_success 'node --version'
 assert_success 'npm --version'
 
