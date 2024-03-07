@@ -107,14 +107,16 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 fi
 
 # NVM node manager https://github.com/nvm-sh/nvm
-PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
-# shellcheck source=/dev/null
-. ~/.profile # Make sure nvm is loaded
-nvm install --lts # Install the latest LTS version of node
-nvm use --lts
-nvm alias default lts/*
-npm install --global npm@latest
-corepack enable
+if have_not_installed node; then
+	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+	# shellcheck source=/dev/null
+	. ~/.profile      # Make sure nvm is loaded
+	nvm install --lts # Install the latest LTS version of node
+	nvm use --lts
+	nvm alias default lts/*
+	npm install --global npm@latest
+	corepack enable
+fi
 
 # Yarn https://yarnpkg.com/getting-started/install
 brew_install corepack
