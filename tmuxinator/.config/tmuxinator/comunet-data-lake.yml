@@ -47,34 +47,7 @@ root: ~/code/comunet-data-lake
 windows:
   - main:
       layout: main-vertical
-      root: ~/code/comunet-data-lake
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - nvim
-        - clear
-  - ingestion:
-      layout: main-vertical
-      root: ~/code/comunet-adl-ingestion
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - nvim
-        - clear
-  - app:
-      layout: main-vertical
-      root: ~/code/comunet-aws-adl-app
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
-      panes:
-        - nvim
-        - clear
-  - data:
-      layout: main-vertical
-      root: ~/code/comunet-aws-adl-data
+      root: ~/comunet/bitbucket/comunet-data-lake
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after

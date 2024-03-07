@@ -16,6 +16,7 @@ if os_is ubuntu; then
 	os_install unzip
 	os_install software-properties-common
 	os_install libz-dev # Needed for some rust cli tools
+	os_install ntpdate  # To update the clock when it gets out of sync
 fi
 if os_is mac; then
 	xcode-select --install || true
@@ -105,9 +106,15 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-# Node and NPM https://nodejs.org/en/download/package-manager
-brew_install node
+# NVM node manager https://github.com/nvm-sh/nvm
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+# shellcheck source=/dev/null
+. ~/.profile # Make sure nvm is loaded
+nvm install --lts # Install the latest LTS version of node
+nvm use --lts
+nvm alias default lts/*
 npm install --global npm@latest
+corepack enable
 
 # Yarn https://yarnpkg.com/getting-started/install
 brew_install corepack

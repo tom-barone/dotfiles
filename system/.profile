@@ -34,6 +34,10 @@ if type brew &>/dev/null && [[ "$(uname -a)" =~ Darwin ]]; then
 	export SHELL="$homebrew_prefix/bin/zsh"
 fi
 
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 # Dotnet variables
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script#set-environment-variables
 export DOTNET_ROOT=$HOME/.dotnet
