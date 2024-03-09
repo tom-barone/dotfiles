@@ -113,7 +113,7 @@ if have_not_installed node; then
 	. ~/.profile      # Make sure nvm is loaded
 	nvm install --lts # Install the latest LTS version of node
 	nvm use --lts
-	nvm alias default lts/*
+	nvm alias default "lts/*"
 	npm install --global npm@latest
 	corepack enable
 fi
@@ -192,7 +192,6 @@ npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vsc
 
 gem_install solargraph                          # https://github.com/castwide/solargraph
 gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
-npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
