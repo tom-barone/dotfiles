@@ -230,6 +230,7 @@ if have_not_installed aws; then
 	if os_is mac; then
 		curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 		sudo installer -pkg AWSCLIV2.pkg -target /
+		rm AWSCLIV2.pkg
 	fi
 	if os_is ubuntu && chip_is x86; then
 		curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -331,3 +332,4 @@ yard gems         # Need to run it twice because the first one fails (annoyingly
 
 # Langauge / AI stuff
 brew_install sdl2
+brew_install ffmpeg

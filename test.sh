@@ -119,9 +119,6 @@ assert_success 'nvim --version'
 assert_success 'redis-cli --version'
 assert_result_like 'redis-cli PING' 'PONG'
 
-# Global ruby gems
-assert_success 'rails --version'
-
 # AWS
 assert_success 'aws --version'
 assert_success 'cdk --version'
@@ -145,6 +142,13 @@ assert_success 'mysql --version'
 
 # Gcloud
 assert_success 'gcloud --version'
+
+# Global ruby gems
+assert_success 'rails --version'
+
+# Langauge / AI stuff
+assert_success 'sdl2-config --version'
+assert_success 'ffmpeg -version'
 
 # Print out some useful info during the CI build
 if [ "$DEBUG_INFO" == true ]; then
