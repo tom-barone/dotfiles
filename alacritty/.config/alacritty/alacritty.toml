@@ -1,0 +1,38 @@
+# [shell]
+# program = "ubuntu"  # WSL2
+
+[font]
+size = 16.0 	# MacOS
+# size = 13.0		# WSL2
+
+[font.bold]
+family = "SauceCodePro Nerd Font"
+style = "Regular"
+
+[font.normal]
+family = "SauceCodePro Nerd Font"
+style = "Light" 	# MacOS
+# style = "Medium" 	# WSL2
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001BF"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BB"
+key = "Left"
+mods = "Alt"
+
+[window]
+dynamic_title = true
+option_as_alt = "OnlyLeft" # MacOS
+
+[window.padding]
+x = 1
+y = 1
