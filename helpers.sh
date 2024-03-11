@@ -100,3 +100,19 @@ function no_directory_exists_at() {
 	echo "$1 already exists"
 	false
 }
+
+# Returns true if the current environment is a CI environment.
+function ci {
+	if [[ "$CI" = true ]]; then
+		return
+	fi
+	false
+}
+
+# Returns true if the current environment is not a CI environment.
+function not_ci {
+	if [[ "$CI" = false ]]; then
+		return
+	fi
+	false
+}

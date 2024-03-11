@@ -12,7 +12,13 @@ if [ -f .env ]; then
 	source .env
 fi
 
-check_environment_variable "GH_TOKEN"
+check_environment_variable "DEBUG_INFO"
+check_environment_variable "CI"
+
+if not_ci; then
+	# Check that our fonts are installed
+	fc-list | grep "SauceCodeProNerdFont"
+fi
 
 # Prepare ubuntu
 if os_is ubuntu; then

@@ -5,8 +5,8 @@
 # without errors
 # https://docs.github.com/en/actions/using-workflows/using-github-cli-in-workflows
 env:
-  GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
   DEBUG_INFO: true # Print out helpful info in the logs
+  CI: true
 
 name: "continuous integration"
 on:

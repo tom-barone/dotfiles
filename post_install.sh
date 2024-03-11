@@ -190,8 +190,8 @@ npm_global_install typescript-language-server   # https://github.com/typescript-
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
 
-gem_install solargraph                          # https://github.com/castwide/solargraph
-gem_install yard                                # For solargraph docs https://github.com/lsegal/yard
+gem_install solargraph # https://github.com/castwide/solargraph
+gem_install yard       # For solargraph docs https://github.com/lsegal/yard
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
@@ -329,6 +329,42 @@ gem_install rails # https://github.com/rails/rails
 yard gems || true # Generate documentation for all installed gems (for solargraph)
 yard gems         # Need to run it twice because the first one fails (annoyingly)
 
+# Docker
+if have_not_installed docker; then
+	if os_is mac; then
+		# https://docs.docker.com/desktop/install/mac-install/
+		softwareupdate --install-rosetta --agree-to-license
+		wget "https://desktop.docker.com/mac/main/arm64/Docker.dmg" -O "Docker.dmg"
+		sudo hdiutil attach Docker.dmg
+		sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
+		sudo hdiutil detach /Volumes/Docker
+	fi
+	if os_is wsl-ubuntu; then
+		# https://docs.docker.com/desktop/install/windows-install/
+		echo "Need to install Docker Desktop on Windows"
+	fi
+	if os_is ubuntu; then
+		# https://docs.docker.com/desktop/install/ubuntu/
+		echo "Need to install Docker Desktop on Ubuntu"
+	fi
+fi
+
 # Langauge / AI stuff
 brew_install sdl2
 brew_install ffmpeg
+
+echo "------------------------------"
+echo "Final steps:"
+if os_is ubuntu; then
+	echo "- Install Docker Desktop"
+fi
+if os_is wsl-ubuntu; then
+	echo "- Install Docker Desktop on Windows"
+fi
+if os_is mac; then
+	echo "- Open Docker Desktop and complete the installation of the CLI tools etc."
+fi
+echo "- Run 'gh auth login' to authenticate with GitHub"
+echo "- Run 'gh extension install github/gh-copilot'"
+echo "- Check that the terminal is using the correct font"
+echo "- Run ':checkhealth' in neovim and make sure everything is green"

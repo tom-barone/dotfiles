@@ -146,6 +146,9 @@ assert_success 'gcloud --version'
 # Global ruby gems
 assert_success 'rails --version'
 
+# Docker
+assert_success 'docker --version'
+
 # Langauge / AI stuff
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
@@ -174,7 +177,3 @@ if [ $HAS_TEST_SUITE_PASSED == false ]; then
 else
 	printf "\n\e[1;32mTests passed\e[0m\n"
 fi
-
-# Manual tests
-# 1. Check that the terminal is using the correct font
-# 2. Check that :checkhealth in neovim is all green
