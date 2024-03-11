@@ -252,7 +252,6 @@ fi
 
 # Github CLI
 brew_install gh
-gh extension install github/gh-copilot
 
 # Android platform tools
 # https://developer.android.com/studio/releases/platform-tools
