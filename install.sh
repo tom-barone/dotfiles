@@ -6,12 +6,6 @@ set -x # Print each command as it runs
 # shellcheck source=/dev/null
 source helpers.sh
 
-# If a .env file exists, load it
-if [ -f .env ]; then
-	# shellcheck source=/dev/null
-	source .env
-fi
-
 check_environment_variable "DEBUG_INFO"
 check_environment_variable "CI"
 

@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# If a .env file exists, load it
+if [ -f .env ]; then
+	# shellcheck source=/dev/null
+	source .env
+fi
+
 function os_is() {
 	uname="$(uname -a)"
 
@@ -111,7 +117,7 @@ function ci {
 
 # Returns true if the current environment is not a CI environment.
 function not_ci {
-	if [[ "$CI" = false ]]; then
+	if ! ci; then
 		return
 	fi
 	false

@@ -128,7 +128,6 @@ assert_success 'heroku --version'
 
 # Github
 assert_success 'gh --version'
-assert_success 'gh copilot --version'
 
 # Android tools
 assert_success 'adb --version'
@@ -146,12 +145,16 @@ assert_success 'gcloud --version'
 # Global ruby gems
 assert_success 'rails --version'
 
-# Docker
-assert_success 'docker --version'
-
 # Langauge / AI stuff
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
+
+# Stuff we want to check for but
+# but don't want to run in CI
+if not_ci; then
+	assert_success 'docker --version'
+	assert_success 'gh copilot --version'
+fi
 
 # Print out some useful info during the CI build
 if [ "$DEBUG_INFO" == true ]; then

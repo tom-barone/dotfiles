@@ -329,7 +329,8 @@ yard gems || true # Generate documentation for all installed gems (for solargrap
 yard gems         # Need to run it twice because the first one fails (annoyingly)
 
 # Docker
-if have_not_installed docker; then
+# Don't try to install it on CI builds
+if have_not_installed docker && not_ci; then
 	if os_is mac; then
 		# https://docs.docker.com/desktop/install/mac-install/
 		softwareupdate --install-rosetta --agree-to-license
