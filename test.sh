@@ -18,6 +18,9 @@ assert_success 'git --version'
 assert_success 'zsh --version'
 assert_success 'brew --version'
 assert_success 'stow --version'
+if os_is wsl-ubuntu; then
+	assert_success 'wslview --version'
+fi
 
 # Python and python package managers
 assert_success 'python3 --version'

@@ -23,6 +23,12 @@ if os_is mac; then
 	os_install make
 	os_install mono
 fi
+if os_is wsl-ubuntu; then
+	# For utilities in WSL like `wslview` to open browser windows etc.
+	sudo add-apt-repository ppa:wslutilities/wslu
+	sudo apt update
+	os_install wslu
+fi
 
 # Python package managers
 if os_is ubuntu; then
@@ -110,7 +116,8 @@ fi
 if have_not_installed node; then
 	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 	# shellcheck source=/dev/null
-	. ~/.profile      # Make sure nvm is loaded
+	# Make sure nvm is loaded
+	. ~/.profile || true
 	nvm install --lts # Install the latest LTS version of node
 	nvm use --lts
 	nvm alias default "lts/*"
@@ -250,7 +257,7 @@ if os_is ubuntu; then
 	curl https://cli-assets.heroku.com/install.sh | sudo sh
 fi
 
-# Github CLI
+# Github CLI (for now just login and install the gh extension manually)
 brew_install gh
 
 # Android platform tools

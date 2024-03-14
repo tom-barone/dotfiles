@@ -38,3 +38,13 @@ Assuming you've installed `zsh` with [homebrew](https://brew.sh/):
 ```bash
 chsh -s "$(brew --prefix)/bin/zsh"
 ```
+
+### tmux mouse support and Windows 10
+
+For whatever reason, there's an
+[issue](https://github.com/alacritty/alacritty/issues/1663) with alacritty on
+Windows 10 that causes tmux mouse mode to not work.
+
+This
+[comment](https://github.com/alacritty/alacritty/issues/1663#issuecomment-1917418514)
+has a workaround for now.
