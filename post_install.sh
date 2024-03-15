@@ -24,7 +24,7 @@ if os_is mac; then
 fi
 if os_is wsl-ubuntu; then
 	# For utilities in WSL like `wslview` to open browser windows etc.
-	sudo add-apt-repository ppa:wslutilities/wslu
+	sudo add-apt-repository ppa:wslutilities/wslu -y
 	sudo apt update
 	os_install wslu
 fi
@@ -358,6 +358,15 @@ fi
 # Langauge / AI stuff
 brew_install sdl2
 brew_install ffmpeg
+
+# Final cleanup steps
+brew cleanup
+brew autoremove
+if os_is ubuntu; then
+	sudo apt autoremove -y
+fi
+
+set +x
 
 echo "------------------------------"
 echo "Final steps:"
