@@ -1,7 +1,7 @@
 # /home/tbarone/.config/tmuxinator/data-analysis.yml
 
 name: data-analysis
-root: ~/code/data-analysis
+root: ~/comunet/bitbucket/data-analysis
 
 # Optional tmux socket
 # socket_name: foo

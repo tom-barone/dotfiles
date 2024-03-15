@@ -29,6 +29,9 @@ bindkey "^[[3~" delete-char
 # Load nice zsh arg completions (already done from stuff below)
 autoload -U +X compinit && compinit
 
+# <Shift+Tab> to reverse menu complete
+bindkey '^[[Z' reverse-menu-complete
+
 # Search history using whats on the line already (because .inputrc isn't loaded for zsh)
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
