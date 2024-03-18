@@ -21,7 +21,6 @@ fi
 if os_is mac; then
 	xcode-select --install || true
 	os_install make
-	os_install mono
 fi
 if os_is wsl-ubuntu; then
 	# For utilities in WSL like `wslview` to open browser windows etc.
