@@ -139,18 +139,24 @@ fi
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
 default_ruby_version=3.1.4
-if have_not_installed rbenv; then
-	brew_install rbenv
-	brew_install ruby-build
-fi
+brew upgrade rbenv      # We want the latest version of rbenv
+brew upgrade ruby-build # and the latest version of ruby-build
 eval "$(rbenv init - bash)"
 if os_is ubuntu; then
 	brew_install zlib
 	# Manually point the ruby install to the homebrew zlib directory
-	RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib)" rbenv install --skip-existing $default_ruby_version
+	RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib)"
+	export RUBY_CONFIGURE_OPTS
+	rbenv install --skip-existing $default_ruby_version
 	rbenv global $default_ruby_version
 fi
 if os_is mac; then
+	if chip_is apple_silicon; then
+		brew install openssl@3 readline libyaml gmp
+		# Make sure to use the homebrew openssl when installing on apple silicon chips
+		RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
+		export RUBY_CONFIGURE_OPTS
+	fi
 	rbenv install --skip-existing $default_ruby_version
 	rbenv global $default_ruby_version
 fi
