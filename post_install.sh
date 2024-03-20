@@ -156,7 +156,11 @@ if os_is mac; then
 		RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 		export RUBY_CONFIGURE_OPTS
 	fi
-	rbenv install --skip-existing $default_ruby_version
+	rbenv install --skip-existing $default_ruby_version > output.txt || true
+	# Get the file name from the line that says:
+	# 	See the full build log at /var/folders/1k/qq3pcbf12vb6vyblh81736p40000gn/T/ruby-build.20240320152408.7742.log
+	cat output.txt | grep "full build log" | awk '{print $7}' | xargs cat
+	exit 1
 	rbenv global $default_ruby_version
 fi
 

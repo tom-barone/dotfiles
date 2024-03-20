@@ -69,9 +69,3 @@ jobs:
           git status
       - name: "Run the install script and test"
         run: "./install.sh"
-      - name: Archive logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: output-logs-for-rbenv
-          path: /var/folders
