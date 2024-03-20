@@ -139,8 +139,7 @@ fi
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
 default_ruby_version=3.1.4
-brew upgrade rbenv      # We want the latest version of rbenv
-brew upgrade ruby-build # and the latest version of ruby-build
+brew install rbenv ruby-build # We want the latest version of both
 eval "$(rbenv init - bash)"
 if os_is ubuntu; then
 	brew_install zlib
