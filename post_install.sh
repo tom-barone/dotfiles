@@ -146,7 +146,7 @@ if os_is ubuntu; then
 	# Manually point the ruby install to the homebrew zlib directory
 	RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib)"
 	export RUBY_CONFIGURE_OPTS
-	rbenv install --skip-existing $default_ruby_version
+	rbenv install --skip-existing --verbose $default_ruby_version
 	rbenv global $default_ruby_version
 fi
 if os_is mac; then
@@ -156,11 +156,7 @@ if os_is mac; then
 		RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 		export RUBY_CONFIGURE_OPTS
 	fi
-	rbenv install --skip-existing $default_ruby_version > output.txt || true
-	# Get the file name from the line that says:
-	# 	See the full build log at /var/folders/1k/qq3pcbf12vb6vyblh81736p40000gn/T/ruby-build.20240320152408.7742.log
-	cat output.txt | grep "full build log" | awk '{print $7}' | xargs cat
-	exit 1
+	rbenv install --skip-existing --verbose $default_ruby_version
 	rbenv global $default_ruby_version
 fi
 
