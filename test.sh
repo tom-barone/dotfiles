@@ -114,6 +114,7 @@ assert_success 'htmlbeautifier --version'
 assert_success 'eslint --version'
 assert_success 'erb-format --version'
 assert_success 'sqlformat --version'
+assert_success 'djlint --version'
 
 # Neovim
 assert_success 'nvim --version'

@@ -48,12 +48,13 @@ pre_window: set-terminal-title maths-anxiety-chatbot
 windows:
   - root:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
         - editor:
             - poetry shell
             - nvim
         - shell:
             - poetry shell
+  - server:
+      layout: main-vertical
+      panes:
+        - just server
