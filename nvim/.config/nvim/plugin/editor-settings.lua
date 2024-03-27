@@ -9,3 +9,6 @@ vim.diagnostic.config({
 	float = { border = _border },
 })
 
+-- Set the log level to "off" to disable logging
+-- Set to "debug" when actually debugging
+vim.lsp.set_log_level("off")

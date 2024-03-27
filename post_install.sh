@@ -113,11 +113,18 @@ fi
 
 # Golang
 if have_not_installed go; then
+	go_version="1.22.1"
 	if os_is ubuntu && chip_is x86; then
-		wget "https://go.dev/dl/go1.22.1.linux-amd64.tar.gz" -O "go.tar.gz"
-		tar -C "$HOME/opt" -xzf go.tar.gz
-		rm go.tar.gz
+		wget "https://go.dev/dl/go${go_version}.linux-amd64.tar.gz" -O "go.tar.gz"
 	fi
+	if os_is mac && chip_is apple_silicon; then
+		wget "https://go.dev/dl/go${go_version}.darwin-arm64.tar.gz" -O "go.tar.gz"
+	fi
+	if os_is mac && chip_is intel; then
+		wget "https://go.dev/dl/go${go_version}.darwin-amd64.tar.gz" -O "go.tar.gz"
+	fi
+	tar -C "$HOME/opt" -xzf go.tar.gz
+	rm go.tar.gz
 fi
 
 # NVM node manager https://github.com/nvm-sh/nvm
