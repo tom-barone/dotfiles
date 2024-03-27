@@ -52,6 +52,7 @@ assert_success_zsh 'fzf --version'
 assert_zsh_completion 'tar'   # Default that comes with zsh
 assert_zsh_completion 'git'   # Default that comes with zsh
 assert_zsh_completion 'rails' # Comes installed with zsh-completions
+assert_success 'go version'
 
 # Node
 assert_success 'node --version'
@@ -102,6 +103,7 @@ assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
 assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
+assert_success 'gopls version'
 
 # Formatters and linters
 assert_success 'shfmt --version'

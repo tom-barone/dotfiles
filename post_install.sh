@@ -111,6 +111,15 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
+# Golang
+if have_not_installed go; then
+	if os_is ubuntu && chip_is x86; then
+		wget "https://go.dev/dl/go1.22.1.linux-amd64.tar.gz" -O "go.tar.gz"
+		tar -C "$HOME/opt" -xzf go.tar.gz
+		rm go.tar.gz
+	fi
+fi
+
 # NVM node manager https://github.com/nvm-sh/nvm
 if have_not_installed node; then
 	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
@@ -188,16 +197,16 @@ gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
-brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
-os_install shellcheck                           # https://github.com/koalaman/shellcheck
-npm_global_install bash-language-server         # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server          # https://github.com/iamcco/vim-language-server
-npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
-npm_global_install typescript                   # https://github.com/microsoft/TypeScript
-npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-
-gem_install solargraph # https://github.com/castwide/solargraph
-gem_install yard       # For solargraph docs https://github.com/lsegal/yard
+brew_install lua-language-server                 # https://github.com/LuaLS/lua-language-server
+os_install shellcheck                            # https://github.com/koalaman/shellcheck
+npm_global_install bash-language-server          # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server           # https://github.com/iamcco/vim-language-server
+npm_global_install typescript-language-server    # https://github.com/typescript-language-server/typescript-language-server
+npm_global_install typescript                    # https://github.com/microsoft/TypeScript
+npm_global_install vscode-langservers-extracted  # https://github.com/hrsh7th/vscode-langservers-extracted
+gem_install solargraph                           # https://github.com/castwide/solargraph
+gem_install yard                                 # For solargraph docs https://github.com/lsegal/yard
+go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh

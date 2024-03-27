@@ -91,6 +91,20 @@ function cargo_install() {
 	fi
 }
 
+################################################################################
+# Install a go package if it hasn't been installed yet.
+# Arguments:
+# 	$1: The name of the package to install.
+# 		Example: gopls
+# 	$2: The path to the package to install.
+# 		Example: golang.org/x/tools/gopls@latest
+################################################################################
+function go_install() {
+	if have_not_installed "$1"; then
+		go install "$2"
+	fi
+}
+
 function check_environment_variable() {
 	if [[ -z "${!1}" ]]; then
 		echo "ERROR: variable $1 not set"
