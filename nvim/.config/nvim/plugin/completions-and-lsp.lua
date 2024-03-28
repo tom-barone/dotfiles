@@ -144,7 +144,6 @@ require("lspconfig").pyright.setup({
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	cmd = { "/Users/tbone/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rust-analyzer" },
 })
 require("lspconfig").bashls.setup({
 	on_attach = on_attach,

@@ -214,6 +214,7 @@ npm_global_install vscode-langservers-extracted  # https://github.com/hrsh7th/vs
 gem_install solargraph                           # https://github.com/castwide/solargraph
 gem_install yard                                 # For solargraph docs https://github.com/lsegal/yard
 go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
+rustup component add rust-analyzer               # https://rust-analyzer.github.io/
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
