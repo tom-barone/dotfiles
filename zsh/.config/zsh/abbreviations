@@ -21,7 +21,7 @@ abbr ssh-lift="ssh -i ~/.ssh/c3l-lift-comunet.pem ubuntu@ec2-52-63-196-21.ap-sou
 abbr ssh-lift-dev="ssh -i ~/.ssh/lift-openedx-tutor-dev-key-pair.pem ubuntu@ec2-13-211-109-128.ap-southeast-2.compute.amazonaws.com"
 abbr ssh-lift-connect="ssh -i ~/.ssh/lift-connect-prod-key-pair.pem ubuntu@lift-connect.c3l.ai"
 abbr ssh-lift-connect-dev="ssh -i ~/.ssh/lift-connect-dev-key-pair.pem ubuntu@lift-connect-dev.c3l.ai"
-abbr edit-firefox-containers="nvim /mnt/c/Users/tbarone/AppData/Roaming/Mozilla/Firefox/Profiles/6ayqd61u.default-release/containers.json"
+abbr edit-firefox-containers="nvim /mnt/c/Users/tbarone/AppData/Roaming/Mozilla/Firefox/Profiles/*.default-release/containers.json"
 
 # Abbreviations for wsl2
 abbr update-clock="sudo ntpdate ntp.ubuntu.com"
