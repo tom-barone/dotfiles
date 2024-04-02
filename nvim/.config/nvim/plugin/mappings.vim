@@ -41,8 +41,10 @@ nnoremap <leader>ge <Cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>gE <Cmd>TroubleToggle workspace_diagnostics<cr>
 nnoremap <leader>gr <Cmd>TroubleToggle lsp_references<cr>
 
+" Git commands
 " Show history of current file
 nnoremap <leader>gh <Cmd>0Gclog<cr>
+nnoremap <leader>gst <Cmd>vert Git<cr>
 
 nnoremap [d <Cmd>lua vim.diagnostic.goto_prev()<Enter>
 nnoremap ]d <Cmd>lua vim.diagnostic.goto_next()<Enter>

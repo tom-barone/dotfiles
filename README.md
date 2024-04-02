@@ -11,10 +11,11 @@ Clone and run `install.sh`. This will
 ## Terminal
 
 [Alacritty](https://github.com/alacritty/alacritty) +
-[tmux](https://github.com/tmux/tmux/wiki) + [zsh](https://www.zsh.org/).
+[tmux](https://github.com/tmux/tmux/wiki) + [zsh](https://www.zsh.org/) +
+[nvim](https://neovim.io/) because I'm a goddamn tech hipster.
 
-I also like the git diffs + Github Copilot chat in
-[Vscode](https://code.visualstudio.com/docs/setup/setup-overview).
+The git diffs + Github Copilot chat in
+[Vscode](https://code.visualstudio.com/docs/setup/setup-overview) are good.
 
 ## Fonts
 
@@ -48,3 +49,8 @@ Windows 10 that causes tmux mouse mode to not work.
 This
 [comment](https://github.com/alacritty/alacritty/issues/1663#issuecomment-1917418514)
 has a workaround for now.
+
+### Vim commands to remember
+
+`:GBrowse` - Open the current file in the web browser (Github etc.) with
+optional line range if in visual mode

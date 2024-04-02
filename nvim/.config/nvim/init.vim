@@ -68,6 +68,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'weilbith/nvim-code-action-menu'
@@ -77,7 +78,6 @@ call plug#end()
 
 " Snapshots, because updating everything broke some stuff on my work laptop
 silent! let g:plugs['FixCursorHold.nvim'].commit = '1900f89dc17c603eec29960f57c00bd9ae696495'
-silent! let g:plugs['aw-watcher-vim'].commit = '4ba86d05a940574000c33f280fd7f6eccc284331'
 silent! let g:plugs['bufferline.nvim'].commit = '028a87933d99f8bb88f2f70a4def3ff9574f3594'
 silent! let g:plugs['cmp-buffer'].commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa'
 silent! let g:plugs['cmp-cmdline'].commit = '8ee981b4a91f536f52add291594e89fb6645e451'
@@ -116,6 +116,7 @@ silent! let g:plugs['vim-just'].commit = '60fb16e889fc241d172d51c0f43c8dd7038420
 silent! let g:plugs['vim-obsession'].commit = '7d39576149d17bde3c096fd57e3a2cdae65deaf5'
 silent! let g:plugs['vim-rails'].commit = '1ad9663ce31e8c08134849d04184cda94bb42aba'
 silent! let g:plugs['vim-repeat'].commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a'
+silent! let g:plugs['vim-rhubarb'].commit = 'ee69335de176d9325267b0fd2597a22901d927b1'
 silent! let g:plugs['vim-surround'].commit = '3d188ed2113431cf8dac77be61b842acb64433d9'
 silent! let g:plugs['vim-unimpaired'].commit = '6d44a6dc2ec34607c41ec78acf81657248580bf1'
 silent! let g:plugs['vim-vsnip'].commit = '6f873418c4dc601d8ad019a5906eddff5088de9b'
