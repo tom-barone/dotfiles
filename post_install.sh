@@ -88,27 +88,31 @@ fi
 
 # zsh-abbr https://zsh-abbr.olets.dev/installation.html
 if no_directory_exists_at "$HOME/opt/zsh-abbr"; then
-	rm -rf "$HOME/opt/zsh-abbr"
 	git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
 fi
 
 # Powerlevel10k https://github.com/romkatv/powerlevel10k#installation
 if no_directory_exists_at "$HOME/opt/powerlevel10k"; then
-	rm -rf "$HOME/opt/powerlevel10k"
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/opt/powerlevel10k"
 fi
 
 # Fzf https://github.com/junegunn/fzf/
 if no_directory_exists_at "$HOME/opt/fzf"; then
-	rm -rf "$HOME/opt/fzf"
 	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/opt/fzf"
 	"$HOME/opt/fzf/install" --bin --no-update-rc
 fi
 
 # ZSH extra completions https://github.com/zsh-users/zsh-completions
 if no_directory_exists_at "$HOME/opt/zsh-completions"; then
-	rm -rf "$HOME/opt/zsh-completions"
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
+fi
+
+if no_directory_exists_at "$HOME/opt/oh-my-tmux"; then
+	git clone https://github.com/gpakosz/.tmux.git "$HOME/opt/oh-my-tmux"
+	mkdir -p "$HOME/.config/tmux"
+	ln -s "$HOME/opt/oh-my-tmux/.tmux.conf" "$HOME/.config/tmux/tmux.conf"
+	cp "$HOME/opt/oh-my-tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
+
 fi
 
 # Golang

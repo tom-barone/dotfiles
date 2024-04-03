@@ -19,9 +19,15 @@ The git diffs + Github Copilot chat in
 
 ## Fonts
 
-Fonts are in the `/fonts` directory, install them however the system wants. I'm
-a fan of [SourceCodePro](https://fonts.google.com/specimen/Source+Code+Pro)
-juiced up with [Nerd Fonts](https://www.nerdfonts.com/#home).
+Fonts are in the `/fonts` directory, install them however the system wants,
+
+I'm a fan of [Source Code Pro](https://github.com/adobe-fonts/source-code-pro),
+the font here has been
+[patched](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher)
+(now under the name Sauce Code Pro) to include a bunch of extra glyphs like:
+
+- [Nerd Font](https://www.nerdfonts.com/#home)
+- [powerline](https://github.com/powerline/fonts)
 
 ## Install Notes
 
