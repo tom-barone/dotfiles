@@ -53,15 +53,9 @@ windows:
       panes:
         - nvim
         - clear
-  - tts:
+  - local-friend:
       layout: main-vertical
-      root: ~/github/language-lads/sandbox/text-to-speech
-      panes:
-        - poetry shell
-        - poetry shell
-  - android-app:
-      layout: main-vertical
-      root: ~/github/language-lads/sandbox/android-app
+      root: ~/github/language-lads/sandbox/local-friend
       panes:
         - nvim
         - clear
