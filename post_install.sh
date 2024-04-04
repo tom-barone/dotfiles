@@ -107,14 +107,6 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-if no_directory_exists_at "$HOME/opt/oh-my-tmux"; then
-	git clone https://github.com/gpakosz/.tmux.git "$HOME/opt/oh-my-tmux"
-	mkdir -p "$HOME/.config/tmux"
-	ln -s "$HOME/opt/oh-my-tmux/.tmux.conf" "$HOME/.config/tmux/tmux.conf"
-	cp "$HOME/opt/oh-my-tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
-
-fi
-
 # Golang
 if have_not_installed go; then
 	go_version="1.22.1"
