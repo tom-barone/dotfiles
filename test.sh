@@ -118,6 +118,7 @@ assert_success 'eslint --version'
 assert_success 'erb-format --version'
 assert_success 'sqlformat --version'
 assert_success 'djlint --version'
+assert_success 'stylua --version'
 
 # Neovim
 assert_success 'nvim --version'
