@@ -22,7 +22,7 @@ if os_is ubuntu; then
 	sudo apt-get -y upgrade
 	os_install curl
 	os_install locales
-	sudo locale-gen --purge en_AU.UTF-6
+	sudo locale-gen --purge en_AU.UTF-8
 	sudo locale-gen --purge it_IT.UTF-8
 fi
 
