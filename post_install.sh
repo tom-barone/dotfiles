@@ -187,7 +187,8 @@ cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't comp
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
-cargo_install just
+cargo_install just       # https://github.com/casey/just
+cargo_install flamegraph # https://github.com/flamegraph-rs
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
