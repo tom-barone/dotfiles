@@ -144,6 +144,24 @@ require("lspconfig").pyright.setup({
 require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			check = {
+				command = "clippy",
+			},
+		},
+	},
+	commands = {
+		OrganiseImports = {
+			function()
+				os.execute('cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1')
+				-- reload the buffers by executing the :e! command, and reformat
+				vim.cmd("e!")
+				vim.cmd("Neoformat")
+			end,
+			description = "Clippy Fix",
+		},
+	},
 })
 require("lspconfig").bashls.setup({
 	on_attach = on_attach,

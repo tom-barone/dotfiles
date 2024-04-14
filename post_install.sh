@@ -146,6 +146,7 @@ if have_not_installed rustup; then
 	# shellcheck source=/dev/null
 	source "$HOME/.cargo/env"
 fi
+rustup update
 
 # NOTE: These take a long time
 # Ruby and rbenv
@@ -226,8 +227,9 @@ gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
 if have_not_installed sqlformat; then
 	pipx_install sqlparse # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
 fi
-pipx_install djlint # https://github.com/djlint/djlint
-brew_install stylua # https://github.com/JohnnyMorganz/StyLua
+pipx_install djlint         # https://github.com/djlint/djlint
+brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
+rustup component add clippy # https://github.com/rust-lang/rust-clippy
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
