@@ -17,11 +17,11 @@ vim.lsp.set_log_level("off")
 vim.api.nvim_create_user_command(
   'Browse',
   function (opts)
-		if vim.fn.has('wsl') then
+		if vim.fn.has('wsl') == 1 then
 			vim.fn.system { 'wslview', opts.fargs[1] }
-		elseif vim.fn.has('mac') then
+		elseif vim.fn.has('mac') == 1 then
 			vim.fn.system { 'open', opts.fargs[1] }
-		elseif vim.fn.has('linux') then
+		elseif vim.fn.has('linux') == 1 then
 			vim.fn.system { 'xdg-open', opts.fargs[1] }
 		end
   end,
