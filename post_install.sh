@@ -347,6 +347,7 @@ if have_not_installed gcloud; then
 	# Remove the install tar.gz
 	rm cloud-sdk.tar.gz
 fi
+gcloud components update
 
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
