@@ -17,6 +17,7 @@ if os_is ubuntu; then
 	os_install software-properties-common
 	os_install libz-dev # Needed for some rust cli tools
 	os_install ntpdate  # To update the clock when it gets out of sync
+	os_install libpq-dev # Needed for the pg gem and other postgres stuff
 fi
 if os_is mac; then
 	xcode-select --install || true

@@ -50,11 +50,10 @@ windows:
       layout: main-vertical
       panes:
         - editor:
-            - poetry shell
             - nvim
         - shell:
-            - poetry shell
+            - clear
   - server:
       layout: main-vertical
       panes:
-        - just server
+        - rails server
