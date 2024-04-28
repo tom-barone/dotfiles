@@ -29,11 +29,13 @@ call plug#begin(stdpath('data') . '/plugged')
 
 "Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
 Plug 'NoahTheDuke/vim-just'
+Plug 'Shougo/context_filetype.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'evanleck/vim-svelte'
 Plug 'folke/trouble.nvim'
 Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
@@ -85,6 +87,7 @@ silent! let g:plugs['cmp-nvim-lsp'].commit = '44b16d11215dce86f253ce0c30949813c0
 silent! let g:plugs['cmp-nvim-lsp-signature-help'].commit = '3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1'
 silent! let g:plugs['cmp-path'].commit = '91ff86cd9c29299a64f968ebb45846c485725f23'
 silent! let g:plugs['cmp-vsnip'].commit = '1ae05c6c867d9ad44bce811056e861e0d5c531cb'
+silent! let g:plugs['context_filetype.vim'].commit = '7ff5b43fc8d5b274aa19ade5af11e9fa57577ed6'
 silent! let g:plugs['copilot.vim'].commit = '309b3c803d1862d5e84c7c9c5749ae04010123b8'
 silent! let g:plugs['editorconfig.nvim'].commit = '2af880947129f1ab776b732a4eecb92528472ef5'
 silent! let g:plugs['friendly-snippets'].commit = '1a6a02350568d6830bcfa167c72f9b6e75e454ae'
@@ -93,8 +96,8 @@ silent! let g:plugs['goyo.vim'].commit = 'fa0263d456dd43f5926484d1c4c7022dfcb21b
 silent! let g:plugs['lsp-colors.nvim'].commit = '2bbe7541747fd339bdd8923fc45631a09bb4f1e5'
 silent! let g:plugs['lualine.nvim'].commit = 'b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67'
 silent! let g:plugs['markdown-preview.nvim'].commit = '02cc3874738bc0f86e4b91f09b8a0ac88aef8e96'
-silent! let g:plugs['neoformat'].commit = 'afbc055587e88554b1fd11408cfab859d0cd40d3'
-silent! let g:plugs['nerdcommenter'].commit = '98cc4a2d64ca67cccbf5b5cf47c682ebadaaff58'
+silent! let g:plugs['neoformat'].commit = '4372abb846f43ec121df40e620682c985ebc8286'
+silent! let g:plugs['nerdcommenter'].commit = 'e361a44230860d616f799a337bc58f5218ab6e9c'
 silent! let g:plugs['nvim-cmp'].commit = '8a9e8a89eec87f86b6245d77f313a040a94081c1'
 silent! let g:plugs['nvim-code-action-menu'].commit = 'e4399dbaf6eabff998d3d5f1cbcd8d9933710027'
 silent! let g:plugs['nvim-lightbulb'].commit = '56b9ce31ec9d09d560fe8787c0920f76bc208297'
@@ -118,6 +121,7 @@ silent! let g:plugs['vim-rails'].commit = '1ad9663ce31e8c08134849d04184cda94bb42
 silent! let g:plugs['vim-repeat'].commit = '24afe922e6a05891756ecf331f39a1f6743d3d5a'
 silent! let g:plugs['vim-rhubarb'].commit = 'ee69335de176d9325267b0fd2597a22901d927b1'
 silent! let g:plugs['vim-surround'].commit = '3d188ed2113431cf8dac77be61b842acb64433d9'
+silent! let g:plugs['vim-svelte'].commit = '0e93ec53c3667753237282926fec626785622c1c'
 silent! let g:plugs['vim-unimpaired'].commit = '6d44a6dc2ec34607c41ec78acf81657248580bf1'
 silent! let g:plugs['vim-vsnip'].commit = '6f873418c4dc601d8ad019a5906eddff5088de9b'
 silent! let g:plugs['vim-vsnip-integ'].commit = '1cf89903f12777b90dd79eb4b3d7fbc0b9a254a1'

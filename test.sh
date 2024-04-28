@@ -106,6 +106,7 @@ assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
 assert_success 'gopls version'
 assert_success 'rust-analyzer --version'
+assert_success 'svelteserver'
 
 # Formatters and linters
 assert_success 'shfmt --version'

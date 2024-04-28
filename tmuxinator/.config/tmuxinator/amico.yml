@@ -55,6 +55,7 @@ windows:
         - clear
   - backend:
       root: ~/github/amico/src-tauri
+      layout: main-vertical
       panes:
         - nvim
         - clear

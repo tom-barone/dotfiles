@@ -31,7 +31,7 @@ let g:neoformat_markdown_prettier = {
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_php = ['phpcbf']
 let g:neoformat_enabled_htmldjango = ['djlint']
-
+let g:neoformat_enabled_svelte = ['prettier']
 
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1

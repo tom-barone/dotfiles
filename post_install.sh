@@ -15,8 +15,8 @@ if os_is ubuntu; then
 	os_install gpg
 	os_install unzip
 	os_install software-properties-common
-	os_install libz-dev # Needed for some rust cli tools
-	os_install ntpdate  # To update the clock when it gets out of sync
+	os_install libz-dev  # Needed for some rust cli tools
+	os_install ntpdate   # To update the clock when it gets out of sync
 	os_install libpq-dev # Needed for the pg gem and other postgres stuff
 fi
 if os_is mac; then
@@ -214,6 +214,8 @@ gem_install solargraph                           # https://github.com/castwide/s
 gem_install yard                                 # For solargraph docs https://github.com/lsegal/yard
 go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
 rustup component add rust-analyzer               # https://rust-analyzer.github.io/
+npm_global_install svelte-language-server        # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/prettier-plugin-svelte
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
