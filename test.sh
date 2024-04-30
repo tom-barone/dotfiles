@@ -107,6 +107,7 @@ assert_success 'which vscode-json-language-server'
 assert_success 'gopls version'
 assert_success 'rust-analyzer --version'
 assert_success 'svelteserver'
+assert_success 'npm list --global | grep svelte-language-server'
 
 # Formatters and linters
 assert_success 'shfmt --version'
