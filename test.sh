@@ -66,6 +66,9 @@ assert_success 'yarn --version'
 assert_success 'rustup --version'
 assert_success 'cargo --version'
 
+# Java
+assert_success 'java --version'
+
 # Ruby and rbenv
 eval "$(rbenv init - bash)"
 assert_success 'rbenv --version'

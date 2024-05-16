@@ -1,7 +1,7 @@
-# /home/tbarone/.config/tmuxinator/comunet-data-lake.yml
+# /home/tbarone/.config/tmuxinator/hs-data-platform.yml
 
-name: comunet-data-lake
-root: ~/code/comunet-data-lake
+name: hs-data-platform
+root: ~/comunet/codecommit/hs-data-platform-repo
 
 # Optional tmux socket
 # socket_name: foo
@@ -32,7 +32,7 @@ root: ~/code/comunet-data-lake
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
@@ -45,7 +45,7 @@ root: ~/code/comunet-data-lake
 # attach: false
 
 windows:
-  - main:
+  - editor:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -53,13 +53,15 @@ windows:
       panes:
         - nvim
         - clear
-  - ticket_activity_notifications:
-      
+  - shared:
       layout: main-vertical
-      root: ~/comunet/bitbucket/comunet-data-lake/reporting/ticket_activity_notifications
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
+      root: ~/comunet/codecommit/hs-data-platform-repo/lambda/shared
+      panes:
+        - poetry install && poetry shell
+        - poetry install && poetry shell
+  - queue_handler:
+      layout: main-vertical
+      root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/dynamodb_queue_handler
       panes:
         - poetry install && poetry shell
         - poetry install && poetry shell

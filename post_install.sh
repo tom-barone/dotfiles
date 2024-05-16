@@ -149,6 +149,9 @@ if have_not_installed rustup; then
 fi
 rustup update
 
+# Java
+brew_install java
+
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
