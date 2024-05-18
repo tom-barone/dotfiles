@@ -108,7 +108,7 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-# Golang
+# golang
 if have_not_installed go; then
 	go_version="1.22.1"
 	if os_is ubuntu && chip_is x86; then
@@ -197,9 +197,11 @@ cargo_install flamegraph # https://github.com/flamegraph-rs
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
-rm -rf ~/.virtualenvs/pynvim
-mkdir -p ~/.virtualenvs/pynvim
-python3 -m venv ~/.virtualenvs/pynvim
+if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
+	rm -rf ~/.virtualenvs/pynvim
+	mkdir -p ~/.virtualenvs/pynvim
+	python3 -m venv ~/.virtualenvs/pynvim
+fi
 ~/.virtualenvs/pynvim/bin/pip install --upgrade pynvim
 npm_global_install neovim
 gem_install neovim
