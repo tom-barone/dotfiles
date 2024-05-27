@@ -46,6 +46,8 @@ if os_is mac; then
 fi
 
 assert_success 'git-credential-manager --version'
+assert_success 'git-lfs --version'
+
 assert_success_zsh 'abbr --version'
 assert_success_zsh 'p10k help'
 assert_success_zsh 'fzf --version'

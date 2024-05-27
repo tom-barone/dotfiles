@@ -87,6 +87,10 @@ if have_not_installed git-credential-manager; then
 	fi
 fi
 
+# Git Large File Storage (LFS)
+# https://git-lfs.com/
+brew_install git-lfs
+
 # zsh-abbr https://zsh-abbr.olets.dev/installation.html
 if no_directory_exists_at "$HOME/opt/zsh-abbr"; then
 	git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
@@ -150,7 +154,11 @@ fi
 rustup update
 
 # Java
+# https://formulae.brew.sh/formula/openjdk
 brew_install java
+if os_is mac && not_ci; then
+	sudo ln -sfn "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk
+fi
 
 # NOTE: These take a long time
 # Ruby and rbenv
