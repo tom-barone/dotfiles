@@ -45,7 +45,7 @@ root: ~/comunet/codecommit/hs-data-platform-repo
 # attach: false
 
 windows:
-  - editor:
+  - root:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -53,15 +53,21 @@ windows:
       panes:
         - nvim
         - clear
+  - cdk:
+      layout: main-vertical
+      root: ~/comunet/codecommit/hs-data-platform-repo/py-cdk/src
+      panes:
+        - poetry shell
+        - poetry shell
   - shared:
       layout: main-vertical
       root: ~/comunet/codecommit/hs-data-platform-repo/lambda/shared
       panes:
-        - poetry install && poetry shell
-        - poetry install && poetry shell
+        - poetry shell
+        - poetry shell
   - queue_handler:
       layout: main-vertical
       root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/dynamodb_queue_handler
       panes:
-        - poetry install && poetry shell
-        - poetry install && poetry shell
+        - poetry shell
+        - poetry shell
