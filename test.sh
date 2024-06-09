@@ -92,6 +92,7 @@ assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 assert_success 'dua --version'
 assert_success 'just --version'
 assert_success 'flamegraph --version'
+assert_success 'jq --version'
 
 # Language servers
 assert_success 'lua-language-server --version'

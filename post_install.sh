@@ -202,6 +202,7 @@ if have_not_installed dua; then
 fi
 cargo_install just       # https://github.com/casey/just
 cargo_install flamegraph # https://github.com/flamegraph-rs
+brew_install jq          # https://jqlang.github.io/jq/
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
