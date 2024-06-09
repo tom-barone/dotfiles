@@ -31,8 +31,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'NoahTheDuke/vim-just'
 Plug 'Shougo/context_filetype.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
-Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'folke/lsp-colors.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'evanleck/vim-svelte'
@@ -79,14 +78,13 @@ Plug '~/opt/fzf'
 call plug#end()
 
 " Snapshots, because updating everything broke some stuff on my work laptop
-silent! let g:plugs['FixCursorHold.nvim'].commit = '1900f89dc17c603eec29960f57c00bd9ae696495'
-silent! let g:plugs['bufferline.nvim'].commit = '028a87933d99f8bb88f2f70a4def3ff9574f3594'
+silent! let g:plugs['bufferline.nvim'].commit = '99337f63f0a3c3ab9519f3d1da7618ca4f91cffe'
 silent! let g:plugs['cmp-buffer'].commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa'
-silent! let g:plugs['cmp-cmdline'].commit = '8ee981b4a91f536f52add291594e89fb6645e451'
-silent! let g:plugs['cmp-nvim-lsp'].commit = '44b16d11215dce86f253ce0c30949813c0a90765'
-silent! let g:plugs['cmp-nvim-lsp-signature-help'].commit = '3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1'
+silent! let g:plugs['cmp-cmdline'].commit = 'd250c63aa13ead745e3a40f61fdd3470efde3923'
+silent! let g:plugs['cmp-nvim-lsp'].commit = '39e2eda76828d88b773cc27a3f61d2ad782c922d'
+silent! let g:plugs['cmp-nvim-lsp-signature-help'].commit = '031e6ba70b0ad5eee49fd2120ff7a2e325b17fa7'
 silent! let g:plugs['cmp-path'].commit = '91ff86cd9c29299a64f968ebb45846c485725f23'
-silent! let g:plugs['cmp-vsnip'].commit = '1ae05c6c867d9ad44bce811056e861e0d5c531cb'
+silent! let g:plugs['cmp-vsnip'].commit = '989a8a73c44e926199bfd05fa7a516d51f2d2752'
 silent! let g:plugs['context_filetype.vim'].commit = '7ff5b43fc8d5b274aa19ade5af11e9fa57577ed6'
 silent! let g:plugs['copilot.vim'].commit = '309b3c803d1862d5e84c7c9c5749ae04010123b8'
 silent! let g:plugs['editorconfig.nvim'].commit = '2af880947129f1ab776b732a4eecb92528472ef5'
@@ -102,7 +100,7 @@ silent! let g:plugs['nvim-cmp'].commit = '8a9e8a89eec87f86b6245d77f313a040a94081
 silent! let g:plugs['nvim-code-action-menu'].commit = 'e4399dbaf6eabff998d3d5f1cbcd8d9933710027'
 silent! let g:plugs['nvim-lightbulb'].commit = '56b9ce31ec9d09d560fe8787c0920f76bc208297'
 silent! let g:plugs['nvim-lint'].commit = '9e3b261583a39b47facfefd181a233bfd68b9af0'
-silent! let g:plugs['nvim-lspconfig'].commit = 'dd11ba7b3c8f82d51b6d4dd7d68fce2d78bf78a0'
+silent! let g:plugs['nvim-lspconfig'].commit = '92166b89ab4b3d60f24e58170cac53b7141fd032'
 silent! let g:plugs['nvim-tree.lua'].commit = '273c1700eb68c27dce4e518efafc8144fd7ce4ab'
 silent! let g:plugs['nvim-treesitter'].commit = '7b04e8b67eec7d92daadf9f0717dd272ddfc81a3'
 silent! let g:plugs['nvim-web-devicons'].commit = '3ee60deaa539360518eaab93a6c701fe9f4d82ef'

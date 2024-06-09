@@ -1,4 +1,4 @@
-let g:neoformat_enabled_eruby = ['htmlbeautifier', 'erbformatter']
+let g:neoformat_enabled_eruby = ['erbformatter'] " Don't use htmlbeautifier
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_lua = ['stylua']
 " Overriding black here for our own nefarious purposes
@@ -32,6 +32,7 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_php = ['phpcbf']
 let g:neoformat_enabled_htmldjango = ['djlint']
 let g:neoformat_enabled_svelte = ['prettier']
+let g:neoformat_enabled_svg = ['prettier']
 
 " Enable basic formatting
 let g:neoformat_basic_format_trim = 1

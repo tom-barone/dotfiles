@@ -80,9 +80,7 @@ function npm_global_install() {
 }
 
 function gem_install() {
-	if have_not_installed "$1"; then
-		gem install "$1"
-	fi
+	gem install "$1"
 }
 
 function cargo_install() {

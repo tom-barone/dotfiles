@@ -163,7 +163,7 @@ fi
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=3.1.4
+default_ruby_version=3.3.1
 if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
