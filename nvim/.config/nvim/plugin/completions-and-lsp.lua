@@ -19,7 +19,7 @@ local on_attach = function()
 	end, opts)
 	vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
-	vim.keymap.set("n", "<Leader>ga", "<cmd>CodeActionMenu<cr>")
+	vim.keymap.set("n", "<Leader>ga", require("fzf-lua").lsp_code_actions, opts)
 end
 
 -- Set up nvim-cmp.

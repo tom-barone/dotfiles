@@ -37,9 +37,9 @@ nmap <C-t> <Cmd>Files<Enter>
 
 nmap <C-g><C-f> <Cmd>GFiles?<Enter>
 nmap <C-g><C-b> <Cmd>Buffers<Enter>
-nnoremap <leader>ge <Cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>gE <Cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <leader>gr <Cmd>TroubleToggle lsp_references<cr>
+nnoremap <leader>ge <Cmd>Trouble diagnostics focus=false filter.buf=0<cr>
+nnoremap <leader>gE <Cmd>Trouble diagnostics<cr>
+nnoremap <leader>gr <Cmd>Trouble lsp_references<cr>
 
 " Git commands
 " Show history of current file
