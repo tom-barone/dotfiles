@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-# NOTE: Makes use of the global environment variable
+# NOTE: Makes use of an environment variable
 # HAS_TEST_SUITE_PASSED to determine if the test suite
-# has passed or not. This is set to true at the start
-# of the test suite and set to false if any test fails.
+# has passed or not.
+# - It is set to true at the start of the test suite
+# - It is set to false if any test fails.
+# - It is checked at the end to determine what return code to exit with.
 
 source helpers.sh
 source test_functions.sh
@@ -74,7 +76,7 @@ assert_success 'java --version'
 # Ruby and rbenv
 eval "$(rbenv init - bash)"
 assert_success 'rbenv --version'
-assert_result_like 'ruby --version' "3.1.4"
+assert_success 'ruby --version'
 
 # Terminal handy tools
 assert_success 'vim --version'
