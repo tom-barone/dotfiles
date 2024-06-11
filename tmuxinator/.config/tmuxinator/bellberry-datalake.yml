@@ -1,7 +1,7 @@
-# /home/tbarone/.config/tmuxinator/hs-shared.yml
+# /home/tbarone/.config/tmuxinator/bellberry-datalake.yml
 
-name: hs-shared
-root: ~/comunet/codecommit/hs-shared-repo
+name: bellberry-datalake
+root: ~/comunet/bitbucket/bellberry-datalake
 
 # Optional tmux socket
 # socket_name: foo
@@ -51,11 +51,11 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - poetry shell
-        - poetry shell
+        - nvim
+        - clear
   - cdk:
+      root: ~/comunet/bitbucket/bellberry-datalake/infrastructure
       layout: main-vertical
-      root: ~/comunet/codecommit/hs-shared-repo/cdk
       panes:
-        - poetry shell
-        - poetry shell
+        - nvim
+        - npm install

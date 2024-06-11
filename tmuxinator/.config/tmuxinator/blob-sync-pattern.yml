@@ -1,7 +1,7 @@
-# /home/tbarone/.config/tmuxinator/hs-shared.yml
+# /home/tbarone/.config/tmuxinator/blob-sync-pattern.yml
 
-name: hs-shared
-root: ~/comunet/codecommit/hs-shared-repo
+name: blob-sync-pattern
+root: ~/comunet/bitbucket/blob-sync-pattern
 
 # Optional tmux socket
 # socket_name: foo
@@ -50,12 +50,6 @@ windows:
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
-      panes:
-        - poetry shell
-        - poetry shell
-  - cdk:
-      layout: main-vertical
-      root: ~/comunet/codecommit/hs-shared-repo/cdk
       panes:
         - poetry shell
         - poetry shell
