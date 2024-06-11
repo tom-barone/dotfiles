@@ -88,3 +88,6 @@ if IsWSL()
 							\   'cache_enabled': 0,
 							\ }
 endif
+
+au BufReadPost *.env set syntax=sh
+au BufReadPost *.env.* set syntax=sh
