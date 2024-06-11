@@ -71,3 +71,9 @@ windows:
       panes:
         - poetry shell
         - poetry shell
+  - private_api:
+      layout: main-vertical
+      root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/api_private
+      panes:
+        - poetry shell
+        - poetry shell
