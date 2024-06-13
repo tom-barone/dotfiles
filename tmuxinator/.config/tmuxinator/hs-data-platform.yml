@@ -28,6 +28,7 @@ root: ~/comunet/codecommit/hs-data-platform-repo
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
+pre_window: set-terminal-title hs-data-platform; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -74,6 +75,12 @@ windows:
   - private_api:
       layout: main-vertical
       root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/api_private
+      panes:
+        - poetry shell
+        - poetry shell
+  - rule_handlers:
+      layout: main-vertical
+      root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/rule_handlers
       panes:
         - poetry shell
         - poetry shell

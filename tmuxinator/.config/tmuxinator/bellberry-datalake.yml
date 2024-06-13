@@ -28,6 +28,7 @@ root: ~/comunet/bitbucket/bellberry-datalake
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
+pre_window: set-terminal-title bellberry-datalake; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -59,3 +60,9 @@ windows:
       panes:
         - nvim
         - npm install
+  - blob_sync:
+      root: ~/comunet/bitbucket/bellberry-datalake/blob_sync
+      layout: main-vertical
+      panes:
+        - poetry shell
+        - poetry shell
