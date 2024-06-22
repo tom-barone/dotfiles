@@ -238,7 +238,6 @@ pipx_install ruff           # https://github.com/astral-sh/ruff
 pipx_install isort          # https://pycqa.github.io/isort/
 pipx_install pyright        # https://github.com/microsoft/pyright
 gem_install rubocop         # https://github.com/rubocop/rubocop
-gem_install htmlbeautifier  # https://github.com/threedaymonk/htmlbeautifier
 npm_global_install eslint   # https://eslint.org
 gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
 if have_not_installed sqlformat; then
