@@ -149,6 +149,8 @@ require("lspconfig").rust_analyzer.setup({
 			check = {
 				command = "clippy",
 			},
+			-- Uncomment this when making build.rs changes
+			-- checkOnSave = false,
 		},
 	},
 	commands = {
