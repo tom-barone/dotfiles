@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/amico.yml
+# /Users/tbone/.config/tmuxinator/amico-tauri.yml
 
-name: amico
-root: ~/github/amico
+name: amico-tauri
+root: ~/github/amico-tauri
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/amico
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title amico; sleep 0.5
+pre_window: set-terminal-title amico-tauri; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -46,7 +46,7 @@ pre_window: set-terminal-title amico; sleep 0.5
 # attach: false
 
 windows:
-  - edit:
+  - frontend:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -55,5 +55,11 @@ windows:
         - nvim
         - clear
   - backend:
+      root: ~/github/amico-tauri/src-tauri
+      layout: main-vertical
       panes:
-        - rake dev
+        - nvim
+        - clear
+  - logs:
+    - tail -f src-tauri/logs/development.log
+    
