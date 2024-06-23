@@ -369,7 +369,6 @@ fi
 
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
-gem_install pg    # https://github.com/ged/ruby-pg
 yard gems || true # Generate documentation for all installed gems (for solargraph)
 yard gems         # Need to run it twice because the first one fails (annoyingly)
 
@@ -418,6 +417,7 @@ fi
 if os_is mac; then
 	echo "- Open Docker Desktop and complete the installation of the CLI tools etc."
 	echo "- Install the Postgres.app from https://postgresapp.com/"
+	echo "--- Then do a 'gem install pg'"
 fi
 echo "- Run 'gh auth login' to authenticate with GitHub"
 echo "- Run 'gh extension install github/gh-copilot'"
