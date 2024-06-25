@@ -397,6 +397,9 @@ fi
 brew_install sdl2
 brew_install ffmpeg
 
+# Data processing stuff
+pipx_install parquet-tools
+
 # Final cleanup steps
 brew cleanup
 brew autoremove
