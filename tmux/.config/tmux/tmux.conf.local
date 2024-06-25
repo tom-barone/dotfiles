@@ -60,6 +60,8 @@ set-option -g set-titles-string "#T"
 # recommended by neovim
 set-option -g focus-events on
 
+# Safekill [https://github.com/jlipps/tmux-safekill]
+set -g @plugin "jlipps/tmux-safekill"
 
 ##################################################
 # Config from oh-my-tmux
