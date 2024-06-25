@@ -364,7 +364,7 @@ if have_not_installed gcloud; then
 fi
 if not_ci; then
 	gcloud auth login
-	gcloud components update
+	gcloud components update --quiet
 fi
 
 # Global Ruby gems
