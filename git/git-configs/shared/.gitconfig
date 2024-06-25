@@ -11,3 +11,5 @@
 	name = Tom Barone
 [log]
 	date = local
+[credential "https://github.com"]
+	username = tom-barone
