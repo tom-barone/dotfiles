@@ -84,3 +84,9 @@ windows:
       panes:
         - poetry shell
         - poetry shell
+  - neptune-query-handler:
+      layout: main-vertical
+      root: ~/comunet/codecommit/hs-data-platform-repo/lambda/functions/neptune_query_handler
+      panes:
+        - poetry shell
+        - poetry shell
