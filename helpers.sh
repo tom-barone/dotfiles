@@ -10,13 +10,13 @@ function os_is() {
 	uname="$(uname -a)"
 
 	[[ "$1" == 'mac' ]] && [[ "$uname" =~ Darwin ]] && return
+
+	# Ubuntu
 	[[ "$1" == 'ubuntu' ]] && [[ "$uname" =~ Ubuntu ]] && return
+	[[ "$1" == 'ubuntu' ]] && [[ "$uname" =~ GNU/Linux ]] && return # For macOS docker & WSL2
 
 	# For WSL2 on windows using ubuntu
 	[[ "$1" == 'wsl-ubuntu' ]] && [[ "$uname" =~ GNU/Linux ]] && [[ "$uname" =~ WSL2 ]] && return
-
-	# For the macOS version of dockerized ubuntu...
-	[[ "$1" == 'ubuntu' ]] && [[ "$uname" =~ GNU/Linux ]] && return
 
 	false
 }
