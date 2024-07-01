@@ -338,6 +338,11 @@ if os_is ubuntu; then
 	os_install libmysqlclient-dev
 fi
 
+# Postgres
+if os_is mac; then
+	brew_cask_install pgadmin4
+fi
+
 # Gcloud
 gcloud_sdk_url=''
 if os_is mac && chip_is apple_silicon; then

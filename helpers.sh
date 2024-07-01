@@ -62,9 +62,11 @@ function os_install() {
 }
 
 function brew_install() {
-	if have_not_installed "$1"; then
-		brew install "$1"
-	fi
+	brew install "$1"
+}
+
+function brew_cask_install() {
+	brew install --cask "$1"
 }
 
 function pipx_install() {

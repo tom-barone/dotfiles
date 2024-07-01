@@ -38,7 +38,7 @@ fi
 # https://www.gnu.org/software/stow/
 # https://formulae.brew.sh/formula/python@3.11
 
-python_versions=(python@3 python@3.12 python@3.11 python@3.9)
+python_versions=(python@3 python@3.12 python@3.11 python@3.9 python@3.10)
 
 if os_is mac && chip_is intel; then
 	/usr/local/bin/brew install "${python_versions[@]}" stow || true
