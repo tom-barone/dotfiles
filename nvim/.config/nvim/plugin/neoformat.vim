@@ -8,7 +8,7 @@ let g:neoformat_python_ruff = {
 		\ 'stdin': 1,
 		\ 'args': ['format', '-q', '-'],
 		\ }
-let g:neoformat_enabled_python = ['ruff', 'isort']
+let g:neoformat_enabled_python = ['tidy_imports', 'ruff',  'isort']
 
 " Make rubocop do unsafe auto-corrects
 let g:neoformat_ruby_rubocop = {

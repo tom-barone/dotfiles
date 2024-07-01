@@ -40,9 +40,11 @@ fi
 pipx ensurepath
 pipx_install poetry # https://python-poetry.org
 
-# Python tkinter
+# Python stuff
 brew_install python-tk@3.11
 brew_install python-tk@3.12
+pipx_install pyflyby        # https://github.com/deshaw/pyflyby
+pipx inject pyflyby ipython # Needs ipython to work
 
 # Get the latest zsh and bash from homebrew (don't want to check for existing)
 brew install zsh
