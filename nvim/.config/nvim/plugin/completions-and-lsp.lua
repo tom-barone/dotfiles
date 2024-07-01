@@ -159,7 +159,7 @@ require("lspconfig").rust_analyzer.setup({
 				os.execute('cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1')
 				-- reload the buffers by executing the :e! command, and reformat
 				vim.cmd("e!")
-				vim.cmd("Neoformat")
+				vim.cmd("Format")
 			end,
 			description = "Clippy Fix",
 		},

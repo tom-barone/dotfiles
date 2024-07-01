@@ -30,7 +30,7 @@ nmap <Leader>tt <Cmd>NvimTreeToggle <Enter>
 nmap <Leader>tf <Cmd>NvimTreeFindFile! <Enter>
 nmap <Leader>pc <Cmd>source $MYVIMRC <Bar> PlugClean <Enter>
 nmap <Leader>pi <Cmd>source $MYVIMRC <Bar> PlugInstall <Enter>
-nmap <Leader>pr <Cmd>Neoformat <Enter>
+nmap <Leader>pr <Cmd>Format <Enter>
 nmap <Leader>po <Cmd>OrganiseImports <Enter>
 nmap <Leader>gy <Cmd>Goyo <Enter>
 nmap <C-t> <Cmd>Files<Enter>
