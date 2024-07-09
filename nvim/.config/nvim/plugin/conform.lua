@@ -3,6 +3,7 @@ require("conform").setup({
 		python = { "tidy_imports", "ruff_fix", "ruff_format", "ruff_organize_imports" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
+		markdown = { "prettier" },
 	},
 })
 
