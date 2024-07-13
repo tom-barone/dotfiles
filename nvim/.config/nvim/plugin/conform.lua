@@ -4,6 +4,8 @@ require("conform").setup({
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		markdown = { "prettier" },
+		eruby = { "erb_format" },
+		ruby = { "rubocop_fix" },
 	},
 })
 
@@ -27,6 +29,14 @@ require("conform").setup({
 			-- Change where to find the command
 			command = "tidy-imports",
 			args = { "--quiet" },
+		},
+		erb_format = {
+			command = "erb-format",
+		},
+		rubocop_fix = {
+			command = "rubocop",
+			args = { "--autocorrect-all", "--stdin", "$FILENAME", "--stderr" },
+			stdin = true,
 		},
 	},
 })
