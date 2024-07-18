@@ -1,7 +1,7 @@
-# /home/tbarone/.config/tmuxinator/bellberry-datalake.yml
+# /home/tbarone/.config/tmuxinator/hs-shared.yml
 
-name: bellberry-datalake
-root: ~/comunet/codecommit/bellberry-datalake
+name: hs-platform
+root: ~/comunet/codecommit/hs-platform-repo
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/comunet/codecommit/bellberry-datalake
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title bellberry-datalake; sleep 0.5
+pre_window: set-terminal-title hs-platform; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -52,17 +52,17 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - nvim
+        - nvim README.md
         - clear
   - cdk:
-      root: ~/comunet/codecommit/bellberry-datalake/cdk
       layout: main-vertical
+      root: ~/comunet/codecommit/hs-platform-repo/cdk
       panes:
         - poetry shell
         - poetry shell
-  - blob_sync:
-      root: ~/comunet/codecommit/bellberry-datalake/blob_sync
+  - hs-shared:
       layout: main-vertical
+      root: ~/comunet/codecommit/hs-platform-repo/modules/hs-shared
       panes:
         - poetry shell
         - poetry shell
