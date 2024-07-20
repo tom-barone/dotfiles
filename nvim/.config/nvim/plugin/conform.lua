@@ -35,7 +35,7 @@ require("conform").setup({
 		},
 		rubocop_fix = {
 			command = "rubocop",
-			args = { "--autocorrect-all", "--stdin", "$FILENAME", "--stderr" },
+			args = { "--autocorrect-all", "--stdin", "$FILENAME", "--stderr", "--fail-level", "F" },
 			stdin = true,
 		},
 	},
