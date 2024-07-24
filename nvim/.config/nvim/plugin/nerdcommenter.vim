@@ -18,6 +18,8 @@
 let g:ft = ''
 
 let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right': '-->' } }
+let g:NERDAltDelims_eruby = 1
+
 " Align comment delimiters to the left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 
