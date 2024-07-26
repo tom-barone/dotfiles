@@ -54,6 +54,9 @@ bind -r C-p paste-buffer
 set-option -g set-titles on
 set-option -g set-titles-string "#T"
 
+# Disable bell actions
+set-option -g bell-action none
+set-option -g visual-bell off
 
 # for vim
 #set -g @resurrect-strategy-vim 'session'

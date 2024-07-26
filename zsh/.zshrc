@@ -1,3 +1,7 @@
+# I don't like the mac dock bouncing
+# https://github.com/alacritty/alacritty/pull/4304
+printf "\e[?1042l"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
