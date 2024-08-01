@@ -1,7 +1,5 @@
-# /home/tbarone/.config/tmuxinator/bellberry-datalake.yml
-
-name: bellberry-datalake
-root: ~/comunet/codecommit/bellberry-datalake
+name: human-systems
+root: ~/github/chatmate
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,12 +26,12 @@ root: ~/comunet/codecommit/bellberry-datalake
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title bellberry-datalake; sleep 0.5
+pre_window: set-terminal-title chatmate; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
@@ -46,29 +44,14 @@ pre_window: set-terminal-title bellberry-datalake; sleep 0.5
 # attach: false
 
 windows:
-  - editor:
+  - root:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
-        - nvim
+        - editor:
+            - nvim
+        - shell:
+            - clear
+  - server:
+      layout: main-vertical
+      panes:
         - clear
-  - cdk:
-      root: ~/comunet/codecommit/bellberry-datalake/cdk
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        - poetry shell
-  - glue_ingestion:
-      root: ~/comunet/codecommit/bellberry-datalake/src/glue_ingestion_job
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        - poetry shell
-  - blob_sync:
-      root: ~/comunet/codecommit/bellberry-datalake/blob_sync
-      layout: main-vertical
-      panes:
-        - poetry run nvim
-        - poetry shell
