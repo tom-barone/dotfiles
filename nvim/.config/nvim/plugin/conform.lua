@@ -6,6 +6,7 @@ require("conform").setup({
 		markdown = { "prettier" },
 		eruby = { "erb_format" },
 		ruby = { "rubocop_fix" },
+		just = { "just" },
 	},
 })
 

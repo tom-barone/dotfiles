@@ -47,7 +47,7 @@ windows:
       # synchronize: after
       panes:
         - editor:
-            - poetry shell
+            - poetry run nvim
         - shell:
             - poetry shell
   - fava_server:
