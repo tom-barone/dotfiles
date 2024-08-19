@@ -129,7 +129,7 @@ require("lspconfig").lua_ls.setup({ -- Lua
 		},
 	},
 })
-require("lspconfig").solargraph.setup({
+require("lspconfig").sorbet.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

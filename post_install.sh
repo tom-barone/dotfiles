@@ -165,7 +165,7 @@ fi
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=3.3.3
+default_ruby_version=3.3.4
 if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
@@ -205,6 +205,7 @@ fi
 cargo_install just       # https://github.com/casey/just
 cargo_install flamegraph # https://github.com/flamegraph-rs
 brew_install jq          # https://jqlang.github.io/jq/
+brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools like sorbet
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
@@ -226,12 +227,14 @@ npm_global_install vim-language-server           # https://github.com/iamcco/vim
 npm_global_install typescript-language-server    # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                    # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted  # https://github.com/hrsh7th/vscode-langservers-extracted
-gem_install solargraph                           # https://github.com/castwide/solargraph
-gem_install yard                                 # For solargraph docs https://github.com/lsegal/yard
 go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
 rustup component add rust-analyzer               # https://rust-analyzer.github.io/
 npm_global_install svelte-language-server        # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
 npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/prettier-plugin-svelte
+gem_install sorbet                               ##
+gem_install sorbet-runtime                       ## https://sorbet.org/docs/adopting
+gem_install tapioca                              ##
+gem_install yard                                 # https://yardoc.org/
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
@@ -376,7 +379,7 @@ fi
 
 # Global Ruby gems
 gem_install rails # https://github.com/rails/rails
-yard gems || true # Generate documentation for all installed gems (for solargraph)
+yard gems || true # Generate documentation for all installed gems
 yard gems         # Need to run it twice because the first one fails (annoyingly)
 
 # Docker
