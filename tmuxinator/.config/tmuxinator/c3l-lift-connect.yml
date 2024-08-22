@@ -1,7 +1,7 @@
 # /home/tbarone/.config/tmuxinator/lift-connect.yml
 
-name: lift-connect
-root: ~/code/lift-connect
+name: c3l-lift-connect
+root: ~/github/lift-connect
 
 # Optional tmux socket
 # socket_name: foo
