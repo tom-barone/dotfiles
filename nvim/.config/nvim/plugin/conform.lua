@@ -8,6 +8,7 @@ require("conform").setup({
 		eruby = { "erb_format" },
 		ruby = { "rubocop_fix" },
 		just = { "just" },
+		lua = { "stylua" },
 	},
 })
 
