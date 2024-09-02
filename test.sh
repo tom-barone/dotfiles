@@ -96,6 +96,7 @@ assert_success 'just --version'
 assert_success 'flamegraph --version'
 assert_success 'jq --version'
 assert_success 'watchman --version'
+assert_success 'lychee --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
