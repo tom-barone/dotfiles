@@ -170,6 +170,7 @@ if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
 fi
+brew upgrade ruby-build
 eval "$(rbenv init - bash)"
 if os_is ubuntu; then
 	brew_install zlib
