@@ -41,8 +41,12 @@ pipx ensurepath
 pipx_install poetry # https://python-poetry.org
 
 # Python stuff
-brew_install python-tk@3.11
-brew_install python-tk@3.12
+if not_ci; then
+	# These are failing for some reason on the CI pipeline
+	# TODO: At some point, delete the `not_ci` check and try again
+	brew_install python-tk@3.11
+	brew_install python-tk@3.12
+fi
 pipx_install pyflyby        # https://github.com/deshaw/pyflyby
 pipx inject pyflyby ipython # Needs ipython to work
 
@@ -207,7 +211,7 @@ cargo_install just       # https://github.com/casey/just
 cargo_install flamegraph # https://github.com/flamegraph-rs
 brew_install jq          # https://jqlang.github.io/jq/
 brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools like sorbet
-cargo_install lychee 		 # https://github.com/lycheeverse/lychee
+cargo_install lychee     # https://github.com/lycheeverse/lychee
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
