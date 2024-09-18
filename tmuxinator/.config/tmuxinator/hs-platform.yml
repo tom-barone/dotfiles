@@ -58,11 +58,11 @@ windows:
       layout: main-vertical
       root: ~/comunet/codecommit/hs-platform-repo/cdk
       panes:
-        - poetry shell
+        - poetry run nvim
         - poetry shell
   - hs-shared:
       layout: main-vertical
-      root: ~/comunet/codecommit/hs-platform-repo/modules/hs-shared
+      root: ~/comunet/codecommit/hs-platform-repo/modules/hs_shared
       panes:
-        - poetry shell
+        - poetry run nvim
         - poetry shell

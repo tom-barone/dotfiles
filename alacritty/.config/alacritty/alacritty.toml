@@ -24,6 +24,12 @@ chars = "\u001BF"
 key = "Right"
 mods = "Alt"
 
+# Search binding
+[[keyboard.bindings]]
+chars = "\u2660"
+key    = "F"
+mods   = "Control|Shift"
+
 [[keyboard.bindings]]
 chars = "\u001BB"
 key = "Left"

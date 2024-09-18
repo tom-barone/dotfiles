@@ -19,6 +19,9 @@ unbind C-b
 set-option -g prefix C-a
 bind C-a send-prefix
 
+# Remove bindings on C-f
+unbind C-f
+
 # When using layouts like main-vertical, this specifies how
 # wide the main pane is by default
 set -g main-pane-width "70%"

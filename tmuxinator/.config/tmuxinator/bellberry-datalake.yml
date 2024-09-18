@@ -60,8 +60,8 @@ windows:
       panes:
         - poetry run nvim
         - poetry shell
-  - glue_ingestion:
-      root: ~/comunet/codecommit/bellberry-datalake/src/glue_ingestion_job
+  - glue_jobs:
+      root: ~/comunet/codecommit/bellberry-datalake/src/glue_jobs
       layout: main-vertical
       panes:
         - poetry run nvim

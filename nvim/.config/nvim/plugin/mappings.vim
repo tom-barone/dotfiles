@@ -24,6 +24,10 @@ nmap <Leader>s :w<Enter>
 noremap <C-f> <Cmd>Rg<Enter>
 vmap <C-f> "fy<space>ff
 nmap <expr> <leader>ff ":Rg<Enter>".escape(getreg("f"), ' ')
+" Search all git ignored files and binary files with Rga (Control - Shift - F)
+noremap ♠ <Cmd>Rga<Enter>
+vmap ♠ "gy<space>FF
+nmap <expr> <leader>FF ":Rga<Enter>".escape(getreg("g"), ' ')
 
 " Mappings for plugins
 nmap <Leader>tt <Cmd>NvimTreeToggle <Enter>
