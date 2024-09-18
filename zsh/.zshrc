@@ -19,10 +19,25 @@ set-terminal-title() {
 }
 
 # History sizes
-export SAVEHIST=1000000
-export HISTSIZE=1000000
-export HIST_IGNORE_SPACE=true
 export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+
+setopt HIST_IGNORE_SPACE
+
+# This option both imports new commands from the history file, and also causes your typed commands to be appended to the history file 
+setopt SHARE_HISTORY
+
+# When searching for history entries in the line editor, do not display duplicates of a line 
+# previously found, even if the duplicates are not contiguous. 
+setopt HIST_FIND_NO_DUPS
+
+# Do not enter command lines into the history list if they are duplicates of the previous event
+setopt HIST_IGNORE_DUPS
+
+# Remove command lines from the history list when the first 
+# character on the line is a space, or when one of the expanded aliases contains a leading space
+setopt HIST_IGNORE_SPACE
 
 # Use emacs mode
 bindkey -e
