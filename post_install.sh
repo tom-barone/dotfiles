@@ -338,7 +338,11 @@ fi
 
 # Mysql
 if os_is mac; then
-	brew_install mysql@8.4 # Issues with old rails apps and mysql 9
+	if ci; then
+		brew_install mysql
+	else
+		brew_install mysql@8.4 # Issues with old rails apps and mysql 9
+	fi
 	if chip_is apple_silicon; then
 		brew_install zstd
 	fi
