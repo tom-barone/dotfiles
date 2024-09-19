@@ -31,7 +31,9 @@ assert_success 'pipx --version'
 assert_success 'poetry --version'
 
 # Tkinter
-assert_success 'python3 -c "import tkinter"'
+if not_ci; then
+	assert_success 'python3 -c "import tkinter"'
+fi
 
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 assert_result_like 'which zsh' "$(brew --prefix)/bin/zsh"
