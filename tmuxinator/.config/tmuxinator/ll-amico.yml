@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/amico.yml
+# /Users/tbone/.config/tmuxinator/ll-amico.yml
 
-name: amico
-root: ~/github/amico
+name: ll-amico
+root: ~/github/ll-amico
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/amico
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title amico; sleep 0.5
+pre_window: set-terminal-title ll-amico; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
