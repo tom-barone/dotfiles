@@ -62,4 +62,3 @@ windows:
         - clear
   - logs:
     - tail -f src-tauri/logs/development.log
-    

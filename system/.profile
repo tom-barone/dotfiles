@@ -89,6 +89,14 @@ export GOPATH="$HOME/opt/gopath"
 # I want gmake not whatever Xcode uses
 #export PATH="/usr/local/opt/make/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# Android development
+if [[ $(uname -a) =~ "Darwin" ]]; then
+	export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+	export ANDROID_HOME="$HOME/Library/Android/sdk"
+	# shellcheck disable=SC2086,SC2155
+	export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)" #
+fi
+
 ## WSL ubuntu
 if [[ $(uname -a) == *"WSL2"* ]]; then
 	export BROWSER=wslview

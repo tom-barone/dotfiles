@@ -13,3 +13,8 @@
 	date = local
 [credential "https://github.com"]
 	username = tom-barone
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

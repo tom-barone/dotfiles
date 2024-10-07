@@ -64,5 +64,18 @@ windows:
       panes:
         - poetry run nvim
         - poetry shell
+  - backend-services:
+      layout: tiled
+      root: ~/github/ll-core/backend
+      panes:
         - make run-neo4j
         - cd deployment && make run-rpc-server
+        - make run-mongodb
+        - make run-rabbitmq
+  - backend-workers:
+      layout: tiled
+      root: ~/github/ll-core/backend
+      panes:
+        - poetry run python deployment/worker_event_driven_commands.py local_dev
+        - poetry run python deployment/video_status_read_model/worker.py local_dev
+        - poetry run python deployment/user_status_read_model/worker.py local_dev

@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/ll-finance.yml
+# /Users/tbone/.config/tmuxinator/ll-tauri.yml
 
-name: ll-finance
-root: ~/github/ll-finance
+name: ll-tauri
+root: ~/github/ll-tauri
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,24 +10,30 @@ root: ~/github/ll-finance
 # project hooks.
 
 # Project hooks
+
 # Runs on project start, always
 # on_project_start: command
+
 # Run on project start, the first time
 # on_project_first_start: command
+
 # Run on project start, after the first time
 # on_project_restart: command
+
 # Run on project exit ( detaching from tmux session )
 # on_project_exit: command
+
 # Run on project stop
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title ll-finance; sleep 0.5
+# pre_window: rbenv shell 2.0.0-p247
+pre_window: set-terminal-title ll-tauri; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
@@ -40,17 +46,22 @@ pre_window: set-terminal-title ll-finance; sleep 0.5
 # attach: false
 
 windows:
-  - main:
+  - svelte:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - editor:
-            - poetry run nvim
-        - shell:
-            - poetry shell
-  - fava_server:
-      layout: even-vertical
+        - nvim
+        - clear
+  - rust:
+      root: ~/github/ll-tauri/src-tauri
+      layout: main-vertical
       panes:
-        - make dev
+        - nvim
+        - clear
+  - services:
+      layout: tiled
+      panes:
+        - npm run tauri dev
+        - npm run tauri android dev
