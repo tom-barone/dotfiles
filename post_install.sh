@@ -424,8 +424,9 @@ pipx_install parquet-tools
 # https://v2.tauri.app/start/prerequisites
 rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
 rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
-brew_install cocoapods
-
+if os_is mac; then
+	brew_install cocoapods
+fi
 
 # Final cleanup steps
 brew cleanup
