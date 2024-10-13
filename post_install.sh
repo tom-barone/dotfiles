@@ -423,8 +423,17 @@ pipx_install parquet-tools
 # https://v2.tauri.app/start/prerequisites
 rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
 rustup target add aarch64-apple-ios x86_64-apple-ios aarch64-apple-ios-sim
-if os_is mac; then
+if os_is mac && not_ci; then
 	brew_install cocoapods
+fi
+
+# Flutter development
+if os_is mac && chip_is apple_silicon; then
+	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
+	flutter_url="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.24.3-stable.zip"
+	wget "$flutter_url" -O flutter-sdk.zip
+	unzip flutter-sdk.zip -d ~
+	rm flutter-sdk.zip
 fi
 
 # Final cleanup steps

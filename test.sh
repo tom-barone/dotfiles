@@ -174,6 +174,11 @@ assert_success 'ffmpeg -version'
 if not_ci; then
 	assert_success 'docker --version'
 	assert_success 'gh copilot --version'
+
+	if os_is mac && chip_is apple_silicon; then
+		assert_success 'pod --version' 			# CocoaPods
+		assert_success 'flutter --version'
+	fi
 fi
 
 # Print out some useful info during the CI build

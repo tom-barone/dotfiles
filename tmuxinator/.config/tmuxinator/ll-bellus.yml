@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/ll-tauri.yml
+# /Users/tbone/.config/tmuxinator/ll-bellus.yml
 
-name: ll-tauri
-root: ~/github/ll-tauri
+name: ll-bellus
+root: ~/github/ll-bellus
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/ll-tauri
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title ll-tauri; sleep 0.5
+pre_window: set-terminal-title ll-bellus; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -46,17 +46,11 @@ pre_window: set-terminal-title ll-tauri; sleep 0.5
 # attach: false
 
 windows:
-  - svelte:
+  - editor:
       layout: main-vertical
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
-      panes:
-        - nvim
-        - clear
-  - rust:
-      root: ~/github/ll-tauri/src-tauri
-      layout: main-vertical
       panes:
         - nvim
         - clear

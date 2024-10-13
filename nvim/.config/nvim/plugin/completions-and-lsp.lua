@@ -193,3 +193,7 @@ require'lspconfig'.svelte.setup {
 	on_attach = on_attach,
   capabilities = capabilities,
 }
+require'lspconfig'.dartls.setup {
+	on_attach = on_attach,
+  capabilities = capabilities,
+}

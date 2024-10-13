@@ -10,6 +10,7 @@ require("conform").setup({
 		ruby = { "rubocop_fix" },
 		just = { "just" },
 		lua = { "stylua" },
+		dart = { "dart_format" },
 	},
 })
 
