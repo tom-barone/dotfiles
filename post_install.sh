@@ -197,7 +197,6 @@ os_install ncdu   # https://dev.yorhel.nl/ncdu
 if have_not_installed rg; then
 	cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
 fi
-os_install fastfetch   # https://github.com/fastfetch-cli/fastfetch
 gem_install tmuxinator # https://github.com/tmuxinator/tmuxinator
 brew_install perl      # https://www.perl.org Needed for some vim plugins
 if have_not_installed cpanm; then
