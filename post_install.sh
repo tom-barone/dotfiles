@@ -169,7 +169,7 @@ fi
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=3.3.4
+default_ruby_version=3.3.5
 if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
@@ -435,6 +435,7 @@ if os_is mac && chip_is apple_silicon; then
 	unzip flutter-sdk.zip -d ~
 	rm flutter-sdk.zip
 fi
+brew_install ngrok/ngrok/ngrok
 
 # Final cleanup steps
 brew cleanup

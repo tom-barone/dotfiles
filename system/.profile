@@ -26,7 +26,8 @@ postgres_mac="/Applications/Postgres.app/Contents/Versions/latest/bin"
 # https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#install-tools-on-linux
 mssql_tools="/opt/mssql-tools18/bin"
 flutter_path="$HOME/flutter/bin"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$golang_path:$postgres_mac:$flutter_path:$PATH"
+emulators="$HOME/Library/Android/sdk/emulator"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$golang_path:$postgres_mac:$flutter_path:$emulators:$PATH"
 
 # If we're on mac and we can brew
 if type brew &>/dev/null && [[ "$(uname -a)" =~ Darwin ]]; then

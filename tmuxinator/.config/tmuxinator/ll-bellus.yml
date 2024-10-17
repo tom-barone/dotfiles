@@ -54,3 +54,22 @@ windows:
       panes:
         - nvim
         - clear
+  - mobile:
+      layout: main-vertical
+      root: ~/github/ll-bellus/mobile
+      panes:
+        - nvim
+        - clear
+  - api:
+      layout: main-vertical
+      root: ~/github/ll-bellus/api
+      panes:
+        - nvim
+        - clear
+  - services:
+      layout: tiled
+      panes:
+        - make start-android-emulator
+        - #make dev-android-emulator
+        - #make dev-android-device
+        - make dev-api
