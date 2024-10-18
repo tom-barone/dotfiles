@@ -24,15 +24,6 @@ end
 
 -- Set up nvim-cmp.
 local cmp = require("cmp")
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -43,11 +34,11 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-    mapping = cmp.mapping.preset.insert({
+	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 		["<C-l>"] = cmp.mapping.confirm({ select = true }),
-    }),
+	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
@@ -90,19 +81,19 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").tsserver.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-  commands = {
-    OrganiseImports = {
-      function()
+	commands = {
+		OrganiseImports = {
+			function()
 				local params = {
 					command = "_typescript.organizeImports",
-					arguments = {vim.api.nvim_buf_get_name(0)},
-					title = ""
+					arguments = { vim.api.nvim_buf_get_name(0) },
+					title = "",
 				}
 				vim.lsp.buf.execute_command(params)
 			end,
-      description = "Organise Imports"
-    }
-  }
+			description = "Organise Imports",
+		},
+	},
 })
 require("lspconfig").lua_ls.setup({ -- Lua
 	on_attach = on_attach,
@@ -156,7 +147,7 @@ require("lspconfig").rust_analyzer.setup({
 	commands = {
 		OrganiseImports = {
 			function()
-				os.execute('cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1')
+				os.execute("cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1")
 				-- reload the buffers by executing the :e! command, and reformat
 				vim.cmd("e!")
 				vim.cmd("Format")
@@ -173,27 +164,27 @@ require("lspconfig").eslint.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-require'lspconfig'.jsonls.setup {
+require("lspconfig").jsonls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-}
-require'lspconfig'.html.setup {
+})
+require("lspconfig").html.setup({
 	on_attach = on_attach,
-  capabilities = capabilities,
-}
-require'lspconfig'.cssls.setup {
+	capabilities = capabilities,
+})
+require("lspconfig").cssls.setup({
 	on_attach = on_attach,
-  capabilities = capabilities,
-}
-require'lspconfig'.gopls.setup {
+	capabilities = capabilities,
+})
+require("lspconfig").gopls.setup({
 	on_attach = on_attach,
-  capabilities = capabilities,
-}
-require'lspconfig'.svelte.setup {
+	capabilities = capabilities,
+})
+require("lspconfig").svelte.setup({
 	on_attach = on_attach,
-  capabilities = capabilities,
-}
-require'lspconfig'.dartls.setup {
+	capabilities = capabilities,
+})
+require("lspconfig").dartls.setup({
 	on_attach = on_attach,
-  capabilities = capabilities,
-}
+	capabilities = capabilities,
+})

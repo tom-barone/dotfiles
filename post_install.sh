@@ -435,7 +435,6 @@ if os_is mac && chip_is apple_silicon; then
 	unzip flutter-sdk.zip -d ~
 	rm flutter-sdk.zip
 fi
-brew_install ngrok/ngrok/ngrok
 
 # Final cleanup steps
 brew cleanup
