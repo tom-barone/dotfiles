@@ -69,7 +69,30 @@ windows:
   - services:
       layout: tiled
       panes:
-        - make start-android-emulator
-        - #make dev-android-emulator
-        - #make dev-android-device
-        - make dev-api
+        - emulator:
+            - cd mobile
+            - make start-android-emulator
+        - android:
+            - cd mobile
+            - sleep 20
+            - make dev-android-emulator
+        - ios:
+            - cd mobile
+            #- make dev-ios-emulator
+            #- sleep 10
+            #- make start-ios-emulator
+        - api:
+            - cd api
+            - rake dev
+  - transcribe:
+      layout: main-vertical
+      root: ~/github/ll-bellus/transcribe
+      panes:
+        - nvim
+        - clear
+  - prototype:
+      layout: main-vertical
+      root: ~/github/ll-bellus/prototype
+      panes:
+        - nvim
+        - clear

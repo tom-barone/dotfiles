@@ -1,7 +1,7 @@
 # /Users/tbone/.config/tmuxinator/ll-vault.yml
 
 name: ll-vault
-root: ~/github/language-lads-obsidian
+root: ~/github/ll-vault
 
 # Optional tmux socket
 # socket_name: foo
