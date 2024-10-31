@@ -120,7 +120,7 @@ require("lspconfig").lua_ls.setup({ -- Lua
 		},
 	},
 })
-require("lspconfig").sorbet.setup({
+require("lspconfig").ruby_lsp.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

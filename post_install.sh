@@ -239,6 +239,7 @@ npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/p
 gem_install sorbet                               ##
 gem_install sorbet-runtime                       ## https://sorbet.org/docs/adopting
 gem_install tapioca                              ##
+gem_install ruby-lsp														 # https://shopify.github.io/ruby-lsp/
 gem_install yard                                 # https://yardoc.org/
 
 # Formatters and linters
