@@ -15,9 +15,10 @@ if os_is ubuntu; then
 	os_install gpg
 	os_install unzip
 	os_install software-properties-common
-	os_install libz-dev  # Needed for some rust cli tools
-	os_install ntpdate   # To update the clock when it gets out of sync
-	os_install libpq-dev # Needed for the pg gem and other postgres stuff
+	os_install libz-dev   # Needed for some rust cli tools
+	os_install ntpdate    # To update the clock when it gets out of sync
+	os_install libpq-dev  # Needed for the pg gem and other postgres stuff
+	os_install libssl-dev # Needed for some ruby gems
 fi
 if os_is mac; then
 	xcode-select --install || true
@@ -240,7 +241,7 @@ npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/p
 gem_install sorbet                               ##
 gem_install sorbet-runtime                       ## https://sorbet.org/docs/adopting
 gem_install tapioca                              ##
-gem_install ruby-lsp														 # https://shopify.github.io/ruby-lsp/
+gem_install ruby-lsp                             # https://shopify.github.io/ruby-lsp/
 gem_install yard                                 # https://yardoc.org/
 
 # Formatters and linters
@@ -316,14 +317,19 @@ if os_is ubuntu; then
 fi
 if have_not_installed adb; then
 	wget $android_sdk -O android-sdk.zip
-	unzip android-sdk.zip -d ~
+	unzip android-sdk.zip -d "$HOME"
 	rm android-sdk.zip
 fi
 # Also stick bundletool.jar in the platform-tools directory
 if [ ! -f "$HOME/platform-tools/bundletool.jar" ]; then
 	wget "https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar"
 	mv bundletool-all-1.17.2.jar "$HOME/platform-tools/bundletool.jar"
+	chmod +x "$HOME/platform-tools/bundletool.jar"
 fi
+
+# Gstreamer
+# https://gstreamer.freedesktop.org/documentation/tutorials/index.html?gi-language=c
+brew_install gstreamer
 
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
