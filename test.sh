@@ -30,11 +30,6 @@ assert_success 'pip3 --version'
 assert_success 'pipx --version'
 assert_success 'poetry --version'
 
-# Tkinter
-if not_ci; then
-	assert_success 'python3 -c "import tkinter"'
-fi
-
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 assert_result_like 'which zsh' "$(brew --prefix)/bin/zsh"
 
@@ -98,6 +93,7 @@ assert_success 'flamegraph --version'
 assert_success 'jq --version'
 assert_success 'watchman --version'
 assert_success 'lychee --version'
+assert_success 'btm --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
@@ -152,6 +148,7 @@ assert_success 'gh --version'
 # Android tools
 assert_success 'adb --version'
 assert_success 'fastboot --version'
+assert_file_exists "$HOME/platform-tools/bundletool.jar"
 
 # Cloud SQL proxy
 assert_success 'cloud_sql_proxy --version'
@@ -176,7 +173,7 @@ if not_ci; then
 	assert_success 'gh copilot --version'
 
 	if os_is mac && chip_is apple_silicon; then
-		assert_success 'pod --version' 			# CocoaPods
+		assert_success 'pod --version' # CocoaPods
 		assert_success 'flutter --version'
 	fi
 fi

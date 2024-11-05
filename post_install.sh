@@ -211,6 +211,7 @@ cargo_install flamegraph # https://github.com/flamegraph-rs
 brew_install jq          # https://jqlang.github.io/jq/
 brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools like sorbet
 cargo_install lychee     # https://github.com/lycheeverse/lychee
+cargo_install bottom     # https://github.com/ClementTsang/bottom
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
@@ -317,6 +318,11 @@ if have_not_installed adb; then
 	wget $android_sdk -O android-sdk.zip
 	unzip android-sdk.zip -d ~
 	rm android-sdk.zip
+fi
+# Also stick bundletool.jar in the platform-tools directory
+if [ ! -f "$HOME/platform-tools/bundletool.jar" ]; then
+	wget "https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar"
+	mv bundletool-all-1.17.2.jar "$HOME/platform-tools/bundletool.jar"
 fi
 
 # Google Cloud SQL proxy

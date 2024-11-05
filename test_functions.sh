@@ -111,3 +111,20 @@ function assert_no_git_changes() {
 		export HAS_TEST_SUITE_PASSED=false
 	fi
 }
+
+################################################################################
+# Asserts that a file exists.
+# When the file exists, it will print "Pass: $1 exists"
+# When the file doesn't exist, it will print "Failed: $1 does not exist" and set
+# HAS_TEST_SUITE_PASSED to false.
+# Globals:
+# 	HAS_TEST_SUITE_PASSED
+################################################################################
+function assert_file_exists() {
+	if [ -f "$1" ]; then
+		echo -e "$pass: $1 exists"
+	else
+		echo -e "$failed: $1 does not exist"
+		export HAS_TEST_SUITE_PASSED=false
+	fi
+}
