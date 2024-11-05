@@ -32,6 +32,7 @@ Plug 'NoahTheDuke/vim-just'
 Plug 'Shougo/context_filetype.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+Plug 'ap/vim-css-color'
 Plug 'evanleck/vim-svelte'
 Plug 'folke/lsp-colors.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
@@ -109,6 +110,7 @@ silent! let g:plugs['tokyonight.nvim'].commit = 'e4df5bb11d5dd419994c87e81e66784
 silent! let g:plugs['trouble.nvim'].commit = 'fbcf55f2cf3e4bd9350ae7d33081d46286f3393c'
 silent! let g:plugs['vim-bbye'].commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
 silent! let g:plugs['vim-beancount'].commit = '25bcbc773554b5798d253a1a5fa5de158792f95e'
+silent! let g:plugs['vim-css-color'].commit = '950e80352b325ff26d3b0faf95b29e301c200f7d'
 silent! let g:plugs['vim-doge'].commit = '188351964c8b2540a69c1d2648b3c6e7877a016f'
 silent! let g:plugs['vim-fugitive'].commit = '4f59455d2388e113bd510e85b310d15b9228ca0d'
 silent! let g:plugs['vim-gitgutter'].commit = 'e801371917e52805a4ceb1e93f55ed1fba712f82'

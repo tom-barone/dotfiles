@@ -62,6 +62,7 @@ set completeopt=menu,menuone,noselect
 set cursorline
 
 set foldmethod=syntax
+set nofoldenable
 
 " How long before the swp file is written to disk
 " Makes vim-gitgutter much faster
