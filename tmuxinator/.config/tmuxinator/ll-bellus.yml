@@ -90,6 +90,7 @@ windows:
       panes:
         - nvim
         - clear
+        - make start
   - prototype:
       layout: main-vertical
       root: ~/github/ll-bellus/prototype
