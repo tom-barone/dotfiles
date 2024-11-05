@@ -331,6 +331,10 @@ fi
 # https://gstreamer.freedesktop.org/documentation/tutorials/index.html?gi-language=c
 brew_install gstreamer
 
+# Supervisord
+# http://supervisord.org/index.html
+pipx_install supervisor
+
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
 proxy_file_url=""

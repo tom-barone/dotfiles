@@ -150,6 +150,12 @@ assert_success 'adb --version'
 assert_success 'fastboot --version'
 assert_file_exists "$HOME/platform-tools/bundletool.jar"
 
+# Gstreamer
+assert_success 'gst-inspect-1.0 --version'
+
+# Supervisord
+assert_success 'supervisord --version'
+
 # Cloud SQL proxy
 assert_success 'cloud_sql_proxy --version'
 
