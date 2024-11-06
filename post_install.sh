@@ -450,10 +450,12 @@ fi
 # Flutter development
 if os_is mac && chip_is apple_silicon; then
 	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	flutter_url="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.24.3-stable.zip"
-	wget "$flutter_url" -O flutter-sdk.zip
-	unzip flutter-sdk.zip -d ~
-	rm flutter-sdk.zip
+	if no_directory_exists_at "$HOME/flutter"; then
+		flutter_url="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.24.3-stable.zip"
+		wget "$flutter_url" -O flutter-sdk.zip
+		unzip flutter-sdk.zip -d ~
+		rm flutter-sdk.zip
+	fi
 fi
 
 # Final cleanup steps

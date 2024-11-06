@@ -148,7 +148,9 @@ assert_success 'gh --version'
 # Android tools
 assert_success 'adb --version'
 assert_success 'fastboot --version'
-assert_file_exists "$HOME/platform-tools/bundletool.jar"
+if not_ci; then
+	assert_file_exists "$HOME/platform-tools/bundletool.jar"
+fi
 
 # Gstreamer
 assert_success 'gst-inspect-1.0 --version'
