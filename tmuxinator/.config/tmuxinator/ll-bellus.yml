@@ -84,6 +84,13 @@ windows:
         - api:
             - cd api
             - rake dev
+  - appium:
+      layout: main-vertical
+      root: ~/github/ll-bellus/appium
+      panes:
+        - poetry run nvim
+        - clear
+        - make start-appium-server
   - transcribe:
       layout: main-vertical
       root: ~/github/ll-bellus/transcribe

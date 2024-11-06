@@ -320,11 +320,13 @@ if have_not_installed adb; then
 	unzip android-sdk.zip -d "$HOME"
 	rm android-sdk.zip
 fi
-# Also stick bundletool.jar in the platform-tools directory
-if [ ! -f "$HOME/platform-tools/bundletool.jar" ]; then
-	wget "https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar"
-	mv bundletool-all-1.17.2.jar "$HOME/platform-tools/bundletool.jar"
-	chmod +x "$HOME/platform-tools/bundletool.jar"
+if not_ci; then
+	# Also stick bundletool.jar in the platform-tools directory
+	if [ ! -f "$HOME/platform-tools/bundletool.jar" ]; then
+		wget "https://github.com/google/bundletool/releases/download/1.17.2/bundletool-all-1.17.2.jar"
+		mv bundletool-all-1.17.2.jar "$HOME/platform-tools/bundletool.jar"
+		chmod +x "$HOME/platform-tools/bundletool.jar"
+	fi
 fi
 
 # Gstreamer
