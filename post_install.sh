@@ -179,8 +179,9 @@ brew upgrade ruby-build
 eval "$(rbenv init - bash)"
 if os_is ubuntu; then
 	brew_install zlib
+	brew_install openssl
 	# Manually point the ruby install to the homebrew zlib directory
-	RUBY_CONFIGURE_OPTS="--with-zlib-dir=$(brew --prefix zlib)" rbenv install --skip-existing $default_ruby_version
+	RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl) --with-zlib-dir=$(brew --prefix zlib)" rbenv install --skip-existing $default_ruby_version
 	rbenv global $default_ruby_version
 fi
 if os_is mac; then
