@@ -54,4 +54,4 @@ windows:
       panes:
         - nvim
         - clear
-        - ssh tbone@language-lads.com
+        - ssh tbone@eu-central.language-lads.com

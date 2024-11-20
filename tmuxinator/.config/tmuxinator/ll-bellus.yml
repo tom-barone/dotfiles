@@ -90,7 +90,6 @@ windows:
       panes:
         - poetry run nvim
         - clear
-        - make start-appium-server
   - transcribe:
       layout: main-vertical
       root: ~/github/ll-bellus/transcribe
@@ -103,4 +102,10 @@ windows:
       root: ~/github/ll-bellus/prototype
       panes:
         - nvim
+        - clear
+  - roleplay_videos:
+      layout: main-vertical
+      root: ~/github/ll-bellus/roleplay_videos
+      panes:
+        - poetry run nvim
         - clear

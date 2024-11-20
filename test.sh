@@ -182,8 +182,14 @@ if not_ci; then
 
 	if os_is mac && chip_is apple_silicon; then
 		assert_success 'pod --version' # CocoaPods
-		assert_success 'flutter --version'
 	fi
+fi
+
+# Flutter
+if os_is mac && chip_is apple_silicon; then
+	assert_success 'flutter --version'
+	assert_success 'firebase --version'
+	assert_success 'flutterfire --version'
 fi
 
 # Print out some useful info during the CI build
