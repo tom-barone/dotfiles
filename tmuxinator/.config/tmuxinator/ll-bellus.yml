@@ -97,12 +97,6 @@ windows:
         - nvim
         - clear
         - make start
-  - prototype:
-      layout: main-vertical
-      root: ~/github/ll-bellus/prototype
-      panes:
-        - nvim
-        - clear
   - roleplay_videos:
       layout: main-vertical
       root: ~/github/ll-bellus/roleplay_videos

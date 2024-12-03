@@ -188,3 +188,5 @@ require("lspconfig").dartls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+require("lsp-file-operations").setup()
