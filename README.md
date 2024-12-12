@@ -56,6 +56,11 @@ This
 [comment](https://github.com/alacritty/alacritty/issues/1663#issuecomment-1917418514)
 has a workaround for now.
 
+### MacOS
+
+Make sure to add folders like `~/github` as exclusions in Spotlight search.
+Otherwise macOS will try index folders like `.git` / `node_modules` etc. and slow everything down.
+
 ### Vim commands to remember
 
 `:GBrowse` - Open the current file in the web browser (Github etc.) with

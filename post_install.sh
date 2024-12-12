@@ -85,7 +85,7 @@ fi
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
 if have_not_installed git-credential-manager; then
 	if os_is mac; then
-		brew install --cask git-credential-manager
+		brew_cask_install git-credential-manager
 	fi
 	if os_is ubuntu; then
 		wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-linux_amd64.2.3.2.deb"
@@ -460,6 +460,12 @@ if os_is mac && chip_is apple_silicon; then
 	# Firebase CLI
 	npm_global_install firebase-tools
 	dart pub global activate flutterfire_cli
+fi
+
+# Latex
+if os_is mac; then
+	brew_cask_install mactex
+	brew_cask_install skim
 fi
 
 # Final cleanup steps
