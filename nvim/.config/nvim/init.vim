@@ -57,6 +57,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 Plug 'kosayoda/nvim-lightbulb'
+Plug 'lervag/vimtex'
 Plug 'mfussenegger/nvim-lint'
 Plug 'moll/vim-bbye'
 Plug 'nathangrigg/vim-beancount'
@@ -129,3 +130,4 @@ silent! let g:plugs['vim-svelte'].commit = '0e93ec53c3667753237282926fec62678562
 silent! let g:plugs['vim-unimpaired'].commit = '6d44a6dc2ec34607c41ec78acf81657248580bf1'
 silent! let g:plugs['vim-vsnip'].commit = '02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9'
 silent! let g:plugs['vim-vsnip-integ'].commit = '1914e72cf3de70df7f5dde476cd299aba2440aef'
+silent! let g:plugs['vimtex'].commit = '44a2f1203ce2b6fcf1ff2b03aeca52c45f8a157e'
