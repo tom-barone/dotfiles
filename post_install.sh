@@ -214,6 +214,7 @@ brew_install jq          # https://jqlang.github.io/jq/
 brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools like sorbet
 cargo_install lychee     # https://github.com/lycheeverse/lychee
 cargo_install bottom     # https://github.com/ClementTsang/bottom
+brew_install nmap        # https://nmap.org
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim

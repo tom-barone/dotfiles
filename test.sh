@@ -94,6 +94,7 @@ assert_success 'jq --version'
 assert_success 'watchman --version'
 assert_success 'lychee --version'
 assert_success 'btm --version'
+assert_success 'nmap --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
