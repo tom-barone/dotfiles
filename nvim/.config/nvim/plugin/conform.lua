@@ -6,7 +6,8 @@ require("conform").setup({
 		typescript = { "prettier" },
 		yaml = { "prettier" },
 		markdown = { "prettier" },
-		eruby = { "erb_format" },
+		eruby = { "erb_format", "erb_lint" },
+		["eruby.yaml"] = { "prettier" },
 		ruby = { "rubocop_fix" },
 		just = { "just" },
 		lua = { "stylua" },
@@ -34,6 +35,11 @@ require("conform").setup({
 			-- Change where to find the command
 			command = "tidy-imports",
 			args = { "--quiet" },
+		},
+		erb_lint = {
+			command = "erb_lint",
+			args = { "--fail-level", "F", "--autocorrect", "$FILENAME" },
+			stdin = false,
 		},
 		erb_format = {
 			command = "erb-format",

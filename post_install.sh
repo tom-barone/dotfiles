@@ -137,7 +137,7 @@ fi
 
 # NVM node manager https://github.com/nvm-sh/nvm
 if have_not_installed node; then
-	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
 	# shellcheck source=/dev/null
 	# Make sure nvm is loaded
 	. ~/.profile || true
@@ -170,7 +170,7 @@ fi
 # NOTE: These take a long time
 # Ruby and rbenv
 # https://github.com/rbenv/rbenv
-default_ruby_version=3.3.5
+default_ruby_version=3.3.7
 if have_not_installed rbenv; then
 	brew_install rbenv
 	brew_install ruby-build
@@ -215,6 +215,7 @@ brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools
 cargo_install lychee     # https://github.com/lycheeverse/lychee
 cargo_install bottom     # https://github.com/ClementTsang/bottom
 brew_install nmap        # https://nmap.org
+brew_install lcov				 # https://lcov.readthedocs.io/en/latest/index.html
 
 # Neovim https://github.com/neovim/neovim
 brew_install neovim
