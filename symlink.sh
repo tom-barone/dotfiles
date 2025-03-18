@@ -5,6 +5,7 @@ dotfiles_to_symlink=(
 	bash
 	fzf
 	git
+	gpg
 	node
 	nvim
 	system

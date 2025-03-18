@@ -56,6 +56,25 @@ This
 [comment](https://github.com/alacritty/alacritty/issues/1663#issuecomment-1917418514)
 has a workaround for now.
 
+### GPG and signed git commits
+
+See the [git](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) and [GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) docs.
+
+```bash
+# Generate a new GPG key
+gpg --gen-key
+# List the keys
+gpg --list-keys
+# Set the key to use for signing
+git config --global user.signingkey <key-id>
+# Make sure to always sign commits
+git config --global commit.gpgsign true
+# Export the public key
+gpg --armor --export <key-id>
+```
+
+You can increase the cache time within gpg-agent so you don't need to keep inputting the password.
+
 ### MacOS
 
 Make sure to add folders like `~/github` as exclusions in Spotlight search.

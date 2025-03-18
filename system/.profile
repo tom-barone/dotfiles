@@ -112,3 +112,6 @@ fi
 
 ## Want this alias in all shells (bash, zsh, sh)
 #alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+## GPG
+export GPG_TTY=$(tty)
