@@ -6,6 +6,7 @@ require("conform").setup({
 		typescript = { "prettier" },
 		yaml = { "prettier" },
 		markdown = { "prettier" },
+		xml = { "prettier" },
 		eruby = { "erb_format", "erb_lint" },
 		["eruby.yaml"] = { "prettier" },
 		ruby = { "rubocop_fix" },

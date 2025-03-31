@@ -48,6 +48,7 @@ nnoremap <leader>gr <Cmd>Trouble lsp_references<cr>
 " Git commands
 " Show history of current file
 nnoremap <leader>gh <Cmd>0Gclog<cr>
+vnoremap <leader>gh :Gclog<cr>
 nnoremap <leader>gst <Cmd>vert Git<Enter><Cmd>vertical resize 31<Enter>
 
 nnoremap [d <Cmd>lua vim.diagnostic.goto_prev()<Enter>

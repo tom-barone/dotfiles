@@ -299,8 +299,7 @@ pipx_install git-remote-codecommit # https://github.com/aws/git-remote-codecommi
 
 # Heroku
 if os_is mac; then
-	brew tap heroku/brew
-	brew_install heroku
+	brew_install heroku/brew/heroku
 fi
 if os_is ubuntu; then
 	curl https://cli-assets.heroku.com/install.sh | sudo sh
