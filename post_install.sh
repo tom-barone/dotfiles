@@ -469,10 +469,6 @@ if os_is mac && chip_is apple_silicon; then
 		unzip flutter-sdk.zip -d ~
 		rm flutter-sdk.zip
 	fi
-
-	# Firebase CLI
-	npm_global_install firebase-tools
-	dart pub global activate flutterfire_cli
 fi
 
 # Latex
