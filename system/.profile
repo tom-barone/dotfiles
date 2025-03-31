@@ -28,7 +28,8 @@ mssql_tools="/opt/mssql-tools18/bin"
 flutter_path="$HOME/flutter/bin"
 dart_path="$HOME/.pub-cache/bin"
 emulators="$HOME/Library/Android/sdk/emulator"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$golang_path:$postgres_mac:$flutter_path:$dart_path:$emulators:$PATH"
+neovim_path="$HOME/opt/nvim/bin"
+export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$golang_path:$postgres_mac:$flutter_path:$dart_path:$emulators:$neovim_path:$PATH"
 
 # If we're on mac and we can brew
 if type brew &>/dev/null && [[ "$(uname -a)" =~ Darwin ]]; then

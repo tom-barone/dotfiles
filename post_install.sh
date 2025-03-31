@@ -98,6 +98,22 @@ fi
 # https://git-lfs.com/
 brew_install git-lfs
 
+# Neovim [https://github.com/neovim/neovim]
+# Homebrew always installs the latest version of neovim which is annoying because
+# sometimes the latest version breaks stuff and we wanna stick to a specific version.
+# So we're gonna install it manually.
+if no_directory_exists_at "$HOME/opt/nvim"; then
+	version="v0.10.4"
+	if os_is mac && chip_is apple_silicon; then release="macos-arm64"; fi
+	if os_is mac && chip_is intel; then release="macos-x86_64"; fi
+	if os_is ubuntu && chip_is intel; then release="linux-x86_64"; fi
+	echo "Downloading neovim $version for $release"
+	wget "https://github.com/neovim/neovim/releases/download/$version/nvim-$release.tar.gz"
+	tar xvzf "nvim-$release.tar.gz"
+	mv "nvim-$release" "$HOME/opt/nvim"
+	rm "nvim-$release.tar.gz"
+fi
+
 # zsh-abbr https://zsh-abbr.olets.dev/installation.html
 if no_directory_exists_at "$HOME/opt/zsh-abbr"; then
 	git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
@@ -215,10 +231,9 @@ brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools
 cargo_install lychee     # https://github.com/lycheeverse/lychee
 cargo_install bottom     # https://github.com/ClementTsang/bottom
 brew_install nmap        # https://nmap.org
-brew_install lcov				 # https://lcov.readthedocs.io/en/latest/index.html
+brew_install lcov        # https://lcov.readthedocs.io/en/latest/index.html
 
-# Neovim https://github.com/neovim/neovim
-brew_install neovim
+# Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
 	rm -rf ~/.virtualenvs/pynvim
 	mkdir -p ~/.virtualenvs/pynvim
@@ -246,6 +261,7 @@ gem_install sorbet-runtime                       ## https://sorbet.org/docs/adop
 gem_install tapioca                              ##
 gem_install ruby-lsp                             # https://shopify.github.io/ruby-lsp/
 gem_install yard                                 # https://yardoc.org/
+cargo install --locked tree-sitter-cli           # https://github.com/tree-sitter/tree-sitter/tree/master/cli
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
