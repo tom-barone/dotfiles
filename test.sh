@@ -155,9 +155,6 @@ if not_ci; then
 	assert_file_exists "$HOME/platform-tools/bundletool.jar"
 fi
 
-# Gstreamer
-assert_success 'gst-inspect-1.0 --version'
-
 # Supervisord
 assert_success 'supervisord --version'
 

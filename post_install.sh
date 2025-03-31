@@ -347,10 +347,6 @@ if not_ci; then
 	fi
 fi
 
-# Gstreamer
-# https://gstreamer.freedesktop.org/documentation/tutorials/index.html?gi-language=c
-brew_install gstreamer
-
 # Supervisord
 # http://supervisord.org/index.html
 pipx_install supervisor
