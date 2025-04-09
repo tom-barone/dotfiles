@@ -84,6 +84,8 @@ Otherwise macOS will try index folders like `.git` / `node_modules` etc. and slo
 
 `:GBrowse` - Open the current file in the web browser (Github etc.) with optional line range if in visual mode.
 
-`<leader>gh` Show git history for file.
+`<leader>gh` - Show git history for file.
 
 Select range -> `:Gclog` To load previous commits that affected that range.
+
+`:BufDelete hidden` - Close all buffers not open in a window

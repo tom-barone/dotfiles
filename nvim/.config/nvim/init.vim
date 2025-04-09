@@ -28,6 +28,7 @@ call plug#begin(stdpath('data') . '/plugged')
 "
 
 "Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
+Plug 'Asheq/close-buffers.vim'
 Plug 'NoahTheDuke/vim-just'
 Plug 'Shougo/context_filetype.vim'
 Plug 'airblade/vim-gitgutter'
