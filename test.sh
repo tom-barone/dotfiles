@@ -178,6 +178,7 @@ assert_success 'ffmpeg -version'
 # but don't want to run in CI
 if not_ci; then
 	assert_success 'docker --version'
+	assert_success 'docker-compose --version'
 	assert_success 'gh copilot --version'
 
 	if os_is mac && chip_is apple_silicon; then

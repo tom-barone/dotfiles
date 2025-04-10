@@ -445,6 +445,20 @@ if have_not_installed docker && not_ci; then
 	fi
 fi
 
+# Backwards compatability for docker-compose
+if have_not_installed docker-compose && not_ci; then
+	local_bin_dir=""
+	if os_is mac; then
+		local_bin_dir="/usr/local/bin"
+	fi
+	if os_is ubuntu; then
+		local_bin_dir="/usr/bin"
+	fi
+	sudo touch "$local_bin_dir/docker-compose"
+	echo 'docker compose --compatibility "$@"' | sudo tee "$local_bin_dir/docker-compose"
+	sudo chmod +x "$local_bin_dir/docker-compose"
+fi
+
 # Langauge / AI stuff
 brew_install sdl2
 brew_install ffmpeg
