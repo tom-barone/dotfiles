@@ -69,21 +69,21 @@ windows:
   - services:
       layout: tiled
       panes:
-        - emulator:
+        - android-emulator:
             - cd mobile
-            - make start-android-emulator
-        - android:
+            #- make start-android-emulator
+        - android-dev:
             - cd mobile
-            - sleep 20
-            - make dev-android-emulator
-        - ios:
+            #- sleep 20
+            #- make dev-android-emulator
+        - ios-emulator:
             - cd mobile
             #- make dev-ios-emulator
             #- sleep 10
             #- make start-ios-emulator
         - api:
             - cd api
-            - rake dev
+            #- rake dev
   - appium:
       layout: main-vertical
       root: ~/github/ll-bellus/appium

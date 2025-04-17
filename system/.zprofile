@@ -7,3 +7,5 @@ emulate zsh
 # Get all the ZSH functions installed by homebrew
 homebrew_prefix="$(brew --prefix)"
 export FPATH="$HOME/.zsh_functions:$homebrew_prefix/share/zsh/functions:$homebrew_prefix/share/zsh/site_functions:$HOME/opt/zsh-completions/src:/usr/share/zsh/vendor-completions:$FPATH"
+
+eval "$(direnv hook zsh)"
