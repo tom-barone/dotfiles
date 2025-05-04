@@ -38,6 +38,7 @@ nmap <Leader>pr <Cmd>Format <Enter>
 nmap <Leader>po <Cmd>OrganiseImports <Enter>
 nmap <Leader>gy <Cmd>Goyo <Enter>
 nmap <C-t> <Cmd>Files<Enter>
+nnoremap <C-w>o :MaximizerToggle<CR>
 
 nmap <C-g><C-f> <Cmd>GFiles?<Enter>
 nmap <C-g><C-b> <Cmd>Buffers<Enter>

@@ -6,13 +6,13 @@ Clone and run `install.sh`. This will
 
 1. Install everything.
 2. Symlink the all config files.
-3. Test everything installed correctly.
+3. Test that everything installed correctly.
 
 ## Terminal
 
 [Alacritty](https://github.com/alacritty/alacritty) +
 [tmux](https://github.com/tmux/tmux/wiki) + [zsh](https://www.zsh.org/) +
-[nvim](https://neovim.io/) because I'm a goddamn tech hipster.
+[nvim](https://neovim.io/).
 
 The git diffs + Github Copilot chat in
 [Vscode](https://code.visualstudio.com/docs/setup/setup-overview) are good.
@@ -21,10 +21,10 @@ The git diffs + Github Copilot chat in
 
 Fonts are in the `/fonts` directory, install them however the system wants,
 
-I'm a fan of [Source Code Pro](https://github.com/adobe-fonts/source-code-pro),
+I like [Source Code Pro](https://github.com/adobe-fonts/source-code-pro),
 the font here has been
 [patched](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher)
-(now under the name Sauce Code Pro) to include a bunch of extra glyphs like:
+(now under the name Sauce Code Pro) to include a bunch of extra glyphs:
 
 - [Nerd Font](https://www.nerdfonts.com/#home)
 - [powerline](https://github.com/powerline/fonts)
@@ -40,7 +40,7 @@ install from there.
 
 ### Change the default shell
 
-Assuming you've installed `zsh` with [homebrew](https://brew.sh/):
+Assuming `zsh` is installed with [homebrew](https://brew.sh/):
 
 ```bash
 chsh -s "$(brew --prefix)/bin/zsh"
@@ -73,7 +73,7 @@ git config --global commit.gpgsign true
 gpg --armor --export <key-id>
 ```
 
-You can increase the cache time within gpg-agent so you don't need to keep inputting the password.
+The cache time within `gpg-agent` can be increased to avoid entering the passphrase too often.
 
 ### MacOS
 

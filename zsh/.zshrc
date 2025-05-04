@@ -79,3 +79,6 @@ video_to_gif() {
 	output_file="$1.gif"
 	ffmpeg -i $1 -pix_fmt rgb8 -r 10 $output_file && gifsicle --optimize=1 $output_file -o $output_file
 }
+
+# I like being able to do # commands like bash
+setopt INTERACTIVE_COMMENTS
