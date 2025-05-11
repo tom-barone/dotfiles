@@ -4,9 +4,6 @@ bind - split-window -v
 unbind '"'
 unbind %
 
-# reload config file (change file location to your the tmux.conf you want to use)
-bind r source-file ~/.tmux.conf
-
 # Use true colors
 set-option -g default-terminal "tmux-256color"
 set-option -gas terminal-overrides "*:Tc" # true color support

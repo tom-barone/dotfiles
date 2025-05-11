@@ -56,7 +56,8 @@ nnoremap [d <Cmd>lua vim.diagnostic.goto_prev()<Enter>
 nnoremap ]d <Cmd>lua vim.diagnostic.goto_next()<Enter>
 
 " Copilot
-imap <silent><script><expr> <C-s> copilot#Accept("\<CR>")
+imap <C-s> <Plug>(copilot-accept-line)
+imap <silent><script><expr> <C-d> copilot#Accept("\<CR>")
 " ignore default tab map
 let g:copilot_no_tab_map = v:true
 imap <C-j> <Plug>(copilot-next)

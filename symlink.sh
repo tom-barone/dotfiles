@@ -8,6 +8,7 @@ dotfiles_to_symlink=(
 	gpg
 	node
 	nvim
+	ripgrep
 	system
 	tig
 	tmux

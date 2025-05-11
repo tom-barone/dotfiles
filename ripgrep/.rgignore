@@ -1,0 +1,7 @@
+# Generally we are happy with ripgrep ignoring all VCS (git) tracked files
+# But occasionally, with .env files / log files we still want them to show up 
+# in our ripgrep searches
+!.env
+!**/*/log
+# Don't really ever want to search through .git/ files
+.git/
