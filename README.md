@@ -71,6 +71,10 @@ git config --global user.signingkey <key-id>
 git config --global commit.gpgsign true
 # Export the public key
 gpg --armor --export <key-id>
+# Stop the agent (it'll auto restart when needed)
+gpgconf --kill gpg-agent
+# If you run into 'waiting for lock' issues
+rm ~/.gnupg/public-keys.d/pubring.db.lock
 ```
 
 The cache time within `gpg-agent` can be increased to avoid entering the passphrase too often.

@@ -82,6 +82,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vim-test/vim-test'
 Plug '~/opt/fzf'
 
 call plug#end()
