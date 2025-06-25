@@ -62,6 +62,8 @@ imap <silent><script><expr> <C-d> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 imap <C-j> <Plug>(copilot-next)
 imap <C-k> <Plug>(copilot-previous)
+nnoremap <leader>cd <Cmd>Copilot disable<CR>
+nnoremap <leader>ce <Cmd>Copilot enable<CR>
 
 " Open URL under cursor
 " Loads netrw on demand since we disable netrw normally for nvim-tree.lua
