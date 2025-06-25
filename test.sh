@@ -127,7 +127,7 @@ assert_success 'pyright --version'
 assert_success 'rubocop --version'
 assert_success 'eslint --version'
 assert_success 'erb-format --version'
-assert_success 'sqlformat --version'
+assert_success 'sqlfluff --version'
 assert_success 'djlint --version'
 assert_success 'stylua --version'
 

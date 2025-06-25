@@ -268,9 +268,7 @@ pipx_install pyright        # https://github.com/microsoft/pyright
 gem_install rubocop         # https://github.com/rubocop/rubocop
 npm_global_install eslint   # https://eslint.org
 gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
-if have_not_installed sqlformat; then
-	pipx_install sqlparse # for `sqlformat` https://github.com/andialbrecht/sqlparse/tree/master/sqlparse
-fi
+pipx_install sqlfluff
 pipx_install djlint         # https://github.com/djlint/djlint
 brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
 rustup component add clippy # https://github.com/rust-lang/rust-clippy

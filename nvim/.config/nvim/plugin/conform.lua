@@ -13,6 +13,7 @@ require("conform").setup({
 		just = { "just" },
 		lua = { "stylua" },
 		dart = { "dart_format" },
+		sql = { "sqlfluff" },
 	},
 })
 
@@ -48,6 +49,17 @@ require("conform").setup({
 		rubocop_fix = {
 			command = "rubocop",
 			args = { "--autocorrect-all", "--stdin", "$FILENAME", "--stderr", "--fail-level", "F" },
+			stdin = true,
+		},
+		sqlfluff = {
+			command = "sqlfluff",
+			inherit = false,
+			args = {
+				"format",
+				"--dialect",
+				"postgres",
+				"-"
+			},
 			stdin = true,
 		},
 	},
