@@ -6,6 +6,7 @@ dotfiles_to_symlink=(
 	fzf
 	git
 	gpg
+	mac
 	node
 	nvim
 	ripgrep
