@@ -220,16 +220,17 @@ cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't comp
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
-cargo_install just       # https://github.com/casey/just
-cargo_install flamegraph # https://github.com/flamegraph-rs
-brew_install jq          # https://jqlang.github.io/jq/
-brew_install watchman    # https://facebook.github.io/watchman/ Needed for tools like sorbet
-cargo_install lychee     # https://github.com/lycheeverse/lychee
-cargo_install bottom     # https://github.com/ClementTsang/bottom
-brew_install nmap        # https://nmap.org
-brew_install lcov        # https://lcov.readthedocs.io/en/latest/index.html
-brew_install gdb				 # https://www.gnu.org/software/gdb/
-brew_install llvm				 # https://llvm.org/
+cargo_install just                           # https://github.com/casey/just
+cargo_install flamegraph                     # https://github.com/flamegraph-rs
+brew_install jq                              # https://jqlang.github.io/jq/
+brew_install watchman                        # https://facebook.github.io/watchman/ Needed for tools like sorbet
+cargo_install lychee                         # https://github.com/lycheeverse/lychee
+cargo_install bottom                         # https://github.com/ClementTsang/bottom
+brew_install nmap                            # https://nmap.org
+brew_install lcov                            # https://lcov.readthedocs.io/en/latest/index.html
+brew_install gdb                             # https://www.gnu.org/software/gdb/
+brew_install llvm                            # https://llvm.org/
+npm_global_install @anthropic-ai/claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
 
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then

@@ -98,6 +98,7 @@ assert_success 'nmap --version'
 assert_success 'lcov --version'
 assert_success 'gdb --version'
 assert_success 'lldb --version'
+assert_success 'claude --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
