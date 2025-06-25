@@ -96,6 +96,8 @@ assert_success 'lychee --version'
 assert_success 'btm --version'
 assert_success 'nmap --version'
 assert_success 'lcov --version'
+assert_success 'gdb --version'
+assert_success 'lldb --version'
 
 # Language servers
 assert_success 'lua-language-server --version'

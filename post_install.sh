@@ -228,6 +228,8 @@ cargo_install lychee     # https://github.com/lycheeverse/lychee
 cargo_install bottom     # https://github.com/ClementTsang/bottom
 brew_install nmap        # https://nmap.org
 brew_install lcov        # https://lcov.readthedocs.io/en/latest/index.html
+brew_install gdb				 # https://www.gnu.org/software/gdb/
+brew_install llvm				 # https://llvm.org/
 
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
