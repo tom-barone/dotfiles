@@ -1,6 +1,6 @@
 # /Users/tbone/.config/tmuxinator/jqc.yml
 
-name: portfolio-site
+name: leetcode
 root: ~/github/leetcode-practice
 
 # Optional tmux socket
