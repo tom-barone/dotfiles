@@ -78,6 +78,12 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 ## Golang paths
 export GOPATH="$HOME/opt/gopath"
 
+## Python
+# Set the Python cache directory to a custom location so
+# it doesn't spam us with __pycache__ folders in our projects
+export PYTHONPYCACHEPREFIX="$HOME/.cache/python"
+export RUFF_CACHE_DIR="$HOME/.cache/ruff"
+
 ## Path for poetry
 #export PATH="$HOME/.local/bin:$PATH"
 
