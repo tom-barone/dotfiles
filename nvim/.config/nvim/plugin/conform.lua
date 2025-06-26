@@ -5,7 +5,7 @@ require("conform").setup({
 		svelte = { "prettier" },
 		typescript = { "prettier" },
 		yaml = { "prettier" },
-		markdown = { "prettier" },
+		markdown = { "prettier_markdown" },
 		xml = { "prettier" },
 		eruby = { "erb_format", "erb_lint" },
 		["eruby.yaml"] = { "prettier" },
@@ -16,6 +16,16 @@ require("conform").setup({
 		sql = { "sqlfluff" },
 	},
 })
+
+-- Add args to the prettier formatter for markdown files
+local markdown_formatter = vim.deepcopy(require("conform.formatters.prettier"))
+require("conform.util").add_formatter_args(markdown_formatter, {
+	"--prose-wrap",
+	"always",
+	"--print-width",
+	"80",
+}, { append = false })
+require("conform").formatters.prettier_markdown = markdown_formatter
 
 -- Create a command to format the current buffer
 vim.api.nvim_create_user_command("Format", function(args)
@@ -58,7 +68,7 @@ require("conform").setup({
 				"format",
 				"--dialect",
 				"postgres",
-				"-"
+				"-",
 			},
 			stdin = true,
 		},

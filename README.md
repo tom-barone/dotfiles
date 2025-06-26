@@ -21,8 +21,8 @@ The git diffs + Github Copilot chat in
 
 Fonts are in the `/fonts` directory, install them however the system wants,
 
-I like [Source Code Pro](https://github.com/adobe-fonts/source-code-pro),
-the font here has been
+I like [Source Code Pro](https://github.com/adobe-fonts/source-code-pro), the
+font here has been
 [patched](https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#font-patcher)
 (now under the name Sauce Code Pro) to include a bunch of extra glyphs:
 
@@ -58,7 +58,9 @@ has a workaround for now.
 
 ### GPG and signed git commits
 
-See the [git](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) and [GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key) docs.
+See the [git](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) and
+[GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+docs.
 
 ```bash
 # Generate a new GPG key
@@ -77,16 +79,19 @@ gpgconf --kill gpg-agent
 rm ~/.gnupg/public-keys.d/pubring.db.lock
 ```
 
-The cache time within `gpg-agent` can be increased to avoid entering the passphrase too often.
+The cache time within `gpg-agent` can be increased to avoid entering the
+passphrase too often.
 
 ### MacOS
 
 Make sure to add folders like `~/github` as exclusions in Spotlight search.
-Otherwise macOS will try index folders like `.git` / `node_modules` etc. and slow everything down.
+Otherwise macOS will try index folders like `.git` / `node_modules` etc. and
+slow everything down.
 
 ### Vim commands to remember
 
-`:GBrowse` - Open the current file in the web browser (Github etc.) with optional line range if in visual mode.
+`:GBrowse` - Open the current file in the web browser (Github etc.) with
+optional line range if in visual mode.
 
 `<leader>gh` - Show git history for file.
 
