@@ -37,6 +37,10 @@ incremental changes that maintain a working state throughout development.
 - **Coverage targets**: 100% coverage should be expected at all times, but these
   tests must ALWAYS be based on business behaviour, not implementation details
 - Tests must document expected business behaviour
+- All tests must follow the "Arrange-Act-Assert" pattern:
+  - **Arrange**: Set up the test environment
+  - **Act**: Execute the code under test
+  - **Assert**: Verify the expected outcome
 
 ## Code Style
 
