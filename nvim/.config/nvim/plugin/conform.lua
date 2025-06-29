@@ -24,6 +24,8 @@ require("conform.util").add_formatter_args(markdown_formatter, {
 	"always",
 	"--print-width",
 	"80",
+	"--ignore-path",
+	"empty",
 }, { append = false })
 require("conform").formatters.prettier_markdown = markdown_formatter
 
