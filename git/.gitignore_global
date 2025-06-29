@@ -44,3 +44,6 @@ Thumbs.db
 
 # Rope files
 .ropeproject
+
+# Claude Code files
+.settings.local.json
