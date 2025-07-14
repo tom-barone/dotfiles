@@ -15,13 +15,13 @@ incremental changes that maintain a working state throughout development.
 
 **Key Principles:**
 
-- Write tests first (TDD)
-- Test behavior, not implementation
-- No `any` types or type assertions
-- Immutable data only
-- Small, pure functions
-- TypeScript strict mode always
-- Use real schemas/types in tests, never redefine them
+- Write tests first (TDD).
+- Test behavior, not implementation.
+- Use strong typing when available (avoid dynamic/weak typing).
+- Immutable data only.
+- Small, pure functions.
+- Use strict compiler/interpreter settings when available.
+- Use real schemas/types in tests, never redefine them.
 
 ## Testing Principles
 
@@ -53,56 +53,50 @@ I follow a "functional light" approach:
 - **Composition** as the primary mechanism for code reuse
 - Avoid heavy FP abstractions (no need for complex monads or pipe/compose
   patterns) unless there is a clear advantage to using them
-- Use array methods (`map`, `filter`, `reduce`) over imperative loops, or best
-  practices for the specific language
+- Use collection methods (`map`, `filter`, `reduce`) over imperative loops, or
+  best practices for the specific language
 
 #### Examples of Functional Patterns
 
-```typescript
+```
 // Good - Pure function with immutable updates
-const applyDiscount = (order: Order, discountPercent: number): Order => {
+function applyDiscount(order, discountPercent) {
   return {
     ...order,
-    items: order.items.map((item) => ({
+    items: order.items.map(item => ({
       ...item,
-      price: item.price * (1 - discountPercent / 100),
+      price: item.price * (1 - discountPercent / 100)
     })),
     totalPrice: order.items.reduce(
       (sum, item) => sum + item.price * (1 - discountPercent / 100),
-      0,
-    ),
-  };
-};
+      0
+    )
+  }
+}
 
 // Good - Composition over complex logic
-const processOrder = (order: Order): ProcessedOrder => {
+function processOrder(order) {
   return pipe(
     order,
     validateOrder,
     applyPromotions,
     calculateTax,
-    assignWarehouse,
-  );
-};
+    assignWarehouse
+  )
+}
 
 // When heavy FP abstractions ARE appropriate:
-// - Complex async flows that benefit from Task/IO types
-// - Error handling chains that benefit from Result/Either types
+// - Complex async flows that benefit from Result/Either types
+// - Error handling chains that benefit from monadic composition
 // Example with Result type for complex error handling:
-type Result<T, E = Error> =
-  | { success: true; data: T }
-  | { success: false; error: E };
-
-const chainPaymentOperations = (
-  payment: Payment,
-): Result<Receipt, PaymentError> => {
+function chainPaymentOperations(payment) {
   return pipe(
     validatePayment(payment),
     chain(authorizePayment),
     chain(capturePayment),
-    map(generateReceipt),
-  );
-};
+    map(generateReceipt)
+  )
+}
 ```
 
 ### Code Structure
@@ -118,72 +112,73 @@ const chainPaymentOperations = (
 Code should be self-documenting through clear naming and structure. Comments
 indicate that the code itself is not clear enough.
 
-```typescript
+```
 // Avoid: Comments explaining what the code does
-const calculateDiscount = (price: number, customer: Customer): number => {
+function calculateDiscount(price, customer) {
   // Check if customer is premium
   if (customer.tier === "premium") {
     // Apply 20% discount for premium customers
-    return price * 0.8;
+    return price * 0.8
   }
   // Regular customers get 10% discount
-  return price * 0.9;
-};
+  return price * 0.9
+}
 
 // Good: Self-documenting code with clear names
-const PREMIUM_DISCOUNT_MULTIPLIER = 0.8;
-const STANDARD_DISCOUNT_MULTIPLIER = 0.9;
+const PREMIUM_DISCOUNT_MULTIPLIER = 0.8
+const STANDARD_DISCOUNT_MULTIPLIER = 0.9
 
-const isPremiumCustomer = (customer: Customer): boolean => {
-  return customer.tier === "premium";
-};
+function isPremiumCustomer(customer) {
+  return customer.tier === "premium"
+}
 
-const calculateDiscount = (price: number, customer: Customer): number => {
+function calculateDiscount(price, customer) {
   const discountMultiplier = isPremiumCustomer(customer)
     ? PREMIUM_DISCOUNT_MULTIPLIER
-    : STANDARD_DISCOUNT_MULTIPLIER;
+    : STANDARD_DISCOUNT_MULTIPLIER
 
-  return price * discountMultiplier;
-};
+  return price * discountMultiplier
+}
 
 // Avoid: Complex logic with comments
-const processPayment = (payment: Payment): ProcessedPayment => {
+function processPayment(payment) {
   // First validate the payment
   if (!validatePayment(payment)) {
-    throw new Error("Invalid payment");
+    throw new Error("Invalid payment")
   }
 
   // Check if we need to apply 3D secure
   if (payment.amount > 100 && payment.card.type === "credit") {
     // Apply 3D secure for credit cards over £100
-    const securePayment = apply3DSecure(payment);
+    const securePayment = apply3DSecure(payment)
     // Process the secure payment
-    return executePayment(securePayment);
+    return executePayment(securePayment)
   }
 
   // Process the payment
-  return executePayment(payment);
-};
+  return executePayment(payment)
+}
 
 // Good: Extract to well-named functions
-const requires3DSecure = (payment: Payment): boolean => {
-  const SECURE_PAYMENT_THRESHOLD = 100;
+function requires3DSecure(payment) {
+  const SECURE_PAYMENT_THRESHOLD = 100
   return (
-    payment.amount > SECURE_PAYMENT_THRESHOLD && payment.card.type === "credit"
-  );
-};
+    payment.amount > SECURE_PAYMENT_THRESHOLD &&
+    payment.card.type === "credit"
+  )
+}
 
-const processPayment = (payment: Payment): ProcessedPayment => {
+function processPayment(payment) {
   if (!validatePayment(payment)) {
-    throw new PaymentValidationError("Invalid payment");
+    throw new PaymentValidationError("Invalid payment")
   }
 
   const securedPayment = requires3DSecure(payment)
     ? apply3DSecure(payment)
-    : payment;
+    : payment
 
-  return executePayment(securedPayment);
-};
+  return executePayment(securedPayment)
+}
 ```
 
 **Exception**: documentation comments for public APIs are acceptable when
@@ -283,19 +278,19 @@ concepts.
 DRY (Don't Repeat Yourself) is about not duplicating **knowledge** in the
 system, not about eliminating all code that looks similar.
 
-```typescript
+```
 // This is NOT a DRY violation - different knowledge despite similar code
-const validateUserAge = (age: number): boolean => {
-  return age >= 18 && age <= 100;
-};
+function validateUserAge(age) {
+  return age >= 18 && age <= 100
+}
 
-const validateProductRating = (rating: number): boolean => {
-  return rating >= 1 && rating <= 5;
-};
+function validateProductRating(rating) {
+  return rating >= 1 && rating <= 5
+}
 
-const validateYearsOfExperience = (years: number): boolean => {
-  return years >= 0 && years <= 50;
-};
+function validateYearsOfExperience(years) {
+  return years >= 0 && years <= 50
+}
 
 // These functions have similar structure (checking numeric ranges), but they
 // represent completely different business rules:
@@ -306,56 +301,56 @@ const validateYearsOfExperience = (years: number): boolean => {
 // changes harder. What if ratings change to 1-10? What if legal age changes?
 
 // Another example of code that looks similar but represents different knowledge:
-const formatUserDisplayName = (user: User): string => {
-  return `${user.firstName} ${user.lastName}`.trim();
-};
+function formatUserDisplayName(user) {
+  return `${user.firstName} ${user.lastName}`.trim()
+}
 
-const formatAddressLine = (address: Address): string => {
-  return `${address.street} ${address.number}`.trim();
-};
+function formatAddressLine(address) {
+  return `${address.street} ${address.number}`.trim()
+}
 
-const formatCreditCardLabel = (card: CreditCard): string => {
-  return `${card.type} ${card.lastFourDigits}`.trim();
-};
+function formatCreditCardLabel(card) {
+  return `${card.type} ${card.lastFourDigits}`.trim()
+}
 
 // Despite the pattern "combine two strings with space and trim", these represent
 // different domain concepts with different future evolution paths
 
 // This IS a DRY violation - same knowledge in multiple places
 class Order {
-  calculateTotal(): number {
-    const itemsTotal = this.items.reduce((sum, item) => sum + item.price, 0);
-    const shippingCost = itemsTotal > 50 ? 0 : 5.99; // Knowledge duplicated!
-    return itemsTotal + shippingCost;
+  calculateTotal() {
+    const itemsTotal = this.items.reduce((sum, item) => sum + item.price, 0)
+    const shippingCost = itemsTotal > 50 ? 0 : 5.99 // Knowledge duplicated!
+    return itemsTotal + shippingCost
   }
 }
 
 class OrderSummary {
-  getShippingCost(itemsTotal: number): number {
-    return itemsTotal > 50 ? 0 : 5.99; // Same knowledge!
+  getShippingCost(itemsTotal) {
+    return itemsTotal > 50 ? 0 : 5.99 // Same knowledge!
   }
 }
 
 class ShippingCalculator {
-  calculate(orderAmount: number): number {
-    if (orderAmount > 50) return 0; // Same knowledge again!
-    return 5.99;
+  calculate(orderAmount) {
+    if (orderAmount > 50) return 0 // Same knowledge again!
+    return 5.99
   }
 }
 
 // Refactored - knowledge in one place
-const FREE_SHIPPING_THRESHOLD = 50;
-const STANDARD_SHIPPING_COST = 5.99;
+const FREE_SHIPPING_THRESHOLD = 50
+const STANDARD_SHIPPING_COST = 5.99
 
-const calculateShippingCost = (itemsTotal: number): number => {
-  return itemsTotal > FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING_COST;
-};
+function calculateShippingCost(itemsTotal) {
+  return itemsTotal > FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING_COST
+}
 
 // Now all classes use the single source of truth
 class Order {
-  calculateTotal(): number {
-    const itemsTotal = this.items.reduce((sum, item) => sum + item.price, 0);
-    return itemsTotal + calculateShippingCost(itemsTotal);
+  calculateTotal() {
+    const itemsTotal = this.items.reduce((sum, item) => sum + item.price, 0)
+    return itemsTotal + calculateShippingCost(itemsTotal)
   }
 }
 ```
@@ -364,44 +359,44 @@ class Order {
 
 Refactoring must never break existing consumers of your code:
 
-```typescript
+```
 // Original implementation
-export const processPayment = (payment: Payment): ProcessedPayment => {
+function processPayment(payment) {
   // Complex logic all in one function
   if (payment.amount <= 0) {
-    throw new Error("Invalid amount");
+    throw new Error("Invalid amount")
   }
 
   if (payment.amount > 10000) {
-    throw new Error("Amount too large");
+    throw new Error("Amount too large")
   }
 
   // ... 50 more lines of validation and processing
 
-  return result;
-};
+  return result
+}
 
 // Refactored - external API unchanged, internals improved
-export const processPayment = (payment: Payment): ProcessedPayment => {
-  validatePaymentAmount(payment.amount);
-  validatePaymentMethod(payment.method);
+function processPayment(payment) {
+  validatePaymentAmount(payment.amount)
+  validatePaymentMethod(payment.method)
 
-  const authorizedPayment = authorizePayment(payment);
-  const capturedPayment = capturePayment(authorizedPayment);
+  const authorizedPayment = authorizePayment(payment)
+  const capturedPayment = capturePayment(authorizedPayment)
 
-  return generateReceipt(capturedPayment);
-};
+  return generateReceipt(capturedPayment)
+}
 
 // New internal functions - not exported
-const validatePaymentAmount = (amount: number): void => {
+function validatePaymentAmount(amount) {
   if (amount <= 0) {
-    throw new Error("Invalid amount");
+    throw new Error("Invalid amount")
   }
 
   if (amount > 10000) {
-    throw new Error("Amount too large");
+    throw new Error("Amount too large")
   }
-};
+}
 
 // Tests continue to pass without modification because external API unchanged
 ```
@@ -411,7 +406,7 @@ const validatePaymentAmount = (amount: number): void => {
 **CRITICAL**: After every refactoring:
 
 1. Run all tests - they must pass without modification
-2. Run static analysis (linting, type checking) - must pass
+2. Run static analysis (linting, type checking when available) - must pass
 3. Commit the refactoring separately from feature changes
 
 #### Refactoring Checklist
@@ -420,7 +415,7 @@ Before considering refactoring complete, verify:
 
 - [ ] The refactoring actually improves the code (if not, don't refactor)
 - [ ] All tests still pass without modification
-- [ ] All static analysis tools pass (linting, type checking)
+- [ ] All static analysis tools pass (linting, type checking when available)
 - [ ] No new public APIs were added (only internal ones)
 - [ ] Code is more readable than before
 - [ ] Any duplication removed was duplication of knowledge, not just code
@@ -472,17 +467,17 @@ immediately and write the test first.**
 
 ### Anti-patterns
 
-```typescript
+```
 // Avoid: Mutation
-const addItem = (items: Item[], newItem: Item) => {
-  items.push(newItem); // Mutates array
-  return items;
-};
+function addItem(items, newItem) {
+  items.push(newItem) // Mutates array
+  return items
+}
 
 // Prefer: Immutable update
-const addItem = (items: Item[], newItem: Item): Item[] => {
-  return [...items, newItem];
-};
+function addItem(items, newItem) {
+  return [...items, newItem]
+}
 
 // Avoid: Nested conditionals
 if (user) {
@@ -495,22 +490,22 @@ if (user) {
 
 // Prefer: Early returns
 if (!user || !user.isActive || !user.hasPermission) {
-  return;
+  return
 }
 // do something
 
 // Avoid: Large functions
-const processOrder = (order: Order) => {
+function processOrder(order) {
   // 100+ lines of code
-};
+}
 
 // Prefer: Composed small functions
-const processOrder = (order: Order) => {
-  const validatedOrder = validateOrder(order);
-  const pricedOrder = calculatePricing(validatedOrder);
-  const finalOrder = applyDiscounts(pricedOrder);
-  return submitOrder(finalOrder);
-};
+function processOrder(order) {
+  const validatedOrder = validateOrder(order)
+  const pricedOrder = calculatePricing(validatedOrder)
+  const finalOrder = applyDiscounts(pricedOrder)
+  return submitOrder(finalOrder)
+}
 ```
 
 ## Summary
@@ -519,3 +514,15 @@ The key is to write clean, testable, functional code that evolves through small,
 safe increments. Every change should be driven by a test that describes the
 desired behavior, and the implementation should be the simplest thing that makes
 that test pass. When in doubt, favor simplicity and readability over cleverness.
+
+## Documentation Philosophy
+
+Follow the documentation style of the project. Documentation should be as clear
+and concise as possible.
+
+When writing Markdown documentation:
+
+- Avoid excessive headers and subheaders.
+- Avoid nested bullet lists.
+- Avoid unnecessary formatting (bold, italics) unless it adds clarity.
+- Always end bullet points with a period.
