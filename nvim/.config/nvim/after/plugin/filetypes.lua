@@ -12,7 +12,6 @@ vim.filetype.add({
 		[".env"] = "dotenv",
 		["env"] = "dotenv",
 	},
-
 	-- Detect and apply filetypes based on certain patterns of the filenames
 	pattern = {
 		-- INFO: Match filenames like - ".env.example", ".env.local" and so on

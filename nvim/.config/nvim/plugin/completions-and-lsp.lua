@@ -1,196 +1,196 @@
--- Don't log things by default, enable when debugging
-vim.g.lsp_log_file = "~/downloads/test.log"
-vim.g.lsp_log_verbose = 1
+---- Don't log things by default, enable when debugging
+--vim.g.lsp_log_file = "~/downloads/test.log"
+--vim.g.lsp_log_verbose = 1
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function()
-	local opts = { noremap = true, silent = true }
-	vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.declaration, opts)
-	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-	vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-	vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-	vim.keymap.set("n", "<Leader>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, opts)
-	vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
-	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
-	vim.keymap.set("n", "<Leader>ga", require("fzf-lua").lsp_code_actions, opts)
-end
+---- Use an on_attach function to only map the following keys
+---- after the language server attaches to the current buffer
+--local on_attach = function()
+--  local opts = { noremap = true, silent = true }
+--  vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.declaration, opts)
+--  vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
+--  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+--  vim.keymap.set("n", "<Leader>gi", vim.lsp.buf.implementation, opts)
+--  vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, opts)
+--  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+--  vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+--  vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+--  vim.keymap.set("n", "<Leader>wl", function()
+--    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+--  end, opts)
+--  vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
+--  vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
+--  vim.keymap.set("n", "<Leader>ga", require("fzf-lua").lsp_code_actions, opts)
+--end
 
--- Set up nvim-cmp.
-local cmp = require("cmp")
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-		end,
-	},
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<Tab>"] = cmp.mapping.select_next_item(),
-		["<S-Tab>"] = cmp.mapping.select_prev_item(),
-		["<C-l>"] = cmp.mapping.confirm({ select = true }),
-	}),
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "path" },
-		{ name = "nvim_lsp_signature_help" },
-		{ name = "vsnip" },
-		{
-			name = "buffer",
-			option = {
-				get_bufnrs = function()
-					return vim.api.nvim_list_bufs()
-				end,
-			},
-		},
-	}),
-})
+---- Set up nvim-cmp.
+--local cmp = require("cmp")
+--cmp.setup({
+--  snippet = {
+--    expand = function(args)
+--      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+--    end,
+--  },
+--  window = {
+--    completion = cmp.config.window.bordered(),
+--    documentation = cmp.config.window.bordered(),
+--  },
+--  mapping = cmp.mapping.preset.insert({
+--    ["<Tab>"] = cmp.mapping.select_next_item(),
+--    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+--    ["<C-l>"] = cmp.mapping.confirm({ select = true }),
+--  }),
+--  sources = cmp.config.sources({
+--    { name = "nvim_lsp" },
+--    { name = "path" },
+--    { name = "nvim_lsp_signature_help" },
+--    { name = "vsnip" },
+--    {
+--      name = "buffer",
+--      option = {
+--        get_bufnrs = function()
+--          return vim.api.nvim_list_bufs()
+--        end,
+--      },
+--    },
+--  }),
+--})
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ "/", "?" }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer" },
-	},
-})
+---- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+--cmp.setup.cmdline({ "/", "?" }, {
+--  mapping = cmp.mapping.preset.cmdline(),
+--  sources = {
+--    { name = "buffer" },
+--  },
+--})
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
-})
+---- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+--cmp.setup.cmdline(":", {
+--  mapping = cmp.mapping.preset.cmdline(),
+--  sources = cmp.config.sources({
+--    { name = "path" },
+--  }, {
+--    { name = "cmdline" },
+--  }),
+--})
 
--- Set up lspconfig.
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require("lspconfig").tsserver.setup({
- capabilities = capabilities,
- on_attach = on_attach,
- commands = {
-   OrganiseImports = {
-     function()
-       local params = {
-         command = "_typescript.organizeImports",
-         arguments = { vim.api.nvim_buf_get_name(0) },
-         title = "",
-       }
-       vim.lsp.buf.execute_command(params)
-     end,
-     description = "Organise Imports",
-   },
- },
-})
-require("lspconfig").lua_ls.setup({ -- Lua
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = "LuaJIT",
-			},
+---- Set up lspconfig.
+---- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+--local capabilities = require("cmp_nvim_lsp").default_capabilities()
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
+---- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+--require("lspconfig").tsserver.setup({
+-- capabilities = capabilities,
+-- on_attach = on_attach,
+-- commands = {
+--   OrganiseImports = {
+--     function()
+--       local params = {
+--         command = "_typescript.organizeImports",
+--         arguments = { vim.api.nvim_buf_get_name(0) },
+--         title = "",
+--       }
+--       vim.lsp.buf.execute_command(params)
+--     end,
+--     description = "Organise Imports",
+--   },
+-- },
+--})
+--require("lspconfig").lua_ls.setup({ -- Lua
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--  settings = {
+--    Lua = {
+--      runtime = {
+--        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--        version = "LuaJIT",
+--      },
 
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
-require("lspconfig").ruby_lsp.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").vimls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		["rust-analyzer"] = {
-			check = {
-				command = "clippy",
-			},
-			-- Uncomment this when making build.rs changes
-			-- checkOnSave = false,
-		},
-	},
-	commands = {
-		OrganiseImports = {
-			function()
-				os.execute("cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1")
-				-- reload the buffers by executing the :e! command, and reformat
-				vim.cmd("e!")
-				vim.cmd("Format")
-			end,
-			description = "Clippy Fix",
-		},
-	},
-})
-require("lspconfig").bashls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").eslint.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").jsonls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").html.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").gopls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").svelte.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-require("lspconfig").dartls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
--- require("lspconfig").denols.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+--      diagnostics = {
+--        -- Get the language server to recognize the `vim` global
+--        globals = { "vim" },
+--      },
+--      workspace = {
+--        -- Make the server aware of Neovim runtime files
+--        library = vim.api.nvim_get_runtime_file("", true),
+--      },
+--      -- Do not send telemetry data containing a randomized but unique identifier
+--      telemetry = {
+--        enable = false,
+--      },
+--    },
+--  },
+--})
+--require("lspconfig").ruby_lsp.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").vimls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").pyright.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").rust_analyzer.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--  settings = {
+--    ["rust-analyzer"] = {
+--      check = {
+--        command = "clippy",
+--      },
+--      -- Uncomment this when making build.rs changes
+--      -- checkOnSave = false,
+--    },
+--  },
+--  commands = {
+--    OrganiseImports = {
+--      function()
+--        os.execute("cargo clippy --fix --allow-dirty --allow-staged > /dev/null 2>&1")
+--        -- reload the buffers by executing the :e! command, and reformat
+--        vim.cmd("e!")
+--        vim.cmd("Format")
+--      end,
+--      description = "Clippy Fix",
+--    },
+--  },
+--})
+--require("lspconfig").bashls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").eslint.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").jsonls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").html.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").cssls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").gopls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").svelte.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+--require("lspconfig").dartls.setup({
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--})
+---- require("lspconfig").denols.setup({
+---- 	on_attach = on_attach,
+---- 	capabilities = capabilities,
+---- })
 
-require("lsp-file-operations").setup()
+--require("lsp-file-operations").setup()

@@ -14,16 +14,12 @@ vim.diagnostic.config({
 vim.lsp.set_log_level("off")
 
 -- Create browse function so :GBrowse in fugitive works properly
-vim.api.nvim_create_user_command(
-  'Browse',
-  function (opts)
-		if vim.fn.has('wsl') == 1 then
-			vim.fn.system { 'wslview', opts.fargs[1] }
-		elseif vim.fn.has('mac') == 1 then
-			vim.fn.system { 'open', opts.fargs[1] }
-		elseif vim.fn.has('linux') == 1 then
-			vim.fn.system { 'xdg-open', opts.fargs[1] }
-		end
-  end,
-  { nargs = 1 }
-)
+vim.api.nvim_create_user_command("Browse", function(opts)
+	if vim.fn.has("wsl") == 1 then
+		vim.fn.system({ "wslview", opts.fargs[1] })
+	elseif vim.fn.has("mac") == 1 then
+		vim.fn.system({ "open", opts.fargs[1] })
+	elseif vim.fn.has("linux") == 1 then
+		vim.fn.system({ "xdg-open", opts.fargs[1] })
+	end
+end, { nargs = 1 })

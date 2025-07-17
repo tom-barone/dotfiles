@@ -27,63 +27,70 @@ call plug#begin(stdpath('data') . '/plugged')
 " https://github.com/rockerBOO/awesome-neovim/blob/main/README.md
 "
 
-"Plug 'ActivityWatch/aw-watcher-vim', IsWSL() ? {} : { 'on': [] } " https://github.com/junegunn/vim-plug/wiki/tips#conditional-activation
-Plug 'Asheq/close-buffers.vim'
-Plug 'NoahTheDuke/vim-just'
-Plug 'Shougo/context_filetype.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
-Plug 'antosha417/nvim-lsp-file-operations', 
-Plug 'ap/vim-css-color'
-Plug 'evanleck/vim-svelte'
-Plug 'folke/lsp-colors.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'folke/trouble.nvim'
-Plug 'github/copilot.vim'
-Plug 'godlygeek/tabular'
-Plug 'gpanders/editorconfig.nvim'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
-Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-Plug 'jparise/vim-graphql'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
-Plug 'kosayoda/nvim-lightbulb'
-Plug 'lervag/vimtex'
-Plug 'mfussenegger/nvim-dap'
-Plug 'mfussenegger/nvim-lint'
-Plug 'moll/vim-bbye'
-Plug 'nathangrigg/vim-beancount'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-neotest/nvim-nio'
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'preservim/nerdcommenter'
-Plug 'rafamadriz/friendly-snippets'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'stevearc/conform.nvim'
-Plug 'szw/vim-maximizer'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-test/vim-test'
-Plug '~/opt/fzf'
+" TODO: Update stuff  from https://www.lazyvim.org/news
+" Use blink.cmp
+" https://github.com/danymat/neogen
+
+" To delete
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-cmdline'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-vsnip'
+"Plug 'hrsh7th/nvim-cmp'
+"Plug 'hrsh7th/vim-vsnip'
+"Plug 'hrsh7th/vim-vsnip-integ'
+"Plug 'nvim-neotest/nvim-nio'
+"Plug 'tpope/vim-obsession'
+"Plug 'tpope/vim-rails'
+"Plug 'ap/vim-css-color'  " https://github.com/ap/vim-css-color
+"Plug 'evanleck/vim-svelte'  " https://github.com/evanleck/vim-svelte
+"Plug 'folke/lsp-colors.nvim'  " https://github.com/folke/lsp-colors.nvim
+"Plug 'godlygeek/tabular'  " https://github.com/godlygeek/tabular
+"Plug 'jparise/vim-graphql'  " https://github.com/jparise/vim-graphql
+"Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
+"Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }  " https://github.com/kkoomen/vim-doge
+"Plug 'kosayoda/nvim-lightbulb'  " https://github.com/kosayoda/nvim-lightbulb
+"Plug 'mfussenegger/nvim-dap'  " https://github.com/mfussenegger/nvim-dap
+"Plug 'rcarriga/nvim-dap-ui'  " https://github.com/rcarriga/nvim-dap-ui
+"Plug 'vim-test/vim-test'  " https://github.com/vim-test/vim-test
+"Plug 'szw/vim-maximizer'  " https://github.com/szw/vim-maximizer
+
+" Might not need
+"Plug 'NoahTheDuke/vim-just'  " https://github.com/NoahTheDuke/vim-just
+
+Plug 'Shougo/context_filetype.vim' " https://github.com/Shougo/context_filetype.vim
+Plug 'airblade/vim-gitgutter'  " https://github.com/airblade/vim-gitgutter
+Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
+Plug 'antosha417/nvim-lsp-file-operations',   " https://github.com/antosha417/nvim-lsp-file-operations
+Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
+Plug 'folke/trouble.nvim'  " https://github.com/folke/trouble.nvim
+Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
+Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }  " https://github.com/iamcco/markdown-preview.nvim
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'}  " https://github.com/ibhagwan/fzf-lua
+Plug 'junegunn/goyo.vim'  " https://github.com/junegunn/goyo.vim
+Plug 'lervag/vimtex'  " https://github.com/lervag/vimtex
+Plug 'mfussenegger/nvim-lint'  " https://github.com/mfussenegger/nvim-lint
+Plug 'moll/vim-bbye'  " https://github.com/moll/vim-bbye
+Plug 'nathangrigg/vim-beancount'  " https://github.com/nathangrigg/vim-beancount
+Plug 'neovim/nvim-lspconfig'  " https://github.com/neovim/nvim-lspconfig
+Plug 'nvim-lualine/lualine.nvim'  " https://github.com/nvim-lualine/lualine.nvim
+Plug 'nvim-tree/nvim-tree.lua'  " https://github.com/nvim-tree/nvim-tree.lua
+Plug 'nvim-tree/nvim-web-devicons'  " https://github.com/nvim-tree/nvim-web-devicons
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " https://github.com/nvim-treesitter/nvim-treesitter
+Plug 'preservim/nerdcommenter'  " https://github.com/preservim/nerdcommenter
+Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-snippets
+Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
+Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
+Plug 'nvim-lua/plenary.nvim'  " https://github.com/nvim-lua/plenary.nvim
+Plug 'tpope/vim-fugitive'  " https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
+Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb
+Plug 'tpope/vim-surround'  " https://github.com/tpope/vim-surround
+Plug 'tpope/vim-unimpaired'  " https://github.com/tpope/vim-unimpaired
+Plug '~/opt/fzf'  " https://github.com/~/opt/fzf
 
 call plug#end()
 
