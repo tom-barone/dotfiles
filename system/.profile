@@ -123,3 +123,6 @@ fi
 
 ## GPG
 export GPG_TTY=$(tty)
+
+## Deno environment
+. "/Users/tbone/.deno/env"

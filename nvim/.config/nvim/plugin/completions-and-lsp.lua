@@ -79,21 +79,21 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require("lspconfig").tsserver.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	commands = {
-		OrganiseImports = {
-			function()
-				local params = {
-					command = "_typescript.organizeImports",
-					arguments = { vim.api.nvim_buf_get_name(0) },
-					title = "",
-				}
-				vim.lsp.buf.execute_command(params)
-			end,
-			description = "Organise Imports",
-		},
-	},
+ capabilities = capabilities,
+ on_attach = on_attach,
+ commands = {
+   OrganiseImports = {
+     function()
+       local params = {
+         command = "_typescript.organizeImports",
+         arguments = { vim.api.nvim_buf_get_name(0) },
+         title = "",
+       }
+       vim.lsp.buf.execute_command(params)
+     end,
+     description = "Organise Imports",
+   },
+ },
 })
 require("lspconfig").lua_ls.setup({ -- Lua
 	on_attach = on_attach,
@@ -188,5 +188,9 @@ require("lspconfig").dartls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+-- require("lspconfig").denols.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 require("lsp-file-operations").setup()
