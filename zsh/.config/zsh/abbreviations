@@ -12,6 +12,7 @@ abbr c.="code . &"
 abbr cat="bat"
 abbr ncdu="dua interactive"
 abbr du="dua"
+abbr find="fd"
 
 # Abbreviations for work laptop
 abbr cdc="cd ~/code"

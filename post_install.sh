@@ -231,6 +231,7 @@ brew_install lcov                            # https://lcov.readthedocs.io/en/la
 brew_install gdb                             # https://www.gnu.org/software/gdb/
 brew_install llvm                            # https://llvm.org/
 npm_global_install @anthropic-ai/claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
+cargo_install fd-find                        # https://github.com/sharkdp/fd
 
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
