@@ -23,3 +23,5 @@ vim.api.nvim_create_user_command("Browse", function(opts)
 		vim.fn.system({ "xdg-open", opts.fargs[1] })
 	end
 end, { nargs = 1 })
+
+vim.o.winborder = "rounded" -- Nice borders for floating windows
