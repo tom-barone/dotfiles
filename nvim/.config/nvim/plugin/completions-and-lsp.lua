@@ -5,7 +5,7 @@
 ---- Use an on_attach function to only map the following keys
 ---- after the language server attaches to the current buffer
 --local on_attach = function()
---  local opts = { noremap = true, silent = true }
+--  local opts = { silent = true }
 --  vim.keymap.set("n", "<Leader>gD", vim.lsp.buf.declaration, opts)
 --  vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, opts)
 --  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

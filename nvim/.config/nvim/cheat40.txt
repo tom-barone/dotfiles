@@ -1,13 +1,11 @@
 Press <Leader>/ or q to dismiss,
 <Tab> to toggle folds
 
-Helpful Commands{{{
+General{{{
 Open in github           :GBrowse       N
 Show git history         <Leader>gh     N
 Show git blame for file  <Leader>gq     N
 Open Goyo                <Leader>gy     N
-Next copilot suggst.     <C-j>          N
-Previous copilot suggst. <C-k>          N
 Open link in browser     gx             N
 Close hidden buffers     :BufDelete     N
 }}}
@@ -18,3 +16,21 @@ Scroll docs up           <C-p>          N
 Snippet forward          <C-n>          N
 Snippet backward         <C-p>          N
 }}}
+Copilot{{{
+Accept line              <C-s>          N
+Accept block             <C-d>          N
+Next copilot suggst.     <C-j>          N
+Previous copilot suggst. <C-k>          N
+}}}
+LSP{{{
+Go to declaration        <Leader>lD     N
+Go to definition         <Leader>ld     N
+Go to implementation     <Leader>li     N
+Go to type definition    <Leader>lt     N
+Rename                   <Leader>ln     N
+Show code actions        <Leader>la     N
+Show references          <Leader>lr     N
+Show diagnostics         <Leader>le     N
+Show diagnostics (all)   <Leader>lE     N
+}}}
+

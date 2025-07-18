@@ -29,9 +29,9 @@ vim.keymap.set("n", "<C-t>", "<Cmd>Files<CR>")
 vim.keymap.set("n", "<C-g><C-f>", "<Cmd>FzfLua git_status<CR>")
 
 vim.keymap.set("n", "<C-g><C-b>", "<Cmd>Buffers<CR>")
-vim.keymap.set("n", "<leader>ge", "<Cmd>Trouble diagnostics focus=false filter.buf=0<cr>")
-vim.keymap.set("n", "<leader>gE", "<Cmd>Trouble diagnostics<cr>")
-vim.keymap.set("n", "<leader>gr", "<Cmd>Trouble lsp_references<cr>")
+--vim.keymap.set("n", "<leader>ge", "<Cmd>Trouble diagnostics focus=false filter.buf=0<cr>")
+--vim.keymap.set("n", "<leader>gE", "<Cmd>Trouble diagnostics<cr>")
+--vim.keymap.set("n", "<leader>gr", "<Cmd>Trouble lsp_references<cr>")
 
 -- Git commands
 vim.keymap.set("n", "<leader>gh", "<Cmd>0Gclog<cr>")
@@ -45,6 +45,31 @@ vim.keymap.set("n", "[d", function()
 end)
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.goto_next()
+end)
+
+-- LSP mappings
+local fzf = require("fzf-lua")
+fzf.register_ui_select() -- Required for LSP code actions
+vim.keymap.set("n", "<Leader>lD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "<Leader>ld", vim.lsp.buf.definition)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "<Leader>li", vim.lsp.buf.implementation)
+--vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts) -- the signature help is already shown by the blink plugin
+vim.keymap.set("n", "<Leader>lt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "<Leader>ln", vim.lsp.buf.rename)
+-- For displaying fzf-lua in a horizontal split
+local h_opts = { winopts = { preview = { vertical = "up:40%", layout = "vertical" } } }
+vim.keymap.set("n", "<Leader>la", function()
+	fzf.lsp_code_actions(h_opts)
+end)
+vim.keymap.set("n", "<Leader>lr", function()
+	fzf.lsp_references(h_opts)
+end)
+vim.keymap.set("n", "<Leader>le", function()
+	fzf.lsp_document_diagnostics(h_opts)
+end)
+vim.keymap.set("n", "<Leader>lE", function()
+	fzf.lsp_workspace_diagnostics(h_opts)
 end)
 
 -- Copilot mappings
