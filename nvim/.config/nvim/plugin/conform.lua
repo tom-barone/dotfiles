@@ -21,9 +21,7 @@ require("conform").setup({
 local markdown_formatter = vim.deepcopy(require("conform.formatters.prettier"))
 require("conform.util").add_formatter_args(markdown_formatter, {
 	"--prose-wrap",
-	"always",
-	"--print-width",
-	"80",
+	"never",
 	"--ignore-path",
 	"empty",
 }, { append = false })
