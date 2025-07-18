@@ -8,6 +8,7 @@ vim.keymap.set("n", "<C-y>", "3<C-y>")
 vim.keymap.set("n", "<C-X>", ":Bdelete<CR>")
 vim.keymap.set("l", "<C-c>", "<C-[>") -- For command line modes
 vim.keymap.set("n", "<C-Q>", ":q<CR>")
+vim.keymap.set("v", "gx", require("browse").search_visual_selection)
 
 -- Leader mappings
 vim.keymap.set("n", "<Leader>Q", ":qa!")
@@ -41,10 +42,10 @@ vim.keymap.set("n", "<leader>gst", "<Cmd>Git<CR>")
 
 -- Diagnostic navigation
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.goto_prev()
+	vim.diagnostic.jump({ count = -1, float = true })
 end)
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.goto_next()
+	vim.diagnostic.jump({ count = 1, float = true })
 end)
 
 -- LSP mappings
@@ -74,11 +75,9 @@ end)
 
 -- Copilot mappings
 vim.keymap.set("i", "<C-s>", "<Plug>(copilot-accept-line)")
-vim.keymap.set("i", "<C-d>", 'copilot#Accept("\\<CR>")', {
-	expr = true,
-	replace_keycodes = false,
-})
-vim.g.copilot_no_tab_map = true -- Disable default tab mapping for copilot
+vim.keymap.set("i", "<C-d>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+-- Disable default tab mapping
+vim.g.copilot_no_tab_map = true
 
 vim.keymap.set("i", "<C-j>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<C-k>", "<Plug>(copilot-previous)")
