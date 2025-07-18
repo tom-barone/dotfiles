@@ -2,35 +2,39 @@ Press <Leader>/ or q to dismiss,
 <Tab> to toggle folds
 
 General{{{
-Open in github           :GBrowse       N
-Show git history         <Leader>gh     N
-Open Goyo                <Leader>gy     N
-Open link                gx             N
-Search for selection     gx             V
-Close hidden buffers     :BufDelete     N
+Open Goyo                <Leader>gy    N
+Open link                gx            N
+Search for selection     gx            V
+Preview markdown         <Leader>mp    N
+Close hidden buffers     :BufDelete    N
+}}}
+Git{{{
+Open in github           :GBrowse      N
+Show git history         <Leader>gh    N
+Show commits for range   :Gclog        V
 }}}
 Autocomplete{{{
-Accept (import / snip)   <CR>           N
-Scroll docs down         <C-n>          N
-Scroll docs up           <C-p>          N
-Snippet forward          <C-n>          N
-Snippet backward         <C-p>          N
+Accept (import / snip)   <CR>          N
+Scroll docs down         <C-n>         N
+Scroll docs up           <C-p>         N
+Snippet forward          <C-n>         N
+Snippet backward         <C-p>         N
 }}}
 Copilot{{{
-Accept line              <C-s>          N
-Accept block             <C-d>          N
-Next copilot suggst.     <C-j>          N
-Previous copilot suggst. <C-k>          N
+Accept line              <C-s>         N
+Accept block             <C-d>         N
+Next suggst.             <C-j>         N
+Previous suggst.         <C-k>         N
 }}}
 LSP{{{
-Go to declaration        <Leader>lD     N
-Go to definition         <Leader>ld     N
-Go to implementation     <Leader>li     N
-Go to type definition    <Leader>lt     N
-Rename                   <Leader>ln     N
-Show code actions        <Leader>la     N
-Show references          <Leader>lr     N
-Show diagnostics         <Leader>le     N
-Show diagnostics (all)   <Leader>lE     N
+Go to declaration        <Leader>lD    N
+Go to definition         <Leader>ld    N
+Go to implementation     <Leader>li    N
+Go to type definition    <Leader>lt    N
+Rename                   <Leader>ln    N
+Show code actions        <Leader>la    N
+Show references          <Leader>lr    N
+Show diagnostics         <Leader>le    N
+Show diagnostics (all)   <Leader>lE    N
 }}}
 

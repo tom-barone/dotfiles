@@ -5,6 +5,7 @@ vim.g.cheat40_use_default = 0
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "cheat40",
 	callback = function()
+		vim.o.signcolumn = "no" -- hide sign column
 		vim.keymap.set(
 			"n",
 			"<Leader>/",
