@@ -4,9 +4,9 @@ Press <Leader>/ or q to dismiss,
 General{{{
 Open in github           :GBrowse       N
 Show git history         <Leader>gh     N
-Show git blame for file  <Leader>gq     N
 Open Goyo                <Leader>gy     N
-Open link in browser     gx             N
+Open link                gx             N
+Search for selection     gx             V
 Close hidden buffers     :BufDelete     N
 }}}
 Autocomplete{{{
