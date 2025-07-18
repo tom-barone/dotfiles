@@ -99,13 +99,14 @@ brew_install git-lfs
 # sometimes the latest version breaks stuff and we wanna stick to a specific version.
 # So we're gonna install it manually.
 if no_directory_exists_at "$HOME/opt/nvim"; then
-	version="v0.10.4"
+	version="v0.11.3"
 	if os_is mac && chip_is apple_silicon; then release="macos-arm64"; fi
 	if os_is mac && chip_is intel; then release="macos-x86_64"; fi
 	if os_is ubuntu && chip_is intel; then release="linux-x86_64"; fi
 	echo "Downloading neovim $version for $release"
 	wget "https://github.com/neovim/neovim/releases/download/$version/nvim-$release.tar.gz"
 	tar xvzf "nvim-$release.tar.gz"
+	rm -rf "$HOME/opt/nvim"
 	mv "nvim-$release" "$HOME/opt/nvim"
 	rm "nvim-$release.tar.gz"
 fi
