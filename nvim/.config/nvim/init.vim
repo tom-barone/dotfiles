@@ -21,6 +21,11 @@ function! IsWSL()
   return 0
 endfunction
 
+" Leader key
+" This needs to be set before plugins are loaded becuase they
+" sometimes setup mappings based on it. (e.g. NerdCommenter)
+let mapleader = " "
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " Good plugins source
@@ -49,17 +54,18 @@ call plug#begin(stdpath('data') . '/plugged')
 "Plug 'folke/lsp-colors.nvim'  " https://github.com/folke/lsp-colors.nvim
 "Plug 'godlygeek/tabular'  " https://github.com/godlygeek/tabular
 "Plug 'jparise/vim-graphql'  " https://github.com/jparise/vim-graphql
-"Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 "Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }  " https://github.com/kkoomen/vim-doge
 "Plug 'kosayoda/nvim-lightbulb'  " https://github.com/kosayoda/nvim-lightbulb
 "Plug 'mfussenegger/nvim-dap'  " https://github.com/mfussenegger/nvim-dap
 "Plug 'rcarriga/nvim-dap-ui'  " https://github.com/rcarriga/nvim-dap-ui
 "Plug 'vim-test/vim-test'  " https://github.com/vim-test/vim-test
 "Plug 'szw/vim-maximizer'  " https://github.com/szw/vim-maximizer
+"Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 
 " Might not need
 "Plug 'NoahTheDuke/vim-just'  " https://github.com/NoahTheDuke/vim-just
 
+Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 Plug 'Shougo/context_filetype.vim' " https://github.com/Shougo/context_filetype.vim
 Plug 'airblade/vim-gitgutter'  " https://github.com/airblade/vim-gitgutter
 Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
@@ -69,7 +75,7 @@ Plug 'folke/trouble.nvim'  " https://github.com/folke/trouble.nvim
 Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
 Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }  " https://github.com/iamcco/markdown-preview.nvim
-Plug 'ibhagwan/fzf-lua', {'branch': 'main'}  " https://github.com/ibhagwan/fzf-lua
+Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
 Plug 'junegunn/goyo.vim'  " https://github.com/junegunn/goyo.vim
 Plug 'lervag/vimtex'  " https://github.com/lervag/vimtex
 Plug 'mfussenegger/nvim-lint'  " https://github.com/mfussenegger/nvim-lint
@@ -83,14 +89,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " https://github.co
 Plug 'preservim/nerdcommenter'  " https://github.com/preservim/nerdcommenter
 Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-snippets
 Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
-Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 Plug 'nvim-lua/plenary.nvim'  " https://github.com/nvim-lua/plenary.nvim
 Plug 'tpope/vim-fugitive'  " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb
 Plug 'tpope/vim-surround'  " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-unimpaired'  " https://github.com/tpope/vim-unimpaired
-Plug '~/opt/fzf'  " https://github.com/~/opt/fzf
+Plug '~/opt/fzf' " https://github.com/junegunn/fzf, already installed in ~/opt/fzf
 
 call plug#end()
 

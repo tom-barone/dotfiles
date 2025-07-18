@@ -1,6 +1,3 @@
--- Leader key
-vim.g.mapleader = " "
-
 -- Basic remaps
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("t", "jk", "<C-\\><C-n>")
@@ -25,9 +22,12 @@ vim.keymap.set("n", "<Leader>pc", "<Cmd>source $MYVIMRC | PlugClean<CR>")
 vim.keymap.set("n", "<Leader>pi", "<Cmd>source $MYVIMRC | PlugInstall<CR>")
 vim.keymap.set("n", "<Leader>pr", "<Cmd>Format<CR>")
 vim.keymap.set("n", "<Leader>gy", "<Cmd>Goyo<CR>")
-vim.keymap.set("n", "<C-t>", "<Cmd>Files<CR>")
 
-vim.keymap.set("n", "<C-g><C-f>", "<Cmd>GFiles?<CR>")
+-- Fzf.vim
+vim.keymap.set("n", "<C-y>", "<Cmd>FzfLua files<CR>")
+vim.keymap.set("n", "<C-t>", "<Cmd>Files<CR>")
+vim.keymap.set("n", "<C-g><C-f>", "<Cmd>FzfLua git_status<CR>")
+
 vim.keymap.set("n", "<C-g><C-b>", "<Cmd>Buffers<CR>")
 vim.keymap.set("n", "<leader>ge", "<Cmd>Trouble diagnostics focus=false filter.buf=0<cr>")
 vim.keymap.set("n", "<leader>gE", "<Cmd>Trouble diagnostics<cr>")
@@ -60,16 +60,3 @@ vim.keymap.set("i", "<C-j>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<C-k>", "<Plug>(copilot-previous)")
 vim.keymap.set("n", "<leader>cd", "<Cmd>Copilot disable<CR>")
 vim.keymap.set("n", "<leader>ce", "<Cmd>Copilot enable<CR>")
-
--- Open URL under cursor
-vim.keymap.set("n", "<leader>o", open_url)
-local function open_url()
-	-- Unload netrw to reload it on demand
-	vim.g.loaded_netrw = nil
-	vim.g.loaded_netrwPlugin = nil
-	vim.cmd("runtime! plugin/netrwPlugin.vim")
-
-	local cfile = vim.fn.expand("<cfile>")
-	local is_remote = vim.fn["netrw#CheckIfRemote"](cfile)
-	return vim.fn["netrw#BrowseX"](cfile, is_remote)
-end
