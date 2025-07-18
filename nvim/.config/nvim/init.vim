@@ -64,24 +64,26 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Might not need
 "Plug 'NoahTheDuke/vim-just'  " https://github.com/NoahTheDuke/vim-just
+"Plug 'Shougo/context_filetype.vim' " https://github.com/Shougo/context_filetype.vim
 
-Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
-Plug 'Shougo/context_filetype.vim' " https://github.com/Shougo/context_filetype.vim
 Plug 'airblade/vim-gitgutter'  " https://github.com/airblade/vim-gitgutter
 Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
 Plug 'antosha417/nvim-lsp-file-operations',   " https://github.com/antosha417/nvim-lsp-file-operations
+Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
 Plug 'folke/trouble.nvim'  " https://github.com/folke/trouble.nvim
 Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
-Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }  " https://github.com/iamcco/markdown-preview.nvim
 Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
+Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/goyo.vim'  " https://github.com/junegunn/goyo.vim
 Plug 'lervag/vimtex'  " https://github.com/lervag/vimtex
+Plug 'lifepillar/vim-cheat40' " https://github.com/lifepillar/vim-cheat40
 Plug 'mfussenegger/nvim-lint'  " https://github.com/mfussenegger/nvim-lint
 Plug 'moll/vim-bbye'  " https://github.com/moll/vim-bbye
 Plug 'nathangrigg/vim-beancount'  " https://github.com/nathangrigg/vim-beancount
 Plug 'neovim/nvim-lspconfig'  " https://github.com/neovim/nvim-lspconfig
+Plug 'nvim-lua/plenary.nvim'  " https://github.com/nvim-lua/plenary.nvim
 Plug 'nvim-lualine/lualine.nvim'  " https://github.com/nvim-lualine/lualine.nvim
 Plug 'nvim-tree/nvim-tree.lua'  " https://github.com/nvim-tree/nvim-tree.lua
 Plug 'nvim-tree/nvim-web-devicons'  " https://github.com/nvim-tree/nvim-web-devicons
@@ -89,7 +91,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " https://github.co
 Plug 'preservim/nerdcommenter'  " https://github.com/preservim/nerdcommenter
 Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-snippets
 Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
-Plug 'nvim-lua/plenary.nvim'  " https://github.com/nvim-lua/plenary.nvim
 Plug 'tpope/vim-fugitive'  " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb

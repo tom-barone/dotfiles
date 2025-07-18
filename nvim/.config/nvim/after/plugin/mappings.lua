@@ -14,6 +14,7 @@ vim.keymap.set("n", "<Leader>Q", ":qa!")
 vim.keymap.set("n", "<Leader>v", "<Cmd>source $MYVIMRC<CR>")
 vim.keymap.set("n", "<Leader>V", ":tabedit $MYVIMRC")
 vim.keymap.set("n", "<Leader>s", ":w<CR>")
+vim.keymap.set("n", "<Leader>/", ":Cheat40<CR>")
 
 -- Mappings for plugins
 vim.keymap.set("n", "<Leader>tt", "<Cmd>NvimTreeToggle<CR>")
@@ -24,7 +25,6 @@ vim.keymap.set("n", "<Leader>pr", "<Cmd>Format<CR>")
 vim.keymap.set("n", "<Leader>gy", "<Cmd>Goyo<CR>")
 
 -- Fzf.vim
-vim.keymap.set("n", "<C-y>", "<Cmd>FzfLua files<CR>")
 vim.keymap.set("n", "<C-t>", "<Cmd>Files<CR>")
 vim.keymap.set("n", "<C-g><C-f>", "<Cmd>FzfLua git_status<CR>")
 
@@ -49,12 +49,11 @@ end)
 
 -- Copilot mappings
 vim.keymap.set("i", "<C-s>", "<Plug>(copilot-accept-line)")
-vim.keymap.set("i", "<C-d>", function()
-	return vim.fn["copilot#Accept"]("<CR>")
-end, { expr = true, silent = true })
-
--- Disable default tab mapping for copilot
-vim.g.copilot_no_tab_map = true
+vim.keymap.set("i", "<C-d>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true -- Disable default tab mapping for copilot
 
 vim.keymap.set("i", "<C-j>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<C-k>", "<Plug>(copilot-previous)")

@@ -28,17 +28,10 @@
 "  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
 "  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
 "endfunction
-
-autocmd! ColorScheme tokyo-night call s:tweak_colorscheme()
-function! s:goyo_leave()
-	colorscheme tokyonight-night
-endfunction
-
-" Call the function after colorscheme changes
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-colorscheme tokyonight-night
-
+"autocmd! ColorScheme tokyo-night call s:tweak_colorscheme()
 " Normally, DiagnosticUnnecessary looks like a comment which is annoying to me
+
+colorscheme tokyonight-night
 
 " Sync the system clipboard with the unnamed register
 set clipboard^=unnamed,unnamedplus

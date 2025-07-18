@@ -1,0 +1,10 @@
+Press <Leader>/ or q to dismiss,
+<Tab> to toggle folds
+Helpful Commands{{{
+Open in github           :GBrowse       N
+Show git history         <leader>gh     N
+Show git blame for file  <leader>gq     N
+Open Goyo                <leader>gy     N
+Next copilot suggst.     <C-j>          N
+Previous copilot suggst. <C-k>          N
+}}}
