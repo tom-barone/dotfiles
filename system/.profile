@@ -9,38 +9,54 @@ export LC_CTYPE=en_AU.UTF-8
 export LC_ALL=en_AU.UTF-8
 export TZ="Australia/Adelaide"
 
-# Path updates
-homebrew_mac_apple_silicon="/opt/homebrew/bin:/opt/homebrew/sbin"
-homebrew_mac_intel="/usr/local/bin:/usr/local/sbin"
-homebrew_linux="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin"
-dotnet_path="$HOME/.dotnet"
-dotnet_tools_path="$HOME/.dotnet/tools"
-adb_path="$HOME/platform-tools"
-pipx_and_poetry_path="$HOME/.local/bin"
-visual_studio_code_mac="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-php_composer="$HOME/.config/composer/vendor/bin"
-android_tools="$HOME/platform-tools"
-gcloud_path="$HOME/google-cloud-sdk/bin"
-golang_path="$HOME/opt/go/bin:$HOME/opt/gopath/bin"
-postgres_mac="/Applications/Postgres.app/Contents/Versions/latest/bin"
-# https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#install-tools-on-linux
-mssql_tools="/opt/mssql-tools18/bin"
-flutter_path="$HOME/flutter/bin"
-dart_path="$HOME/.pub-cache/bin"
-emulators="$HOME/Library/Android/sdk/emulator"
-neovim_path="$HOME/opt/nvim/bin"
-mac_scripts="$HOME/opt/mac"
-export PATH="$homebrew_mac_apple_silicon:$homebrew_mac_intel:$homebrew_linux:$dotnet_path:$dotnet_tools_path:$adb_path:$pipx_and_poetry_path:$visual_studio_code_mac:$php_composer:$android_tools:$gcloud_path:$mssql_tools:$golang_path:$postgres_mac:$flutter_path:$dart_path:$emulators:$neovim_path:$mac_scripts:$PATH"
+add_to_path() {
+	[ -d "$1" ] && PATH="$1:$PATH"
+}
 
-# If we're on mac and we can brew
-if type brew &>/dev/null && [[ "$(uname -a)" =~ Darwin ]]; then
+add_to_fpath() {
+	[ -d "$1" ] && FPATH="$1:$FPATH"
+}
+
+add_to_path "/opt/homebrew/bin"
+add_to_path "/opt/homebrew/sbin"
+add_to_path "/usr/local/bin"
+add_to_path "/usr/local/sbin"
+add_to_path "/home/linuxbrew/.linuxbrew/bin"
+add_to_path "/home/linuxbrew/.linuxbrew/sbin"
+add_to_path "$HOME/.dotnet"
+add_to_path "$HOME/.dotnet/tools"
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.config/composer/vendor/bin"
+add_to_path "$HOME/.pub-cache/bin"
+add_to_path "$HOME/platform-tools"
+add_to_path "$HOME/google-cloud-sdk/bin"
+add_to_path "$HOME/opt/go/bin"
+add_to_path "$HOME/opt/gopath/bin"
+add_to_path "$HOME/flutter/bin"
+add_to_path "$HOME/opt/nvim/bin"
+add_to_path "$HOME/opt/mac"
+add_to_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+add_to_path "/opt/mssql-tools18/bin"
+add_to_path "$HOME/Library/Android/sdk/emulator"
+
+if type brew &>/dev/null; then
 	homebrew_prefix="$(brew --prefix)"
-	gmake="$homebrew_prefix/opt/make/libexec/gnubin"      # I want GNU's make, not the macOS default
-	gnu_sed="$homebrew_prefix/opt/gnu-sed/libexec/gnubin" # I want GNU's sed, not the macOS default
-	mysql="$homebrew_prefix/opt/mysql@8.4/bin"
-	export PATH="$gnu_sed:$gmake:$mysql:$PATH"
 	export SHELL="$homebrew_prefix/bin/zsh"
+
+	add_to_path "$homebrew_prefix/opt/make/libexec/gnubin"
+	add_to_path "$homebrew_prefix/opt/gnu-sed/libexec/gnubin"
+	add_to_path "$homebrew_prefix/opt/mysql@8.4/bin"
+
+	add_to_fpath "$HOME/opt/zsh-completions/src"
+	add_to_fpath "$homebrew_prefix/share/zsh/site-functions"
+	add_to_fpath "$homebrew_prefix/share/zsh/functions"
+	add_to_fpath "/usr/share/zsh/vendor-completions"
+	
+	export FPATH
 fi
+
+export PATH
 
 # NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
