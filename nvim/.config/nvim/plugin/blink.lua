@@ -8,7 +8,7 @@ require("blink.cmp").setup({
 		["<C-n>"] = { "scroll_documentation_down", "snippet_forward", "fallback" },
 		["<C-p>"] = { "scroll_documentation_up", "snippet_backward", "fallback" },
 	},
-	-- https://cmp.saghen.dev/configuration/keymap.html
+	-- https://cmp.saghen.dev/configuration/reference.html
 	completion = {
 		list = {
 			selection = { preselect = false, auto_insert = true },
