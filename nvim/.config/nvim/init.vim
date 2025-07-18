@@ -68,7 +68,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'airblade/vim-gitgutter'  " https://github.com/airblade/vim-gitgutter
 Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
-Plug 'antosha417/nvim-lsp-file-operations',   " https://github.com/antosha417/nvim-lsp-file-operations
+Plug 'antosha417/nvim-lsp-file-operations' " https://github.com/antosha417/nvim-lsp-file-operations
 Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
 Plug 'folke/trouble.nvim'  " https://github.com/folke/trouble.nvim
@@ -96,14 +96,15 @@ Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb
 Plug 'tpope/vim-surround'  " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-unimpaired'  " https://github.com/tpope/vim-unimpaired
+Plug 'Saghen/blink.cmp', { 'do': 'cargo build --release' } " https://github.com/Saghen/blink.cmp
 Plug '~/opt/fzf' " https://github.com/junegunn/fzf, already installed in ~/opt/fzf
 
 call plug#end()
 
 " Snapshots to keep plugin versions fixed
+silent! let g:plugs['blink.cmp'].commit = '3545f6dce83baacbedfb5dd8d1230cd0492fd1d7'
 silent! let g:plugs['bufferline.nvim'].commit = '655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3'
 silent! let g:plugs['conform.nvim'].commit = '973f3cb73887d510321653044791d7937c7ec0fa'
-silent! let g:plugs['context_filetype.vim'].commit = 'ffb1ec4b2b3b34d77dd1a1b3610f2533eb69506c'
 silent! let g:plugs['copilot.vim'].commit = '12995dffe10282b29b8335650bf3e7457f4870e7'
 silent! let g:plugs['editorconfig-vim'].commit = '6a58b7c11f79c0e1d0f20533b3f42f2a11490cf8'
 silent! let g:plugs['friendly-snippets'].commit = '572f5660cf05f8cd8834e096d7b4c921ba18e175'
@@ -124,6 +125,7 @@ silent! let g:plugs['tokyonight.nvim'].commit = '057ef5d260c1931f1dffd0f052c685d
 silent! let g:plugs['trouble.nvim'].commit = '85bedb7eb7fa331a2ccbecb9202d8abba64d37b3'
 silent! let g:plugs['vim-bbye'].commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
 silent! let g:plugs['vim-beancount'].commit = '589a4f06f3b2fd7cd2356c2ef1dafadf6b7a97cf'
+silent! let g:plugs['vim-cheat40'].commit = '6b02ec9ab47215141bccc48b5387c0099c18fca0'
 silent! let g:plugs['vim-fugitive'].commit = '61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4'
 silent! let g:plugs['vim-gitgutter'].commit = '85ca3a087204e3a32cb2faa5d9d0451524e08720'
 silent! let g:plugs['vim-repeat'].commit = '65846025c15494983dafe5e3b46c8f88ab2e9635'

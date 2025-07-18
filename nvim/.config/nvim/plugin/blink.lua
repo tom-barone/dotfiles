@@ -13,9 +13,15 @@ require("blink.cmp").setup({
 		list = {
 			selection = { preselect = false, auto_insert = true },
 		},
+		menu = {
+			border = "rounded",
+		},
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 100,
+			window = {
+				border = "rounded",
+			},
 		},
 	},
 	signature = {
