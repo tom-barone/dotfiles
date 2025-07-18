@@ -6,6 +6,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
+  pager = delta --side-by-side --navigate --dark --hunk-header-style omit
 [user]
 	email = mail@tombarone.net
 	name = Tom Barone
@@ -18,12 +19,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[core]
-    pager = delta
 [interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
+  diffFilter = delta --color-only
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
