@@ -7,4 +7,5 @@ Show git blame for file  <leader>gq     N
 Open Goyo                <leader>gy     N
 Next copilot suggst.     <C-j>          N
 Previous copilot suggst. <C-k>          N
+Open link in browser     gx             N
 }}}
