@@ -1,11 +1,20 @@
 Press <Leader>/ or q to dismiss,
 <Tab> to toggle folds
+
 Helpful Commands{{{
 Open in github           :GBrowse       N
-Show git history         <leader>gh     N
-Show git blame for file  <leader>gq     N
-Open Goyo                <leader>gy     N
+Show git history         <Leader>gh     N
+Show git blame for file  <Leader>gq     N
+Open Goyo                <Leader>gy     N
 Next copilot suggst.     <C-j>          N
 Previous copilot suggst. <C-k>          N
 Open link in browser     gx             N
+Close hidden buffers     :BufDelete     N
+}}}
+Autocomplete{{{
+Accept (import / snip)   <CR>           N
+Scroll docs down         <C-n>          N
+Scroll docs up           <C-p>          N
+Snippet forward          <C-n>          N
+Snippet backward         <C-p>          N
 }}}
