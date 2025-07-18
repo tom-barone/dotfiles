@@ -71,7 +71,6 @@ Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
 Plug 'antosha417/nvim-lsp-file-operations' " https://github.com/antosha417/nvim-lsp-file-operations
 Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
-Plug 'folke/trouble.nvim'  " https://github.com/folke/trouble.nvim
 Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }  " https://github.com/iamcco/markdown-preview.nvim
 Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
