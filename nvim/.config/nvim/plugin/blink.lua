@@ -21,7 +21,7 @@ require("blink.cmp").setup({
 			end,
 			"fallback",
 		},
-		["<CR>"] = { "select_and_accept", "fallback" },
+		["<C-l>"] = { "select_and_accept", "fallback" },
 		["<C-n>"] = { "scroll_documentation_down", "snippet_forward", "fallback" },
 		["<C-p>"] = { "scroll_documentation_up", "snippet_backward", "fallback" },
 		-- On macOS, <C-space> is reserved for switching input sources, so that needs to

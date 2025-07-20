@@ -14,7 +14,7 @@ Show git history         <Leader>gh    N
 Show commits for range   :Gclog        V
 }}}
 Autocomplete{{{
-Accept (import / snip)   <CR>          N
+Accept (import / snip)   <C-l>         N
 Scroll docs down         <C-n>         N
 Scroll docs up           <C-p>         N
 Snippet forward          <C-n>         N
