@@ -134,7 +134,7 @@ fi
 
 # golang
 if have_not_installed go; then
-	go_version="1.22.1"
+	go_version="1.24.5"
 	if os_is ubuntu && chip_is x86; then
 		wget "https://go.dev/dl/go${go_version}.linux-amd64.tar.gz" -O "go.tar.gz"
 	fi
