@@ -349,7 +349,8 @@ fi
 
 # Supervisord
 # http://supervisord.org/index.html
-pipx_install supervisor
+# Can't use helper function because supervisord is called supervisor in pip
+pipx install supervisor
 
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
