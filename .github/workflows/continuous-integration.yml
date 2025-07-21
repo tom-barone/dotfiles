@@ -1,5 +1,4 @@
-# See here for list of installed packages under 'ubuntu-22.04'
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+# See here for list of installed packages under 'ubuntu-24.04'
 
 # Need to set the Github token so we can call and test gh commands
 # without errors
@@ -13,8 +12,9 @@ on:
   push:
     branches: ["master"]
 jobs:
-  test-on-ubuntu-22:
-    runs-on: "ubuntu-22.04"
+  test-on-ubuntu:
+    # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
+    runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v4"
@@ -34,7 +34,8 @@ jobs:
       - name: "Run the install script and test"
         run: "./install.sh"
   test-on-mac:
-    runs-on: "macos-13"
+    # https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
+    runs-on: "macos-15"
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v4"
