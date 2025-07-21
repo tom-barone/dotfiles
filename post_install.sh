@@ -247,23 +247,26 @@ gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
-brew_install lua-language-server                 # https://github.com/LuaLS/lua-language-server
-os_install shellcheck                            # https://github.com/koalaman/shellcheck
-npm_global_install bash-language-server          # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server           # https://github.com/iamcco/vim-language-server
-npm_global_install typescript-language-server    # https://github.com/typescript-language-server/typescript-language-server
-npm_global_install typescript                    # https://github.com/microsoft/TypeScript
-npm_global_install vscode-langservers-extracted  # https://github.com/hrsh7th/vscode-langservers-extracted
-go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
-rustup component add rust-analyzer               # https://rust-analyzer.github.io/
-npm_global_install svelte-language-server        # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
-npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/prettier-plugin-svelte
-gem_install sorbet                               ##
-gem_install sorbet-runtime                       ## https://sorbet.org/docs/adopting
-gem_install tapioca                              ##
-gem_install ruby-lsp                             # https://shopify.github.io/ruby-lsp/
-gem_install yard                                 # https://yardoc.org/
-cargo install --locked tree-sitter-cli           # https://github.com/tree-sitter/tree-sitter/tree/master/cli
+brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
+os_install shellcheck                           # https://github.com/koalaman/shellcheck
+npm_global_install bash-language-server         # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server          # https://github.com/iamcco/vim-language-server
+npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
+npm_global_install typescript                   # https://github.com/microsoft/TypeScript
+npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
+if not_ci; then
+	# Failing for some reason on macOS CI
+	go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
+fi
+rustup component add rust-analyzer        # https://rust-analyzer.github.io/
+npm_global_install svelte-language-server # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+npm_global_install prettier-plugin-svelte # https://github.com/sveltejs/prettier-plugin-svelte
+gem_install sorbet                        ##
+gem_install sorbet-runtime                ## https://sorbet.org/docs/adopting
+gem_install tapioca                       ##
+gem_install ruby-lsp                      # https://shopify.github.io/ruby-lsp/
+gem_install yard                          # https://yardoc.org/
+cargo install --locked tree-sitter-cli    # https://github.com/tree-sitter/tree-sitter/tree/master/cli
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh

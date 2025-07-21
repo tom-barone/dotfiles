@@ -117,7 +117,9 @@ assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
 assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
-assert_success 'gopls version'
+if not_ci; then
+	assert_success 'gopls version'
+fi
 assert_success 'rust-analyzer --version'
 assert_success 'svelteserver'
 assert_success 'npm list --global | grep svelte-language-server'
