@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/jqc.yml
+# /Users/tbone/.config/tmuxinator/robot-simulator.yml
 
-name: jqc
-root: ~/github/jqc
+name: robot-simulator
+root: ~/github/robot-simulator/
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,24 +10,30 @@ root: ~/github/jqc
 # project hooks.
 
 # Project hooks
+
 # Runs on project start, always
 # on_project_start: command
+
 # Run on project start, the first time
 # on_project_first_start: command
+
 # Run on project start, after the first time
 # on_project_restart: command
+
 # Run on project exit ( detaching from tmux session )
 # on_project_exit: command
+
 # Run on project stop
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: set-terminal-title jqc; sleep 0.5
+# pre_window: rbenv shell 2.0.0-p247
+pre_window: set-terminal-title ll-vault; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# Change the command to call tmux. This can be used by derivatives/wrappers like byobu.
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
@@ -40,14 +46,9 @@ pre_window: set-terminal-title jqc; sleep 0.5
 # attach: false
 
 windows:
-  - ruby:
+  - editor:
       layout: main-vertical
       panes:
         - nvim
         - clear
-  - servers:
-      layout: even-vertical
-      panes:
-        - bundle exec rake dev
-        #- make run-cloud-sql-proxy
-        #- make dev
+

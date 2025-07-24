@@ -70,7 +70,6 @@ The cache time within `gpg-agent` can be increased to avoid entering the passphr
 
 Make sure to add folders like `~/github` as exclusions in Spotlight search. Otherwise macOS will try index folders like `.git` / `node_modules` etc. and slow everything down.
 
-
 Select range -> `:Gclog` To load previous commits that affected that range.
 
 `:BufDelete hidden` - Close all buffers not open in a window
