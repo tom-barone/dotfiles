@@ -490,9 +490,8 @@ if os_is mac && chip_is apple_silicon; then
 fi
 
 # Latex
-if os_is mac; then
+if os_is mac && not_ci; then
 	brew_cask_install mactex
-	brew_cask_install skim
 fi
 
 # Final cleanup steps
@@ -516,6 +515,7 @@ if os_is mac; then
 	echo "- Open Docker Desktop and complete the installation of the CLI tools etc."
 	echo "- Install the Postgres.app from https://postgresapp.com/"
 	echo "--- Then do a 'gem install pg'"
+	echo "- Install mactex from https://formulae.brew.sh/cask/mactex"
 fi
 echo "- Run 'gh auth login' to authenticate with GitHub"
 echo "- Run 'gh extension install github/gh-copilot'"
