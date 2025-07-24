@@ -17,10 +17,10 @@ add_to_fpath() {
 	[ -d "$1" ] && FPATH="$1:$FPATH"
 }
 
-add_to_path "/opt/homebrew/bin"
-add_to_path "/opt/homebrew/sbin"
 add_to_path "/usr/local/bin"
 add_to_path "/usr/local/sbin"
+add_to_path "/opt/homebrew/bin"
+add_to_path "/opt/homebrew/sbin"
 add_to_path "/home/linuxbrew/.linuxbrew/bin"
 add_to_path "/home/linuxbrew/.linuxbrew/sbin"
 add_to_path "$HOME/.dotnet"
@@ -39,6 +39,7 @@ add_to_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
 add_to_path "/opt/mssql-tools18/bin"
 add_to_path "$HOME/Library/Android/sdk/emulator"
+add_to_path "$HOME/.deno/bin"
 
 if type brew &>/dev/null; then
 	homebrew_prefix="$(brew --prefix)"
@@ -52,7 +53,7 @@ if type brew &>/dev/null; then
 	add_to_fpath "$homebrew_prefix/share/zsh/site-functions"
 	add_to_fpath "$homebrew_prefix/share/zsh/functions"
 	add_to_fpath "/usr/share/zsh/vendor-completions"
-	
+
 	export FPATH
 fi
 
@@ -139,6 +140,3 @@ fi
 
 ## GPG
 export GPG_TTY=$(tty)
-
-## Deno environment
-. "/Users/tbone/.deno/env"

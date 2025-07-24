@@ -3,4 +3,4 @@ emulate sh
 . ~/.profile
 emulate zsh
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
