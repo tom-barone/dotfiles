@@ -1,0 +1,15 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(just:*)",
+			"Bash(mv:*)",
+			"Bash(mkdir:*)",
+			"Bash(find:*)",
+			"Bash(ls:*)",
+			"Bash(grep:*)"
+		],
+		"deny": [
+			"Read(**/*.env)"
+		]
+	}
+}
