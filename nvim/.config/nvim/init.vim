@@ -76,6 +76,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }  " https:
 Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
 Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/goyo.vim'  " https://github.com/junegunn/goyo.vim
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }  " https://github.com/kkoomen/vim-doge
 Plug 'lervag/vimtex'  " https://github.com/lervag/vimtex
 Plug 'lifepillar/vim-cheat40' " https://github.com/lifepillar/vim-cheat40
 Plug 'mfussenegger/nvim-lint'  " https://github.com/mfussenegger/nvim-lint
@@ -121,10 +122,10 @@ silent! let g:plugs['nvim-treesitter'].commit = '42fc28ba918343ebfd5565147a42a26
 silent! let g:plugs['nvim-web-devicons'].commit = '0422a19d9aa3aad2c7e5cca167e5407b13407a9d'
 silent! let g:plugs['plenary.nvim'].commit = '857c5ac632080dba10aae49dba902ce3abf91b35'
 silent! let g:plugs['tokyonight.nvim'].commit = '057ef5d260c1931f1dffd0f052c685dcd14100a3'
-silent! let g:plugs['trouble.nvim'].commit = '85bedb7eb7fa331a2ccbecb9202d8abba64d37b3'
 silent! let g:plugs['vim-bbye'].commit = '25ef93ac5a87526111f43e5110675032dbcacf56'
 silent! let g:plugs['vim-beancount'].commit = '589a4f06f3b2fd7cd2356c2ef1dafadf6b7a97cf'
 silent! let g:plugs['vim-cheat40'].commit = '6b02ec9ab47215141bccc48b5387c0099c18fca0'
+silent! let g:plugs['vim-doge'].commit = '03a84072ef21b205237c77986c78914395d646c3'
 silent! let g:plugs['vim-fugitive'].commit = '61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4'
 silent! let g:plugs['vim-gitgutter'].commit = '85ca3a087204e3a32cb2faa5d9d0451524e08720'
 silent! let g:plugs['vim-repeat'].commit = '65846025c15494983dafe5e3b46c8f88ab2e9635'
