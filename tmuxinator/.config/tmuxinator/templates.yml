@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/robot-simulator.yml
+# /Users/tbone/.config/tmuxinator/templates.yml
 
-name: robot-simulator
-root: ~/github/robot-simulator/
+name: templates
+root: ~/github/templates
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/robot-simulator/
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title robot-simulator; sleep 0.5
+pre_window: set-terminal-title templates; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -46,9 +46,20 @@ pre_window: set-terminal-title robot-simulator; sleep 0.5
 # attach: false
 
 windows:
-  - editor:
+  - main:
       layout: main-vertical
       panes:
         - nvim
         - clear
-
+  - python:
+      layout: main-vertical
+      root: ~/github/templates/python
+      panes:
+        - uv run nvim
+        - clear
+  - ruby:
+      layout: main-vertical
+      root: ~/github/templates/ruby
+      panes:
+        - nvim
+        - clear
