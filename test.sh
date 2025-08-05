@@ -124,6 +124,7 @@ assert_success 'rust-analyzer --version'
 assert_success 'svelteserver'
 assert_success 'npm list --global | grep svelte-language-server'
 assert_success 'tree-sitter --version'
+assert_success 'taplo --version'
 
 # Formatters and linters
 assert_success 'shfmt --version'

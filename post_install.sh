@@ -258,15 +258,16 @@ if not_ci; then
 	# Failing for some reason on macOS CI
 	go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
 fi
-rustup component add rust-analyzer        # https://rust-analyzer.github.io/
-npm_global_install svelte-language-server # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
-npm_global_install prettier-plugin-svelte # https://github.com/sveltejs/prettier-plugin-svelte
-gem_install sorbet                        ##
-gem_install sorbet-runtime                ## https://sorbet.org/docs/adopting
-gem_install tapioca                       ##
-gem_install ruby-lsp                      # https://shopify.github.io/ruby-lsp/
-gem_install yard                          # https://yardoc.org/
-cargo install --locked tree-sitter-cli    # https://github.com/tree-sitter/tree-sitter/tree/master/cli
+rustup component add rust-analyzer              # https://rust-analyzer.github.io/
+npm_global_install svelte-language-server       # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+npm_global_install prettier-plugin-svelte       # https://github.com/sveltejs/prettier-plugin-svelte
+gem_install sorbet                              ##
+gem_install sorbet-runtime                      ## https://sorbet.org/docs/adopting
+gem_install tapioca                             ##
+gem_install ruby-lsp                            # https://shopify.github.io/ruby-lsp/
+gem_install yard                                # https://yardoc.org/
+cargo install --locked tree-sitter-cli          # https://github.com/tree-sitter/tree-sitter/tree/master/cli
+cargo install --features lsp --locked taplo-cli # https://github.com/tamasfe/taplo
 
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh

@@ -14,6 +14,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		dart = { "dart_format" },
 		sql = { "sqlfluff" },
+		toml = { "taplo" },
 	},
 })
 
