@@ -153,6 +153,11 @@ When suggesting or making changes:
 
 **If you find yourself writing production code without a failing test, STOP immediately and write the test first.**
 
+When fixing linting or static analysis issues:
+
+- You will never add a comment to ignore the issue (e.g. `// eslint-disable` or `# noqa`).
+- Instead, fix the underlying issue or refactor the code to comply with the rules.
+
 ### Communication
 
 - Be explicit about trade-offs in different approaches

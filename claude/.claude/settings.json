@@ -2,6 +2,9 @@
 	"permissions": {
 		"allow": [
 			"Bash(just:*)",
+			"Bash(make:*)",
+			"Bash(uv:*)",
+			"Bash(rake:*)",
 			"Bash(mv:*)",
 			"Bash(mkdir:*)",
 			"Bash(find:*)",
