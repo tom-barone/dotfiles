@@ -12,6 +12,9 @@ Git{{{
 Open in github           :GBrowse      N
 Show git history         <Leader>gh    N
 Show commits for range   :Gclog        V
+Exit git explorer        <Leader>gq    N
+Open git vdiffsplit      <Leader>gd    N
+Open git log             <Leader>gl    N
 }}}
 Autocomplete{{{
 Accept (import / snip)   <C-l>         N

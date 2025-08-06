@@ -28,7 +28,7 @@ vim.keymap.set("n", "<Leader>gy", "<Cmd>Goyo<CR>")
 
 -- Fzf.vim
 vim.keymap.set("n", "<C-t>", "<Cmd>Files<CR>")
-vim.keymap.set("n", "<C-g><C-f>", "<Cmd>FzfLua git_status<CR>")
+vim.keymap.set("n", "<C-g><C-f>", "<Cmd>GFiles?<CR>")
 
 vim.keymap.set("n", "<C-g><C-b>", "<Cmd>Buffers<CR>")
 --vim.keymap.set("n", "<leader>ge", "<Cmd>Trouble diagnostics focus=false filter.buf=0<cr>")
@@ -40,6 +40,8 @@ vim.keymap.set("n", "<leader>gh", "<Cmd>0Gclog<cr>")
 vim.keymap.set("v", "<leader>gh", ":Gclog<cr>")
 vim.keymap.set("n", "<leader>gq", "<Cmd>Gedit<CR>") -- Leave fugitive history explorer
 vim.keymap.set("n", "<leader>gst", "<Cmd>Git<CR>")
+vim.keymap.set("n", "<leader>gd", "<Cmd>Gvdiffsplit<CR>")
+vim.keymap.set("n", "<leader>gl", "<Cmd>Gllog<CR>")
 
 -- Diagnostic navigation
 vim.keymap.set("n", "[d", function()
