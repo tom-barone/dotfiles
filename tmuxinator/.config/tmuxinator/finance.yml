@@ -46,11 +46,9 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - editor:
-            - poetry run nvim
-        - shell:
-            - poetry shell
-  - fava_server:
+        - uv run nvim
+        - clear
+  - fava:
       layout: even-vertical
       panes:
-        - just server
+        - just start
