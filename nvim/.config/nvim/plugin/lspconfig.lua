@@ -17,8 +17,16 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-
 vim.lsp.enable("ruby_lsp")
+vim.lsp.config("ruby_lsp", {
+	init_options = {
+		addonSettings = {
+			["Ruby LSP Rails"] = {
+				enablePendingMigrationsPrompt = false,
+			},
+		},
+	},
+})
 vim.lsp.enable("vimls")
 vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
