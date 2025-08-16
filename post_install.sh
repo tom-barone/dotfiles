@@ -150,7 +150,7 @@ fi
 
 # NVM node manager https://github.com/nvm-sh/nvm
 if have_not_installed node; then
-	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
 	# shellcheck source=/dev/null
 	# Make sure nvm is loaded
 	. ~/.profile || true
