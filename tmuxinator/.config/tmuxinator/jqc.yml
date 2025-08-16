@@ -48,6 +48,4 @@ windows:
   - servers:
       layout: even-vertical
       panes:
-        - bundle exec rake dev
-        #- make run-cloud-sql-proxy
-        #- make dev
+        - just dev
