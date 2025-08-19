@@ -17,6 +17,7 @@ vim.keymap.set("n", "<Leader>V", ":tabedit $MYVIMRC")
 vim.keymap.set("n", "<Leader>s", ":w<CR>")
 vim.keymap.set("n", "<Leader>/", ":Cheat40<CR>")
 vim.keymap.set("n", "<Leader>mp", "<Cmd>MarkdownPreview<CR>")
+vim.keymap.set("n", "<Leader>fc", "<Cmd>let @+ = expand('%')<CR>")
 
 -- Mappings for plugins
 vim.keymap.set("n", "<Leader>tt", "<Cmd>NvimTreeToggle<CR>")
