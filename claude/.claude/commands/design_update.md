@@ -1,4 +1,4 @@
-Review and update the design written up in @claude_docs/design.md based on the recently updated requirements in @claude_docs/requirements.md.
+Review and update the design written up in @documentation/design.md based on the recently updated requirements in @documentation/requirements.md.
 
 Context:
 

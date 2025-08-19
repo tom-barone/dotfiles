@@ -1,4 +1,4 @@
-Rewrite the requirements document outlined in @claude_docs/requirements.md by following these steps:
+Rewrite the requirements document outlined in @documentation/requirements.md by following these steps:
 
 1. Review the existing set of requirements.
 2. Read and review the project source code to understand the current implementation state.

@@ -1,4 +1,4 @@
-Review the set of requirements written up in @claude_docs/requirements.md.
+Review the set of requirements written up in @documentation/requirements.md.
 
 1. Understand the overall problem to be solved.
 2. Identify key components and their interactions.
@@ -6,5 +6,4 @@ Review the set of requirements written up in @claude_docs/requirements.md.
    required for a solution.
 4. Check for any potential issues or improvements.
 
-Return suggestions or missed edge cases or clarifications needed in the
-requirements.
+For each suggestion, ask for clarification from the user before making any changes to the requirements document.

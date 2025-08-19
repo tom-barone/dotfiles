@@ -1,3 +1,3 @@
-Review and update the plan written up in @claude_docs/plan.md based on the following instructions:
+Review and update the plan written up in @documentation/plan.md based on the following instructions:
 
 $ARGUMENTS
