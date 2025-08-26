@@ -50,6 +50,7 @@ if type brew &>/dev/null; then
 	add_to_path "$homebrew_prefix/opt/mysql@8.4/bin"
 
 	add_to_fpath "$HOME/opt/zsh-completions/src"
+	add_to_fpath "$HOME/.config/zsh/completions"
 	add_to_fpath "$homebrew_prefix/share/zsh/site-functions"
 	add_to_fpath "$homebrew_prefix/share/zsh/functions"
 	add_to_fpath "/usr/share/zsh/vendor-completions"

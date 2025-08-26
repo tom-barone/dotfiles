@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/ll-bellus.yml
+# /Users/tbone/.config/tmuxinator/ll-livekit.yml
 
-name: ll-bellus
-root: ~/github/ll-bellus
+name: ll-livekit
+root: ~/github/ll-livekit/
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/ll-bellus
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title ll-bellus; sleep 0.5
+pre_window: set-terminal-title ll-livekit; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -46,64 +46,32 @@ pre_window: set-terminal-title ll-bellus; sleep 0.5
 # attach: false
 
 windows:
-  - editor:
+  - main:
       layout: main-vertical
-      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
-      # synchronize: after
       panes:
         - nvim
         - clear
-
   - mobile:
       layout: main-vertical
-      root: ~/github/ll-bellus/mobile
+      root: ~/github/ll-livekit/mobile
       panes:
         - nvim
         - clear
-  - api:
+  - agents:
       layout: main-vertical
-      root: ~/github/ll-bellus/api
+      root: ~/github/ll-livekit/agents
+      panes:
+        - uv run nvim
+        - clear
+  - livekit-server:
+      layout: main-vertical
+      root: ~/github/ll-livekit/livekit-server
       panes:
         - nvim
         - clear
-  - services:
-      layout: tiled
-      panes:
-        - android-emulator:
-            - cd mobile
-            - '#make start-android-emulator'
-        - android-testing-emulator:
-            - cd mobile
-            - '#make start-android-testing-emulator'
-        - android-dev:
-            - cd mobile
-            - '#make dev-android-emulator'
-        - ios-emulator:
-            - cd mobile
-            - '#make start-ios-emulator && make dev-ios-emulator'
-        - dart-codegen:
-            - cd mobile
-            - dart run build_runner watch -d
-        - api:
-            - cd api
-            - '#rake dev'
-  - appium:
+  - token-server:
       layout: main-vertical
-      root: ~/github/ll-bellus/appium
+      root: ~/github/ll-livekit/token-server
       panes:
-        - poetry run nvim
-        - clear
-  - transcribe:
-      layout: main-vertical
-      root: ~/github/ll-bellus/transcribe
-      panes:
-        - nvim
-        - clear
-        - make start
-  - roleplay_videos:
-      layout: main-vertical
-      root: ~/github/ll-bellus/roleplay_videos
-      panes:
-        - poetry run nvim
+        - uv run nvim
         - clear

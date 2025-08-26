@@ -235,6 +235,9 @@ npm_global_install @anthropic-ai/claude-code # https://docs.anthropic.com/en/doc
 cargo_install fd-find                        # https://github.com/sharkdp/fd
 cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
 
+# Install just completions for ZSH
+just --completions zsh >$HOME/.config/zsh/completions/_just
+
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
 	rm -rf ~/.virtualenvs/pynvim
