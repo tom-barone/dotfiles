@@ -234,9 +234,8 @@ brew_install llvm                            # https://llvm.org/
 npm_global_install @anthropic-ai/claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
 cargo_install fd-find                        # https://github.com/sharkdp/fd
 cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
-
-# Install just completions for ZSH
-just --completions zsh >$HOME/.config/zsh/completions/_just
+brew_install sops                            # https://getsops.io
+brew_install yq                              # https://github.com/mikefarah/yq
 
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
