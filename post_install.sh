@@ -498,7 +498,7 @@ if os_is mac && not_ci; then
 fi
 
 # Ansible
-pipx_install --include-deps ansible
+pipx install --include-deps ansible
 pipx inject --include-apps ansible argcomplete
 pipx inject ansible passlib paramiko
 
