@@ -182,6 +182,8 @@ assert_success 'rails --version'
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
 
+assert_success 'ansible --version'
+
 # Stuff we want to check for but
 # but don't want to run in CI
 if not_ci; then

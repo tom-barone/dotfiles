@@ -497,6 +497,17 @@ if os_is mac && not_ci; then
 	brew_cask_install mactex
 fi
 
+# Ansible
+pipx_install --include-deps ansible
+pipx inject --include-apps ansible argcomplete
+pipx inject ansible passlib paramiko
+
+# Terraform
+if os_is mac; then
+	brew tap hashicorp/tap
+	brew install hashicorp/tap/terraform
+fi
+
 # Final cleanup steps
 brew cleanup
 brew autoremove
