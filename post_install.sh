@@ -236,6 +236,7 @@ cargo_install fd-find                        # https://github.com/sharkdp/fd
 cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
 brew_install sops                            # https://getsops.io
 brew_install yq                              # https://github.com/mikefarah/yq
+npm_global_install @openai/codex             # https://developers.openai.com/codex/cli/
 
 # Neovim setup https://github.com/neovim/neovim
 if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
