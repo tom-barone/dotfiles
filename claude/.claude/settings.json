@@ -1,24 +1,24 @@
 {
-	"permissions": {
-		"allow": [
-			"Bash(just:*)",
-			"Bash(make:*)",
-			"Bash(uv:*)",
-			"Bash(rake:*)",
-			"Bash(mv:*)",
-			"Bash(mkdir:*)",
-			"Bash(find:*)",
-			"Bash(ls:*)",
-			"Bash(grep:*)",
-			"Bash(rm:*)",
-			"Bash(bundle exec:*)"
-		],
-		"deny": [
-			"Read(**/*.env)",
-			"Read(**/.env)",
-			"Read(**/*.key)",
-			"Read(**/*.enc)"
-		]
-	},
-	"model": "opusplan"
+  "permissions": {
+    "allow": [
+      "Bash(just:*)",
+      "Bash(make:*)",
+      "Bash(uv:*)",
+      "Bash(rake:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(rm:*)",
+      "Bash(bundle exec:*)"
+    ],
+    "deny": [
+      "Read(**/*.env)",
+      "Read(**/.env)",
+      "Read(**/*.key)",
+      "Read(**/*.enc)"
+    ]
+  },
+  "alwaysThinkingEnabled": true
 }
