@@ -4,6 +4,7 @@ dotfiles_to_symlink=(
 	alacritty
 	bash
 	claude
+	codex
 	fzf
 	git
 	gpg
