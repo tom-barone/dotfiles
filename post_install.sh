@@ -509,6 +509,11 @@ if os_is mac; then
 	brew install hashicorp/tap/terraform
 fi
 
+# Kubernetes
+brew_install minikube
+brew_install kubectl
+brew_install helm
+
 # Final cleanup steps
 brew cleanup
 brew autoremove
