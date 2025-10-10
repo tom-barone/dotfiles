@@ -68,6 +68,9 @@ let g:python3_host_prog=expand("$HOME/.virtualenvs/pynvim/bin/python")
 " We're using 'bat' as a manpager in the shell but it doesn't work in vim
 let $MANPAGER=""
 
+autocmd FileType just setlocal ts=2 sw=2 expandtab
+set list
+
 if IsWSL()
 	" Fix the clipboard
 	let g:clipboard = {
