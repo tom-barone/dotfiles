@@ -136,3 +136,17 @@ function not_ci {
 	fi
 	false
 }
+
+function mac_ci {
+	if os_is mac && ci; then
+		return
+	fi
+	false
+}
+
+function not_mac_ci {
+	if ! mac_ci; then
+		return
+	fi
+	false
+}

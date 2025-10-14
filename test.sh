@@ -119,7 +119,7 @@ assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
 assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
-if not_ci; then
+if not_mac_ci; then
 	assert_success 'gopls version'
 fi
 assert_success 'rust-analyzer --version'
@@ -140,7 +140,9 @@ assert_success 'erb-format --version'
 assert_success 'sqlfluff --version'
 assert_success 'djlint --version'
 assert_success 'stylua --version'
-assert_success 'dockerfmt version'
+if not_mac_ci; then
+	assert_success 'dockerfmt version'
+fi
 assert_success 'hadolint --version'
 
 # Neovim
@@ -185,6 +187,11 @@ assert_success 'rails --version'
 # Langauge / AI stuff
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
+
+# Data processing
+if not_ci; then
+	assert_success 'parquet-tools --help'
+fi
 
 assert_success 'ansible --version'
 

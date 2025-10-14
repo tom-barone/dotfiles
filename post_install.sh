@@ -258,7 +258,7 @@ npm_global_install vim-language-server          # https://github.com/iamcco/vim-
 npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
 npm_global_install typescript                   # https://github.com/microsoft/TypeScript
 npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-if not_ci; then
+if not_mac_ci; then
 	# Failing for some reason on macOS CI
 	go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
 fi
@@ -274,20 +274,22 @@ cargo install --locked tree-sitter-cli          # https://github.com/tree-sitter
 cargo install --features lsp --locked taplo-cli # https://github.com/tamasfe/taplo
 
 # Formatters and linters
-os_install shfmt                                        # https://github.com/mvdan/sh
-npm_global_install prettier                             # https://prettier.io
-pipx_install ruff                                       # https://github.com/astral-sh/ruff
-pipx_install isort                                      # https://pycqa.github.io/isort/
-pipx_install pyright                                    # https://github.com/microsoft/pyright
-gem_install rubocop                                     # https://github.com/rubocop/rubocop
-npm_global_install eslint                               # https://eslint.org
-gem_install erb-formatter                               # https://github.com/nebulab/erb-formatter
-pipx_install sqlfluff                                   # https://github.com/sqlfluff/sqlfluff
-pipx_install djlint                                     # https://github.com/djlint/djlint
-brew_install stylua                                     # https://github.com/JohnnyMorganz/StyLua
-rustup component add clippy                             # https://github.com/rust-lang/rust-clippy
-go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
-brew_install hadolint                                   # https://github.com/hadolint/hadolint
+os_install shfmt            # https://github.com/mvdan/sh
+npm_global_install prettier # https://prettier.io
+pipx_install ruff           # https://github.com/astral-sh/ruff
+pipx_install isort          # https://pycqa.github.io/isort/
+pipx_install pyright        # https://github.com/microsoft/pyright
+gem_install rubocop         # https://github.com/rubocop/rubocop
+npm_global_install eslint   # https://eslint.org
+gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
+pipx_install sqlfluff       # https://github.com/sqlfluff/sqlfluff
+pipx_install djlint         # https://github.com/djlint/djlint
+brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
+rustup component add clippy # https://github.com/rust-lang/rust-clippy
+if not_mac_ci; then
+	go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
+fi
+brew_install hadolint # https://github.com/hadolint/hadolint
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
@@ -475,7 +477,10 @@ brew_install sdl2
 brew_install ffmpeg
 
 # Data processing stuff
-pipx_install parquet-tools
+if not_ci; then
+	# Can't install pyarrrow on CI for some reason
+	pipx_install parquet-tools
+fi
 
 # Tauri development
 # https://v2.tauri.app/start/prerequisites
@@ -485,11 +490,12 @@ if os_is mac && not_ci; then
 	brew_install cocoapods
 fi
 
-# Flutter development
+# Flutter development 
+# https://docs.flutter.dev/install/manual
 if os_is mac && chip_is apple_silicon; then
-	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
 	if no_directory_exists_at "$HOME/flutter"; then
-		flutter_url="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_3.24.3-stable.zip"
+		version="flutter_macos_arm64_3.35.5-stable"
+		flutter_url="https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/$version.zip"
 		wget "$flutter_url" -O flutter-sdk.zip
 		unzip flutter-sdk.zip -d ~
 		rm flutter-sdk.zip
