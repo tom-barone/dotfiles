@@ -286,6 +286,7 @@ pipx_install djlint                                     # https://github.com/djl
 brew_install stylua                                     # https://github.com/JohnnyMorganz/StyLua
 rustup component add clippy                             # https://github.com/rust-lang/rust-clippy
 go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
+brew_install hadolint                                   # https://github.com/hadolint/hadolint
 
 # Redis
 # https://redis.io/docs/getting-started/installation/

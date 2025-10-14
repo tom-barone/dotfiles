@@ -140,6 +140,7 @@ assert_success 'sqlfluff --version'
 assert_success 'djlint --version'
 assert_success 'stylua --version'
 assert_success 'dockerfmt version'
+assert_success 'hadolint --version'
 
 # Neovim
 assert_success 'nvim --version'
