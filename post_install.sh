@@ -273,18 +273,19 @@ cargo install --locked tree-sitter-cli          # https://github.com/tree-sitter
 cargo install --features lsp --locked taplo-cli # https://github.com/tamasfe/taplo
 
 # Formatters and linters
-os_install shfmt            # https://github.com/mvdan/sh
-npm_global_install prettier # https://prettier.io
-pipx_install ruff           # https://github.com/astral-sh/ruff
-pipx_install isort          # https://pycqa.github.io/isort/
-pipx_install pyright        # https://github.com/microsoft/pyright
-gem_install rubocop         # https://github.com/rubocop/rubocop
-npm_global_install eslint   # https://eslint.org
-gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
-pipx_install sqlfluff
-pipx_install djlint         # https://github.com/djlint/djlint
-brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
-rustup component add clippy # https://github.com/rust-lang/rust-clippy
+os_install shfmt                                        # https://github.com/mvdan/sh
+npm_global_install prettier                             # https://prettier.io
+pipx_install ruff                                       # https://github.com/astral-sh/ruff
+pipx_install isort                                      # https://pycqa.github.io/isort/
+pipx_install pyright                                    # https://github.com/microsoft/pyright
+gem_install rubocop                                     # https://github.com/rubocop/rubocop
+npm_global_install eslint                               # https://eslint.org
+gem_install erb-formatter                               # https://github.com/nebulab/erb-formatter
+pipx_install sqlfluff                                   # https://github.com/sqlfluff/sqlfluff
+pipx_install djlint                                     # https://github.com/djlint/djlint
+brew_install stylua                                     # https://github.com/JohnnyMorganz/StyLua
+rustup component add clippy                             # https://github.com/rust-lang/rust-clippy
+go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
 
 # Redis
 # https://redis.io/docs/getting-started/installation/

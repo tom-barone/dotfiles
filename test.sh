@@ -139,6 +139,7 @@ assert_success 'erb-format --version'
 assert_success 'sqlfluff --version'
 assert_success 'djlint --version'
 assert_success 'stylua --version'
+assert_success 'dockerfmt version'
 
 # Neovim
 assert_success 'nvim --version'
@@ -187,7 +188,7 @@ assert_success 'ansible --version'
 
 # Kubernetes
 assert_success 'minikube version'
-assert_success 'kubectl version'
+assert_success 'kubectl version --client=true'
 assert_success 'helm version'
 
 # Stuff we want to check for but

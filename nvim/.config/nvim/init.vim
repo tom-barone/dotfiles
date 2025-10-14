@@ -104,7 +104,7 @@ call plug#end()
 " Snapshots to keep plugin versions fixed
 silent! let g:plugs['blink.cmp'].commit = '3545f6dce83baacbedfb5dd8d1230cd0492fd1d7'
 silent! let g:plugs['bufferline.nvim'].commit = '655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3'
-silent! let g:plugs['conform.nvim'].commit = '973f3cb73887d510321653044791d7937c7ec0fa'
+silent! let g:plugs['conform.nvim'].commit = 'fbcb4fa7f34bfea9be702ffff481a8e336ebf6ed'
 silent! let g:plugs['copilot.vim'].commit = '12995dffe10282b29b8335650bf3e7457f4870e7'
 silent! let g:plugs['editorconfig-vim'].commit = '6a58b7c11f79c0e1d0f20533b3f42f2a11490cf8'
 silent! let g:plugs['friendly-snippets'].commit = '572f5660cf05f8cd8834e096d7b4c921ba18e175'

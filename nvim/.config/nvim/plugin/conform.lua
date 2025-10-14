@@ -15,6 +15,7 @@ require("conform").setup({
 		dart = { "dart_format" },
 		sql = { "sqlfluff" },
 		toml = { "taplo" },
+		dockerfile = { "dockerfmt" },
 	},
 })
 
