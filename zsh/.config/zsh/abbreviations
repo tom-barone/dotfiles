@@ -10,7 +10,7 @@ abbr mux="tmuxinator"
 abbr tree="eza --tree --level=2 --all"
 abbr c.="code . &"
 abbr cat="bat -p"
-abbr ncdu="dua interactive"
+abbr ncdu="gdu-go"
 abbr du="dua"
 abbr find="fd"
 

@@ -88,6 +88,7 @@ assert_success 'cpanm --version'
 assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew
 assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 assert_success 'dua --version'
+assert_success 'gdu-go --version'
 assert_success 'just --version'
 assert_success 'flamegraph --version'
 assert_success 'jq --version'
