@@ -144,6 +144,7 @@ if not_mac_ci; then
 	assert_success 'dockerfmt version'
 fi
 assert_success 'hadolint --version'
+assert_success 'tflint --version'
 
 # Neovim
 assert_success 'nvim --version'

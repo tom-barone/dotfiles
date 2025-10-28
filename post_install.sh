@@ -290,6 +290,7 @@ if not_mac_ci; then
 	go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
 fi
 brew_install hadolint # https://github.com/hadolint/hadolint
+brew_install tflint   # https://github.com/terraform-linters/tflint
 
 # Redis
 # https://redis.io/docs/getting-started/installation/
@@ -490,7 +491,7 @@ if os_is mac && not_ci; then
 	brew_install cocoapods
 fi
 
-# Flutter development 
+# Flutter development
 # https://docs.flutter.dev/install/manual
 if os_is mac && chip_is apple_silicon; then
 	if no_directory_exists_at "$HOME/flutter"; then

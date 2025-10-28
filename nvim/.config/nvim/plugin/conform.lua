@@ -16,6 +16,7 @@ require("conform").setup({
 		sql = { "sqlfluff" },
 		toml = { "taplo" },
 		dockerfile = { "dockerfmt" },
+		terraform = { "terraform_fmt" },
 	},
 })
 
