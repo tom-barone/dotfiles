@@ -5,3 +5,4 @@ ruby/.rbenv/versions
 tmux/.config/tmux/plugins
 
 claude/.claude/statsig
+claude/.claude/debug
