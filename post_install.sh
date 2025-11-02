@@ -511,7 +511,7 @@ fi
 # Ansible
 pipx install --include-deps ansible
 pipx inject --include-apps ansible argcomplete
-pipx inject ansible passlib paramiko
+pipx inject ansible passlib paramiko boto3 cryptography
 
 # Terraform
 if os_is mac; then
