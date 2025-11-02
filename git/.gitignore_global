@@ -47,3 +47,6 @@ Thumbs.db
 
 # Claude Code files
 .settings.local.json
+
+# Terraform files
+.terraform
