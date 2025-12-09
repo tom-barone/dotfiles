@@ -73,3 +73,7 @@ Make sure to add folders like `~/github` as exclusions in Spotlight search. Othe
 Select range -> `:Gclog` To load previous commits that affected that range.
 
 `:BufDelete hidden` - Close all buffers not open in a window
+
+## TODO: 
+
+change all aliases / abbreviations to have a comma prefix, so doesn't step on any existing commands. E.g. `,g` for `git`
