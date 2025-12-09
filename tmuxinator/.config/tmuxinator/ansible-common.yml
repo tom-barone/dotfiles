@@ -1,7 +1,7 @@
-# /Users/tbone/.config/tmuxinator/web-server-init.yml
+# /Users/tbone/.config/tmuxinator/ansible-common.yml
 
-name: web-server-init
-root: ~/github/web-server-init
+name: ansible-common
+root: ~/github/ansible-common/
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,7 +28,7 @@ root: ~/github/web-server-init
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: set-terminal-title web-server-init; sleep 0.5
+pre_window: set-terminal-title ansible-common; sleep 0.5
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
