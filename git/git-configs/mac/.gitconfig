@@ -10,3 +10,7 @@
 	signingkey = 79B39318D5DD51A12808B4478672CEE1629D465B
 [tag]
 	gpgSign = true
+[submodule]
+	recurse = true
+[push]
+	recurseSubmodules = on-demand
