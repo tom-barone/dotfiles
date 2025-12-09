@@ -39,6 +39,8 @@ setopt HIST_IGNORE_DUPS
 # character on the line is a space, or when one of the expanded aliases contains a leading space
 setopt HIST_IGNORE_SPACE
 
+unsetopt EXTENDED_HISTORY
+
 # Use emacs mode
 bindkey -e
 

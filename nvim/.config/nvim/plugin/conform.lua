@@ -17,6 +17,7 @@ require("conform").setup({
 		toml = { "taplo" },
 		dockerfile = { "dockerfmt" },
 		terraform = { "terraform_fmt" },
+		json = { "prettier" },
 	},
 })
 
