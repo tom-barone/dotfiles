@@ -11,7 +11,8 @@
       "Bash(ls:*)",
       "Bash(grep:*)",
       "Bash(rm:*)",
-      "Bash(bundle exec:*)"
+      "Bash(bundle exec:*)",
+      "Read(~/.codex/AGENTS.md)"
     ],
     "deny": [
       "Read(**/*.env)",
@@ -20,5 +21,6 @@
       "Read(**/*.enc)"
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "model": "opus"
 }
