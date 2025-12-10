@@ -520,9 +520,7 @@ if os_is mac; then
 fi
 
 # Kubernetes
-brew_install minikube
 brew_install kubectl
-brew_install helm
 
 # Final cleanup steps
 brew cleanup
