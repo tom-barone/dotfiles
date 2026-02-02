@@ -21,6 +21,19 @@
       "Read(**/*.enc)"
     ]
   },
+  "model": "opus",
   "alwaysThinkingEnabled": true,
-  "model": "opus"
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -message 'Claude Code needs your attention' -title 'Claude Code' -sound 'default'"
+          }
+        ]
+      }
+    ]
+  }
 }
