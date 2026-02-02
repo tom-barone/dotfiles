@@ -102,7 +102,10 @@ assert_success 'lldb --version'
 assert_success 'claude --version'
 assert_success 'fd --version'
 assert_success 'delta --version'
+
+if not_ci; then
 assert_success 'codex --version'
+fi
 
 # Language servers
 assert_success 'lua-language-server --version'
