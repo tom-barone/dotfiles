@@ -1,18 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "Bash(just:*)",
-      "Bash(make:*)",
-      "Bash(uv:*)",
-      "Bash(rake:*)",
-      "Bash(mv:*)",
-      "Bash(mkdir:*)",
+      "Bash(bundle:*)",
+      "Bash(cargo:*)",
+      "Bash(duckdb:*)",
+      "Bash(file:*)",
       "Bash(find:*)",
-      "Bash(ls:*)",
+      "Bash(git ls-remote:*)",
       "Bash(grep:*)",
+      "Bash(just:*)",
+      "Bash(ls:*)",
+      "Bash(make:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rake:*)",
       "Bash(rm:*)",
-      "Bash(bundle exec:*)",
-      "Read(~/.codex/AGENTS.md)"
+      "Bash(tree:*)",
+      "Bash(uv:*)",
+      "Read(~/.codex/AGENTS.md)",
+      "WebFetch(domain:crates.io)",
+      "WebFetch(domain:docs.rs)",
+      "WebFetch(domain:duckdb.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch"
     ],
     "deny": [
       "Read(**/*.env)",
