@@ -50,3 +50,7 @@ Thumbs.db
 
 # Terraform files
 .terraform
+
+# These are sufficiently personal I think to now be ignored
+CLAUDE.md
+AGENTS.md

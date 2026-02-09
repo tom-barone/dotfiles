@@ -3,9 +3,14 @@
     "allow": [
       "Bash(bundle:*)",
       "Bash(cargo:*)",
+      "Bash(curl:*)",
+      "Bash(docker:*)",
+      "Bash(done:*)",
       "Bash(duckdb:*)",
+      "Bash(fd:*)",
       "Bash(file:*)",
       "Bash(find:*)",
+      "Bash(for:*)",
       "Bash(git ls-remote:*)",
       "Bash(grep:*)",
       "Bash(just:*)",
@@ -13,8 +18,11 @@
       "Bash(make:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
       "Bash(rake:*)",
       "Bash(rm:*)",
+      "Bash(tee:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
       "Read(~/.codex/AGENTS.md)",
@@ -23,6 +31,8 @@
       "WebFetch(domain:duckdb.org)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:ansible.readthedocs.io)",
+      "WebFetch(domain:docs.ansible.com)",
       "WebSearch"
     ],
     "deny": [
@@ -32,8 +42,6 @@
       "Read(**/*.enc)"
     ]
   },
-  "model": "opus",
-  "alwaysThinkingEnabled": true,
   "hooks": {
     "Notification": [
       {
@@ -46,5 +54,6 @@
         ]
       }
     ]
-  }
+  },
+  "alwaysThinkingEnabled": true
 }
