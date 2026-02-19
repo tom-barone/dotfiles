@@ -25,14 +25,16 @@
       "Bash(tee:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
+      "Bash(wc:*)",
       "Read(~/.codex/AGENTS.md)",
+      "WebFetch(domain:ansible.readthedocs.io)",
       "WebFetch(domain:crates.io)",
+      "WebFetch(domain:docs.ansible.com)",
+      "WebFetch(domain:docs.propelauth.com)",
       "WebFetch(domain:docs.rs)",
       "WebFetch(domain:duckdb.org)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:ansible.readthedocs.io)",
-      "WebFetch(domain:docs.ansible.com)",
       "WebSearch"
     ],
     "deny": [
