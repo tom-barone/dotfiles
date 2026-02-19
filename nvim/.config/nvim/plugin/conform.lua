@@ -13,6 +13,7 @@ require("conform").setup({
 		just = { "just" },
 		lua = { "stylua" },
 		dart = { "dart_format" },
+		r = { "air" },
 		sql = { "sqlfluff" },
 		toml = { "taplo" },
 		dockerfile = { "dockerfmt" },
