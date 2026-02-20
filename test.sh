@@ -199,6 +199,16 @@ fi
 
 assert_success 'ansible --version'
 
+# Terraform
+if os_is mac; then
+	assert_success 'terraform --version'
+fi
+
+# Vagrant
+if os_is mac; then
+	assert_success 'vagrant --version'
+fi
+
 # Kubernetes
 assert_success 'kubectl version --client=true'
 

@@ -522,6 +522,12 @@ if os_is mac; then
 	brew install hashicorp/tap/terraform
 fi
 
+# Vagrant
+if os_is mac; then
+	brew tap hashicorp/tap
+	brew install hashicorp/tap/vagrant
+fi
+
 # Kubernetes
 brew_install kubectl
 
