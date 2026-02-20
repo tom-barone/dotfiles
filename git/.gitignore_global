@@ -51,6 +51,9 @@ Thumbs.db
 # Terraform files
 .terraform
 
+# General cache files
+.cache
+
 # These are sufficiently personal I think to now be ignored
 CLAUDE.md
 AGENTS.md
