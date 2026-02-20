@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "Bash(VBoxManage:*)",
       "Bash(bundle:*)",
       "Bash(cargo:*)",
       "Bash(curl:*)",
@@ -20,11 +21,13 @@
       "Bash(mv:*)",
       "Bash(python3:*)",
       "Bash(python:*)",
+      "Bash(qemu-system-x86_64:*)",
       "Bash(rake:*)",
       "Bash(rm:*)",
       "Bash(tee:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
+      "Bash(vagrant --version:*)",
       "Bash(wc:*)",
       "Read(~/.codex/AGENTS.md)",
       "WebFetch(domain:ansible.readthedocs.io)",
