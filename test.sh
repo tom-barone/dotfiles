@@ -205,7 +205,7 @@ if os_is mac; then
 fi
 
 # Vagrant
-if os_is mac; then
+if os_is mac && not_ci; then
 	assert_success 'vagrant --version'
 fi
 

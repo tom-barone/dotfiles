@@ -523,7 +523,7 @@ if os_is mac; then
 fi
 
 # Vagrant
-if os_is mac; then
+if os_is mac && not_ci; then
 	brew tap hashicorp/tap
 	brew install hashicorp/tap/vagrant
 fi
