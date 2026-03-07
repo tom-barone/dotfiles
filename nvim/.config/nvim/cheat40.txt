@@ -16,12 +16,10 @@ Exit git explorer        <Leader>gq    N
 Open git vdiffsplit      <Leader>gd    N
 Open git log             <Leader>gl    N
 }}}
-Autocomplete{{{
-Accept (import / snip)   <C-l>         N
-Scroll docs down         <C-n>         N
-Scroll docs up           <C-p>         N
-Snippet forward          <C-n>         N
-Snippet backward         <C-p>         N
+Filepath copy{{{
+Copy relative            <Leader>fr    N
+Copy absolute            <Leader>fa    N
+Copy basename            <Leader>ff    N
 }}}
 Copilot{{{
 Accept line              <C-s>         N
