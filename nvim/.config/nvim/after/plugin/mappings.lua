@@ -10,6 +10,11 @@ vim.keymap.set("l", "<C-c>", "<C-[>") -- For command line modes
 vim.keymap.set("n", "<C-Q>", ":q<CR>")
 vim.keymap.set("v", "gx", require("browse").search_visual_selection)
 
+-- Filepath copy remaps
+vim.keymap.set("n", "<Leader>fa", "<Cmd>let @+ = expand('%:p')<CR>")
+vim.keymap.set("n", "<Leader>fr", "<Cmd>let @+ = expand('%:f')<CR>")
+vim.keymap.set("n", "<Leader>ff", "<Cmd>let @+ = expand('%:t')<CR>")
+
 -- Leader mappings
 vim.keymap.set("n", "<Leader>Q", ":qa!")
 vim.keymap.set("n", "<Leader>v", "<Cmd>source $MYVIMRC<CR>")
