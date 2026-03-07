@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(VBoxManage:*)",
+      "Bash(bash:*)",
       "Bash(bundle:*)",
       "Bash(cargo:*)",
       "Bash(curl:*)",
@@ -17,6 +18,7 @@
       "Bash(just:*)",
       "Bash(ls:*)",
       "Bash(make:*)",
+      "Bash(mise:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
       "Bash(python3:*)",
@@ -24,10 +26,12 @@
       "Bash(qemu-system-x86_64:*)",
       "Bash(rake:*)",
       "Bash(rm:*)",
+      "Bash(rustc:*)",
       "Bash(tee:*)",
       "Bash(tree:*)",
       "Bash(uv:*)",
       "Bash(vagrant --version:*)",
+      "Bash(xargs:*)",
       "Bash(wc:*)",
       "Read(~/.codex/AGENTS.md)",
       "WebFetch(domain:ansible.readthedocs.io)",
@@ -36,8 +40,12 @@
       "WebFetch(domain:docs.propelauth.com)",
       "WebFetch(domain:docs.rs)",
       "WebFetch(domain:duckdb.org)",
+      "WebFetch(domain:ducklake.select)",
+      "WebFetch(domain:forgejo.org)",
       "WebFetch(domain:github.com)",
+      "WebFetch(domain:grafana.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:tailscale.com)",
       "WebSearch"
     ],
     "deny": [
@@ -60,5 +68,6 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high"
 }
