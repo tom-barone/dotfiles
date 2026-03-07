@@ -84,3 +84,6 @@ video_to_gif() {
 
 # I like being able to do # commands like bash
 setopt INTERACTIVE_COMMENTS
+
+# https://mise.jdx.dev/getting-started.html
+eval "$(mise activate zsh)"
