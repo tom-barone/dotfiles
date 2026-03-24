@@ -87,3 +87,5 @@ setopt INTERACTIVE_COMMENTS
 
 # https://mise.jdx.dev/getting-started.html
 eval "$(mise activate zsh)"
+
+alias gam="/Users/tbone/bin/gam7/gam"

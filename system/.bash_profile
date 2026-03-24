@@ -3,3 +3,5 @@
 . ~/.profile
 
 eval "$(direnv hook bash)"
+
+alias gam="/Users/tbone/bin/gam7/gam"
