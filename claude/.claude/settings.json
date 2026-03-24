@@ -69,5 +69,10 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high"
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
 }
