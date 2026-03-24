@@ -57,4 +57,9 @@ Thumbs.db
 # These are sufficiently personal I think to now be ignored
 CLAUDE.md
 AGENTS.md
+TASKS.md
 .claude
+.worktreeinclude
+
+# Fix git shortlog and blame output when author has renamed their email address or name.
+.mailmap
