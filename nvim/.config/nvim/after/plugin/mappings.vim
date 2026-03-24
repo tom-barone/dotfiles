@@ -1,7 +1,7 @@
 " Search visual selection on C-f and open RG if in normal
 noremap <C-f> <Cmd>Rg<Enter>
-vmap <C-f> "fy<space>ff
-nmap <expr> <leader>ff ":Rg<Enter>".escape(getreg("f"), ' ')
+vmap <C-f> "fy<space>pp
+nmap <expr> <leader>pp ":Rg<Enter>".escape(getreg("f"), ' ')
 " Search all git ignored files and binary files with Rga (Control - Shift - F)
 noremap ♠ <Cmd>Rga<Enter>
 vmap ♠ "gy<space>FF
