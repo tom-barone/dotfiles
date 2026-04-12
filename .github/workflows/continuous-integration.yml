@@ -65,6 +65,6 @@ jobs:
           echo "$HOME/.local/share/mise/shims" >> $GITHUB_PATH
       - name: "Install mise tools, run the install script and test"
         run: |
-          which ruby
-          ruby --version
+          # Make sure our shims proceed the system paths
+          echo 'export PATH="$HOME/.local/share/mise/ships:$PATH"' >> ~/.bash_profile
           ./install.sh
