@@ -15,13 +15,12 @@ failed="\e[1;31mFailed\e[0m" # Print in red
 # 	$1: The command to run
 ################################################################################
 function assert_success() {
-	# shellcheck disable=SC2086
-	if eval $1 >/dev/null 2>&1; then
+	if eval "$1" >/dev/null 2>&1; then
 		echo -e "$pass: $1"
 		return
 	else
 		echo -e "$failed: $1"
-		$1
+		eval "$1"
 		export HAS_TEST_SUITE_PASSED=false
 	fi
 }

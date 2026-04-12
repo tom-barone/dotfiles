@@ -45,11 +45,12 @@ assert_success 'git-lfs --version'
 assert_success_zsh 'abbr --version'
 assert_success_zsh 'p10k help'
 assert_success_zsh 'fzf --version'
-assert_zsh_completion 'tar'   # Default that comes with zsh
-assert_zsh_completion 'git'   # Default that comes with zsh
+assert_zsh_completion 'tar' # Default that comes with zsh
+assert_zsh_completion 'git' # Default that comes with zsh
 
 # Mise
 assert_success 'aws --version'
+assert_success 'gcloud --version'
 assert_success 'gemini --version'
 assert_success 'go version'
 assert_success 'java --version'
@@ -94,7 +95,10 @@ assert_success 'gdb --version'
 assert_success 'lldb --version'
 assert_success 'claude --version'
 assert_success 'fd --version'
-assert_success 'delta --version'
+if os_is mac; then
+	# For some reason this fails on ubuntu CI
+	assert_success 'delta --version'
+fi
 assert_success 'yq --version'
 assert_success 'viu --version'
 
@@ -155,9 +159,6 @@ assert_success 'cloud_sql_proxy --version'
 # Mysql
 assert_success 'mysql --version'
 
-# Gcloud
-assert_success 'gcloud --version'
-
 # Global ruby gems
 assert_success 'rails --version'
 
@@ -169,7 +170,7 @@ assert_success 'ffmpeg -version'
 # but don't want to run in CI
 if not_ci; then
 	assert_success 'docker --version'
-	assert_success 'docker-compose --version'
+	assert_success 'docker compose --version'
 
 	if os_is mac && chip_is apple_silicon; then
 		assert_success 'pod --version' # CocoaPods

@@ -3,4 +3,7 @@ emulate sh
 . ~/.profile
 emulate zsh
 
+# https://mise.jdx.dev/getting-started.html
+eval "$(mise activate zsh)"
+
 # eval "$(direnv hook zsh)"

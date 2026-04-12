@@ -4,3 +4,11 @@ tmux/.config/tmux/plugins
 claude/.claude/statsig
 claude/.claude/debug
 !claude/.claude
+
+# gpg runtime data lands here because the whole .gnupg dir is stowed —
+# only the agent config is meant to be tracked
+gpg/.gnupg/*
+!gpg/.gnupg/gpg-agent.conf
+
+# gemini-cli writes per-project state into .gemini/
+gemini/.gemini/projects.json
