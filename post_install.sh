@@ -112,22 +112,6 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-# golang
-if have_not_installed go; then
-	go_version="1.24.5"
-	if os_is ubuntu && chip_is x86; then
-		wget "https://go.dev/dl/go${go_version}.linux-amd64.tar.gz" -O "go.tar.gz"
-	fi
-	if os_is mac && chip_is apple_silicon; then
-		wget "https://go.dev/dl/go${go_version}.darwin-arm64.tar.gz" -O "go.tar.gz"
-	fi
-	if os_is mac && chip_is intel; then
-		wget "https://go.dev/dl/go${go_version}.darwin-amd64.tar.gz" -O "go.tar.gz"
-	fi
-	tar -C "$HOME/opt" -xzf go.tar.gz
-	rm go.tar.gz
-fi
-
 # NVM node manager https://github.com/nvm-sh/nvm
 if have_not_installed node; then
 	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
@@ -212,41 +196,36 @@ gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
 
 # Language servers
-brew_install lua-language-server                # https://github.com/LuaLS/lua-language-server
-os_install shellcheck                           # https://github.com/koalaman/shellcheck
-npm_global_install bash-language-server         # https://github.com/bash-lsp/bash-language-server
-npm_global_install vim-language-server          # https://github.com/iamcco/vim-language-server
-npm_global_install typescript-language-server   # https://github.com/typescript-language-server/typescript-language-server
-npm_global_install typescript                   # https://github.com/microsoft/TypeScript
-npm_global_install vscode-langservers-extracted # https://github.com/hrsh7th/vscode-langservers-extracted
-if not_mac_ci; then
-	# Failing for some reason on macOS CI
-	go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
-fi
-rustup component add rust-analyzer              # https://rust-analyzer.github.io/
-npm_global_install svelte-language-server       # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
-npm_global_install prettier-plugin-svelte       # https://github.com/sveltejs/prettier-plugin-svelte
-gem_install sorbet                              ##
-gem_install sorbet-runtime                      ## https://sorbet.org/docs/adopting
-gem_install tapioca                             ##
-gem_install ruby-lsp                            # https://shopify.github.io/ruby-lsp/
-gem_install yard                                # https://yardoc.org/
-cargo install --locked tree-sitter-cli          # https://github.com/tree-sitter/tree-sitter/tree/master/cli
-cargo install --features lsp --locked taplo-cli # https://github.com/tamasfe/taplo
+brew_install lua-language-server                 # https://github.com/LuaLS/lua-language-server
+os_install shellcheck                            # https://github.com/koalaman/shellcheck
+npm_global_install bash-language-server          # https://github.com/bash-lsp/bash-language-server
+npm_global_install vim-language-server           # https://github.com/iamcco/vim-language-server
+npm_global_install typescript-language-server    # https://github.com/typescript-language-server/typescript-language-server
+npm_global_install typescript                    # https://github.com/microsoft/TypeScript
+npm_global_install vscode-langservers-extracted  # https://github.com/hrsh7th/vscode-langservers-extracted
+go_install gopls golang.org/x/tools/gopls@latest # https://github.com/golang/tools/tree/master/gopls
+rustup component add rust-analyzer               # https://rust-analyzer.github.io/
+npm_global_install svelte-language-server        # https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+npm_global_install prettier-plugin-svelte        # https://github.com/sveltejs/prettier-plugin-svelte
+gem_install sorbet                               ##
+gem_install sorbet-runtime                       ## https://sorbet.org/docs/adopting
+gem_install tapioca                              ##
+gem_install ruby-lsp                             # https://shopify.github.io/ruby-lsp/
+gem_install yard                                 # https://yardoc.org/
+cargo install --locked tree-sitter-cli           # https://github.com/tree-sitter/tree-sitter/tree/master/cli
+cargo install --features lsp --locked taplo-cli  # https://github.com/tamasfe/taplo
 
 # Formatters and linters
-os_install shfmt            # https://github.com/mvdan/sh
-npm_global_install prettier # https://prettier.io
-gem_install rubocop         # https://github.com/rubocop/rubocop
-npm_global_install eslint   # https://eslint.org
-gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
-brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
-rustup component add clippy # https://github.com/rust-lang/rust-clippy
-if not_mac_ci; then
-	go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
-fi
-brew_install hadolint # https://github.com/hadolint/hadolint
-brew_install tflint   # https://github.com/terraform-linters/tflint
+os_install shfmt                                        # https://github.com/mvdan/sh
+npm_global_install prettier                             # https://prettier.io
+gem_install rubocop                                     # https://github.com/rubocop/rubocop
+npm_global_install eslint                               # https://eslint.org
+gem_install erb-formatter                               # https://github.com/nebulab/erb-formatter
+brew_install stylua                                     # https://github.com/JohnnyMorganz/StyLua
+rustup component add clippy                             # https://github.com/rust-lang/rust-clippy
+go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
+brew_install hadolint                                   # https://github.com/hadolint/hadolint
+brew_install tflint                                     # https://github.com/terraform-linters/tflint
 
 # Redis
 # https://redis.io/docs/getting-started/installation/

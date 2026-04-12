@@ -6,5 +6,6 @@ trusted_config_paths = ["~/github"]
 compile = false
 
 [tools]
+go = "1.26.0"
 ruby = "3.3.11"
 uv = "0.10.8"

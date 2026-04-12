@@ -93,9 +93,6 @@ export PAGER='less'
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-## Golang paths
-export GOPATH="$HOME/opt/gopath"
-
 ## Python
 # Set the Python cache directory to a custom location so
 # it doesn't spam us with __pycache__ folders in our projects
