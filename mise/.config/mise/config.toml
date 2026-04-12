@@ -10,6 +10,7 @@ corepack = true
 
 [tools]
 gemini-cli = "latest"
+gcloud = "latest"
 go = "1.26.0"
 java = "openjdk-25"
 node = "lts"

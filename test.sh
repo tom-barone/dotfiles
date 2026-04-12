@@ -50,6 +50,7 @@ assert_zsh_completion 'git'   # Default that comes with zsh
 
 # Mise
 assert_success 'aws --version'
+assert_success 'gcloud --version'
 assert_success 'gemini --version'
 assert_success 'go version'
 assert_success 'java --version'
@@ -154,9 +155,6 @@ assert_success 'cloud_sql_proxy --version'
 
 # Mysql
 assert_success 'mysql --version'
-
-# Gcloud
-assert_success 'gcloud --version'
 
 # Global ruby gems
 assert_success 'rails --version'

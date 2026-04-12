@@ -264,32 +264,6 @@ if os_is mac; then
 fi
 
 # Gcloud
-# Use the unversioned "latest" URLs — old pins (e.g. 455.0.0) ship an
-# apitools that's incompatible with Python 3.13+ (EnumDefinitionError on
-# __static_attributes__).
-gcloud_sdk_url=''
-if os_is mac && chip_is apple_silicon; then
-	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-arm.tar.gz"
-fi
-if os_is mac && chip_is intel; then
-	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86_64.tar.gz"
-fi
-if os_is ubuntu; then
-	# Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz"
-fi
-if have_not_installed gcloud; then
-	# Download the install tar.gz
-	wget $gcloud_sdk_url -O cloud-sdk.tar.gz --quiet
-	# Extract it to the home dir
-	tar -xf cloud-sdk.tar.gz -C ~
-	# Run the install script
-	~/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false --quiet
-	# Remove the install tar.gz
-	rm cloud-sdk.tar.gz
-fi
 if not_ci; then
 	gcloud auth login
 	gcloud components update --quiet
