@@ -11,6 +11,7 @@ dotfiles_to_symlink=(
 	gpg
 	node
 	nvim
+	mise
 	ripgrep
 	system
 	tig

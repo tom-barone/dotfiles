@@ -1,0 +1,6 @@
+[settings]
+experimental = false
+trusted_config_paths = ["~/github"]
+
+[settings.ruby]
+compile = false
