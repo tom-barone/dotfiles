@@ -23,3 +23,15 @@ Given a specific initial condition
 When an action is performed
 Then expect a certain outcome
 ```
+
+## Pushing changes to github
+
+If a project is hosted with github, and you are tasked with creating Pull Requests you can:
+
+- Use the `gh` cli tool to then create a new pull request to the appropriate target branch
+- Look for any github actions that run on the pull request and wait for the result.
+- Keep making appropriate fixes until the actions succeed.
+
+### Pull Request Description
+
+Don't use markdown headers. Don't write a test plan. Just write a terse list of dot points describing the changes that have been made.
