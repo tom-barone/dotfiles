@@ -6,6 +6,7 @@ dotfiles_to_symlink=(
 	claude
 	codex
 	fzf
+	gemini
 	git
 	gpg
 	node

@@ -6,3 +6,4 @@ tmux/.config/tmux/plugins
 
 claude/.claude/statsig
 claude/.claude/debug
+!claude/.claude
