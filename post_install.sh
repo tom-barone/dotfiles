@@ -126,7 +126,6 @@ cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't comp
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
-brew_install gdu                             # https://github.com/dundee/gdu
 cargo_install just                           # https://github.com/casey/just
 cargo_install flamegraph                     # https://github.com/flamegraph-rs
 brew_install jq                              # https://jqlang.github.io/jq/
@@ -140,13 +139,8 @@ brew_install llvm                            # https://llvm.org/
 npm_global_install @anthropic-ai/claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
 cargo_install fd-find                        # https://github.com/sharkdp/fd
 cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
-brew_install sops                            # https://getsops.io
 brew_install yq                              # https://github.com/mikefarah/yq
 cargo_install viu                            # https://github.com/atanunq/viu
-
-if not_ci; then
-	npm_global_install @openai/codex # https://developers.openai.com/codex/cli/
-fi
 
 # Neovim setup https://github.com/neovim/neovim
 brew_install neovim
@@ -324,20 +318,6 @@ if have_not_installed docker && not_ci; then
 	fi
 fi
 
-# Backwards compatability for docker-compose
-if have_not_installed docker-compose && not_ci; then
-	local_bin_dir=""
-	if os_is mac; then
-		local_bin_dir="/usr/local/bin"
-	fi
-	if os_is ubuntu; then
-		local_bin_dir="/usr/bin"
-	fi
-	sudo touch "$local_bin_dir/docker-compose"
-	echo 'docker compose --compatibility "$@"' | sudo tee "$local_bin_dir/docker-compose"
-	sudo chmod +x "$local_bin_dir/docker-compose"
-fi
-
 # Langauge / AI stuff
 brew_install sdl2
 brew_install ffmpeg
@@ -391,6 +371,5 @@ if os_is mac; then
 	echo "- Install mactex from https://formulae.brew.sh/cask/mactex"
 fi
 echo "- Run 'gh auth login' to authenticate with GitHub"
-echo "- Run 'gh extension install github/gh-copilot'"
 echo "- Check that the terminal is using the correct font"
 echo "- Run ':checkhealth' in neovim and make sure everything is green"

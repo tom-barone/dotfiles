@@ -32,9 +32,6 @@ assert_success 'pip3 --version'
 assert_result_like 'which zsh' "$(brew --prefix)/bin/zsh"
 
 if os_is mac; then
-	# Check that python and pip are installed in the right place
-	assert_result_like 'which python3' "$(brew --prefix)/bin/python3"
-	assert_result_like 'which pip3' "$(brew --prefix)/bin/pip3"
 	# Check our laassert_success GNU overrides are working on mac
 	assert_result_like 'which make' "$(brew --prefix)/opt/make/libexec/gnubin/make"
 	assert_result_like 'which sed' "$(brew --prefix)/opt/gnu-sed/libexec/gnubin/sed"
@@ -50,26 +47,27 @@ assert_success_zsh 'p10k help'
 assert_success_zsh 'fzf --version'
 assert_zsh_completion 'tar'   # Default that comes with zsh
 assert_zsh_completion 'git'   # Default that comes with zsh
-assert_zsh_completion 'rails' # Comes installed with zsh-completions
+
+# Mise
+assert_success 'aws --version'
+assert_success 'gemini --version'
 assert_success 'go version'
+assert_success 'java --version'
+assert_success 'node --version'
+assert_success 'prettier --version'
+assert_success 'ruby --version'
+assert_success 'ruff --version'
+assert_success 'sops --version'
+assert_success 'terraform --version'
+assert_success 'uv --version'
 
 # Node
-assert_success 'node --version'
 assert_success 'npm --version'
-
-# Yarn
 assert_success 'corepack --version'
-assert_success 'yarn --version'
 
 # Rust
 assert_success 'rustup --version'
 assert_success 'cargo --version'
-
-# Java
-assert_success 'java --version'
-
-# Ruby
-assert_success 'ruby --version'
 
 # Terminal handy tools
 assert_success 'vim --version'
@@ -84,7 +82,6 @@ assert_success 'cpanm --version'
 assert_result_like 'which perl' "$(brew --prefix)/bin/perl"   # We want the homebrew
 assert_result_like 'which cpanm' "$(brew --prefix)/bin/cpanm" # perl and cpanm
 assert_success 'dua --version'
-assert_success 'gdu-go --version'
 assert_success 'just --version'
 assert_success 'flamegraph --version'
 assert_success 'jq --version'
@@ -98,10 +95,11 @@ assert_success 'lldb --version'
 assert_success 'claude --version'
 assert_success 'fd --version'
 assert_success 'delta --version'
+assert_success 'yq --version'
+assert_success 'viu --version'
 
-if not_ci; then
-	assert_success 'codex --version'
-fi
+# Neovim
+assert_success 'nvim --version'
 
 # Language servers
 assert_success 'lua-language-server --version'
@@ -118,9 +116,7 @@ assert_success 'yard --version'
 assert_success 'which vscode-html-language-server'
 assert_success 'which vscode-css-language-server'
 assert_success 'which vscode-json-language-server'
-if not_mac_ci; then
-	assert_success 'gopls version'
-fi
+assert_success 'gopls version'
 assert_success 'rust-analyzer --version'
 assert_success 'svelteserver'
 assert_success 'npm list --global | grep svelte-language-server'
@@ -129,7 +125,6 @@ assert_success 'taplo --version'
 
 # Formatters and linters
 assert_success 'shfmt --version'
-assert_success 'prettier --version'
 assert_success 'rubocop --version'
 assert_success 'eslint --version'
 assert_success 'erb-format --version'
@@ -140,19 +135,9 @@ fi
 assert_success 'hadolint --version'
 assert_success 'tflint --version'
 
-# Neovim
-assert_success 'nvim --version'
-
 # Redis
 assert_success 'redis-cli --version'
 assert_result_like 'redis-cli PING' 'PONG'
-
-# AWS
-assert_success 'aws --version'
-assert_success 'cdk --version'
-
-# Heroku
-assert_success 'heroku --version'
 
 # Github
 assert_success 'gh --version'
@@ -180,25 +165,11 @@ assert_success 'rails --version'
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
 
-# Terraform
-if os_is mac; then
-	assert_success 'terraform --version'
-fi
-
-# Vagrant
-if os_is mac && not_ci; then
-	assert_success 'vagrant --version'
-fi
-
-# Kubernetes
-assert_success 'kubectl version --client=true'
-
 # Stuff we want to check for but
 # but don't want to run in CI
 if not_ci; then
 	assert_success 'docker --version'
 	assert_success 'docker-compose --version'
-	assert_success 'gh copilot --version'
 
 	if os_is mac && chip_is apple_silicon; then
 		assert_success 'pod --version' # CocoaPods
