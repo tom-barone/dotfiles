@@ -1,6 +1,3 @@
-ruby/.rbenv/shims
-ruby/.rbenv/versions
-
 # No need to backup tmux plugins, they are installed via git
 tmux/.config/tmux/plugins
 
