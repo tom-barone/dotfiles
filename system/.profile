@@ -60,10 +60,6 @@ fi
 
 export PATH
 
-# NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 # Dotnet variables
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script#set-environment-variables
 export DOTNET_ROOT=$HOME/.dotnet
@@ -71,17 +67,6 @@ export DOTNET_ROOT=$HOME/.dotnet
 # Rust
 # shellcheck source=/dev/null
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-# Virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-if type python3 &>/dev/null; then
-	python_3_location="$(which python3)"
-	export VIRTUALENVWRAPPER_PYTHON=$python_3_location
-fi
-if type virtualenvwrapper.sh &>/dev/null; then
-	# shellcheck source=/dev/null
-	source virtualenvwrapper.sh
-fi
 
 # FZF
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/"'

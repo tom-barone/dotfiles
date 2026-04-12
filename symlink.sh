@@ -9,7 +9,6 @@ dotfiles_to_symlink=(
 	gemini
 	git
 	gpg
-	node
 	nvim
 	mise
 	ripgrep

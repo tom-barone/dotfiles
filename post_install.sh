@@ -112,21 +112,8 @@ if no_directory_exists_at "$HOME/opt/zsh-completions"; then
 	git clone --depth 1 https://github.com/zsh-users/zsh-completions.git "$HOME/opt/zsh-completions"
 fi
 
-# NVM node manager https://github.com/nvm-sh/nvm
-if have_not_installed node; then
-	PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
-	# shellcheck source=/dev/null
-	# Make sure nvm is loaded
-	. ~/.profile || true
-	nvm install --lts # Install the latest LTS version of node
-	nvm use --lts
-	nvm alias default "lts/*"
-	npm install --global npm@latest
-	corepack enable
-fi
-
-# Yarn https://yarnpkg.com/getting-started/install
-brew_install corepack
+# Node and npm https://nodejs.org/en/download/
+npm update --global npm
 corepack enable
 
 # Rust and Cargo https://www.rust-lang.org/tools/install
@@ -136,13 +123,6 @@ if have_not_installed rustup; then
 	source "$HOME/.cargo/env"
 fi
 rustup update
-
-# Java
-# https://formulae.brew.sh/formula/openjdk
-brew_install java
-if os_is mac && not_ci; then
-	sudo ln -sfn "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk.jdk
-fi
 
 # Terminal handy tools
 os_install vim
@@ -185,12 +165,6 @@ if not_ci; then
 fi
 
 # Neovim setup https://github.com/neovim/neovim
-if [ ! -d "$HOME/.virtualenvs/pynvim" ]; then
-	rm -rf ~/.virtualenvs/pynvim
-	mkdir -p ~/.virtualenvs/pynvim
-	python3 -m venv ~/.virtualenvs/pynvim
-fi
-~/.virtualenvs/pynvim/bin/pip install --upgrade pynvim
 npm_global_install neovim
 gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl

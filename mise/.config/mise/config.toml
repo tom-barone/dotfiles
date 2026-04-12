@@ -5,7 +5,13 @@ trusted_config_paths = ["~/github"]
 [settings.ruby]
 compile = false
 
+[settings.node]
+corepack = true
+
 [tools]
+gemini-cli = "latest"
 go = "1.26.0"
+java = "openjdk-25"
+node = "lts"
 ruby = "3.3.11"
 uv = "0.10.8"
