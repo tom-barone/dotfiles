@@ -51,11 +51,6 @@ end, { range = true })
 -- Python
 require("conform").setup({
 	formatters = {
-		tidy_imports = {
-			-- Change where to find the command
-			command = "tidy-imports",
-			args = { "--quiet" },
-		},
 		erb_lint = {
 			command = "erb_lint",
 			args = { "--fail-level", "F", "--autocorrect", "$FILENAME" },
@@ -70,9 +65,10 @@ require("conform").setup({
 			stdin = true,
 		},
 		sqlfluff = {
-			command = "sqlfluff",
+			command = "uvx",
 			inherit = false,
 			args = {
+				"sqlfluff",
 				"format",
 				"--dialect",
 				"postgres",

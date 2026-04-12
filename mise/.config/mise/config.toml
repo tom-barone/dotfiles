@@ -7,3 +7,4 @@ compile = false
 
 [tools]
 ruby = "3.3.11"
+uv = "0.10.8"

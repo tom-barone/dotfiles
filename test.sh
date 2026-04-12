@@ -27,8 +27,6 @@ fi
 # Python and python package managers
 assert_success 'python3 --version'
 assert_success 'pip3 --version'
-assert_success 'pipx --version'
-assert_success 'poetry --version'
 
 # Check that we're using the homebrew version of zsh (not /bin/zsh)
 assert_result_like 'which zsh' "$(brew --prefix)/bin/zsh"
@@ -102,7 +100,7 @@ assert_success 'fd --version'
 assert_success 'delta --version'
 
 if not_ci; then
-assert_success 'codex --version'
+	assert_success 'codex --version'
 fi
 
 # Language servers
@@ -132,14 +130,9 @@ assert_success 'taplo --version'
 # Formatters and linters
 assert_success 'shfmt --version'
 assert_success 'prettier --version'
-assert_success 'ruff --version'
-assert_success 'isort --version'
-assert_success 'pyright --version'
 assert_success 'rubocop --version'
 assert_success 'eslint --version'
 assert_success 'erb-format --version'
-assert_success 'sqlfluff --version'
-assert_success 'djlint --version'
 assert_success 'stylua --version'
 if not_mac_ci; then
 	assert_success 'dockerfmt version'
@@ -171,9 +164,6 @@ if not_ci; then
 	assert_file_exists "$HOME/platform-tools/bundletool.jar"
 fi
 
-# Supervisord
-assert_success 'supervisord --version'
-
 # Cloud SQL proxy
 assert_success 'cloud_sql_proxy --version'
 
@@ -189,13 +179,6 @@ assert_success 'rails --version'
 # Langauge / AI stuff
 assert_success 'sdl2-config --version'
 assert_success 'ffmpeg -version'
-
-# Data processing
-if not_ci; then
-	assert_success 'parquet-tools --help'
-fi
-
-assert_success 'ansible --version'
 
 # Terraform
 if os_is mac; then

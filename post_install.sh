@@ -31,26 +31,6 @@ if os_is wsl-ubuntu; then
 	os_install wslu
 fi
 
-# Python package managers
-if os_is ubuntu; then
-	brew_install pipx # https://pypa.github.io/pipx
-fi
-if os_is mac; then
-	os_install pipx # https://pypa.github.io/pipx
-fi
-pipx ensurepath
-pipx_install poetry # https://python-poetry.org
-
-# Python stuff
-if not_ci; then
-	# These are failing for some reason on the CI pipeline
-	# TODO: At some point, delete the `not_ci` check and try again
-	brew_install python-tk@3.11
-	brew_install python-tk@3.12
-fi
-pipx_install pyflyby        # https://github.com/deshaw/pyflyby
-pipx inject pyflyby ipython # Needs ipython to work
-
 # Get the latest zsh and bash from homebrew (don't want to check for existing)
 brew install zsh
 brew install bash
@@ -217,7 +197,7 @@ brew_install sops                            # https://getsops.io
 brew_install yq                              # https://github.com/mikefarah/yq
 
 if not_ci; then
-	npm_global_install @openai/codex             # https://developers.openai.com/codex/cli/
+	npm_global_install @openai/codex # https://developers.openai.com/codex/cli/
 fi
 
 # Neovim setup https://github.com/neovim/neovim
@@ -257,14 +237,9 @@ cargo install --features lsp --locked taplo-cli # https://github.com/tamasfe/tap
 # Formatters and linters
 os_install shfmt            # https://github.com/mvdan/sh
 npm_global_install prettier # https://prettier.io
-pipx_install ruff           # https://github.com/astral-sh/ruff
-pipx_install isort          # https://pycqa.github.io/isort/
-pipx_install pyright        # https://github.com/microsoft/pyright
 gem_install rubocop         # https://github.com/rubocop/rubocop
 npm_global_install eslint   # https://eslint.org
 gem_install erb-formatter   # https://github.com/nebulab/erb-formatter
-pipx_install sqlfluff       # https://github.com/sqlfluff/sqlfluff
-pipx_install djlint         # https://github.com/djlint/djlint
 brew_install stylua         # https://github.com/JohnnyMorganz/StyLua
 rustup component add clippy # https://github.com/rust-lang/rust-clippy
 if not_mac_ci; then
@@ -304,8 +279,7 @@ if have_not_installed aws; then
 		rm -rf awscliv2.zip aws
 	fi
 fi
-npm_global_install aws-cdk         # https://docs.aws.amazon.com/cdk/v2/guide/home.html
-pipx_install git-remote-codecommit # https://github.com/aws/git-remote-codecommit
+npm_global_install aws-cdk # https://docs.aws.amazon.com/cdk/v2/guide/home.html
 
 # Heroku
 if os_is mac; then
@@ -340,11 +314,6 @@ if not_ci; then
 		chmod +x "$HOME/platform-tools/bundletool.jar"
 	fi
 fi
-
-# Supervisord
-# http://supervisord.org/index.html
-# Can't use helper function because supervisord is called supervisor in pip
-pipx install supervisor
 
 # Google Cloud SQL proxy
 # https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy
@@ -458,12 +427,6 @@ fi
 brew_install sdl2
 brew_install ffmpeg
 
-# Data processing stuff
-if not_ci; then
-	# Can't install pyarrrow on CI for some reason
-	pipx_install parquet-tools
-fi
-
 # Tauri development
 # https://v2.tauri.app/start/prerequisites
 rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android x86_64-linux-android
@@ -488,11 +451,6 @@ fi
 if os_is mac && not_ci; then
 	brew_cask_install mactex
 fi
-
-# Ansible
-pipx install --include-deps ansible
-pipx inject --include-apps ansible argcomplete
-pipx inject ansible passlib paramiko boto3 cryptography
 
 # Terraform
 if os_is mac; then
