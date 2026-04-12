@@ -264,18 +264,21 @@ if os_is mac; then
 fi
 
 # Gcloud
+# Use the unversioned "latest" URLs — old pins (e.g. 455.0.0) ship an
+# apitools that's incompatible with Python 3.13+ (EnumDefinitionError on
+# __static_attributes__).
 gcloud_sdk_url=''
 if os_is mac && chip_is apple_silicon; then
 	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-darwin-arm.tar.gz"
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-arm.tar.gz"
 fi
 if os_is mac && chip_is intel; then
 	# macOS 64-bit https://cloud.google.com/sdk/docs/install#mac
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-darwin-x86_64.tar.gz"
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-darwin-x86_64.tar.gz"
 fi
 if os_is ubuntu; then
 	# Linux 64-bit https://cloud.google.com/sdk/docs/quickstart#linux
-	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-455.0.0-linux-x86_64.tar.gz"
+	gcloud_sdk_url="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz"
 fi
 if have_not_installed gcloud; then
 	# Download the install tar.gz
