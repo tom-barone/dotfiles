@@ -74,6 +74,20 @@ Select range -> `:Gclog` To load previous commits that affected that range.
 
 `:BufDelete hidden` - Close all buffers not open in a window
 
-## TODO: 
+#### Dock movement
 
-change all aliases / abbreviations to have a comma prefix, so doesn't step on any existing commands. E.g. `,g` for `git`
+There's an annoying thing where on multiple screens in macOS, if you hover at the bottom of an attached screen the dock will jump to that screen. Which makes me mad.
+
+To fix:
+
+```
+defaults write com.apple.dock autohide-delay -float 99999
+killall Dock
+```
+
+To revert:
+
+```
+defaults delete com.apple.dock autohide-delay
+killall Dock
+```
