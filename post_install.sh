@@ -74,23 +74,6 @@ fi
 # https://git-lfs.com/
 brew_install git-lfs
 
-# Neovim [https://github.com/neovim/neovim]
-# Homebrew always installs the latest version of neovim which is annoying because
-# sometimes the latest version breaks stuff and we wanna stick to a specific version.
-# So we're gonna install it manually.
-if no_directory_exists_at "$HOME/opt/nvim"; then
-	version="v0.11.3"
-	if os_is mac && chip_is apple_silicon; then release="macos-arm64"; fi
-	if os_is mac && chip_is intel; then release="macos-x86_64"; fi
-	if os_is ubuntu && chip_is intel; then release="linux-x86_64"; fi
-	echo "Downloading neovim $version for $release"
-	wget "https://github.com/neovim/neovim/releases/download/$version/nvim-$release.tar.gz"
-	tar xvzf "nvim-$release.tar.gz"
-	rm -rf "$HOME/opt/nvim"
-	mv "nvim-$release" "$HOME/opt/nvim"
-	rm "nvim-$release.tar.gz"
-fi
-
 # zsh-abbr https://zsh-abbr.olets.dev/installation.html
 if no_directory_exists_at "$HOME/opt/zsh-abbr"; then
 	git clone https://github.com/olets/zsh-abbr --single-branch --branch main --depth 1 "$HOME/opt/zsh-abbr"
@@ -159,15 +142,19 @@ cargo_install fd-find                        # https://github.com/sharkdp/fd
 cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
 brew_install sops                            # https://getsops.io
 brew_install yq                              # https://github.com/mikefarah/yq
+cargo_install viu                            # https://github.com/atanunq/viu
 
 if not_ci; then
 	npm_global_install @openai/codex # https://developers.openai.com/codex/cli/
 fi
 
 # Neovim setup https://github.com/neovim/neovim
+brew_install neovim
 npm_global_install neovim
 gem_install neovim
 cpanm -n Neovim::Ext # https://neovim.io/doc/user/provider.html#provider-perl
+uv tool install --upgrade pynvim
+uv tool install --upgrade pyright
 
 # Language servers
 brew_install lua-language-server                 # https://github.com/LuaLS/lua-language-server
@@ -191,10 +178,10 @@ cargo install --features lsp --locked taplo-cli  # https://github.com/tamasfe/ta
 
 # Formatters and linters
 os_install shfmt                                        # https://github.com/mvdan/sh
-npm_global_install prettier                             # https://prettier.io
 gem_install rubocop                                     # https://github.com/rubocop/rubocop
 npm_global_install eslint                               # https://eslint.org
 gem_install erb-formatter                               # https://github.com/nebulab/erb-formatter
+gem_install erb_lint                                    # https://github.com/Shopify/erb_lint
 brew_install stylua                                     # https://github.com/JohnnyMorganz/StyLua
 rustup component add clippy                             # https://github.com/rust-lang/rust-clippy
 go_install dockerfmt github.com/reteps/dockerfmt@latest # https://github.com/reteps/dockerfmt
@@ -404,21 +391,6 @@ fi
 if os_is mac && not_ci; then
 	brew_cask_install mactex
 fi
-
-# Terraform
-if os_is mac; then
-	brew tap hashicorp/tap
-	brew install hashicorp/tap/terraform
-fi
-
-# Vagrant
-if os_is mac && not_ci; then
-	brew tap hashicorp/tap
-	brew install hashicorp/tap/vagrant
-fi
-
-# Kubernetes
-brew_install kubectl
 
 # Final cleanup steps
 brew cleanup

@@ -87,7 +87,7 @@ Plug 'nvim-lua/plenary.nvim'  " https://github.com/nvim-lua/plenary.nvim
 Plug 'nvim-lualine/lualine.nvim'  " https://github.com/nvim-lualine/lualine.nvim
 Plug 'nvim-tree/nvim-tree.lua'  " https://github.com/nvim-tree/nvim-tree.lua
 Plug 'nvim-tree/nvim-web-devicons'  " https://github.com/nvim-tree/nvim-web-devicons
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " https://github.com/nvim-treesitter/nvim-treesitter
+Plug 'nvim-treesitter/nvim-treesitter'  " https://github.com/nvim-treesitter/nvim-treesitter
 Plug 'preservim/nerdcommenter'  " https://github.com/preservim/nerdcommenter
 Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-snippets
 Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
@@ -118,7 +118,7 @@ silent! let g:plugs['nvim-lint'].commit = '3c5e34c24834a67b1cb37600ab7663eefd2b0
 silent! let g:plugs['nvim-lsp-file-operations'].commit = '9744b738183a5adca0f916527922078a965515ed'
 silent! let g:plugs['nvim-lspconfig'].commit = 'dbfd8da6206b4ab0e2fe9b72a538f82e2b410102'
 silent! let g:plugs['nvim-tree.lua'].commit = 'b0b49552c9462900a882fe772993b01d780445fe'
-silent! let g:plugs['nvim-treesitter'].commit = '42fc28ba918343ebfd5565147a42a26580579482'
+silent! let g:plugs['nvim-treesitter'].commit = '4916d6592ede8c07973490d9322f187e07dfefac'
 silent! let g:plugs['nvim-web-devicons'].commit = '0422a19d9aa3aad2c7e5cca167e5407b13407a9d'
 silent! let g:plugs['plenary.nvim'].commit = '857c5ac632080dba10aae49dba902ce3abf91b35'
 silent! let g:plugs['tokyonight.nvim'].commit = '057ef5d260c1931f1dffd0f052c685dcd14100a3'
