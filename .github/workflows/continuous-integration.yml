@@ -6,6 +6,9 @@
 env:
   DEBUG_INFO: true # Print out helpful info in the logs
   CI: true
+  # Authenticated GitHub API so mise's aqua backend doesn't hit the
+  # 60 req/hour unauthenticated rate limit when resolving "latest"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 name: "continuous integration"
 on:

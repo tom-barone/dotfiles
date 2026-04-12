@@ -61,6 +61,9 @@ fi
 if os_is ubuntu; then
 	/home/linuxbrew/.linuxbrew/bin/brew install "${python_versions[@]}" mise
 	sudo apt-get install -y stow
+
+	# Make brew, mise and stow available when symlinking
+	export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
 
 # Create ~/opt directory so that symlinking doesn't
