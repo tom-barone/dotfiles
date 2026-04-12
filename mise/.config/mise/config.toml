@@ -4,3 +4,6 @@ trusted_config_paths = ["~/github"]
 
 [settings.ruby]
 compile = false
+
+[tools]
+ruby = "3.3.11"

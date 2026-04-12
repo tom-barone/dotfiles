@@ -70,9 +70,7 @@ assert_success 'cargo --version'
 # Java
 assert_success 'java --version'
 
-# Ruby and rbenv
-eval "$(rbenv init - bash)"
-assert_success 'rbenv --version'
+# Ruby
 assert_success 'ruby --version'
 
 # Terminal handy tools

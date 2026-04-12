@@ -64,11 +64,6 @@ bindkey "^[[B" down-line-or-beginning-search
 # Gcloud config
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-# Rbenv init (if rbenv is installed)
-if type rbenv &>/dev/null; then
-	eval "$(rbenv init - zsh)"
-fi
-
 # Plugins
 [[ ! -f ~/opt/zsh-abbr/zsh-abbr.zsh ]] || source ~/opt/zsh-abbr/zsh-abbr.zsh # this needs to be initialised down the bottom because of https://zsh-abbr.olets.dev/advanced.html#vi-mode
 
