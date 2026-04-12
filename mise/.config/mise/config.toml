@@ -9,6 +9,7 @@ compile = false
 corepack = true
 
 [tools]
+aws-cli = { version = "latest", symlink_bins = "true" }
 gemini-cli = "latest"
 gcloud = "latest"
 go = "1.26.0"
