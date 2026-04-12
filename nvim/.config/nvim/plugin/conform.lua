@@ -1,5 +1,6 @@
 require("conform").setup({
 	formatters_by_ft = {
+		bash = { "shfmt" },
 		["eruby.yaml"] = { "prettier" },
 		dart = { "dart_format" },
 		dockerfile = { "dockerfmt" },
@@ -13,6 +14,7 @@ require("conform").setup({
 		python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 		r = { "air" },
 		ruby = { "rubocop_fix" },
+		sh = { "shfmt" },
 		sql = { "sqlfluff" },
 		svelte = { "prettier" },
 		terraform = { "terraform_fmt" },
