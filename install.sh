@@ -52,14 +52,14 @@ if os_is mac && chip_is intel; then
 	export PATH="/usr/local/bin:$PATH"
 fi
 if os_is mac && chip_is apple_silicon; then
-	/opt/homebrew/bin/brew install "${python_versions[@]}" stow
+	/opt/homebrew/bin/brew install "${python_versions[@]}" stow mise
 
 	# Make brew and stow available when symlinking
 	export PATH="/opt/homebrew/bin:$PATH"
 	sudo ln -s /opt/homebrew/bin/python3 /opt/homebrew/bin/python
 fi
 if os_is ubuntu; then
-	/home/linuxbrew/.linuxbrew/bin/brew install "${python_versions[@]}"
+	/home/linuxbrew/.linuxbrew/bin/brew install "${python_versions[@]}" mise
 	sudo apt-get install -y stow
 fi
 
@@ -69,6 +69,9 @@ mkdir -p "$HOME/opt"
 
 # Setup dotfiles and path variables from .profile
 ./symlink.sh || { exit 1; }
+
+# Install global mise tools
+mise install
 
 echo ''
 echo 'Installing applications...'

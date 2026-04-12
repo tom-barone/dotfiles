@@ -1,1 +1,1 @@
-# bashrc - Thomas Barone
+# bashrc
