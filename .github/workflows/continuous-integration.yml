@@ -17,7 +17,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v6"
         with:
           fetch-depth: 0 # Deep clone
       - name: "Remove the .bash_login file"
@@ -31,14 +31,20 @@ jobs:
           git status
           git restore .
           git status
-      - name: "Run the install script and test"
-        run: "./install.sh"
+      - uses: "jdx/mise-action@v4.0.1"
+        with:
+          cache_key: "mise-{{platform}}-{{version}}-{{file_hash}}"
+          version: "2026.3.1"
+      - name: "Install mise tools, run the install script and test"
+        run: |
+          mise install
+          ./install.sh
   test-on-mac:
     # https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
     runs-on: "macos-15"
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v6"
         with:
           fetch-depth: 0 # Deep clone
       - name: "Remove the .bash_login file"
@@ -52,5 +58,11 @@ jobs:
           git status
           git restore .
           git status
-      - name: "Run the install script and test"
-        run: "./install.sh"
+      - uses: "jdx/mise-action@v4.0.1"
+        with:
+          cache_key: "mise-{{platform}}-{{version}}-{{file_hash}}"
+          version: "2026.3.1"
+      - name: "Install mise tools, run the install script and test"
+        run: |
+          mise install
+          ./install.sh
