@@ -9,6 +9,7 @@ brew_prefix=$(brew --prefix)
 # Essentials
 os_install wget
 os_install cmake
+os_install coreutils
 if os_is ubuntu; then
 	os_install build-essential # make and more
 	os_install lsb-release
