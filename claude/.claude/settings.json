@@ -1,4 +1,8 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash(VBoxManage:*)",
@@ -69,10 +73,6 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
   "effortLevel": "high",
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  }
+  "skipDangerousModePermissionPrompt": true
 }
