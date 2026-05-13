@@ -14,3 +14,5 @@
 	recurse = true
 [push]
 	recurseSubmodules = on-demand
+[credential "http://forgejo:3001"]
+	provider = generic
