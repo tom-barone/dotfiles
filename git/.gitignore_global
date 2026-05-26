@@ -59,8 +59,10 @@ CLAUDE.md
 AGENTS.md
 GEMINI.md
 TASKS.md
+REVIEW.md
 .claude
 .worktreeinclude
+.antigravitycli
 
 # Fix git shortlog and blame output when author has renamed their email address or name.
 .mailmap
