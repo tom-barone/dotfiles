@@ -8,6 +8,7 @@ compile = false
 [settings.node]
 corepack = true
 
+# https://mise.jdx.dev/registry.html
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
 gcloud = "latest"
@@ -19,4 +20,5 @@ ruby = "3.3.11"
 ruff = "latest"
 sops = "latest"
 terraform = "latest"
+tflint = "latest"
 uv = "0.10.8"

@@ -48,7 +48,7 @@ assert_success_zsh 'fzf --version'
 assert_zsh_completion 'tar' # Default that comes with zsh
 assert_zsh_completion 'git' # Default that comes with zsh
 
-# Mise
+# mise
 assert_success 'aws --version'
 assert_success 'gcloud --version'
 assert_success 'gemini --version'
@@ -60,6 +60,7 @@ assert_success 'ruby --version'
 assert_success 'ruff --version'
 assert_success 'sops --version'
 assert_success 'terraform --version'
+assert_success 'tflint --version'
 assert_success 'uv --version'
 
 # Node
@@ -137,7 +138,6 @@ if not_mac_ci; then
 	assert_success 'dockerfmt version'
 fi
 assert_success 'hadolint --version'
-assert_success 'tflint --version'
 
 # Redis
 assert_success 'redis-cli --version'
