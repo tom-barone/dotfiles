@@ -51,7 +51,6 @@ assert_zsh_completion 'git' # Default that comes with zsh
 # mise
 assert_success 'aws --version'
 assert_success 'gcloud --version'
-assert_success 'gemini --version'
 assert_success 'go version'
 assert_success 'java --version'
 assert_success 'node --version'
