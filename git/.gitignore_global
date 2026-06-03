@@ -55,9 +55,9 @@ Thumbs.db
 .cache
 
 # These are sufficiently personal I think to now be ignored
-CLAUDE.md
-AGENTS.md
-GEMINI.md
+CLAUDE.local.md
+AGENTS.local.md
+GEMINI.local.md
 TASKS.md
 REVIEW.md
 .claude
