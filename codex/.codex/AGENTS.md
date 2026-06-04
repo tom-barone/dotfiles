@@ -35,3 +35,7 @@ If a project is hosted with github, and you are tasked with creating Pull Reques
 ### Pull Request Description
 
 Don't use markdown headers. Don't write a test plan. Just write a terse list of dot points describing the changes that have been made.
+
+## Writing
+
+Whenever you're tasked with writing documentation, a README, marketing material, or any other form of writing, please avoid using the typical AI style of writing. E.g. "It's not X, it's Y" or excessive use of em dashes etc. Avoid flashy language, exaggeration and buzzwords like the plague. Your writing will be best described as "straightforward", "clear" and "concise".
