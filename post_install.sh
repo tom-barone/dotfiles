@@ -127,21 +127,24 @@ cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't comp
 if have_not_installed dua; then
 	cargo_install dua-cli # https://github.com/Byron/dua-cli
 fi
-cargo_install just                           # https://github.com/casey/just
-cargo_install flamegraph                     # https://github.com/flamegraph-rs
-brew_install jq                              # https://jqlang.github.io/jq/
-brew_install watchman                        # https://facebook.github.io/watchman/ Needed for tools like sorbet
-cargo_install lychee                         # https://github.com/lycheeverse/lychee
-cargo_install bottom                         # https://github.com/ClementTsang/bottom
-brew_install nmap                            # https://nmap.org
-brew_install lcov                            # https://lcov.readthedocs.io/en/latest/index.html
-brew_install gdb                             # https://www.gnu.org/software/gdb/
-brew_install llvm                            # https://llvm.org/
-brew_cask_install claude-code                # https://docs.anthropic.com/en/docs/claude-code/overview
-cargo_install fd-find                        # https://github.com/sharkdp/fd
-cargo_install git-delta                      # https://dandavison.github.io/delta/installation.html
-brew_install yq                              # https://github.com/mikefarah/yq
-cargo_install viu                            # https://github.com/atanunq/viu
+cargo_install just            # https://github.com/casey/just
+cargo_install flamegraph      # https://github.com/flamegraph-rs
+brew_install jq               # https://jqlang.github.io/jq/
+brew_install watchman         # https://facebook.github.io/watchman/ Needed for tools like sorbet
+cargo_install lychee          # https://github.com/lycheeverse/lychee
+cargo_install bottom          # https://github.com/ClementTsang/bottom
+brew_install nmap             # https://nmap.org
+brew_install lcov             # https://lcov.readthedocs.io/en/latest/index.html
+brew_install gdb              # https://www.gnu.org/software/gdb/
+brew_install llvm             # https://llvm.org/
+brew_cask_install claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
+cargo_install fd-find         # https://github.com/sharkdp/fd
+cargo_install git-delta       # https://dandavison.github.io/delta/installation.html
+brew_install yq               # https://github.com/mikefarah/yq
+cargo_install viu             # https://github.com/atanunq/viu
+if os_is mac; then
+	brew_install terminal-notifier # https://github.com/julienXX/terminal-notifier
+fi
 
 # Neovim setup https://github.com/neovim/neovim
 brew_install neovim

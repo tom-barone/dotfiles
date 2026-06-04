@@ -101,6 +101,9 @@ if os_is mac; then
 fi
 assert_success 'yq --version'
 assert_success 'viu --version'
+if os_is mac; then
+	assert_success 'terminal-notifier -version'
+fi
 
 # Neovim
 assert_success 'nvim --version'
