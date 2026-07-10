@@ -12,5 +12,6 @@ vim.api.nvim_create_autocmd("FileType", {
 			'<c-w><c-p>@=winnr("#")<cr><c-w>c', -- closes the cheat window
 			{ noremap = true, silent = true, buffer = true }
 		)
+		vim.cmd("vertical resize 45") -- resize width
 	end,
 })
