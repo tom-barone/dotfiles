@@ -46,7 +46,15 @@ vim.keymap.set("n", "<leader>gh", "<Cmd>0Gclog<cr>")
 vim.keymap.set("v", "<leader>gh", ":Gclog<cr>")
 vim.keymap.set("n", "<leader>gq", "<Cmd>Gedit<CR>") -- Leave fugitive history explorer
 vim.keymap.set("n", "<leader>gst", "<Cmd>Git<CR>")
-vim.keymap.set("n", "<leader>gd", "<Cmd>Gvdiffsplit<CR>")
+vim.keymap.set("n", "<leader>gdd", "<Cmd>DiffviewOpen<CR>")
+vim.keymap.set("n", "<leader>gdc", "<Cmd>DiffviewClose<CR>")
+vim.keymap.set("n", "<leader>gdm", function() -- Open diffview for the main branch, or master if main doesn't exist
+	local branch = "main"
+	if vim.fn.system("git rev-parse --verify main 2>/dev/null") == "" or vim.v.shell_error ~= 0 then
+		branch = "master"
+	end
+	vim.cmd("DiffviewOpen " .. branch)
+end)
 vim.keymap.set("n", "<leader>gl", "<Cmd>Gllog<CR>")
 
 -- Diagnostic navigation

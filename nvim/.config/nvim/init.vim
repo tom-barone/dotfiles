@@ -90,6 +90,7 @@ Plug 'nvim-tree/nvim-web-devicons'  " https://github.com/nvim-tree/nvim-web-devi
 Plug 'nvim-treesitter/nvim-treesitter'  " https://github.com/nvim-treesitter/nvim-treesitter
 Plug 'preservim/nerdcommenter'  " https://github.com/preservim/nerdcommenter
 Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-snippets
+Plug 'sindrets/diffview.nvim'  " https://github.com/sindrets/diffview.nvim
 Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
 Plug 'tpope/vim-fugitive'  " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
@@ -106,6 +107,7 @@ silent! let g:plugs['blink.cmp'].commit = '3545f6dce83baacbedfb5dd8d1230cd0492fd
 silent! let g:plugs['bufferline.nvim'].commit = '655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3'
 silent! let g:plugs['conform.nvim'].commit = 'fbcb4fa7f34bfea9be702ffff481a8e336ebf6ed'
 silent! let g:plugs['copilot.vim'].commit = 'a12fd5672110c8aa7e3c8419e28c96943ca179be'
+silent! let g:plugs['diffview.nvim'].commit = '4516612fe98ff56ae0415a259ff6361a89419b0a'
 silent! let g:plugs['editorconfig-vim'].commit = '6a58b7c11f79c0e1d0f20533b3f42f2a11490cf8'
 silent! let g:plugs['friendly-snippets'].commit = '572f5660cf05f8cd8834e096d7b4c921ba18e175'
 silent! let g:plugs['fzf-lua'].commit = 'e297fea843bd703b162894e880d2ba90b1fe9dae'
