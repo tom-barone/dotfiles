@@ -1,7 +1,4 @@
 abbr ezsh="nvim /Users/tbone/.zshrc"
-abbr gst="git status"
-abbr gp="git pull --rebase"
-abbr gco="git checkout"
 abbr l="eza --icons --all"
 abbr la="eza --long --header --icons --all"
 abbr ll="eza --long --header --icons --all"
@@ -14,6 +11,13 @@ abbr cat="bat -p"
 abbr ncdu="dua i"
 abbr du="dua"
 abbr find="fd"
+
+# git
+abbr gst="git status"
+abbr gp="git pull --rebase --no-recurse-submodules"
+abbr gco="git checkout"
+abbr gcm='claude --dangerously-skip-permissions --model sonnet --effort medium "/git_commit"'
+abbr gca="git commit --amend"
 
 # Abbreviations for work laptop
 abbr cdc="cd ~/code"
