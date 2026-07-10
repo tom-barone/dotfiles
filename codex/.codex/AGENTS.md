@@ -47,3 +47,18 @@ Don't use markdown headers. Don't write a test plan. Just write a terse list of 
 ## Writing
 
 Whenever you're tasked with writing documentation, a README, marketing material, or any other form of writing, please avoid using the typical AI style of writing. E.g. "It's not X, it's Y" or excessive use of em dashes etc. Avoid flashy language, exaggeration and buzzwords like the plague. Your writing will be best described as "straightforward", "clear" and "concise".
+
+## Commits
+
+Follow the Linux kernel patch guidelines for commits.
+
+Separate each logical change into its own commit. Bug fixes, refactors, and features are always separate commits, even if they touch the same files. A single logical change spanning many files is one commit. If a file mixes unrelated changes, split it at the hunk level by applying partial diffs with `git apply --cached`.
+
+Every commit must build and pass tests on its own so the history is bisectable. When moving code, don't modify it in the same commit that moves it.
+
+Commit message format:
+
+- Subject line: `subsystem: short summary` in imperative mood ("make xyzzy do frotz", not "made" or "this commit makes"). Keep it under 72 characters.
+- Blank line, then a body that first describes the problem and motivation, then what the change does and why, in plain English.
+- Wrap body text at 72 characters.
+- When referencing a commit, use at least 12 characters of the SHA plus the oneline summary, e.g. `Fixes: e21d2170f366 ("video: remove unnecessary platform_set_drvdata()")`.
