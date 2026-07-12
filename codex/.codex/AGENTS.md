@@ -48,7 +48,7 @@ Keep it empty, let the commit messages tell the story.
 
 Whenever you're tasked with writing documentation, a README, marketing material, or any other form of writing, please avoid using the typical AI style of writing. E.g. "It's not X, it's Y" or excessive use of em dashes etc. Avoid flashy language, exaggeration and buzzwords like the plague. Your writing will be best described as "straightforward", "clear" and "concise".
 
-## Commits
+## Git commits
 
 Follow the Linux kernel patch guidelines for commits.
 
@@ -63,3 +63,5 @@ Commit message format:
 - Blank line, then a body that first describes the problem and motivation, then what the change does and why, in plain English.
 - Wrap body text at 72 characters.
 - When referencing a commit, use at least 12 characters of the SHA plus the oneline summary, e.g. `Fixes: e21d2170f366 ("video: remove unnecessary platform_set_drvdata()")`
+
+When creating a git branch, use similar naming conventions to the commit message format. E.g. `subsystem/short-summary` or just `short-summary` if there is no subsystem.
