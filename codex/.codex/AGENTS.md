@@ -42,7 +42,7 @@ If a project is hosted with github, and you are tasked with creating Pull Reques
 
 ### Pull Request Description
 
-Don't use markdown headers. Don't write a test plan. Just write a terse list of dot points describing the changes that have been made.
+Keep it empty, let the commit messages tell the story.
 
 ## Writing
 
