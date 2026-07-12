@@ -91,3 +91,19 @@ To revert:
 defaults delete com.apple.dock autohide-delay
 killall Dock
 ```
+
+# Helpful nvim commands during git reviews
+
+```vim
+" View all commits for branch that are being merged into master
+:Git log main..
+
+" Start interactive rebase of all commits on the current branch that are not in main
+:Git rebase -i main
+
+" While rebasing, view all changes
+:DiffviewOpen HEAD~1 " <leader>gdh
+
+" View all changes from the current branch that are not in main
+:DiffviewFileHistory --range=main..HEAD
+```
