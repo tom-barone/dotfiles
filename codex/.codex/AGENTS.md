@@ -59,7 +59,7 @@ Every commit must build and pass tests on its own so the history is bisectable. 
 Commit message format:
 
 - Subject line: `subsystem: short summary` in imperative mood ("make xyzzy do frotz", not "made" or "this commit makes"). Keep it under 72 characters.
- - If there is no subsystem, just use a short summary. Don't use things like "fix" or "chore" etc.
+- If there is no subsystem, just use a short summary. Don't use things like "fix" or "chore" etc.
 - Blank line, then a body that first describes the problem and motivation, then what the change does and why, in plain English.
 - Wrap body text at 72 characters.
 - When referencing a commit, use at least 12 characters of the SHA plus the oneline summary, e.g. `Fixes: e21d2170f366 ("video: remove unnecessary platform_set_drvdata()")`
