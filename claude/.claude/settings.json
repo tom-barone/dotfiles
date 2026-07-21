@@ -71,6 +71,16 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -message 'Claude finished' -title 'Claude Code' -sound 'default'"
+          }
+        ]
+      }
     ]
   },
   "alwaysThinkingEnabled": true,
