@@ -72,7 +72,7 @@ Plug 'antosha417/nvim-lsp-file-operations' " https://github.com/antosha417/nvim-
 Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
 Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }  " https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install && npm install mermaid@latest && cp node_modules/mermaid/dist/mermaid.min.js _static/mermaid.min.js' } " https://github.com/iamcco/markdown-preview.nvim
 Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
 Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/goyo.vim'  " https://github.com/junegunn/goyo.vim
