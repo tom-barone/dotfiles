@@ -57,6 +57,7 @@ vim.keymap.set("n", "<leader>gdm", function() -- Open diffview for the main bran
 	end
 	vim.cmd("DiffviewOpen " .. branch)
 end)
+vim.keymap.set("n", "<leader>gb", "<Cmd>GBrowse<CR>") -- Open file in browser
 
 -- Diagnostic navigation
 vim.keymap.set("n", "[d", function()
