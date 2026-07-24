@@ -48,6 +48,22 @@ Keep it empty, let the commit messages tell the story.
 
 Whenever you're tasked with writing documentation, a README, marketing material, or any other form of writing, please avoid using the typical AI style of writing. E.g. "It's not X, it's Y" or excessive use of em dashes etc. Avoid flashy language, exaggeration and buzzwords like the plague. Your writing will be best described as "straightforward", "clear" and "concise".
 
+### Requirements
+
+Follow these rules when writing requirements:
+
+- One requirement per bullet: a single rule, fact or behaviour that can pass or fail on its own. If the two halves of a sentence could fail independently, split them.
+- A requirement is testable as written: a reader can decide from the bullet alone whether the system satisfies it.
+- A separate section "Facts and Assumptions" exists for facts and assumptions that the requirements rest on. Cite them by ID in the requirements section.
+  - A fact is something true of the world or the existing data, verified. An assumption is something believed but unverified. Neither says anything about the new system.
+- Every bullet carries an ID: a short section prefix and a three-digit number. A new requirement takes the next free number in its section.
+- Each bullet stands alone: no "it" or "that pair" reaching into the previous bullet. Refer to other requirements by ID.
+- Prefer the shortest wording that loses no testable detail.
+- "Shall" or "Should" in every requirement.
+- When a requirement would look arbitrary or wrong without its justification, cite the fact or assumption as an indented sub-bullet beneath it. Don't cite the obvious ones; most requirements carry no citation.
+
+Strive for perfect, atomic and concise requirements that read clearly from top to bottom.
+
 ## Git commits
 
 Follow the Linux kernel patch guidelines for commits.
