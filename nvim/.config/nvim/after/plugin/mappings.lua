@@ -29,6 +29,7 @@ vim.keymap.set("n", "<Leader>tt", "<Cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<Leader>tf", "<Cmd>NvimTreeFindFile!<CR>")
 vim.keymap.set("n", "<Leader>pc", "<Cmd>source $MYVIMRC | PlugClean<CR>")
 vim.keymap.set("n", "<Leader>pi", "<Cmd>source $MYVIMRC | PlugInstall<CR>")
+vim.keymap.set("n", "<Leader>pu", "<Cmd>source $MYVIMRC | PlugUpdate<CR>")
 vim.keymap.set("n", "<Leader>pr", "<Cmd>Format<CR>")
 vim.keymap.set("n", "<Leader>gy", "<Cmd>Goyo<CR>")
 
