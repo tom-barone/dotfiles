@@ -123,3 +123,5 @@ fi
 
 ## GPG
 export GPG_TTY=$(tty)
+
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
