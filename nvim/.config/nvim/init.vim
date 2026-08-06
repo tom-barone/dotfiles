@@ -93,8 +93,8 @@ Plug 'rafamadriz/friendly-snippets'  " https://github.com/rafamadriz/friendly-sn
 Plug 'sindrets/diffview.nvim'  " https://github.com/sindrets/diffview.nvim
 Plug 'stevearc/conform.nvim'  " https://github.com/stevearc/conform.nvim
 Plug 'tpope/vim-fugitive'  " https://github.com/tpope/vim-fugitive
-Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rails'   " https://github.com/tpope/vim-rails
+Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb
 Plug 'tpope/vim-surround'  " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-unimpaired'  " https://github.com/tpope/vim-unimpaired
