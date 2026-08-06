@@ -1,6 +1,6 @@
-# /Users/tbone/.config/tmuxinator/supersensory-platform.yml
+# /Users/tbone/.config/tmuxinator/sst-wasabi-migrator.yml
 
-name: supersensory-platform
+name: sst-wasabi-migrator
 root: ~/github/sst-wasabi-migrator/
 
 # Optional tmux socket
