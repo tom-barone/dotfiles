@@ -71,7 +71,6 @@ Plug 'akinsho/bufferline.nvim'  " https://github.com/akinsho/bufferline.nvim
 Plug 'antosha417/nvim-lsp-file-operations' " https://github.com/antosha417/nvim-lsp-file-operations
 Plug 'editorconfig/editorconfig-vim'  " https://github.com/editorconfig/editorconfig-vim
 Plug 'folke/tokyonight.nvim' " https://github.com/folke/tokyonight.nvim
-Plug 'github/copilot.vim'  " https://github.com/github/copilot.vim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install && npm install mermaid@latest && cp node_modules/mermaid/dist/mermaid.min.js _static/mermaid.min.js' } " https://github.com/iamcco/markdown-preview.nvim
 Plug 'ibhagwan/fzf-lua'  " https://github.com/ibhagwan/fzf-lua
 Plug 'junegunn/fzf.vim'  " https://github.com/junegunn/fzf.vim
@@ -98,6 +97,7 @@ Plug 'tpope/vim-repeat'  " https://github.com/tpope/vim-repeat
 Plug 'tpope/vim-rhubarb'  " https://github.com/tpope/vim-rhubarb
 Plug 'tpope/vim-surround'  " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-unimpaired'  " https://github.com/tpope/vim-unimpaired
+Plug 'zbirenbaum/copilot.lua' " https://github.com/zbirenbaum/copilot.lua
 Plug 'Saghen/blink.cmp', { 'do': 'cargo build --release' } " https://github.com/Saghen/blink.cmp
 Plug '~/opt/fzf' " https://github.com/junegunn/fzf, already installed in ~/opt/fzf
 
@@ -107,7 +107,7 @@ call plug#end()
 silent! let g:plugs['blink.cmp'].commit = '3545f6dce83baacbedfb5dd8d1230cd0492fd1d7'
 silent! let g:plugs['bufferline.nvim'].commit = '655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3'
 silent! let g:plugs['conform.nvim'].commit = 'fbcb4fa7f34bfea9be702ffff481a8e336ebf6ed'
-silent! let g:plugs['copilot.vim'].commit = 'a12fd5672110c8aa7e3c8419e28c96943ca179be'
+silent! let g:plugs['copilot.lua'].commit = 'e51d8519c79c073c41107c108be97548c115455e'
 silent! let g:plugs['diffview.nvim'].commit = '4516612fe98ff56ae0415a259ff6361a89419b0a'
 silent! let g:plugs['editorconfig-vim'].commit = '6a58b7c11f79c0e1d0f20533b3f42f2a11490cf8'
 silent! let g:plugs['friendly-snippets'].commit = '572f5660cf05f8cd8834e096d7b4c921ba18e175'

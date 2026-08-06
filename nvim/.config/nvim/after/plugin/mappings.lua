@@ -92,14 +92,3 @@ end)
 vim.keymap.set("n", "<Leader>lE", function()
 	fzf.lsp_workspace_diagnostics(h_opts)
 end)
-
--- Copilot mappings
-vim.keymap.set("i", "<C-s>", "<Plug>(copilot-accept-line)")
-vim.keymap.set("i", "<C-d>", 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
--- Disable default tab mapping
-vim.g.copilot_no_tab_map = true
-
-vim.keymap.set("i", "<C-j>", "<Plug>(copilot-next)")
-vim.keymap.set("i", "<C-k>", "<Plug>(copilot-previous)")
-vim.keymap.set("n", "<leader>cd", "<Cmd>Copilot disable<CR>")
-vim.keymap.set("n", "<leader>ce", "<Cmd>Copilot enable<CR>")
