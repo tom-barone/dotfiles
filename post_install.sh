@@ -327,6 +327,18 @@ if os_is mac && not_ci; then
 	brew_cask_install mactex
 fi
 
+# Aerc
+mkdir -p "$HOME/Maildir/{INBOX,Sent,Drafts,Archive}/{cur,new,tmp}"
+chmod 600 "$HOME/.config/aerc/accounts.conf"
+sudo postconf -e 'inet_interfaces = all'
+sudo postconf -e 'mynetworks = 127.0.0.0/8 [::1]/128 192.168.50.0/24'
+sudo sh -c 'echo "/^tb-macbook-pro\\../ OK" > /etc/postfix/mydest.regexp'
+sudo postconf -e 'mydestination = $myhostname, localhost.$mydomain, localhost, tb-macbook-pro, regexp:/etc/postfix/mydest.regexp'
+sudo postconf -e 'resolve_numeric_domain = yes'
+sudo postconf -e 'home_mailbox = Maildir/INBOX'
+#sudo postfix start
+#sudo postfix reload
+
 # Final cleanup steps
 brew cleanup
 brew autoremove
