@@ -79,3 +79,11 @@ Commit message format:
 - When referencing a commit, use at least 12 characters of the SHA plus the oneline summary, e.g. `Fixes: e21d2170f366 ("video: remove unnecessary platform_set_drvdata()")`
 
 When creating a git branch, use similar naming conventions to the commit message format. E.g. `subsystem/short-summary` or just `short-summary` if there is no subsystem.
+
+When making a git commit, you must never make reference to the fact you are a human or an AI. The commit message should be about the code, not the author.
+
+Do not include things like:
+
+- Claude session ...
+- Codex session ...
+- etc.
