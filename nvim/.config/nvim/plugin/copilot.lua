@@ -15,6 +15,7 @@ require("copilot").setup({
 		xml = false,
 		markdown = true,
 		dotenv = false,
+		yaml = true,
 	},
 })
 
