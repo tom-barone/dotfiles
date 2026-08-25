@@ -58,6 +58,11 @@ if os_is mac; then
 	/usr/bin/tic -xe alacritty-direct,tmux-256color ./system/terminfo.src # Result is put in ~/.terminfo
 fi
 
+# Alacritty themes
+# We use Alacritty's default Linux config directory as our storage location here.
+mkdir -p "$HOME/.config/alacritty-themes"
+git clone https://github.com/alacritty/alacritty-theme "$HOME/.config/alacritty-themes"
+
 # Git credential manager
 # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md
 if have_not_installed git-credential-manager; then

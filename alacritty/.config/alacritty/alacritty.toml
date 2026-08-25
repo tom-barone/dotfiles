@@ -42,3 +42,8 @@ option_as_alt = "OnlyLeft" # MacOS
 [window.padding]
 x = 1
 y = 1
+
+[general]
+import = [
+    "~/.config/alacritty-themes/themes/kitty.toml"
+]
