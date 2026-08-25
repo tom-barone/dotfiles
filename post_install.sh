@@ -333,7 +333,7 @@ if os_is mac && not_ci; then
 fi
 
 # Aerc
-mkdir -p "$HOME/Maildir/{INBOX,Sent,Drafts,Archive}/{cur,new,tmp}"
+mkdir -p "$HOME"/Maildir/{INBOX,Sent,Drafts,Archive}/{cur,new,tmp}
 chmod 600 "$HOME/.config/aerc/accounts.conf"
 sudo postconf -e 'inet_interfaces = all'
 sudo postconf -e 'mynetworks = 127.0.0.0/8 [::1]/128 192.168.50.0/24'

@@ -66,6 +66,10 @@ set-option -g focus-events on
 # Safekill [https://github.com/jlipps/tmux-safekill]
 set -g @plugin "jlipps/tmux-safekill"
 
+# Extended keys
+set -g extended-keys on
+set -s extended-keys-format csi-u
+
 ##################################################
 # Config from oh-my-tmux
 # https://github.com/gpakosz/.tmux
