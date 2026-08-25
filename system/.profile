@@ -8,6 +8,7 @@ export LANG=en_AU.UTF-8
 export LC_CTYPE=en_AU.UTF-8
 export LC_ALL=en_AU.UTF-8
 export TZ="Australia/Adelaide"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 add_to_path() {
 	[ -d "$1" ] && PATH="$1:$PATH"
