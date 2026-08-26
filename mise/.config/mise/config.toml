@@ -11,19 +11,19 @@ corepack = true
 
 # https://mise.jdx.dev/registry.html
 [tools]
-aws-cli = { version = "latest", symlink_bins = "true" }
-bat = "latest"
-dua = "latest"
-eza = "latest"
-gcloud = "latest"
-go = "latest"
-java = "openjdk-25"
-node = "lts"
-pi = "latest"
-prettier = "latest"
-ruby = "3.3.11"
-ruff = "latest"
-sops = "latest"
-terraform = "latest"
-tflint = "latest"
-uv = "latest"
+aws-cli = { version = "latest", symlink_bins = "true" } # https://docs.aws.amazon.com/cli/latest/
+bat = "latest"                                          # https://github.com/sharkdp/bat
+dua = "latest"                                          # https://github.com/Byron/dua-cli
+eza = "latest"                                          # https://github.com/eza-community/eza
+gcloud = "latest"                                       # https://cloud.google.com/sdk/docs/install
+go = "latest"                                           # https://go.dev/doc/install
+java = "openjdk-25"                                     # https://openjdk.org/install/
+node = "lts"                                            # https://nodejs.org/en/download/
+pi = "latest"                                           # https://github.com/earendil-works/pi
+prettier = "latest"                                     # https://prettier.io/docs/en/install.html
+ruby = "3.3.11"                                         # https://www.ruby-lang.org/en/downloads/
+ruff = "latest"                                         # https://github.com/astral-sh/ruff
+sops = "latest"                                         # https://github.com/getsops/sops
+terraform = "latest"                                    # https://developer.hashicorp.com/terraform/downloads
+tflint = "latest"                                       # https://github.com/terraform-linters/tflint
+uv = "latest"                                           # https://github.com/astral-sh/uv
