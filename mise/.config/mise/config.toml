@@ -11,6 +11,9 @@ corepack = true
 # https://mise.jdx.dev/registry.html
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
+bat = "latest"
+dua = "latest"
+eza = "latest"
 gcloud = "latest"
 go = "1.26.0"
 java = "openjdk-25"

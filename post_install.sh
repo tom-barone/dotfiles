@@ -117,8 +117,6 @@ rustup update
 os_install vim
 os_install tmux   # https://github.com/tmux/tmux
 os_install tig    # https://github.com/jonas/tig
-cargo_install eza # https://github.com/eza-community/eza
-brew_install bat  # https://github.com/sharkdp/bat
 os_install ncdu   # https://dev.yorhel.nl/ncdu
 if have_not_installed rg; then
 	cargo_install ripgrep # https://github.com/BurntSushi/ripgrep
@@ -129,9 +127,6 @@ if have_not_installed cpanm; then
 	brew_install cpanminus # https://formulae.brew.sh/formula/cpanminus
 fi
 cpanm -n App::cpanminus # Need to do this so neovim's 'checkhealth' doesn't complain
-if have_not_installed dua; then
-	cargo_install dua-cli # https://github.com/Byron/dua-cli
-fi
 cargo_install just            # https://github.com/casey/just
 cargo_install flamegraph      # https://github.com/flamegraph-rs
 brew_install jq               # https://jqlang.github.io/jq/
