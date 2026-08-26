@@ -330,14 +330,16 @@ fi
 # Aerc
 mkdir -p "$HOME"/Maildir/{INBOX,Sent,Drafts,Archive}/{cur,new,tmp}
 chmod 600 "$HOME/.config/aerc/accounts.conf"
-sudo postconf -e 'inet_interfaces = all'
-sudo postconf -e 'mynetworks = 127.0.0.0/8 [::1]/128 192.168.50.0/24'
-sudo sh -c 'echo "/^tb-macbook-pro\\../ OK" > /etc/postfix/mydest.regexp'
-sudo postconf -e 'mydestination = $myhostname, localhost.$mydomain, localhost, tb-macbook-pro, regexp:/etc/postfix/mydest.regexp'
-sudo postconf -e 'resolve_numeric_domain = yes'
-sudo postconf -e 'home_mailbox = Maildir/INBOX'
-#sudo postfix start
-#sudo postfix reload
+if os_is mac; then # postfix only ships with macOS
+	sudo postconf -e 'inet_interfaces = all'
+	sudo postconf -e 'mynetworks = 127.0.0.0/8 [::1]/128 192.168.50.0/24'
+	sudo sh -c 'echo "/^tb-macbook-pro\\../ OK" > /etc/postfix/mydest.regexp'
+	sudo postconf -e 'mydestination = $myhostname, localhost.$mydomain, localhost, tb-macbook-pro, regexp:/etc/postfix/mydest.regexp'
+	sudo postconf -e 'resolve_numeric_domain = yes'
+	sudo postconf -e 'home_mailbox = Maildir/INBOX'
+	#sudo postfix start
+	#sudo postfix reload
+fi
 
 # Final cleanup steps
 brew cleanup
