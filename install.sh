@@ -75,11 +75,6 @@ mkdir -p "$HOME/opt"
 
 # Install global mise tools
 mise install
-# Refreshing the lockfile always rewrites its metadata, which would
-# fail the "no git changes" check in CI
-if not_ci; then
-	mise lock --global --locked
-fi
 
 echo ''
 echo 'Installing applications...'
