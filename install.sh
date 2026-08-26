@@ -75,6 +75,7 @@ mkdir -p "$HOME/opt"
 
 # Install global mise tools
 mise install
+mise lock --global --locked
 
 echo ''
 echo 'Installing applications...'

@@ -1,6 +1,7 @@
 [settings]
 experimental = false
 trusted_config_paths = ["~/github"]
+lockfile = true
 
 [settings.ruby]
 compile = false
