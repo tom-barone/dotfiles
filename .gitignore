@@ -12,3 +12,6 @@ gpg/.gnupg/*
 
 # gemini-cli writes per-project state into .gemini/
 gemini/.gemini/projects.json*
+
+# mise lockfile
+mise/.config/mise/mise.lock
