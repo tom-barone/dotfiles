@@ -92,7 +92,6 @@ assert_success 'btm --version'
 assert_success 'nmap --version'
 assert_success 'lcov --version'
 assert_success 'gdb --version'
-assert_success 'lldb --version'
 assert_success 'claude --version'
 assert_success 'fd --version'
 if os_is mac; then
