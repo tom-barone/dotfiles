@@ -139,7 +139,6 @@ brew_install gdb              # https://www.gnu.org/software/gdb/
 brew_install llvm             # https://llvm.org/
 brew_cask_install claude-code # https://docs.anthropic.com/en/docs/claude-code/overview
 cargo_install fd-find         # https://github.com/sharkdp/fd
-cargo_install git-delta       # https://dandavison.github.io/delta/installation.html
 brew_install yq               # https://github.com/mikefarah/yq
 cargo_install viu             # https://github.com/atanunq/viu
 if os_is mac; then

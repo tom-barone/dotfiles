@@ -27,3 +27,4 @@ sops = "latest"                                         # https://github.com/get
 terraform = "latest"                                    # https://developer.hashicorp.com/terraform/downloads
 tflint = "latest"                                       # https://github.com/terraform-linters/tflint
 uv = "latest"                                           # https://github.com/astral-sh/uv
+delta = "latest"                                        # https://dandavison.github.io/delta
