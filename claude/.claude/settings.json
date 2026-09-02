@@ -83,6 +83,7 @@
       }
     ]
   },
+  "feedbackDrafts": "off",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "modelSettings": {
@@ -93,6 +94,5 @@
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark",
-  "feedbackDrafts": "off"
+  "theme": "dark"
 }
