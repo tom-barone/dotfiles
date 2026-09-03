@@ -51,12 +51,6 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:tailscale.com)",
       "WebSearch"
-    ],
-    "deny": [
-      "Read(**/*.env)",
-      "Read(**/.env)",
-      "Read(**/*.key)",
-      "Read(**/*.enc)"
     ]
   },
   "model": "fable[1m]",
