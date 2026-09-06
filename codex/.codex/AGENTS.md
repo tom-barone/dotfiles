@@ -16,7 +16,7 @@ When creating a new file, can you add a single line comment at the top that says
 
 ## Linting
 
-If you encounter linting errors, do not change or ignore any linting rules. You must fix the underlying issues instead. If there is already an ignore for a rule, you may leave it as is, but do not add new ignores.
+If you encounter linting errors, you must never add a specific ignore/allow in order to pass the linter. You must fix the underlying issues instead. You may suggest adding a project-wide allow/ignore rule if you think the linter is wrong, but check with me first.
 
 ## Planning
 
