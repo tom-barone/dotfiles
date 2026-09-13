@@ -73,3 +73,11 @@ Do not include things like:
 - Claude session ...
 - Codex session ...
 - etc.
+
+## Analyses
+
+When doing ad-hoc analyses and you happen to want to run some python code, you can use `uv` to run the code in a temporary environment with the necessary dependencies:
+
+```
+uv run --with numpy --with scipy --with soundfile --with matplotlib python script.py
+```
