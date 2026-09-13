@@ -38,11 +38,16 @@ vim.lsp.config("rust_analyzer", {
 				command = "clippy",
 				features = "all",
 				allTargets = true,
+				extraArgs = { "--release" },
 			},
 			cargo = {
 				--target = "wasm32-unknown-unknown",
 				features = "all",
 				allTargets = true,
+				extraArgs = { "--release" },
+			},
+			runnables = {
+				extraArgs = { "--release" },
 			},
 		},
 	},
