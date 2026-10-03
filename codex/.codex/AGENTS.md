@@ -74,6 +74,8 @@ Do not include things like:
 - Codex session ...
 - etc.
 
+Just to repeat again, you must NEVER include references to Claude Code sessions or Codex sessions in your commits, PR descriptions or anything git related! 
+
 ## Analyses
 
 When doing ad-hoc analyses and you happen to want to run some python code, you can use `uv` to run the code in a temporary environment with the necessary dependencies:
