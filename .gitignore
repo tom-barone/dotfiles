@@ -3,6 +3,7 @@ tmux/.config/tmux/plugins
 
 claude/.claude/statsig
 claude/.claude/debug
+claude/.claude/skills/synced
 !claude/.claude
 
 # gpg runtime data lands here because the whole .gnupg dir is stowed —
