@@ -183,6 +183,8 @@ if os_is mac && chip_is apple_silicon; then
 	assert_success 'flutter --version'
 fi
 
+assert_success 'immich --version'
+
 # Print out some useful info during the CI build
 if [ "$DEBUG_INFO" == true ]; then
 	echo "Current directory: $(pwd)"

@@ -340,6 +340,9 @@ if os_is mac; then # postfix only ships with macOS
 	#sudo postfix reload
 fi
 
+# Immich
+npm_global_install @immich/cli
+
 # Final cleanup steps
 brew cleanup
 brew autoremove
