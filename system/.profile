@@ -41,6 +41,7 @@ add_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
 add_to_path "/opt/mssql-tools18/bin"
 add_to_path "$HOME/Library/Android/sdk/emulator"
 add_to_path "$HOME/.deno/bin"
+add_to_path "$HOME/.docker/bin"
 
 if type brew &>/dev/null; then
 	homebrew_prefix="$(brew --prefix)"
