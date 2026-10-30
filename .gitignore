@@ -5,6 +5,7 @@ claude/.claude/statsig
 claude/.claude/debug
 claude/.claude/skills/synced
 !claude/.claude
+.trash/
 
 # gpg runtime data lands here because the whole .gnupg dir is stowed —
 # only the agent config is meant to be tracked
@@ -16,3 +17,4 @@ gemini/.gemini/projects.json*
 
 # mise lockfile
 mise/.config/mise/mise.lock
+
