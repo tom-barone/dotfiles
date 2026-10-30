@@ -53,7 +53,7 @@
       "WebSearch"
     ]
   },
-  "model": "fable[1m]",
+  "model": "opus",
   "feedbackDrafts": "off",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
