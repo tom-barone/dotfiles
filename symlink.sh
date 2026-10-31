@@ -2,6 +2,7 @@
 
 dotfiles_to_symlink=(
 	aerc
+	agents
 	alacritty
 	bash
 	claude
@@ -34,6 +35,19 @@ delete_link() {
 	directory=$1
 	stow --verbose --delete --target "$HOME" "${directory}"
 }
+
+# Claude Code only reads ~/.claude/skills. Link each skill on its own so
+# claude.ai's synced/ skills stay out of the shared directory. This runs
+# before stow so ~/.claude is still there when deleting.
+for skill in agents/.agents/skills/*/; do
+	skill=$(basename "$skill")
+	if [[ $1 == "--delete" ]]; then
+		rm -f "$HOME/.claude/skills/$skill"
+	else
+		mkdir -p "$HOME/.claude/skills"
+		ln -sfn "$HOME/.agents/skills/$skill" "$HOME/.claude/skills/$skill"
+	fi
+done
 
 for directory in "${dotfiles_to_symlink[@]}"; do
 	if [[ $1 == "--delete" ]]; then

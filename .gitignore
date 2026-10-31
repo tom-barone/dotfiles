@@ -3,9 +3,14 @@ tmux/.config/tmux/plugins
 
 claude/.claude/statsig
 claude/.claude/debug
-claude/.claude/skills/synced
+claude/.claude/skills
 !claude/.claude
 .trash/
+
+# Codex and other tools write into ~/.agents; only these are tracked
+agents/.agents/*
+!agents/.agents/AGENTS.md
+!agents/.agents/skills
 
 # gpg runtime data lands here because the whole .gnupg dir is stowed —
 # only the agent config is meant to be tracked
