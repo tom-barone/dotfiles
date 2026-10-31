@@ -13,6 +13,7 @@ dotfiles_to_symlink=(
 	gpg
 	nvim
 	mise
+	pi
 	ripgrep
 	system
 	tig
