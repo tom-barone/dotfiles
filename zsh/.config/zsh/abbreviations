@@ -17,7 +17,7 @@ abbr gst="git status"
 abbr gp="git pull --rebase --no-recurse-submodules"
 abbr gsp="git stash && git pull --rebase --no-recurse-submodules && git stash pop"
 abbr gco="git checkout"
-abbr gcm='claude --dangerously-skip-permissions --model sonnet --effort medium "/git_commit"'
+abbr gcm='claude --dangerously-skip-permissions --model sonnet --effort medium "/git-commit"'
 abbr gca="git commit --amend"
 
 # Abbreviations for work laptop
