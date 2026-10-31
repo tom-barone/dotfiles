@@ -94,6 +94,7 @@ assert_success 'lcov --version'
 assert_success 'gdb --version'
 assert_success 'claude --version'
 assert_file_exists "$HOME/.claude/skills/rebase/SKILL.md"
+assert_file_exists "$HOME/.codex/AGENTS.md"
 assert_success 'fd --version'
 if os_is mac; then
 	# For some reason this fails on ubuntu CI

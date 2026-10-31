@@ -37,7 +37,7 @@
       "Bash(vagrant --version:*)",
       "Bash(xargs:*)",
       "Bash(wc:*)",
-      "Read(~/.codex/AGENTS.md)",
+      "Read(~/.agents/AGENTS.md)",
       "WebFetch(domain:ansible.readthedocs.io)",
       "WebFetch(domain:crates.io)",
       "WebFetch(domain:docs.ansible.com)",
