@@ -1,3 +1,8 @@
+---
+name: ansible-common-bump
+description: Bump the ansible-common git submodule to the latest upstream main, review what changed, and update this repo to match.
+---
+
 Bump the `ansible-common` git submodule in this repo to the latest upstream `main`, understand what changed, and update this repo to accommodate those changes.
 
 Work through the steps below in order. Do not skip ahead. Report what you find at each step before moving on.

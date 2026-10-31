@@ -1,3 +1,8 @@
+---
+name: full-review
+description: Do a thorough code review of the whole codebase and report real issues, not a summary.
+---
+
 Do a thorough code review of this codebase. I want a real review, not a summary.
 
 Scope: Review all source code.

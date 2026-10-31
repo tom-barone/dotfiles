@@ -1,3 +1,8 @@
+---
+name: pull-request
+description: Create a GitHub PR if needed, commit and push the changes, and monitor the CI pipelines it triggers.
+---
+
 Can you:
 
 1. Create a github PR if one doesn't already exist.
