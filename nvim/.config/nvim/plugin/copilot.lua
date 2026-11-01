@@ -25,3 +25,6 @@ vim.keymap.set("n", "<leader>ce", "<Cmd>Copilot enable<CR>")
 
 -- Ghost text color (was: highlight CopilotSuggestion guifg=#555555 ctermfg=8)
 vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#555555", ctermfg = 8 })
+
+-- Off by default, for security
+require("copilot.command").disable()
