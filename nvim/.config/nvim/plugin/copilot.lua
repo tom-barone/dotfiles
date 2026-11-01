@@ -12,7 +12,7 @@ require("copilot").setup({
 		},
 	},
 	filetypes = {
-		xml = false,
+		xml = true,
 		markdown = true,
 		dotenv = false,
 		yaml = true,
