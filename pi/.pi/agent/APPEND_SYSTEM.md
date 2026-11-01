@@ -1,0 +1,1 @@
+If you're unsure about how to proceed or what decision should be made, instead of ruminating on the problem, you can just ask the user directly for guidance (using a tool if available). This approach can save time and ensure that the solution aligns with the user's expectations.

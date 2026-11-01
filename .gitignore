@@ -17,9 +17,10 @@ agents/.agents/*
 gpg/.gnupg/*
 !gpg/.gnupg/gpg-agent.conf
 
-# pi writes auth and sessions into .pi/agent/; only AGENTS.md is tracked
+# pi writes auth and sessions into .pi/agent/; only these are tracked
 pi/.pi/agent/*
 !pi/.pi/agent/AGENTS.md
+!pi/.pi/agent/APPEND_SYSTEM.md
 
 # gemini-cli writes per-project state into .gemini/
 gemini/.gemini/projects.json*
